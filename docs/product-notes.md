@@ -70,6 +70,19 @@ Rationale:
 - `DPYD`, `TPMT`, `NUDT15`, `G6PD`, `BCHE`, `CYP2C19`, and `UGT1A1` provide high-value PGx and safety contexts.
 - `PCSK9` and `ANGPTL3` prevent the project from being only about danger by showing protective null biology.
 
+## Product Thesis Update
+
+The project should become the reference layer for tissue-resolved functional nulls.
+
+The important distinction is not only "normal versus poor metabolizer." The important distinction is:
+
+- inherited null across expression compartments;
+- low-function genotype that approximates some null behavior;
+- medically induced null that may silence liver/systemic function but not every tissue;
+- barriers and local regulation that make brain, heart, gut, blood, or target tissue behavior diverge.
+
+For CYP2D6, a true null may remove non-hepatic enzyme biology in a way that a liver-centered PGx label or a medication inhibitor does not fully capture.
+
 Phase-two candidates:
 
 - `SLCO1B1`

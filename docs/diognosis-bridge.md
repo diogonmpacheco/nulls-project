@@ -54,7 +54,7 @@ The safest future Diognosis integration is a dedicated **Nulls Lens**:
 
 Candidate Diognosis integrations:
 
-- CYP2D6 deep model for prodrugs, parent exposure, active metabolites, and phenoconversion;
+- CYP2D6 deep model for prodrugs, parent exposure, active metabolites, phenoconversion, and tissue-resolved null differences;
 - DPYD fluoropyrimidine toxicity context;
 - TPMT and NUDT15 thiopurine context;
 - G6PD oxidative drug context;
@@ -94,3 +94,26 @@ The Nulls Project should translate those labels into mechanism:
 - opposite-state contrast.
 
 Only the first four belong in the atlas core.
+
+## Tissue-Resolved Bridge Rule
+
+Diognosis often needs to answer medication-stack questions quickly:
+
+- Is the parent drug rising?
+- Is the active metabolite falling?
+- Is the toxic metabolite accumulating?
+- Is a strong inhibitor creating functional poor metabolism?
+
+The Nulls Project should answer the deeper reference question:
+
+> Is the medically induced state actually the same as the inherited null, or only a partial imitation in selected compartments?
+
+For CYP2D6, this means Diognosis can model hepatic/systemic phenoconversion for medication review, while The Nulls Project keeps a separate map of:
+
+- hepatic/systemic CYP2D6;
+- brain/CNS local CYP2D6;
+- blood-brain barrier and CNS-entry caveats;
+- cardiovascular target-exposure effects;
+- source confidence for each compartment.
+
+This distinction is the reason the projects should remain separate but interoperable.

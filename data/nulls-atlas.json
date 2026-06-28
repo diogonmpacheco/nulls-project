@@ -96,6 +96,41 @@
       "note": "CYP2D6 phenotype context for codeine, tramadol, and selected opioids."
     },
     {
+      "id": "cyp2d6-brain-functional",
+      "label": "Human CYP2D6 is functional in brain in vivo",
+      "type": "publication",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7383223/",
+      "note": "Evidence that CYP2D activity can be detected in human brain in vivo."
+    },
+    {
+      "id": "cyp2d6-cns-role",
+      "label": "Potential role of CYP2D6 in the central nervous system",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3750078/",
+      "note": "Review of CYP2D6 distribution, endogenous-substrate hypotheses, and CNS relevance."
+    },
+    {
+      "id": "cyp2d6-brain-regional-expression",
+      "label": "Regional and cellular expression of CYP2D6 in human brain",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12354285/",
+      "note": "Reports CYP2D6 mRNA and protein across human brain regions."
+    },
+    {
+      "id": "brain-cyp-regulation",
+      "label": "Cytochrome P450 expression and regulation in the brain",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33356626/",
+      "note": "Brain CYP regulation differs from corresponding hepatic enzyme regulation."
+    },
+    {
+      "id": "bbb-biotransformation",
+      "label": "Drug and xenobiotic biotransformation in the blood-brain barrier",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4201098/",
+      "note": "Blood-brain barrier metabolism and transport can affect CNS exposure."
+    },
+    {
       "id": "dpyd-medgen",
       "label": "DPYD and fluorouracil response",
       "type": "NCBI Medical Genetics Summary",
@@ -137,13 +172,15 @@
       "nullStateLabel": "inherited no-function, minimal activity, or medically inhibited CYP2D6",
       "oneLine": "A single gene that demonstrates inherited null alleles, whole-gene deletion, reduced function, hybrid alleles, and drug-induced functional nulls.",
       "whyStrong": "CYP2D6 is a high-value null model because inherited no-function alleles and strong inhibitors can both create null-like pathway failure: less prodrug activation for some medicines and higher parent-drug exposure for others.",
-      "domains": ["pharmacogenomics", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
-      "flags": ["deep-dossier", "copy-number-sensitive", "phenoconversion", "diognosis-seeded", "clinician-review-needed"],
+      "domains": ["functional nulls", "tissue-resolved biology", "pharmacogenomics", "brain/CNS", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
+      "flags": ["deep-dossier", "tissue-resolved", "copy-number-sensitive", "phenoconversion", "diognosis-seeded", "clinician-review-needed"],
       "nullEvidence": [
         "No-function allele context exists for CYP2D6*4 / rs3892097 in the Diognosis standards bridge.",
         "Decreased-function contexts exist for CYP2D6*10 / rs1065852 and CYP2D6*41 / rs28371725 in the Diognosis standards bridge.",
         "Whole-gene deletion, gene conversions, hybrid alleles, and duplications make CYP2D6 a structural-variant problem, not only a SNP problem.",
-        "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate genotypes toward a medically induced functional null."
+        "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate genotypes toward a medically induced functional null.",
+        "CYP2D6 is not only a hepatic clearance concept; source-linked human brain studies report CYP2D6 expression and function in CNS contexts.",
+        "A true inherited null and a medication-induced functional null may not silence the same compartments."
       ],
       "phenotypes": [
         {
@@ -159,6 +196,36 @@
           "direction": "normal genotype can behave like reduced function",
           "evidence": "tier-1",
           "note": "Bupropion, fluoxetine, paroxetine, quinidine, terbinafine, and other inhibitors can change functional status."
+        }
+      ],
+      "compartmentModel": [
+        {
+          "compartment": "Liver / systemic circulation",
+          "inheritedNull": "A no-function genotype or whole-gene deletion can remove or sharply reduce CYP2D6-mediated metabolism at the main systemic clearance site.",
+          "medicallyInducedNull": "A strong inhibitor can create a functional null-like state for hepatic/systemic CYP2D6 substrates while the inhibitor is present.",
+          "whyItDiffers": "This is the usual pharmacogenomics frame, but it is not the whole gene.",
+          "evidence": "tier-1"
+        },
+        {
+          "compartment": "Brain / CNS local enzyme",
+          "inheritedNull": "A true null may remove CYP2D6 function wherever CYP2D6 would normally be expressed in the brain.",
+          "medicallyInducedNull": "An inhibitor may or may not reproduce the same brain state; brain penetration, local concentration, transporter behavior, and regional regulation matter.",
+          "whyItDiffers": "Brain CYP expression and regulation can differ from hepatic expression and regulation.",
+          "evidence": "tier-2"
+        },
+        {
+          "compartment": "Blood-brain barrier / CNS entry",
+          "inheritedNull": "Inherited null status may affect local metabolism at CNS interfaces only where the enzyme is present and relevant.",
+          "medicallyInducedNull": "A drug-induced null depends on whether the inhibitor reaches the barrier or CNS compartment in enough concentration.",
+          "whyItDiffers": "Barrier transport and local biotransformation can make central exposure diverge from plasma exposure.",
+          "evidence": "tier-3"
+        },
+        {
+          "compartment": "Cardiovascular target effects",
+          "inheritedNull": "A CYP2D6 null can change exposure to cardiovascular drugs such as selected beta-blockers or antiarrhythmics.",
+          "medicallyInducedNull": "A strong CYP2D6 inhibitor can create similar systemic exposure changes for susceptible cardiovascular substrates.",
+          "whyItDiffers": "This is often target-exposure biology rather than proof of local cardiac CYP2D6 loss; the atlas should label that distinction.",
+          "evidence": "tier-1"
         }
       ],
       "markers": [
@@ -194,6 +261,7 @@
         "coreModel": [
           "CYP2D6 is not a simple on/off switch. Pharmacogenomic reports may use metabolizer buckets, but The Nulls Project translates those buckets into mechanism.",
           "Poor metabolizer is not the project object by itself. The project object is inherited no function, minimal function, or a functional null caused by inhibition.",
+          "The core model is tissue-resolved: inherited nulls can remove function across expression compartments, while medically induced nulls depend on inhibitor distribution, barriers, tissue expression, and local regulation.",
           "The same low-function state can mean less active metabolite for one drug and more parent-drug exposure for another.",
           "A normal genotype can be functionally suppressed by a strong inhibitor, so the Nulls Project must represent genotype and current functional state separately."
         ],
@@ -220,7 +288,8 @@
           }
         ],
         "openQuestions": [
-          "How should brain/CNS CYP2D6 hypotheses be shown without overclaiming?",
+          "How should brain/CNS CYP2D6 null biology be shown without pretending that hepatic pharmacogenomic labels fully explain brain effects?",
+          "Which inhibitors actually create CNS CYP2D6 functional-null states, and which only create hepatic/systemic phenoconversion?",
           "How should the atlas display genotype uncertainty when raw consumer files miss copy number and hybrid alleles?",
           "Can phenotype-negative CYP2D6 null observations be captured without implying that medication response is irrelevant?"
         ]
@@ -232,7 +301,7 @@
         "Do not treat an app-level CYP2D6 call as clinical genotyping.",
         "Ultrarapid CYP2D6 is an opposite-function state, not a null. It may be useful contrast, but it does not belong in the Nulls core model."
       ],
-      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic"]
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic", "cyp2d6-brain-functional", "cyp2d6-cns-role", "cyp2d6-brain-regional-expression", "brain-cyp-regulation", "bbb-biotransformation"]
     },
     {
       "id": "CYP2C19",

@@ -80,6 +80,32 @@ The main reference problem is functional loss:
 
 > What risks appear when a pathway is genetically absent, genetically weak, or medically switched off?
 
+## Tissue-Resolved Nulls
+
+The Nulls Project should not reduce genes to liver or pharmacogenomics labels.
+
+For many genes, the central question is compartment-specific:
+
+- where is this gene or enzyme normally active?
+- what happens when inherited biology removes it everywhere it is normally expressed?
+- what happens when a drug suppresses only some compartments?
+- does the inhibitor cross the relevant barrier?
+- does local regulation differ from liver regulation?
+- is the phenotype driven by local tissue biology or by systemic exposure reaching a target tissue?
+
+This is especially important for `CYP2D6`.
+
+An inherited CYP2D6 null can mean the enzyme is absent or nonfunctional in compartments where CYP2D6 would normally be expressed, including non-hepatic contexts such as brain/CNS. A medication-induced CYP2D6 null may imitate hepatic/systemic poor function but may not fully imitate brain or barrier-level loss. Brain penetration, transporter behavior, tissue-specific expression, and local regulation matter.
+
+Therefore each mature gene record should eventually separate:
+
+- inherited null;
+- medically induced functional null;
+- tissue / compartment;
+- local expression evidence;
+- barrier and distribution caveats;
+- phenotype mechanism.
+
 ## Neurodivergent Product Boundary
 
 The atlas should feel like a careful map, not a verdict.

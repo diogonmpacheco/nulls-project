@@ -237,6 +237,8 @@ function renderDossier(gene) {
         ${list(gene.nullEvidence)}
       </section>
 
+      ${gene.compartmentModel ? renderCompartmentModel(gene.compartmentModel) : ""}
+
       <section class="section-block wide">
         <h3>Phenotype Associations</h3>
         ${renderPhenotypeTable(gene.phenotypes || [])}
@@ -291,6 +293,38 @@ function renderPhenotypeTable(rows) {
         </tbody>
       </table>
     </div>
+  `;
+}
+
+function renderCompartmentModel(rows) {
+  return `
+    <section class="section-block wide">
+      <h3>Tissue-Resolved Null Map</h3>
+      <div class="table-wrap">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Compartment</th>
+              <th>Inherited Null</th>
+              <th>Medically Induced Null</th>
+              <th>Why It Differs</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(row => `
+              <tr>
+                <td>${escapeHtml(row.compartment)}</td>
+                <td>${escapeHtml(row.inheritedNull)}</td>
+                <td>${escapeHtml(row.medicallyInducedNull)}</td>
+                <td>${escapeHtml(row.whyItDiffers)}</td>
+                <td><span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
   `;
 }
 

@@ -11,6 +11,8 @@ The core use case is to become a reference for **functional null states**:
 - medically induced nulls, such as enzyme inhibition / phenoconversion;
 - protective loss-of-function states that explain why "less function" is not automatically bad.
 
+The important layer is tissue resolution. A true inherited null can remove a function wherever that gene is normally active. A medication-induced functional null may only imitate part of that loss, depending on inhibitor distribution, barriers, tissue expression, and local regulation.
+
 The first draft focuses on ten strong null / low-function cases:
 
 - `CYP2D6` as the flagship deep dossier
@@ -44,6 +46,7 @@ That makes null biology useful for:
 
 - pharmacogenomics;
 - medically induced functional nulls;
+- tissue-resolved biology beyond liver metabolism;
 - protective human knockouts;
 - phenotype-negative observations;
 - gene function discovery;
