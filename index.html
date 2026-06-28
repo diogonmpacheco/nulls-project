@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Nulls Project</title>
+    <meta name="description" content="Human loss-of-function gene and phenotype atlas.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="The Nulls Project home">
+        <span class="brand-mark">N0</span>
+        <span>
+          <strong>The Nulls Project</strong>
+          <small>Human loss-of-function atlas</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#atlas">Atlas</a>
+        <a href="#dossier">Dossier</a>
+        <a href="docs/methods.md">Methods</a>
+        <a href="docs/diognosis-bridge.md">Diognosis Bridge</a>
+        <a href="data/nulls-atlas.json">Data</a>
+        <a href="https://github.com/diogonmpacheco/nulls-project">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="overview-band" aria-labelledby="project-title">
+        <div class="title-block">
+          <p class="eyebrow">v0.1 draft atlas</p>
+          <h1 id="project-title">The Nulls Project</h1>
+          <p class="subtitle">A source-linked map of what human biology reveals when gene function is missing, reduced, or contextually unavailable.</p>
+        </div>
+        <dl class="metrics" id="metrics" aria-label="Dataset metrics">
+          <div><dt>Genes</dt><dd>10</dd></div>
+          <div><dt>Flagship</dt><dd>CYP2D6</dd></div>
+          <div><dt>Seed</dt><dd>Diognosis</dd></div>
+          <div><dt>Status</dt><dd>Draft</dd></div>
+        </dl>
+      </section>
+
+      <section class="boundary-strip" aria-label="Project boundary">
+        <strong>Careful map, not a verdict.</strong>
+        <span>Educational research reference only. Genes are context, not destiny; variants are not diagnoses; medication decisions need qualified review.</span>
+      </section>
+
+      <section class="atlas-grid" id="atlas">
+        <aside class="filters" aria-label="Atlas filters">
+          <div class="control-block">
+            <label for="search">Search</label>
+            <input id="search" type="search" autocomplete="off" placeholder="CYP2D6, hemolysis, protective">
+          </div>
+
+          <div class="control-block">
+            <label for="tier-filter">Evidence</label>
+            <select id="tier-filter">
+              <option value="all">All tiers</option>
+              <option value="tier-1">Tier 1</option>
+              <option value="tier-2">Tier 2</option>
+              <option value="tier-3">Tier 3</option>
+              <option value="tier-4">Tier 4</option>
+            </select>
+          </div>
+
+          <div class="control-block">
+            <label for="domain-filter">Domain</label>
+            <select id="domain-filter">
+              <option value="all">All domains</option>
+            </select>
+          </div>
+
+          <div class="control-block">
+            <label for="flag-filter">Flag</label>
+            <select id="flag-filter">
+              <option value="all">All flags</option>
+            </select>
+          </div>
+
+          <div class="scope-card">
+            <h2>Evidence Tiers</h2>
+            <div id="tier-list" class="tier-list"></div>
+          </div>
+        </aside>
+
+        <section class="atlas-main" aria-label="Atlas records">
+          <div class="matrix-panel">
+            <div>
+              <p class="eyebrow">Evidence matrix</p>
+              <h2>First release shape</h2>
+            </div>
+            <div id="evidence-matrix" class="evidence-matrix"></div>
+          </div>
+
+          <div class="table-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Gene index</p>
+                <h2>Null and low-function records</h2>
+              </div>
+              <p id="result-count" class="result-count">10 records</p>
+            </div>
+            <div class="table-wrap" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Gene</th>
+                    <th>Evidence</th>
+                    <th>Null model</th>
+                    <th>Domains</th>
+                    <th>Signal</th>
+                    <th>Flags</th>
+                  </tr>
+                </thead>
+                <tbody id="gene-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="dossier-layout" id="dossier" aria-label="Gene dossier">
+        <div class="dossier" id="gene-dossier"></div>
+        <aside class="worklist" aria-label="Phase two candidates">
+          <p class="eyebrow">Phase two</p>
+          <h2>Near misses</h2>
+          <div id="phase-two"></div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>The Nulls Project v0.1 draft</span>
+      <span>Open data, static site, source-linked curation.</span>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,620 @@
+{
+  "schema": "nulls-project.atlas.v0",
+  "metadata": {
+    "name": "The Nulls Project",
+    "tagline": "Human loss-of-function gene and phenotype atlas",
+    "version": "0.1.0-draft",
+    "released": "2026-06-28",
+    "status": "first public draft",
+    "boundary": "Educational research reference only. Not medical advice, not diagnostic interpretation, and not clinical validation.",
+    "counts": {
+      "genes": 10,
+      "flagshipGenes": 1,
+      "sourceLinkedGenes": 10,
+      "diognosisSeededGenes": 8
+    }
+  },
+  "diognosisSeed": {
+    "source": "Local Diognosis clinical standards bridge",
+    "sourceFile": "/Users/diogopacheco/Documents/GitHub/medcheck/src/data/clinicalStandards.js",
+    "version": "2026-06-21-batch31-high-impact-standards",
+    "usedFor": [
+      "PGx marker labels",
+      "selected dbSNP identifiers",
+      "gene-drug review framing",
+      "Diognosis candidate integration flags"
+    ],
+    "boundary": "Diognosis rows were used as seed references, not as automatic clinical recommendations."
+  },
+  "evidenceTiers": [
+    {
+      "id": "tier-1",
+      "label": "Tier 1",
+      "name": "Strong human function evidence",
+      "definition": "Human low-function or null biology is clinically or biologically meaningful, source-linked, and repeatedly useful for interpretation."
+    },
+    {
+      "id": "tier-2",
+      "label": "Tier 2",
+      "name": "Moderate human function evidence",
+      "definition": "Human evidence is meaningful but narrower, context-dependent, or dependent on specific drug, assay, ancestry, or phenotype framing."
+    },
+    {
+      "id": "tier-3",
+      "label": "Tier 3",
+      "name": "Emerging or limited null evidence",
+      "definition": "Candidate null observations or mechanism exist, but phenotype mapping needs more replication or curation."
+    },
+    {
+      "id": "tier-4",
+      "label": "Tier 4",
+      "name": "Unresolved, conflicting, or phenotype-negative",
+      "definition": "Null observations are unclear, conflicting, privacy-limited, or currently phenotype-negative."
+    }
+  ],
+  "sources": [
+    {
+      "id": "diognosis-standards",
+      "label": "Diognosis clinical standards bridge",
+      "type": "local curated data",
+      "url": "https://diogonmpacheco.github.io/Diognosis/",
+      "note": "Local seed for marker labels and PGx review framing."
+    },
+    {
+      "id": "cpic-guidelines",
+      "label": "CPIC Guidelines",
+      "type": "guideline index",
+      "url": "https://cpicpgx.org/guidelines/",
+      "note": "Primary guideline index for pharmacogenomic gene-drug pairs."
+    },
+    {
+      "id": "fda-pgx-table",
+      "label": "FDA Table of Pharmacogenetic Associations",
+      "type": "regulatory table",
+      "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations",
+      "note": "Regulatory pharmacogenetic association context."
+    },
+    {
+      "id": "pharmvar-cyp2d6",
+      "label": "PharmVar CYP2D6",
+      "type": "allele nomenclature",
+      "url": "https://www.pharmvar.org/gene/CYP2D6",
+      "note": "CYP2D6 allele and structural-variant nomenclature context."
+    },
+    {
+      "id": "pharmgkb-cpic-overview",
+      "label": "ClinGen, CPIC, and PharmGKB overview",
+      "type": "curation ecosystem",
+      "url": "https://clinicalgenome.org/about/clingen-cpic-pharmgkb/",
+      "note": "Describes relationship between ClinGen, CPIC, and PharmGKB."
+    },
+    {
+      "id": "cyp2d6-opioids-cpic",
+      "label": "CPIC CYP2D6, OPRM1, COMT and select opioid therapy",
+      "type": "guideline",
+      "url": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/CPIC_opioids_PREPRINT.pdf",
+      "note": "CYP2D6 phenotype context for codeine, tramadol, and selected opioids."
+    },
+    {
+      "id": "dpyd-medgen",
+      "label": "DPYD and fluorouracil response",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK395610/",
+      "note": "DPYD deficiency and fluoropyrimidine toxicity context."
+    },
+    {
+      "id": "g6pd-medgen",
+      "label": "G6PD deficiency",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK562585/",
+      "note": "G6PD deficiency, oxidative drugs, and hemolysis context."
+    },
+    {
+      "id": "pcsk9-pubmed",
+      "label": "PCSK9 loss-of-function and coronary protection",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16554528/",
+      "note": "Human PCSK9 sequence variation, low LDL cholesterol, and coronary heart disease protection."
+    },
+    {
+      "id": "angptl3-ncbi",
+      "label": "Familial combined hypolipidemia and ANGPTL3",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK593236/",
+      "note": "ANGPTL3 loss-of-function and hypolipidemia context."
+    }
+  ],
+  "genes": [
+    {
+      "id": "CYP2D6",
+      "symbol": "CYP2D6",
+      "name": "Cytochrome P450 family 2 subfamily D member 6",
+      "atlasRole": "flagship",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "activity-score enzyme",
+      "nullStateLabel": "inherited no-function or minimal CYP2D6 activity",
+      "oneLine": "A single gene that demonstrates null alleles, whole-gene deletion, reduced function, duplications, hybrid alleles, and drug-induced phenoconversion.",
+      "whyStrong": "CYP2D6 is a high-value null model because inherited no-function alleles can reduce activation of prodrugs, raise parent-drug exposure for some substrates, and interact with inhibitors that make a genetically normal person behave like a poor metabolizer.",
+      "domains": ["pharmacogenomics", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
+      "flags": ["deep-dossier", "copy-number-sensitive", "phenoconversion", "diognosis-seeded", "clinician-review-needed"],
+      "nullEvidence": [
+        "No-function allele context exists for CYP2D6*4 / rs3892097 in the Diognosis standards bridge.",
+        "Decreased-function contexts exist for CYP2D6*10 / rs1065852 and CYP2D6*41 / rs28371725 in the Diognosis standards bridge.",
+        "Whole-gene deletion, gene conversions, hybrid alleles, and duplications make CYP2D6 a structural-variant problem, not only a SNP problem.",
+        "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate metabolizers toward functional poor metabolism."
+      ],
+      "phenotypes": [
+        {
+          "label": "Poor metabolizer behavior",
+          "system": "pharmacokinetics",
+          "direction": "reduced CYP2D6 clearance or activation depending on substrate",
+          "evidence": "tier-1",
+          "note": "For prodrugs such as codeine and tramadol, low CYP2D6 activity can reduce active metabolite formation. For selected parent-drug substrates, low activity can raise parent exposure."
+        },
+        {
+          "label": "Ultrarapid metabolizer behavior",
+          "system": "pharmacokinetics",
+          "direction": "increased CYP2D6 activity from gene duplication or high activity score",
+          "evidence": "tier-1",
+          "note": "UM states are the mirror image of null biology and help users see directionality. They should not be collapsed into the Nulls Project, but they are essential contrast."
+        },
+        {
+          "label": "Functional null through phenoconversion",
+          "system": "drug-drug interaction",
+          "direction": "normal genotype can behave like reduced function",
+          "evidence": "tier-1",
+          "note": "Bupropion, fluoxetine, paroxetine, quinidine, terbinafine, and other inhibitors can change functional status."
+        }
+      ],
+      "markers": [
+        {
+          "label": "CYP2D6*4",
+          "system": "PharmVar",
+          "dbsnp": "rs3892097",
+          "interpretation": "no-function allele context",
+          "seed": "Diognosis"
+        },
+        {
+          "label": "CYP2D6*10",
+          "system": "PharmVar",
+          "dbsnp": "rs1065852",
+          "interpretation": "decreased-function allele context",
+          "seed": "Diognosis"
+        },
+        {
+          "label": "CYP2D6*41",
+          "system": "PharmVar",
+          "dbsnp": "rs28371725",
+          "interpretation": "decreased-function allele context",
+          "seed": "Diognosis"
+        },
+        {
+          "label": "CYP2D6*5",
+          "system": "copy-number / deletion",
+          "interpretation": "whole-gene deletion; requires structural-variant-aware calling",
+          "seed": "atlas draft"
+        }
+      ],
+      "deepDive": {
+        "coreModel": [
+          "CYP2D6 is not a simple on/off switch. It is an activity-score system with poor, intermediate, normal, and ultrarapid states.",
+          "The same low-function state can mean less active metabolite for one drug and more parent-drug exposure for another.",
+          "A normal genotype can be functionally suppressed by a strong inhibitor, so the Nulls Project must represent genotype and current functional state separately."
+        ],
+        "diognosisBridgeExamples": [
+          {
+            "label": "Codeine plus CYP2D6 PM",
+            "whatChanges": "Reduced morphine formation from codeine.",
+            "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=codeine&genotype=CYP2D6:poor_metabolizer&tab=genes-metabolites"
+          },
+          {
+            "label": "Tramadol plus CYP2D6 PM",
+            "whatChanges": "Reduced O-desmethyltramadol formation while parent tramadol effects may still matter.",
+            "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=tramadol&genotype=CYP2D6:poor_metabolizer&tab=genes-metabolites"
+          },
+          {
+            "label": "Metoprolol plus CYP2D6 PM or inhibitor",
+            "whatChanges": "Higher metoprolol exposure can increase bradycardia or low blood pressure review priority.",
+            "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=metoprolol,terbinafine&tab=overview"
+          },
+          {
+            "label": "Flecainide plus CYP2D6 PM or inhibitor",
+            "whatChanges": "Higher flecainide exposure can increase antiarrhythmic toxicity review priority.",
+            "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=flecainide,fluoxetine&genotype=CYP2D6:poor_metabolizer&tab=overview"
+          }
+        ],
+        "openQuestions": [
+          "How should brain/CNS CYP2D6 hypotheses be shown without overclaiming?",
+          "How should the atlas display genotype uncertainty when raw consumer files miss copy number and hybrid alleles?",
+          "Can phenotype-negative CYP2D6 null observations be captured without implying that medication response is irrelevant?"
+        ]
+      },
+      "caveats": [
+        "Consumer SNP files may miss CYP2D6 copy number, deletion, duplication, hybrid alleles, and star-allele phasing.",
+        "CYP2D6 genotype does not decide medication changes by itself.",
+        "Drug inhibitors, liver function, age, dose, and co-medications can dominate the functional phenotype.",
+        "Do not treat an app-level CYP2D6 call as clinical genotyping."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic"]
+    },
+    {
+      "id": "CYP2C19",
+      "symbol": "CYP2C19",
+      "name": "Cytochrome P450 family 2 subfamily C member 19",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "activity-score enzyme",
+      "nullStateLabel": "reduced or absent CYP2C19 activity",
+      "oneLine": "A clean pharmacogenomic null case where reduced function can impair clopidogrel activation and change exposure for several other drugs.",
+      "whyStrong": "CYP2C19 has well-established no-function and increased-function alleles, strong CPIC relevance, and a clear prodrug activation story for clopidogrel.",
+      "domains": ["pharmacogenomics", "cardiology", "gastroenterology", "psychiatry", "infectious disease"],
+      "flags": ["diognosis-seeded", "activity-score", "prodrug-activation"],
+      "nullEvidence": [
+        "CYP2C19*2 / rs4244285 and CYP2C19*3 / rs4986893 are seeded as no-function allele contexts from Diognosis.",
+        "CYP2C19*17 / rs12248560 is included as the directionality contrast for increased function."
+      ],
+      "phenotypes": [
+        {
+          "label": "Reduced clopidogrel active-thiol formation",
+          "system": "cardiology",
+          "direction": "reduced prodrug activation",
+          "evidence": "tier-1",
+          "note": "Most relevant in ACS/PCI and antiplatelet decision contexts."
+        },
+        {
+          "label": "Altered PPI exposure",
+          "system": "gastroenterology",
+          "direction": "higher exposure in poor metabolizers, lower exposure in rapid states",
+          "evidence": "tier-1",
+          "note": "Clinical meaning depends on indication, drug, and dose."
+        }
+      ],
+      "markers": [
+        { "label": "CYP2C19*2", "system": "PharmVar", "dbsnp": "rs4244285", "interpretation": "no-function allele context", "seed": "Diognosis" },
+        { "label": "CYP2C19*3", "system": "PharmVar", "dbsnp": "rs4986893", "interpretation": "no-function allele context", "seed": "Diognosis" },
+        { "label": "CYP2C19*17", "system": "PharmVar", "dbsnp": "rs12248560", "interpretation": "increased-function allele context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "Clopidogrel evidence is indication-sensitive and should not be generalized to every patient context.",
+        "CYP2C19 is not a diagnosis and does not decide therapy alone."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "DPYD",
+      "symbol": "DPYD",
+      "name": "Dihydropyrimidine dehydrogenase",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "catabolic enzyme deficiency",
+      "nullStateLabel": "reduced DPD activity",
+      "oneLine": "A high-stakes low-function case where impaired fluoropyrimidine catabolism can cause severe or fatal toxicity.",
+      "whyStrong": "DPYD is a flagship safety gene because low DPD activity can cause toxic accumulation of 5-FU exposure from fluorouracil or capecitabine.",
+      "domains": ["oncology", "pharmacogenomics", "drug toxicity", "pyrimidine metabolism"],
+      "flags": ["diognosis-seeded", "high-stakes", "clinician-review-needed"],
+      "nullEvidence": [
+        "DPYD*2A / rs3918290 is seeded as a no-function allele context from Diognosis.",
+        "DPYD c.2846A>T / rs67376798 and c.1679T>G / rs55886062 are seeded as decreased-function contexts from Diognosis."
+      ],
+      "phenotypes": [
+        {
+          "label": "Fluoropyrimidine toxicity susceptibility",
+          "system": "oncology",
+          "direction": "impaired 5-FU catabolism",
+          "evidence": "tier-1",
+          "note": "Relevant to fluorouracil and capecitabine regimen review."
+        }
+      ],
+      "markers": [
+        { "label": "DPYD*2A", "system": "PharmVar", "dbsnp": "rs3918290", "interpretation": "no-function allele context", "seed": "Diognosis" },
+        { "label": "DPYD c.2846A>T", "system": "dbSNP", "dbsnp": "rs67376798", "interpretation": "decreased-function allele context", "seed": "Diognosis" },
+        { "label": "DPYD c.1679T>G", "system": "dbSNP", "dbsnp": "rs55886062", "interpretation": "decreased-function allele context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "Variant panels do not capture all DPD deficiency risk.",
+        "Oncology protocol, dosing, organ function, and toxicity monitoring remain central."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "dpyd-medgen"]
+    },
+    {
+      "id": "TPMT",
+      "symbol": "TPMT",
+      "name": "Thiopurine S-methyltransferase",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "thiopurine metabolism enzyme",
+      "nullStateLabel": "reduced TPMT activity",
+      "oneLine": "A classic thiopurine low-function gene where reduced activity can shift metabolism toward cytotoxic thioguanine nucleotide exposure.",
+      "whyStrong": "TPMT has a clear enzyme deficiency model, source-linked PGx guidance, and a strong safety signal for thiopurines.",
+      "domains": ["pharmacogenomics", "oncology", "IBD", "transplant", "myelosuppression"],
+      "flags": ["diognosis-seeded", "paired-with-NUDT15"],
+      "nullEvidence": [
+        "TPMT*3B / rs1800460 and TPMT*3C / rs1142345 are seeded as decreased/no-function contexts from Diognosis."
+      ],
+      "phenotypes": [
+        {
+          "label": "Thiopurine myelosuppression risk",
+          "system": "hematology",
+          "direction": "higher cytotoxic thiopurine metabolite pressure",
+          "evidence": "tier-1",
+          "note": "Best interpreted with NUDT15 status, CBC trends, and indication-specific protocol."
+        }
+      ],
+      "markers": [
+        { "label": "TPMT*3B", "system": "PharmVar", "dbsnp": "rs1800460", "interpretation": "decreased/no-function allele context", "seed": "Diognosis" },
+        { "label": "TPMT*3C", "system": "PharmVar", "dbsnp": "rs1142345", "interpretation": "decreased/no-function allele context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "TPMT should be interpreted with NUDT15 for thiopurine safety.",
+        "Enzyme assays and therapeutic drug monitoring may matter depending on setting."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "NUDT15",
+      "symbol": "NUDT15",
+      "name": "Nudix hydrolase 15",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "thiopurine toxicity defense",
+      "nullStateLabel": "reduced NUDT15 function",
+      "oneLine": "A strong thiopurine toxicity gene that makes the atlas better on ancestry equity and non-European evidence.",
+      "whyStrong": "NUDT15 low-function variants can increase DNA-thioguanine toxicity and severe myelosuppression even when TPMT is normal.",
+      "domains": ["pharmacogenomics", "oncology", "IBD", "pediatrics", "ancestry equity"],
+      "flags": ["diognosis-seeded", "paired-with-TPMT", "ancestry-equity"],
+      "nullEvidence": [
+        "NUDT15 c.415C>T / rs116855232 is seeded as a decreased/no-function context from Diognosis."
+      ],
+      "phenotypes": [
+        {
+          "label": "Thiopurine intolerance and myelosuppression",
+          "system": "hematology",
+          "direction": "increased DNA-thioguanine toxicity",
+          "evidence": "tier-1",
+          "note": "Important for thiopurine treatment in leukemia, IBD, and immune-mediated disease contexts."
+        }
+      ],
+      "markers": [
+        { "label": "NUDT15 c.415C>T", "system": "dbSNP", "dbsnp": "rs116855232", "interpretation": "decreased/no-function allele context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "Do not frame NUDT15 as relevant to only one ancestry group.",
+        "TPMT and NUDT15 answer different parts of thiopurine toxicity."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "G6PD",
+      "symbol": "G6PD",
+      "name": "Glucose-6-phosphate dehydrogenase",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "red-cell oxidative reserve",
+      "nullStateLabel": "G6PD deficient phenotype",
+      "oneLine": "A classic enzyme deficiency where red blood cell oxidative reserve can collapse under selected drugs, infections, foods, or chemical stressors.",
+      "whyStrong": "G6PD is a strong null/deficiency model because it links genotype, enzyme activity, X-linked mosaicism, oxidative exposures, hemolysis, and medication safety.",
+      "domains": ["hematology", "pharmacogenomics", "food exposures", "infectious disease", "newborn care"],
+      "flags": ["diognosis-seeded", "x-linked", "phenotype-assay-important"],
+      "nullEvidence": [
+        "Diognosis seeds G6PD deficient phenotype as a CPIC context.",
+        "G6PD A- c.202G>A / rs1050828, A- c.376A>G / rs1050829, and Mediterranean c.563C>T / rs5030868 are seeded as variant contexts."
+      ],
+      "phenotypes": [
+        {
+          "label": "Hemolysis under oxidative stress",
+          "system": "hematology",
+          "direction": "reduced red-cell ability to tolerate oxidative load",
+          "evidence": "tier-1",
+          "note": "Selected oxidant medicines, infection stress, and fava bean exposure are distinct contexts and should not be blurred."
+        },
+        {
+          "label": "Neonatal jaundice susceptibility",
+          "system": "newborn care",
+          "direction": "increased bilirubin risk in susceptible contexts",
+          "evidence": "tier-2",
+          "note": "Requires newborn-specific clinical framing."
+        }
+      ],
+      "markers": [
+        { "label": "G6PD deficient phenotype", "system": "CPIC", "interpretation": "erythrocyte oxidative-reserve phenotype context", "seed": "Diognosis" },
+        { "label": "G6PD A- c.202G>A", "system": "dbSNP", "dbsnp": "rs1050828", "interpretation": "G6PD A- deficiency haplotype component", "seed": "Diognosis" },
+        { "label": "G6PD A- c.376A>G", "system": "dbSNP", "dbsnp": "rs1050829", "interpretation": "G6PD A- deficiency haplotype component", "seed": "Diognosis" },
+        { "label": "G6PD Mediterranean c.563C>T", "system": "dbSNP", "dbsnp": "rs5030868", "interpretation": "severe G6PD deficiency variant context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "Female heterozygotes can be difficult to classify because of X-inactivation.",
+        "Quantitative G6PD activity testing often matters more than a narrow variant label.",
+        "Do not apply blanket fear to every medicine mentioned near G6PD."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "g6pd-medgen"]
+    },
+    {
+      "id": "BCHE",
+      "symbol": "BCHE",
+      "name": "Butyrylcholinesterase",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "enzyme activity deficiency",
+      "nullStateLabel": "low pseudocholinesterase activity",
+      "oneLine": "A hidden anesthesia-relevant null where low enzyme activity can prolong paralysis after selected neuromuscular blockers.",
+      "whyStrong": "BCHE is a strong public atlas case because many people discover low activity only after succinylcholine or mivacurium exposure.",
+      "domains": ["anesthesia", "pharmacogenomics", "family history", "surgical safety"],
+      "flags": ["diognosis-seeded", "hidden-until-exposure", "clinician-review-needed"],
+      "nullEvidence": [
+        "Diognosis seeds BCHE deficient / low pseudocholinesterase activity as a CPIC context.",
+        "BCHE atypical dibucaine-resistant variant / rs1799807 and BCHE K variant / rs1803274 are seeded as reduced-activity contexts."
+      ],
+      "phenotypes": [
+        {
+          "label": "Prolonged neuromuscular blockade",
+          "system": "anesthesia",
+          "direction": "slower breakdown of selected paralytics",
+          "evidence": "tier-1",
+          "note": "Most relevant for succinylcholine and mivacurium review."
+        }
+      ],
+      "markers": [
+        { "label": "BCHE deficient / low pseudocholinesterase activity", "system": "CPIC", "interpretation": "butyrylcholinesterase activity phenotype context", "seed": "Diognosis" },
+        { "label": "BCHE atypical dibucaine-resistant variant", "system": "dbSNP", "dbsnp": "rs1799807", "interpretation": "pseudocholinesterase deficiency context", "seed": "Diognosis" },
+        { "label": "BCHE K variant", "system": "dbSNP", "dbsnp": "rs1803274", "interpretation": "reduced butyrylcholinesterase activity context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "Acquired causes of low cholinesterase activity also exist.",
+        "Anesthesia history and enzyme activity testing can matter more than a single marker."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "UGT1A1",
+      "symbol": "UGT1A1",
+      "name": "UDP glucuronosyltransferase family 1 member A1",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "glucuronidation capacity",
+      "nullStateLabel": "reduced UGT1A1 function",
+      "oneLine": "A bridge between benign bilirubin biology and high-stakes drug-metabolite toxicity.",
+      "whyStrong": "UGT1A1 low function links Gilbert-style indirect bilirubin elevation with SN-38 clearance and selected drug toxicity or visible jaundice contexts.",
+      "domains": ["oncology", "bilirubin", "HIV", "drug toxicity", "glucuronidation"],
+      "flags": ["diognosis-seeded", "endogenous-plus-drug"],
+      "nullEvidence": [
+        "UGT1A1*28 / rs8175347 and UGT1A1*6 / rs4148323 are seeded as decreased-function contexts from Diognosis."
+      ],
+      "phenotypes": [
+        {
+          "label": "Reduced SN-38 glucuronidation",
+          "system": "oncology",
+          "direction": "higher active/toxic metabolite exposure",
+          "evidence": "tier-1",
+          "note": "Relevant to irinotecan and selected SN-38 payload contexts."
+        },
+        {
+          "label": "Indirect bilirubin elevation",
+          "system": "metabolic",
+          "direction": "reduced bilirubin glucuronidation",
+          "evidence": "tier-1",
+          "note": "Often benign alone, but not equivalent to every drug-toxicity context."
+        }
+      ],
+      "markers": [
+        { "label": "UGT1A1*28 / TA7 repeat", "system": "dbSNP", "dbsnp": "rs8175347", "interpretation": "decreased-function promoter repeat context", "seed": "Diognosis" },
+        { "label": "UGT1A1*6", "system": "dbSNP", "dbsnp": "rs4148323", "interpretation": "decreased-function coding variant context", "seed": "Diognosis" }
+      ],
+      "caveats": [
+        "UGT1A1*28 is not the whole gene story.",
+        "Bilirubin context, ancestry, liver function, and drug regimen matter."
+      ],
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "PCSK9",
+      "symbol": "PCSK9",
+      "name": "Proprotein convertase subtilisin/kexin type 9",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "protective human loss of function",
+      "nullStateLabel": "reduced PCSK9 activity",
+      "oneLine": "The clean protective-null counterexample: less gene function can mean lower LDL cholesterol and lower coronary disease risk.",
+      "whyStrong": "PCSK9 human loss-of-function helped validate PCSK9 as a therapeutic target and gives the atlas a non-pathology example of null biology.",
+      "domains": ["cardiometabolic", "lipids", "protective genetics", "drug target validation"],
+      "flags": ["protective", "non-pgx", "target-validation"],
+      "nullEvidence": [
+        "Human PCSK9 loss-of-function variation is associated with lower LDL cholesterol.",
+        "Directionality is central: loss of function is protective in this context, while gain of function can cause familial hypercholesterolemia."
+      ],
+      "phenotypes": [
+        {
+          "label": "Lifelong lower LDL cholesterol",
+          "system": "cardiometabolic",
+          "direction": "reduced LDL-C",
+          "evidence": "tier-1",
+          "note": "Protective direction makes PCSK9 important for non-deterministic genetic education."
+        },
+        {
+          "label": "Lower coronary heart disease risk",
+          "system": "cardiovascular",
+          "direction": "protective association",
+          "evidence": "tier-1",
+          "note": "Should be shown as population-level evidence, not personal risk prediction."
+        }
+      ],
+      "markers": [],
+      "caveats": [
+        "PCSK9 is direction-sensitive: loss-of-function and gain-of-function have opposite meanings.",
+        "Do not convert population protection into personal clinical advice."
+      ],
+      "sources": ["pcsk9-pubmed"]
+    },
+    {
+      "id": "ANGPTL3",
+      "symbol": "ANGPTL3",
+      "name": "Angiopoietin like 3",
+      "tier": "tier-1",
+      "reviewStatus": "draft curated",
+      "lastReviewed": "2026-06-28",
+      "axis": "protective and hypolipidemia loss of function",
+      "nullStateLabel": "reduced ANGPTL3 activity",
+      "oneLine": "A lipid-system null where reduced function can produce low LDL, HDL, and triglyceride patterns and helped validate another therapeutic target.",
+      "whyStrong": "ANGPTL3 loss-of-function connects rare familial combined hypolipidemia, population lipid patterns, and cardioprotective target biology.",
+      "domains": ["cardiometabolic", "lipids", "protective genetics", "drug target validation"],
+      "flags": ["protective", "non-pgx", "target-validation", "biallelic-vs-heterozygous"],
+      "nullEvidence": [
+        "Biallelic loss-of-function is associated with familial combined hypolipidemia.",
+        "Heterozygous loss-of-function can lower triglycerides and LDL-C in population contexts."
+      ],
+      "phenotypes": [
+        {
+          "label": "Familial combined hypolipidemia",
+          "system": "cardiometabolic",
+          "direction": "low LDL-C, HDL-C, and triglycerides in biallelic contexts",
+          "evidence": "tier-1",
+          "note": "Biallelic and heterozygous contexts should be separated."
+        },
+        {
+          "label": "Lower atherogenic lipid burden",
+          "system": "cardiovascular",
+          "direction": "protective association",
+          "evidence": "tier-1",
+          "note": "Useful target-validation example, not a personal diagnosis."
+        }
+      ],
+      "markers": [],
+      "caveats": [
+        "Low lipids are not always monogenic.",
+        "Biallelic disease phenotype and heterozygous protective associations should not be collapsed."
+      ],
+      "sources": ["angptl3-ncbi"]
+    }
+  ],
+  "phaseTwoCandidates": [
+    {
+      "symbol": "SLCO1B1",
+      "reason": "Strong PGx relevance for statin-associated muscle symptom risk, but risks feeling like a standard PGx panel in v0."
+    },
+    {
+      "symbol": "CYP2C9",
+      "reason": "Strong warfarin, NSAID, and phenytoin contexts, but less null-forward than the first ten."
+    },
+    {
+      "symbol": "CYP3A5",
+      "reason": "Important expression/non-expression model, especially tacrolimus, but the null story is more tissue and ancestry dependent."
+    },
+    {
+      "symbol": "NAT2",
+      "reason": "Slow acetylator biology is interesting for toxicity and exposure, but public interpretation can get noisy."
+    },
+    {
+      "symbol": "APOC3",
+      "reason": "Protective lipid null candidate that pairs well with PCSK9 and ANGPTL3 in a later cardiometabolic release."
+    }
+  ]
+}
