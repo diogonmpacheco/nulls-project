@@ -1,0 +1,163 @@
+{
+  "schema": "nulls-project.null-ingest-map.v0",
+  "generated": "2026-06-28",
+  "purpose": "Gene-specific rules for building a null-only feed from public APIs and curated Nulls Project records.",
+  "defaultFilter": {
+    "strictNullOnly": "Keep true no-function, whole-gene deletion, biallelic/hemizygous deficiency, and named no-function alleles. Keep severe low-function only when the gene record is explicitly deficiency-like and label it as review.",
+    "includeMechanisms": ["nonsense", "frameshift", "canonical splice loss", "start loss", "transcript ablation", "whole-gene deletion", "exon deletion", "biallelic deficiency", "hemizygous deficiency", "named no-function allele", "protective loss-of-function", "medically induced functional null"],
+    "excludeMechanisms": ["normal function", "increased function", "ultrarapid", "risk-only association", "synonymous-only", "benign assertion", "missense without curated functional loss"]
+  },
+  "genes": {
+    "CYP2D6": {
+      "strictNull": true,
+      "nullModes": ["inherited-null", "whole-gene-deletion", "named-no-function-allele", "medically-induced-functional-null", "systemic-deficiency-candidate"],
+      "preferredSources": ["pharmvar", "cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad"],
+      "includeMechanisms": ["CYP2D6 no-function star alleles", "CYP2D6*5 whole-gene deletion", "gene conversions or hybrids with no-function assignment", "strong inhibitor phenoconversion as induced functional null"],
+      "reviewMechanisms": ["poor-metabolizer labels without allele resolution", "decreased-function alleles such as CYP2D6*10 or CYP2D6*41", "consumer SNP-only calls missing copy number"],
+      "excludeMechanisms": ["ultrarapid duplications", "increased function", "normal function"],
+      "seedMarkers": ["CYP2D6*4 / rs3892097", "CYP2D6*5 whole-gene deletion", "CYP2D6*10 / rs1065852", "CYP2D6*41 / rs28371725"],
+      "curationTags": ["copy-number-required", "brain-cns-review", "endogenous-substrate-review", "solanidine-exposure-case"],
+      "geneSpecificRules": [
+        "Treat CYP2D6 as structural-variant-sensitive; do not trust SNP-only null calls.",
+        "Separate inherited no-function from medically induced functional null.",
+        "Keep poor-metabolizer labels only when they can be translated into no/minimal function or explicitly marked as phenotype buckets.",
+        "Track endogenous CNS routes separately from drug metabolism."
+      ]
+    },
+    "CYP2C19": {
+      "strictNull": true,
+      "nullModes": ["named-no-function-allele", "activity-score-null", "drug-activation-null"],
+      "preferredSources": ["pharmvar", "cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad"],
+      "includeMechanisms": ["CYP2C19*2 no-function splice allele", "CYP2C19*3 no-function stop allele", "other PharmVar/CPIC no-function alleles"],
+      "reviewMechanisms": ["reduced function with substrate-specific effect", "phenotype labels without allele resolution"],
+      "excludeMechanisms": ["CYP2C19*17 increased function", "rapid metabolizer", "ultrarapid metabolizer"],
+      "seedMarkers": ["CYP2C19*2 / rs4244285", "CYP2C19*3 / rs4986893", "CYP2C19*17 / rs12248560"],
+      "curationTags": ["prodrug-activation", "opposite-state-contrast"],
+      "geneSpecificRules": [
+        "For null-only mode, include no-function alleles and poor-metabolizer genotypes.",
+        "Keep CYP2C19*17 only as an excluded directionality contrast.",
+        "Separate clopidogrel activation from other substrate exposure effects."
+      ]
+    },
+    "DPYD": {
+      "strictNull": true,
+      "nullModes": ["enzyme-deficiency", "named-no-function-allele", "severe-low-function-review", "high-stakes-drug-toxicity"],
+      "preferredSources": ["cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad", "ncbi-gene-medgen"],
+      "includeMechanisms": ["DPYD*2A no-function splice allele", "biallelic DPD deficiency", "high-impact pLoF with DPD deficiency evidence"],
+      "reviewMechanisms": ["decreased-function alleles such as c.2846A>T", "partial DPD deficiency", "phenotype assays without genotype"],
+      "excludeMechanisms": ["fluoropyrimidine risk annotations without DPYD functional loss"],
+      "seedMarkers": ["DPYD*2A / rs3918290", "DPYD c.2846A>T / rs67376798", "DPYD c.1679T>G / rs55886062"],
+      "curationTags": ["high-stakes", "enzyme-deficiency", "clinician-review-needed"],
+      "geneSpecificRules": [
+        "Null-only mode should include true no-function and biallelic deficiency.",
+        "Severe decreased-function alleles remain in the feed but must be labeled review rather than strict true null.",
+        "Do not reduce DPYD to a single variant panel."
+      ]
+    },
+    "TPMT": {
+      "strictNull": true,
+      "nullModes": ["enzyme-deficiency", "named-no-function-allele", "severe-low-function-review"],
+      "preferredSources": ["pharmvar", "cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad"],
+      "includeMechanisms": ["TPMT no-function or nonfunctional star alleles", "biallelic TPMT deficiency", "very low enzyme activity"],
+      "reviewMechanisms": ["decreased-function heterozygous states", "enzyme activity affected by non-genetic context"],
+      "excludeMechanisms": ["normal function", "uncertain function without activity evidence"],
+      "seedMarkers": ["TPMT*3B / rs1800460", "TPMT*3C / rs1142345"],
+      "curationTags": ["paired-with-NUDT15", "thiopurine-safety"],
+      "geneSpecificRules": [
+        "Separate TPMT deficiency from NUDT15 toxicity defense.",
+        "Keep enzyme activity phenotype when genotype is incomplete.",
+        "Label heterozygous decreased function separately from biallelic null-like deficiency."
+      ]
+    },
+    "NUDT15": {
+      "strictNull": true,
+      "nullModes": ["toxicity-defense-null", "named-low-function-allele", "ancestry-equity"],
+      "preferredSources": ["cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad"],
+      "includeMechanisms": ["NUDT15 loss-of-function or severe low-function alleles", "biallelic NUDT15 deficiency-like thiopurine sensitivity"],
+      "reviewMechanisms": ["single decreased-function allele", "ancestry-enriched but mechanism-clear variants"],
+      "excludeMechanisms": ["ancestry association without function evidence"],
+      "seedMarkers": ["NUDT15 c.415C>T / rs116855232"],
+      "curationTags": ["paired-with-TPMT", "ancestry-equity", "thiopurine-safety"],
+      "geneSpecificRules": [
+        "Do not frame NUDT15 as relevant only to one ancestry group.",
+        "Keep functional toxicity-defense mechanism visible even when the variant is not a classic truncating LoF.",
+        "Interpret alongside TPMT for thiopurine contexts."
+      ]
+    },
+    "G6PD": {
+      "strictNull": true,
+      "nullModes": ["enzyme-deficiency", "x-linked-deficiency", "exposure-triggered-functional-collapse"],
+      "preferredSources": ["clinvar", "ensembl-vep", "gnomad", "cpic-api", "pharmgkb-api", "ncbi-gene-medgen"],
+      "includeMechanisms": ["G6PD deficient phenotype", "severe G6PD deficiency variants", "hemizygous deficiency", "biallelic or functionally deficient states"],
+      "reviewMechanisms": ["female heterozygous mosaic states", "variant labels without quantitative enzyme activity", "mild deficiency classes"],
+      "excludeMechanisms": ["blanket drug fear without oxidative-stress mechanism"],
+      "seedMarkers": ["G6PD deficient phenotype", "G6PD A- c.202G>A / rs1050828", "G6PD A- c.376A>G / rs1050829", "G6PD Mediterranean c.563C>T / rs5030868"],
+      "curationTags": ["x-linked", "phenotype-assay-important", "food-exposure"],
+      "geneSpecificRules": [
+        "Prefer quantitative enzyme activity where available.",
+        "Represent X-linked mosaicism explicitly.",
+        "Separate drug, infection, chemical, and fava-bean exposure contexts."
+      ]
+    },
+    "BCHE": {
+      "strictNull": true,
+      "nullModes": ["enzyme-deficiency", "hidden-until-exposure", "anesthesia-functional-null"],
+      "preferredSources": ["clinvar", "ensembl-vep", "gnomad", "pharmgkb-api", "ncbi-gene-medgen"],
+      "includeMechanisms": ["BCHE deficiency", "low pseudocholinesterase activity", "biallelic reduced/absent activity alleles"],
+      "reviewMechanisms": ["K variant alone", "acquired low cholinesterase activity", "single reduced-activity allele"],
+      "excludeMechanisms": ["anesthesia history without BCHE mechanism"],
+      "seedMarkers": ["BCHE deficient / low pseudocholinesterase activity", "BCHE atypical dibucaine-resistant variant / rs1799807", "BCHE K variant / rs1803274"],
+      "curationTags": ["hidden-until-exposure", "enzyme-activity-assay", "surgical-safety"],
+      "geneSpecificRules": [
+        "Keep acquired low cholinesterase causes separate from inherited null/deficiency.",
+        "Label succinylcholine and mivacurium exposure contexts explicitly.",
+        "Prefer enzyme activity and dibucaine number context when available."
+      ]
+    },
+    "UGT1A1": {
+      "strictNull": false,
+      "nullModes": ["low-function", "endogenous-plus-drug", "capacity-reduction"],
+      "preferredSources": ["cpic-api", "pharmgkb-api", "clinvar", "ensembl-vep", "gnomad", "ncbi-gene-medgen"],
+      "includeMechanisms": ["UGT1A1 severe deficiency", "biallelic severe low function", "reduced bilirubin glucuronidation capacity"],
+      "reviewMechanisms": ["UGT1A1*28 decreased expression", "UGT1A1*6 decreased function", "Gilbert-style low function"],
+      "excludeMechanisms": ["bilirubin elevation without UGT1A1 mechanism", "drug-toxicity association without glucuronidation mechanism"],
+      "seedMarkers": ["UGT1A1*28 / rs8175347", "UGT1A1*6 / rs4148323"],
+      "curationTags": ["not-strict-null-by-default", "bilirubin", "drug-metabolite-capacity"],
+      "geneSpecificRules": [
+        "Default strict-null filters should not overcall common UGT1A1*28 as a true null.",
+        "Keep severe deficiency and low-function capacity reduction as separate layers.",
+        "Separate benign bilirubin biology from irinotecan/SN-38 toxicity context."
+      ]
+    },
+    "PCSK9": {
+      "strictNull": true,
+      "nullModes": ["protective-loss-of-function", "target-validation", "human-knockdown-model"],
+      "preferredSources": ["clinvar", "ensembl-vep", "gnomad", "open-targets", "ncbi-gene-medgen"],
+      "includeMechanisms": ["protein-truncating PCSK9 loss-of-function", "human LoF associated with lower LDL-C", "protective loss-of-function"],
+      "reviewMechanisms": ["missense with LDL-lowering evidence", "population association without directionally proven LoF"],
+      "excludeMechanisms": ["PCSK9 gain of function", "familial hypercholesterolemia-causing gain-of-function"],
+      "seedMarkers": [],
+      "curationTags": ["protective", "non-pgx", "target-validation"],
+      "geneSpecificRules": [
+        "Preserve directionality: LoF protective, gain of function harmful.",
+        "Do not turn population-level protection into personal medical advice.",
+        "Use gnomAD pLoF and Open Targets-style evidence for expansion."
+      ]
+    },
+    "ANGPTL3": {
+      "strictNull": true,
+      "nullModes": ["protective-loss-of-function", "biallelic-deficiency", "target-validation"],
+      "preferredSources": ["clinvar", "ensembl-vep", "gnomad", "open-targets", "ncbi-gene-medgen"],
+      "includeMechanisms": ["biallelic ANGPTL3 loss-of-function", "heterozygous LoF with lipid-lowering evidence", "familial combined hypolipidemia"],
+      "reviewMechanisms": ["low lipid phenotype without ANGPTL3 mechanism", "missense with unclear functional direction"],
+      "excludeMechanisms": ["association-only lipid signal without LoF direction"],
+      "seedMarkers": [],
+      "curationTags": ["protective", "biallelic-vs-heterozygous", "target-validation"],
+      "geneSpecificRules": [
+        "Separate biallelic familial combined hypolipidemia from heterozygous protective lipid effects.",
+        "Use LoF directionality as the core filter.",
+        "Do not collapse low lipid phenotype into a monogenic diagnosis."
+      ]
+    }
+  }
+}

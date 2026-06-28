@@ -8,6 +8,12 @@ The larger thesis is that some nulls may be more serious than current product la
 
 The next evidence layer is endogenous metabolism. For `CYP2D6`, the first mapped routes include 5-methoxytryptamine to serotonin, tyramine to dopamine, and anandamide/endocannabinoid metabolism. The project treats these as missing-route and pathway-load questions, not as deterministic neurotransmitter or diagnosis claims.
 
+The first data-product layer is a static null-only feed that other projects can ingest and filter client-side:
+
+- `data/nulls-only.json`
+- `api/nulls.json`
+- `api/index.json`
+
 The core use case is to become a reference for **functional null states**:
 
 - inherited no-function biology;
@@ -86,7 +92,14 @@ The intended future bridge is:
 - `styles.css` - responsive dense atlas UI.
 - `app.js` - client-side search, filters, evidence matrix, and gene dossier rendering.
 - `data/nulls-atlas.json` - first structured data draft.
+- `data/nulls-only.json` - generated null-only feed for client-side filtering.
+- `data/null-ingest-map.json` - per-gene null-ingest rules for the current ten records.
+- `data/ingest-sources.json` - external API/source catalog.
+- `api/nulls.json` - static API alias for the null-only feed.
+- `api/index.json` - static API endpoint index.
+- `scripts/build-null-feeds.mjs` - regenerates the static API feeds.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
+- `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
@@ -103,6 +116,12 @@ Then open:
 
 ```text
 http://127.0.0.1:4179/
+```
+
+Regenerate the static feeds after atlas or ingest-map edits:
+
+```bash
+node scripts/build-null-feeds.mjs
 ```
 
 ## Data Boundary

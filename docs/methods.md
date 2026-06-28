@@ -158,6 +158,37 @@ They should not be interpreted as deterministic neurotransmitter claims:
 
 Every endogenous row should label whether the evidence is human enzyme evidence, animal brain evidence, human brain expression/function evidence, human phenotype evidence, or null-specific evidence. External substrates should be mapped beside endogenous substrates because the same missing enzyme can change parent accumulation, active metabolite formation, inactive metabolite formation, and pathway competition.
 
+## Null-Only Feed Rule
+
+The generated null-only feed is intentionally narrower than the full atlas.
+
+Default keep:
+
+- high-impact loss-of-function consequences;
+- whole-gene or exon deletion;
+- biallelic or hemizygous deficiency;
+- named no-function alleles;
+- protective loss-of-function;
+- medically induced functional nulls when explicitly labeled.
+
+Default review:
+
+- decreased-function alleles;
+- partial enzyme deficiency;
+- phenotype buckets such as poor metabolizer when allele resolution is missing;
+- common low-function states such as `UGT1A1*28`.
+
+Default exclude:
+
+- increased function;
+- ultrarapid states;
+- generic risk alleles;
+- association-only records;
+- missense records without curated functional loss;
+- benign or likely benign assertions.
+
+The feed should preserve all ten current project genes, but each record carries `strictNull` and filter facets so consumers can choose strict true nulls only.
+
 ## Neurodivergent Product Boundary
 
 The atlas should feel like a careful map, not a verdict.

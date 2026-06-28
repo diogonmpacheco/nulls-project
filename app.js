@@ -1,5 +1,6 @@
 const state = {
   atlas: null,
+  ingestMap: null,
   query: "",
   tier: "all",
   domain: "all",
@@ -8,6 +9,7 @@ const state = {
 };
 
 const DATA_URL = "data/nulls-atlas.json";
+const INGEST_MAP_URL = "data/null-ingest-map.json";
 
 const els = {
   metrics: document.querySelector("#metrics"),
@@ -26,9 +28,14 @@ const els = {
 init();
 
 async function init() {
-  const response = await fetch(DATA_URL, { cache: "no-cache" });
-  if (!response.ok) throw new Error(`Could not load atlas data: ${response.status}`);
-  state.atlas = await response.json();
+  const [atlasResponse, ingestMapResponse] = await Promise.all([
+    fetch(DATA_URL, { cache: "no-cache" }),
+    fetch(INGEST_MAP_URL, { cache: "no-cache" })
+  ]);
+  if (!atlasResponse.ok) throw new Error(`Could not load atlas data: ${atlasResponse.status}`);
+  if (!ingestMapResponse.ok) throw new Error(`Could not load ingest map: ${ingestMapResponse.status}`);
+  state.atlas = await atlasResponse.json();
+  state.ingestMap = await ingestMapResponse.json();
 
   const params = new URLSearchParams(window.location.search);
   const gene = params.get("gene");
@@ -125,6 +132,9 @@ function filteredGenes() {
       ...(gene.flags || []),
       ...(gene.phenotypes || []).map(row => `${row.label} ${row.system} ${row.direction} ${row.note}`),
       ...((gene.endogenousModel?.rows || []).map(row => `${row.substrate} ${row.route} ${row.nullQuestion} ${row.evidenceBase}`)),
+      ...(state.ingestMap?.genes?.[gene.id]?.includeMechanisms || []),
+      ...(state.ingestMap?.genes?.[gene.id]?.curationTags || []),
+      ...(state.ingestMap?.genes?.[gene.id]?.nullModes || []),
       ...(gene.markers || []).map(row => `${row.label} ${row.dbsnp || ""} ${row.interpretation}`)
     ].join(" ").toLowerCase();
 
@@ -206,6 +216,7 @@ function selectedGene() {
 
 function renderDossier(gene) {
   const sourceMap = new Map(state.atlas.sources.map(source => [source.id, source]));
+  const ingestProfile = state.ingestMap?.genes?.[gene.id];
   const deepDive = gene.deepDive ? renderDeepDive(gene) : "";
   const markers = gene.markers?.length ? renderMarkerTable(gene.markers) : "<p>No v0 marker rows. This record is framed from published null biology rather than Diognosis PGx seed markers.</p>";
 
@@ -240,6 +251,8 @@ function renderDossier(gene) {
         ${list(gene.nullEvidence)}
       </section>
 
+      ${ingestProfile ? renderNullIngestProfile(ingestProfile) : ""}
+
       ${gene.compartmentModel ? renderCompartmentModel(gene.compartmentModel) : ""}
 
       ${gene.endogenousModel ? renderEndogenousModel(gene.endogenousModel) : ""}
@@ -270,6 +283,41 @@ function renderDossier(gene) {
         </div>
       </section>
     </div>
+  `;
+}
+
+function renderNullIngestProfile(profile) {
+  return `
+    <section class="section-block wide">
+      <h3>Null-Only Ingest Profile</h3>
+      <p><strong>Strict null:</strong> ${profile.strictNull ? "yes" : "review / low-function only"}</p>
+      <div class="small-gap stack">${chips(profile.nullModes, "domain")}</div>
+      <div class="table-wrap case-table">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Keep</th>
+              <th>Review</th>
+              <th>Exclude</th>
+              <th>Preferred Sources</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>${list(profile.includeMechanisms)}</td>
+              <td>${list(profile.reviewMechanisms)}</td>
+              <td>${list(profile.excludeMechanisms)}</td>
+              <td>${list(profile.preferredSources)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="case-table">
+        <h4>Gene Rules</h4>
+        ${list(profile.geneSpecificRules)}
+      </div>
+      ${profile.curationTags?.length ? `<div class="small-gap stack">${chips(profile.curationTags, "flag")}</div>` : ""}
+    </section>
   `;
 }
 

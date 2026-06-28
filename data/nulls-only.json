@@ -1,0 +1,1117 @@
+{
+  "schema": "nulls-project.nulls-only.v0",
+  "generated": "2026-06-28",
+  "sourceAtlas": {
+    "schema": "nulls-project.atlas.v0",
+    "version": "0.1.0-draft",
+    "released": "2026-06-28"
+  },
+  "boundary": "Educational research reference only. This feed is not diagnostic interpretation, not medical advice, and not a replacement for clinical genetics or pharmacogenomic review.",
+  "filters": {
+    "default": {
+      "strictNullOnly": "Keep true no-function, whole-gene deletion, biallelic/hemizygous deficiency, and named no-function alleles. Keep severe low-function only when the gene record is explicitly deficiency-like and label it as review.",
+      "includeMechanisms": [
+        "nonsense",
+        "frameshift",
+        "canonical splice loss",
+        "start loss",
+        "transcript ablation",
+        "whole-gene deletion",
+        "exon deletion",
+        "biallelic deficiency",
+        "hemizygous deficiency",
+        "named no-function allele",
+        "protective loss-of-function",
+        "medically induced functional null"
+      ],
+      "excludeMechanisms": [
+        "normal function",
+        "increased function",
+        "ultrarapid",
+        "risk-only association",
+        "synonymous-only",
+        "benign assertion",
+        "missense without curated functional loss"
+      ]
+    },
+    "examples": [
+      {
+        "label": "Strict inherited/protective nulls",
+        "predicate": "record.strictNull === true"
+      },
+      {
+        "label": "Medication-relevant nulls",
+        "predicate": "record.facets.pharmacogenomics === true"
+      },
+      {
+        "label": "Systemic candidates",
+        "predicate": "record.facets.systemicCandidate === true"
+      },
+      {
+        "label": "Protective nulls",
+        "predicate": "record.facets.protective === true"
+      },
+      {
+        "label": "Induced functional nulls",
+        "predicate": "record.facets.inducedNull === true"
+      }
+    ]
+  },
+  "facetCounts": {
+    "records": 10,
+    "strictNull": 9,
+    "reviewNullOrLowFunction": 1,
+    "protective": 2,
+    "pharmacogenomics": 7,
+    "systemicCandidate": 1,
+    "inducedNull": 1
+  },
+  "records": [
+    {
+      "id": "CYP2D6",
+      "symbol": "CYP2D6",
+      "name": "Cytochrome P450 family 2 subfamily D member 6",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "nullStateLabel": "inherited no-function, minimal activity, or medically inhibited CYP2D6",
+      "oneLine": "A systemic enzyme-function case that demonstrates inherited null alleles, whole-gene deletion, reduced function, hybrid alleles, and drug-induced functional nulls.",
+      "domains": [
+        "functional nulls",
+        "tissue-resolved biology",
+        "pharmacogenomics",
+        "brain/CNS",
+        "endogenous metabolism",
+        "monoamines",
+        "endocannabinoids",
+        "opioids",
+        "psychiatry",
+        "cardiology",
+        "antiemetics",
+        "phenoconversion"
+      ],
+      "flags": [
+        "deep-dossier",
+        "tissue-resolved",
+        "copy-number-sensitive",
+        "phenoconversion",
+        "diognosis-seeded",
+        "clinician-review-needed"
+      ],
+      "includeMechanisms": [
+        "CYP2D6 no-function star alleles",
+        "CYP2D6*5 whole-gene deletion",
+        "gene conversions or hybrids with no-function assignment",
+        "strong inhibitor phenoconversion as induced functional null"
+      ],
+      "reviewMechanisms": [
+        "poor-metabolizer labels without allele resolution",
+        "decreased-function alleles such as CYP2D6*10 or CYP2D6*41",
+        "consumer SNP-only calls missing copy number"
+      ],
+      "excludeMechanisms": [
+        "ultrarapid duplications",
+        "increased function",
+        "normal function"
+      ],
+      "seedMarkers": [
+        "CYP2D6*4 / rs3892097",
+        "CYP2D6*5 whole-gene deletion",
+        "CYP2D6*10 / rs1065852",
+        "CYP2D6*41 / rs28371725"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "geneSpecificRules": [
+        "Treat CYP2D6 as structural-variant-sensitive; do not trust SNP-only null calls.",
+        "Separate inherited no-function from medically induced functional null.",
+        "Keep poor-metabolizer labels only when they can be translated into no/minimal function or explicitly marked as phenotype buckets.",
+        "Track endogenous CNS routes separately from drug metabolism."
+      ],
+      "preferredSources": [
+        {
+          "id": "pharmvar",
+          "label": "PharmVar",
+          "category": "pharmacogene-allele",
+          "docsUrl": "https://www.pharmvar.org/download"
+        },
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table",
+        "pharmvar-cyp2d6",
+        "cyp2d6-opioids-cpic",
+        "cyp2d6-brain-functional",
+        "cyp2d6-cns-role",
+        "cyp2d6-brain-regional-expression",
+        "brain-cyp-regulation",
+        "bbb-biotransformation",
+        "cyp2d6-5mt-serotonin-2003",
+        "cyp2d-brain-serotonin-2012",
+        "cyp2d-melatonin-serotonin-2016",
+        "cyp2d6-tyramine-dopamine-1998",
+        "cyp2d6-neuroactive-substrates-2004",
+        "cyp2d6-anandamide-2009",
+        "cyp2d6-behavior-psychopathology-2014",
+        "solanidine-cyp2d6-2024",
+        "solanidine-pm-prediction-2023",
+        "solanidine-tamoxifen-2024",
+        "ssda-cyp2d6-2022",
+        "glycoalkaloids-efsa-2020",
+        "glycoalkaloids-human-pk-2005",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": true,
+        "inducedNull": true,
+        "structuralVariantSensitive": true
+      }
+    },
+    {
+      "id": "CYP2C19",
+      "symbol": "CYP2C19",
+      "name": "Cytochrome P450 family 2 subfamily C member 19",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "named-no-function-allele",
+        "activity-score-null",
+        "drug-activation-null"
+      ],
+      "nullStateLabel": "reduced or absent CYP2C19 activity",
+      "oneLine": "A clean pharmacogenomic null case where reduced function can impair clopidogrel activation and change exposure for several other drugs.",
+      "domains": [
+        "pharmacogenomics",
+        "cardiology",
+        "gastroenterology",
+        "psychiatry",
+        "infectious disease"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "activity-score",
+        "prodrug-activation"
+      ],
+      "includeMechanisms": [
+        "CYP2C19*2 no-function splice allele",
+        "CYP2C19*3 no-function stop allele",
+        "other PharmVar/CPIC no-function alleles"
+      ],
+      "reviewMechanisms": [
+        "reduced function with substrate-specific effect",
+        "phenotype labels without allele resolution"
+      ],
+      "excludeMechanisms": [
+        "CYP2C19*17 increased function",
+        "rapid metabolizer",
+        "ultrarapid metabolizer"
+      ],
+      "seedMarkers": [
+        "CYP2C19*2 / rs4244285",
+        "CYP2C19*3 / rs4986893",
+        "CYP2C19*17 / rs12248560"
+      ],
+      "curationTags": [
+        "prodrug-activation",
+        "opposite-state-contrast"
+      ],
+      "geneSpecificRules": [
+        "For null-only mode, include no-function alleles and poor-metabolizer genotypes.",
+        "Keep CYP2C19*17 only as an excluded directionality contrast.",
+        "Separate clopidogrel activation from other substrate exposure effects."
+      ],
+      "preferredSources": [
+        {
+          "id": "pharmvar",
+          "label": "PharmVar",
+          "category": "pharmacogene-allele",
+          "docsUrl": "https://www.pharmvar.org/download"
+        },
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "DPYD",
+      "symbol": "DPYD",
+      "name": "Dihydropyrimidine dehydrogenase",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review",
+        "high-stakes-drug-toxicity"
+      ],
+      "nullStateLabel": "reduced DPD activity",
+      "oneLine": "A high-stakes low-function case where impaired fluoropyrimidine catabolism can cause severe or fatal toxicity.",
+      "domains": [
+        "oncology",
+        "pharmacogenomics",
+        "drug toxicity",
+        "pyrimidine metabolism"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "high-stakes",
+        "clinician-review-needed"
+      ],
+      "includeMechanisms": [
+        "DPYD*2A no-function splice allele",
+        "biallelic DPD deficiency",
+        "high-impact pLoF with DPD deficiency evidence"
+      ],
+      "reviewMechanisms": [
+        "decreased-function alleles such as c.2846A>T",
+        "partial DPD deficiency",
+        "phenotype assays without genotype"
+      ],
+      "excludeMechanisms": [
+        "fluoropyrimidine risk annotations without DPYD functional loss"
+      ],
+      "seedMarkers": [
+        "DPYD*2A / rs3918290",
+        "DPYD c.2846A>T / rs67376798",
+        "DPYD c.1679T>G / rs55886062"
+      ],
+      "curationTags": [
+        "high-stakes",
+        "enzyme-deficiency",
+        "clinician-review-needed"
+      ],
+      "geneSpecificRules": [
+        "Null-only mode should include true no-function and biallelic deficiency.",
+        "Severe decreased-function alleles remain in the feed but must be labeled review rather than strict true null.",
+        "Do not reduce DPYD to a single variant panel."
+      ],
+      "preferredSources": [
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table",
+        "dpyd-medgen"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "TPMT",
+      "symbol": "TPMT",
+      "name": "Thiopurine S-methyltransferase",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review"
+      ],
+      "nullStateLabel": "reduced TPMT activity",
+      "oneLine": "A classic thiopurine low-function gene where reduced activity can shift metabolism toward cytotoxic thioguanine nucleotide exposure.",
+      "domains": [
+        "pharmacogenomics",
+        "oncology",
+        "IBD",
+        "transplant",
+        "myelosuppression"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "paired-with-NUDT15"
+      ],
+      "includeMechanisms": [
+        "TPMT no-function or nonfunctional star alleles",
+        "biallelic TPMT deficiency",
+        "very low enzyme activity"
+      ],
+      "reviewMechanisms": [
+        "decreased-function heterozygous states",
+        "enzyme activity affected by non-genetic context"
+      ],
+      "excludeMechanisms": [
+        "normal function",
+        "uncertain function without activity evidence"
+      ],
+      "seedMarkers": [
+        "TPMT*3B / rs1800460",
+        "TPMT*3C / rs1142345"
+      ],
+      "curationTags": [
+        "paired-with-NUDT15",
+        "thiopurine-safety"
+      ],
+      "geneSpecificRules": [
+        "Separate TPMT deficiency from NUDT15 toxicity defense.",
+        "Keep enzyme activity phenotype when genotype is incomplete.",
+        "Label heterozygous decreased function separately from biallelic null-like deficiency."
+      ],
+      "preferredSources": [
+        {
+          "id": "pharmvar",
+          "label": "PharmVar",
+          "category": "pharmacogene-allele",
+          "docsUrl": "https://www.pharmvar.org/download"
+        },
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "NUDT15",
+      "symbol": "NUDT15",
+      "name": "Nudix hydrolase 15",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "toxicity-defense-null",
+        "named-low-function-allele",
+        "ancestry-equity"
+      ],
+      "nullStateLabel": "reduced NUDT15 function",
+      "oneLine": "A strong thiopurine toxicity gene that makes the atlas better on ancestry equity and non-European evidence.",
+      "domains": [
+        "pharmacogenomics",
+        "oncology",
+        "IBD",
+        "pediatrics",
+        "ancestry equity"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "paired-with-TPMT",
+        "ancestry-equity"
+      ],
+      "includeMechanisms": [
+        "NUDT15 loss-of-function or severe low-function alleles",
+        "biallelic NUDT15 deficiency-like thiopurine sensitivity"
+      ],
+      "reviewMechanisms": [
+        "single decreased-function allele",
+        "ancestry-enriched but mechanism-clear variants"
+      ],
+      "excludeMechanisms": [
+        "ancestry association without function evidence"
+      ],
+      "seedMarkers": [
+        "NUDT15 c.415C>T / rs116855232"
+      ],
+      "curationTags": [
+        "paired-with-TPMT",
+        "ancestry-equity",
+        "thiopurine-safety"
+      ],
+      "geneSpecificRules": [
+        "Do not frame NUDT15 as relevant only to one ancestry group.",
+        "Keep functional toxicity-defense mechanism visible even when the variant is not a classic truncating LoF.",
+        "Interpret alongside TPMT for thiopurine contexts."
+      ],
+      "preferredSources": [
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "G6PD",
+      "symbol": "G6PD",
+      "name": "Glucose-6-phosphate dehydrogenase",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "enzyme-deficiency",
+        "x-linked-deficiency",
+        "exposure-triggered-functional-collapse"
+      ],
+      "nullStateLabel": "G6PD deficient phenotype",
+      "oneLine": "A classic enzyme deficiency where red blood cell oxidative reserve can collapse under selected drugs, infections, foods, or chemical stressors.",
+      "domains": [
+        "hematology",
+        "pharmacogenomics",
+        "food exposures",
+        "infectious disease",
+        "newborn care"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "x-linked",
+        "phenotype-assay-important"
+      ],
+      "includeMechanisms": [
+        "G6PD deficient phenotype",
+        "severe G6PD deficiency variants",
+        "hemizygous deficiency",
+        "biallelic or functionally deficient states"
+      ],
+      "reviewMechanisms": [
+        "female heterozygous mosaic states",
+        "variant labels without quantitative enzyme activity",
+        "mild deficiency classes"
+      ],
+      "excludeMechanisms": [
+        "blanket drug fear without oxidative-stress mechanism"
+      ],
+      "seedMarkers": [
+        "G6PD deficient phenotype",
+        "G6PD A- c.202G>A / rs1050828",
+        "G6PD A- c.376A>G / rs1050829",
+        "G6PD Mediterranean c.563C>T / rs5030868"
+      ],
+      "curationTags": [
+        "x-linked",
+        "phenotype-assay-important",
+        "food-exposure"
+      ],
+      "geneSpecificRules": [
+        "Prefer quantitative enzyme activity where available.",
+        "Represent X-linked mosaicism explicitly.",
+        "Separate drug, infection, chemical, and fava-bean exposure contexts."
+      ],
+      "preferredSources": [
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table",
+        "g6pd-medgen"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "BCHE",
+      "symbol": "BCHE",
+      "name": "Butyrylcholinesterase",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "enzyme-deficiency",
+        "hidden-until-exposure",
+        "anesthesia-functional-null"
+      ],
+      "nullStateLabel": "low pseudocholinesterase activity",
+      "oneLine": "A hidden anesthesia-relevant null where low enzyme activity can prolong paralysis after selected neuromuscular blockers.",
+      "domains": [
+        "anesthesia",
+        "pharmacogenomics",
+        "family history",
+        "surgical safety"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "hidden-until-exposure",
+        "clinician-review-needed"
+      ],
+      "includeMechanisms": [
+        "BCHE deficiency",
+        "low pseudocholinesterase activity",
+        "biallelic reduced/absent activity alleles"
+      ],
+      "reviewMechanisms": [
+        "K variant alone",
+        "acquired low cholinesterase activity",
+        "single reduced-activity allele"
+      ],
+      "excludeMechanisms": [
+        "anesthesia history without BCHE mechanism"
+      ],
+      "seedMarkers": [
+        "BCHE deficient / low pseudocholinesterase activity",
+        "BCHE atypical dibucaine-resistant variant / rs1799807",
+        "BCHE K variant / rs1803274"
+      ],
+      "curationTags": [
+        "hidden-until-exposure",
+        "enzyme-activity-assay",
+        "surgical-safety"
+      ],
+      "geneSpecificRules": [
+        "Keep acquired low cholinesterase causes separate from inherited null/deficiency.",
+        "Label succinylcholine and mivacurium exposure contexts explicitly.",
+        "Prefer enzyme activity and dibucaine number context when available."
+      ],
+      "preferredSources": [
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": false,
+        "pharmacogenomics": true,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "UGT1A1",
+      "symbol": "UGT1A1",
+      "name": "UDP glucuronosyltransferase family 1 member A1",
+      "tier": "tier-1",
+      "strictNull": false,
+      "nullModes": [
+        "low-function",
+        "endogenous-plus-drug",
+        "capacity-reduction"
+      ],
+      "nullStateLabel": "reduced UGT1A1 function",
+      "oneLine": "A bridge between benign bilirubin biology and high-stakes drug-metabolite toxicity.",
+      "domains": [
+        "oncology",
+        "bilirubin",
+        "HIV",
+        "drug toxicity",
+        "glucuronidation"
+      ],
+      "flags": [
+        "diognosis-seeded",
+        "endogenous-plus-drug"
+      ],
+      "includeMechanisms": [
+        "UGT1A1 severe deficiency",
+        "biallelic severe low function",
+        "reduced bilirubin glucuronidation capacity"
+      ],
+      "reviewMechanisms": [
+        "UGT1A1*28 decreased expression",
+        "UGT1A1*6 decreased function",
+        "Gilbert-style low function"
+      ],
+      "excludeMechanisms": [
+        "bilirubin elevation without UGT1A1 mechanism",
+        "drug-toxicity association without glucuronidation mechanism"
+      ],
+      "seedMarkers": [
+        "UGT1A1*28 / rs8175347",
+        "UGT1A1*6 / rs4148323"
+      ],
+      "curationTags": [
+        "not-strict-null-by-default",
+        "bilirubin",
+        "drug-metabolite-capacity"
+      ],
+      "geneSpecificRules": [
+        "Default strict-null filters should not overcall common UGT1A1*28 as a true null.",
+        "Keep severe deficiency and low-function capacity reduction as separate layers.",
+        "Separate benign bilirubin biology from irinotecan/SN-38 toxicity context."
+      ],
+      "preferredSources": [
+        {
+          "id": "cpic-api",
+          "label": "CPIC API",
+          "category": "pharmacogene-guideline",
+          "docsUrl": "https://api.cpicpgx.org/"
+        },
+        {
+          "id": "pharmgkb-api",
+          "label": "PharmGKB API",
+          "category": "pharmacogenomics-curation",
+          "docsUrl": "https://api.pharmgkb.org/"
+        },
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "diognosis-standards",
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "facets": {
+        "strict": "review-null-or-low-function",
+        "protective": false,
+        "pharmacogenomics": false,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "PCSK9",
+      "symbol": "PCSK9",
+      "name": "Proprotein convertase subtilisin/kexin type 9",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "protective-loss-of-function",
+        "target-validation",
+        "human-knockdown-model"
+      ],
+      "nullStateLabel": "reduced PCSK9 activity",
+      "oneLine": "The clean protective-null counterexample: less gene function can mean lower LDL cholesterol and lower coronary disease risk.",
+      "domains": [
+        "cardiometabolic",
+        "lipids",
+        "protective genetics",
+        "drug target validation"
+      ],
+      "flags": [
+        "protective",
+        "non-pgx",
+        "target-validation"
+      ],
+      "includeMechanisms": [
+        "protein-truncating PCSK9 loss-of-function",
+        "human LoF associated with lower LDL-C",
+        "protective loss-of-function"
+      ],
+      "reviewMechanisms": [
+        "missense with LDL-lowering evidence",
+        "population association without directionally proven LoF"
+      ],
+      "excludeMechanisms": [
+        "PCSK9 gain of function",
+        "familial hypercholesterolemia-causing gain-of-function"
+      ],
+      "seedMarkers": [],
+      "curationTags": [
+        "protective",
+        "non-pgx",
+        "target-validation"
+      ],
+      "geneSpecificRules": [
+        "Preserve directionality: LoF protective, gain of function harmful.",
+        "Do not turn population-level protection into personal medical advice.",
+        "Use gnomAD pLoF and Open Targets-style evidence for expansion."
+      ],
+      "preferredSources": [
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "open-targets",
+          "label": "Open Targets Platform",
+          "category": "gene-disease-target-context",
+          "docsUrl": "https://platform-docs.opentargets.org/"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "pcsk9-pubmed"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": true,
+        "pharmacogenomics": false,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    },
+    {
+      "id": "ANGPTL3",
+      "symbol": "ANGPTL3",
+      "name": "Angiopoietin like 3",
+      "tier": "tier-1",
+      "strictNull": true,
+      "nullModes": [
+        "protective-loss-of-function",
+        "biallelic-deficiency",
+        "target-validation"
+      ],
+      "nullStateLabel": "reduced ANGPTL3 activity",
+      "oneLine": "A lipid-system null where reduced function can produce low LDL, HDL, and triglyceride patterns and helped validate another therapeutic target.",
+      "domains": [
+        "cardiometabolic",
+        "lipids",
+        "protective genetics",
+        "drug target validation"
+      ],
+      "flags": [
+        "protective",
+        "non-pgx",
+        "target-validation",
+        "biallelic-vs-heterozygous"
+      ],
+      "includeMechanisms": [
+        "biallelic ANGPTL3 loss-of-function",
+        "heterozygous LoF with lipid-lowering evidence",
+        "familial combined hypolipidemia"
+      ],
+      "reviewMechanisms": [
+        "low lipid phenotype without ANGPTL3 mechanism",
+        "missense with unclear functional direction"
+      ],
+      "excludeMechanisms": [
+        "association-only lipid signal without LoF direction"
+      ],
+      "seedMarkers": [],
+      "curationTags": [
+        "protective",
+        "biallelic-vs-heterozygous",
+        "target-validation"
+      ],
+      "geneSpecificRules": [
+        "Separate biallelic familial combined hypolipidemia from heterozygous protective lipid effects.",
+        "Use LoF directionality as the core filter.",
+        "Do not collapse low lipid phenotype into a monogenic diagnosis."
+      ],
+      "preferredSources": [
+        {
+          "id": "clinvar",
+          "label": "ClinVar",
+          "category": "clinical-assertion",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/"
+        },
+        {
+          "id": "ensembl-vep",
+          "label": "Ensembl Variant Effect Predictor / REST",
+          "category": "variant-consequence",
+          "docsUrl": "https://rest.ensembl.org/"
+        },
+        {
+          "id": "gnomad",
+          "label": "gnomAD",
+          "category": "population-variation",
+          "docsUrl": "https://gnomad.broadinstitute.org/downloads"
+        },
+        {
+          "id": "open-targets",
+          "label": "Open Targets Platform",
+          "category": "gene-disease-target-context",
+          "docsUrl": "https://platform-docs.opentargets.org/"
+        },
+        {
+          "id": "ncbi-gene-medgen",
+          "label": "NCBI Gene / MedGen / Bookshelf",
+          "category": "gene-clinical-context",
+          "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
+        }
+      ],
+      "projectSources": [
+        "angptl3-ncbi"
+      ],
+      "facets": {
+        "strict": "strict-null",
+        "protective": true,
+        "pharmacogenomics": false,
+        "systemicCandidate": false,
+        "inducedNull": false,
+        "structuralVariantSensitive": false
+      }
+    }
+  ]
+}

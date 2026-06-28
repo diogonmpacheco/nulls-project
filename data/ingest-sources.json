@@ -1,0 +1,122 @@
+{
+  "schema": "nulls-project.ingest-sources.v0",
+  "generated": "2026-06-28",
+  "purpose": "Source catalog for building null-only and functional-null feeds.",
+  "sources": [
+    {
+      "id": "ensembl-vep",
+      "label": "Ensembl Variant Effect Predictor / REST",
+      "category": "variant-consequence",
+      "docsUrl": "https://rest.ensembl.org/",
+      "ingestUse": "Normalize variant consequences and select high-impact loss-of-function candidates.",
+      "keepByDefault": ["stop_gained", "frameshift_variant", "splice_donor_variant", "splice_acceptor_variant", "start_lost", "transcript_ablation"],
+      "reviewBeforeKeep": ["missense_variant", "inframe_deletion", "inframe_insertion", "splice_region_variant"],
+      "excludeByDefault": ["synonymous_variant", "intron_variant", "intergenic_variant", "upstream_gene_variant", "downstream_gene_variant"],
+      "refreshCadence": "monthly or when VEP/cache version changes",
+      "notes": "VEP is the consequence engine, not the final clinical authority."
+    },
+    {
+      "id": "clinvar",
+      "label": "ClinVar",
+      "category": "clinical-assertion",
+      "docsUrl": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/",
+      "ingestUse": "Curated clinical assertions for pathogenic, likely pathogenic, deficiency, and pharmacogenetic loss-of-function records.",
+      "keepByDefault": ["pathogenic", "likely pathogenic", "risk factor with curated loss-of-function mechanism", "drug response with no-function mechanism"],
+      "reviewBeforeKeep": ["conflicting interpretations", "uncertain significance", "association"],
+      "excludeByDefault": ["benign", "likely benign", "protective without loss-of-function mechanism"],
+      "refreshCadence": "monthly",
+      "notes": "ClinVar significance must be paired with mechanism; not every pathogenic variant is a null."
+    },
+    {
+      "id": "gnomad",
+      "label": "gnomAD",
+      "category": "population-variation",
+      "docsUrl": "https://gnomad.broadinstitute.org/downloads",
+      "ingestUse": "Population pLoF, homozygous pLoF observations, constraint, and gene-level tolerance signals.",
+      "keepByDefault": ["pLoF", "homozygous pLoF", "hemizygous pLoF", "high-confidence loss-of-function"],
+      "reviewBeforeKeep": ["low-confidence pLoF", "common pLoF in technically difficult regions"],
+      "excludeByDefault": ["annotation-only missense", "synonymous", "low-quality calls"],
+      "refreshCadence": "per gnomAD release",
+      "notes": "Use LoFTEE/high-confidence filters where available; population tolerance is not phenotype absence."
+    },
+    {
+      "id": "clingen-dosage",
+      "label": "ClinGen Dosage Sensitivity",
+      "category": "dosage-curation",
+      "docsUrl": "https://search.clinicalgenome.org/kb/downloads",
+      "ingestUse": "Haploinsufficiency, triplosensitivity, and dosage evidence for gene-level loss.",
+      "keepByDefault": ["sufficient haploinsufficiency evidence", "emerging haploinsufficiency evidence"],
+      "reviewBeforeKeep": ["little evidence", "conflicting dosage evidence"],
+      "excludeByDefault": ["dosage unlikely"],
+      "refreshCadence": "monthly",
+      "notes": "Dosage sensitivity is gene-level context; it does not replace variant-level interpretation."
+    },
+    {
+      "id": "pharmvar",
+      "label": "PharmVar",
+      "category": "pharmacogene-allele",
+      "docsUrl": "https://www.pharmvar.org/download",
+      "ingestUse": "Named pharmacogene star alleles, copy-number alleles, and function labels.",
+      "keepByDefault": ["no function", "uncertain function with curated null evidence", "gene deletion"],
+      "reviewBeforeKeep": ["decreased function", "unknown function", "structural variant needing phasing"],
+      "excludeByDefault": ["normal function", "increased function"],
+      "refreshCadence": "per PharmVar release",
+      "notes": "Critical for CYP2D6, CYP2C19, TPMT, and other pharmacogenes."
+    },
+    {
+      "id": "cpic-api",
+      "label": "CPIC API",
+      "category": "pharmacogene-guideline",
+      "docsUrl": "https://api.cpicpgx.org/",
+      "ingestUse": "Allele function, phenotype translation, and gene-drug actionability context.",
+      "keepByDefault": ["no function", "poor metabolizer when mechanism maps to no/minimal function", "deficient phenotype"],
+      "reviewBeforeKeep": ["decreased function", "intermediate metabolizer", "drug-specific phenotype"],
+      "excludeByDefault": ["normal function", "rapid metabolizer", "ultrarapid metabolizer"],
+      "refreshCadence": "per CPIC release",
+      "notes": "Use PGx labels as translation, not as the Nulls core object."
+    },
+    {
+      "id": "pharmgkb-api",
+      "label": "PharmGKB API",
+      "category": "pharmacogenomics-curation",
+      "docsUrl": "https://api.pharmgkb.org/",
+      "ingestUse": "Drug-response annotations, variant annotations, and pharmacogene context.",
+      "keepByDefault": ["variant annotations with loss-of-function mechanism", "clinical annotations with no-function allele context"],
+      "reviewBeforeKeep": ["association-only annotations", "mixed-function haplotypes"],
+      "excludeByDefault": ["generic risk association without null mechanism"],
+      "refreshCadence": "monthly",
+      "notes": "Useful enrichment layer; not a null filter by itself."
+    },
+    {
+      "id": "ncbi-gene-medgen",
+      "label": "NCBI Gene / MedGen / Bookshelf",
+      "category": "gene-clinical-context",
+      "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+      "ingestUse": "Gene, phenotype, deficiency, and Medical Genetics Summary context.",
+      "keepByDefault": ["deficiency syndrome", "loss-of-function disease mechanism", "validated pharmacogenetic summary"],
+      "reviewBeforeKeep": ["broad phenotype association", "risk factor without mechanism"],
+      "excludeByDefault": ["gene mention without null mechanism"],
+      "refreshCadence": "quarterly",
+      "notes": "Good for readable context and stable gene identifiers."
+    },
+    {
+      "id": "open-targets",
+      "label": "Open Targets Platform",
+      "category": "gene-disease-target-context",
+      "docsUrl": "https://platform-docs.opentargets.org/",
+      "ingestUse": "Gene-disease and target-validation context, especially protective loss-of-function target biology.",
+      "keepByDefault": ["loss-of-function target validation", "protective genetic association with LoF mechanism"],
+      "reviewBeforeKeep": ["association-only signal", "directionally ambiguous evidence"],
+      "excludeByDefault": ["risk association without loss-of-function direction"],
+      "refreshCadence": "per Open Targets release",
+      "notes": "Useful for PCSK9, ANGPTL3, and future protective-null expansion."
+    }
+  ],
+  "defaultNullOnlyFilter": {
+    "includeVariantConsequences": ["stop_gained", "frameshift_variant", "splice_donor_variant", "splice_acceptor_variant", "start_lost", "transcript_ablation"],
+    "includeStructuralEvents": ["whole_gene_deletion", "exon_deletion", "biallelic_deletion", "hemizygous_deletion"],
+    "includeFunctionLabels": ["no function", "loss of function", "deficient", "absent activity", "severe deficiency", "protective loss-of-function"],
+    "reviewFunctionLabels": ["decreased function", "reduced activity", "partial deficiency", "intermediate activity"],
+    "excludeByDefault": ["normal function", "increased function", "ultrarapid", "gain of function", "risk allele without null mechanism", "association-only", "benign", "likely benign", "synonymous-only"]
+  }
+}

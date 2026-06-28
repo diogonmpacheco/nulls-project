@@ -1,0 +1,39 @@
+{
+  "schema": "nulls-project.static-api-index.v0",
+  "generated": "2026-06-28",
+  "baseUrl": "https://diogonmpacheco.github.io/nulls-project/",
+  "endpoints": [
+    {
+      "path": "data/nulls-atlas.json",
+      "label": "Full curated atlas",
+      "use": "Human-readable project data with source links, dossiers, endogenous maps, and exposure cases."
+    },
+    {
+      "path": "data/nulls-only.json",
+      "label": "Null-only feed",
+      "use": "Normalized feed for filtering strict nulls, low-function review records, protective LoF, systemic candidates, and PGx nulls."
+    },
+    {
+      "path": "api/nulls.json",
+      "label": "Static null API alias",
+      "use": "Same records as data/nulls-only.json, placed under api/ for consumers that expect API-like paths."
+    },
+    {
+      "path": "data/null-ingest-map.json",
+      "label": "Gene-specific ingest rules",
+      "use": "Per-gene source priorities, include/review/exclude mechanisms, and null-only curation rules."
+    },
+    {
+      "path": "data/ingest-sources.json",
+      "label": "External source catalog",
+      "use": "Public data sources and filters used to enrich null records."
+    }
+  ],
+  "queryPattern": "This is a static GitHub Pages API. Fetch JSON and filter client-side.",
+  "examples": [
+    "records.filter(record => record.strictNull)",
+    "records.filter(record => record.facets.systemicCandidate)",
+    "records.filter(record => record.symbol === 'CYP2D6')",
+    "records.filter(record => record.nullModes.includes('protective-loss-of-function'))"
+  ]
+}
