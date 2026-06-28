@@ -13,6 +13,8 @@ The core use case is to become a reference for **functional null states**:
 
 The important layer is tissue resolution. A true inherited null can remove a function wherever that gene is normally active. A medication-induced functional null may only imitate part of that loss, depending on inhibitor distribution, barriers, tissue expression, and local regulation.
 
+The first exposure case is solanidine / potato glycoalkaloids for `CYP2D6`. It is included because it shows the difference between true inherited nulls, clinical poor-metabolizer labels, residual function, and medically induced functional nulls in an accumulation model. The case treats plasma solanidine as a strong CYP2D6 activity biomarker, not as a direct food-toxicity threshold.
+
 The first draft focuses on ten strong null / low-function cases:
 
 - `CYP2D6` as the flagship deep dossier
@@ -80,6 +82,7 @@ The intended future bridge is:
 - `app.js` - client-side search, filters, evidence matrix, and gene dossier rendering.
 - `data/nulls-atlas.json` - first structured data draft.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
+- `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
 - `docs/diognosis-bridge.md` - how Diognosis data was used and how future integration should work.
 - `docs/product-notes.md` - neurodivergent product, IA, and genetics reviewer notes.
 

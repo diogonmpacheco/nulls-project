@@ -528,6 +528,11 @@ tbody tr[aria-selected="true"] {
   margin: 0;
 }
 
+.section-block p.small-gap,
+.case-table {
+  margin-top: 10px;
+}
+
 .section-block ul {
   margin: 0;
   padding-left: 18px;

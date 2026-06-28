@@ -106,6 +106,24 @@ Therefore each mature gene record should eventually separate:
 - barrier and distribution caveats;
 - phenotype mechanism.
 
+## Exposure And Accumulation Cases
+
+Some null questions only become clear when a substrate, food exposure, metabolite, toxin, or endogenous molecule is followed through the body.
+
+The solanidine case is the first v0 pattern:
+
+- separate the exposure source from the metabolite or biomarker;
+- separate acute toxicity from null-state accumulation;
+- distinguish true inherited null from clinical poor-metabolizer labels;
+- distinguish residual low function from actual missing function;
+- distinguish medically induced functional null from inherited absence;
+- map parent compound, downstream metabolites, and measurable ratios;
+- map gut, liver, plasma, brain, barrier, heart, adipose, kidney/urine, endocrine/reproductive, immune, and unresolved peripheral compartments;
+- label every tissue inference by evidence tier;
+- avoid turning a biomarker signal into a personal clinical instruction.
+
+For `CYP2D6` and solanidine, plasma biomarker evidence is strong. Tissue-specific human accumulation evidence is not yet strong enough to claim that every body part follows the plasma fold-change. The atlas should preserve that uncertainty instead of flattening it.
+
 ## Neurodivergent Product Boundary
 
 The atlas should feel like a careful map, not a verdict.

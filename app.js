@@ -239,6 +239,8 @@ function renderDossier(gene) {
 
       ${gene.compartmentModel ? renderCompartmentModel(gene.compartmentModel) : ""}
 
+      ${gene.exposureCaseModel ? renderExposureCaseModel(gene.exposureCaseModel) : ""}
+
       <section class="section-block wide">
         <h3>Phenotype Associations</h3>
         ${renderPhenotypeTable(gene.phenotypes || [])}
@@ -318,6 +320,62 @@ function renderCompartmentModel(rows) {
                 <td>${escapeHtml(row.inheritedNull)}</td>
                 <td>${escapeHtml(row.medicallyInducedNull)}</td>
                 <td>${escapeHtml(row.whyItDiffers)}</td>
+                <td><span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderExposureCaseModel(caseModel) {
+  return `
+    <section class="section-block wide">
+      <h3>${escapeHtml(caseModel.label)}</h3>
+      <p>${escapeHtml(caseModel.summary)}</p>
+      <p class="small-gap"><strong>Status:</strong> ${escapeHtml(caseModel.status)}</p>
+      <div class="table-wrap case-table">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Model</th>
+              <th>Accumulation</th>
+              <th>Boundary</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(caseModel.accumulationStates || []).map(row => `
+              <tr>
+                <td>${escapeHtml(row.state)}</td>
+                <td>${escapeHtml(row.model)}</td>
+                <td>${escapeHtml(row.accumulation)}</td>
+                <td>${escapeHtml(row.boundary)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap case-table">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Compartment</th>
+              <th>Main Question</th>
+              <th>Null Difference</th>
+              <th>Accumulation Concern</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(caseModel.bodyPartMap || []).map(row => `
+              <tr>
+                <td>${escapeHtml(row.compartment)}</td>
+                <td>${escapeHtml(row.mainQuestion)}</td>
+                <td>${escapeHtml(row.nullDifference)}</td>
+                <td>${escapeHtml(row.accumulationConcern)}</td>
                 <td><span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span></td>
               </tr>
             `).join("")}
