@@ -1,0 +1,2233 @@
+{
+  "schema": "nulls-project.null-variants.v0",
+  "generated": "2026-06-28",
+  "boundary": "Variant rows are a curation and ingestion layer, not personal interpretation. Consumer DNA files may miss structural variants, phasing, and copy number.",
+  "sourceAtlas": {
+    "schema": "nulls-project.atlas.v0",
+    "version": "0.1.0-draft",
+    "released": "2026-06-28"
+  },
+  "counts": {
+    "records": 70,
+    "strictNull": 56,
+    "review": 14,
+    "cyp2d6": 50,
+    "geneLevel": 2
+  },
+  "records": [
+    {
+      "id": "CYP2D6:CYP2D6*4",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*4",
+      "system": "PharmVar",
+      "dbsnp": "rs3892097",
+      "allele": "CYP2D6*4",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "no-function allele context"
+      ]
+    },
+    {
+      "id": "CYP2D6:CYP2D6*10",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*10",
+      "system": "PharmVar",
+      "dbsnp": "rs1065852",
+      "allele": "CYP2D6*10",
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "decreased-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "CYP2D6:CYP2D6*41",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*41",
+      "system": "PharmVar",
+      "dbsnp": "rs28371725",
+      "allele": "CYP2D6*41",
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "decreased-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "CYP2D6:CYP2D6*5",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*5",
+      "system": "copy-number / deletion",
+      "dbsnp": null,
+      "allele": "CYP2D6*5",
+      "mechanism": "whole-gene deletion",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "atlas draft",
+      "confidence": "high",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "whole-gene deletion; requires structural-variant-aware calling"
+      ]
+    },
+    {
+      "id": "CYP2C19:CYP2C19*2",
+      "gene": "CYP2C19",
+      "symbol": "CYP2C19",
+      "label": "CYP2C19*2",
+      "system": "PharmVar",
+      "dbsnp": "rs4244285",
+      "allele": "CYP2C19*2",
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "named-no-function-allele",
+        "activity-score-null",
+        "drug-activation-null"
+      ],
+      "curationTags": [
+        "prodrug-activation",
+        "opposite-state-contrast"
+      ],
+      "caveats": [
+        "no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "CYP2C19:CYP2C19*3",
+      "gene": "CYP2C19",
+      "symbol": "CYP2C19",
+      "label": "CYP2C19*3",
+      "system": "PharmVar",
+      "dbsnp": "rs4986893",
+      "allele": "CYP2C19*3",
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "named-no-function-allele",
+        "activity-score-null",
+        "drug-activation-null"
+      ],
+      "curationTags": [
+        "prodrug-activation",
+        "opposite-state-contrast"
+      ],
+      "caveats": [
+        "no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "CYP2C19:CYP2C19*17",
+      "gene": "CYP2C19",
+      "symbol": "CYP2C19",
+      "label": "CYP2C19*17",
+      "system": "PharmVar",
+      "dbsnp": "rs12248560",
+      "allele": "CYP2C19*17",
+      "mechanism": "opposite-state contrast",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "named-no-function-allele",
+        "activity-score-null",
+        "drug-activation-null"
+      ],
+      "curationTags": [
+        "prodrug-activation",
+        "opposite-state-contrast"
+      ],
+      "caveats": [
+        "increased-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "DPYD:DPYD*2A",
+      "gene": "DPYD",
+      "symbol": "DPYD",
+      "label": "DPYD*2A",
+      "system": "PharmVar",
+      "dbsnp": "rs3918290",
+      "allele": "DPYD*2A",
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review",
+        "high-stakes-drug-toxicity"
+      ],
+      "curationTags": [
+        "high-stakes",
+        "enzyme-deficiency",
+        "clinician-review-needed"
+      ],
+      "caveats": [
+        "no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "DPYD:DPYD_c.2846A>T",
+      "gene": "DPYD",
+      "symbol": "DPYD",
+      "label": "DPYD c.2846A>T",
+      "system": "dbSNP",
+      "dbsnp": "rs67376798",
+      "allele": null,
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review",
+        "high-stakes-drug-toxicity"
+      ],
+      "curationTags": [
+        "high-stakes",
+        "enzyme-deficiency",
+        "clinician-review-needed"
+      ],
+      "caveats": [
+        "decreased-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "DPYD:DPYD_c.1679T>G",
+      "gene": "DPYD",
+      "symbol": "DPYD",
+      "label": "DPYD c.1679T>G",
+      "system": "dbSNP",
+      "dbsnp": "rs55886062",
+      "allele": null,
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review",
+        "high-stakes-drug-toxicity"
+      ],
+      "curationTags": [
+        "high-stakes",
+        "enzyme-deficiency",
+        "clinician-review-needed"
+      ],
+      "caveats": [
+        "decreased-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "TPMT:TPMT*3B",
+      "gene": "TPMT",
+      "symbol": "TPMT",
+      "label": "TPMT*3B",
+      "system": "PharmVar",
+      "dbsnp": "rs1800460",
+      "allele": "TPMT*3B",
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review"
+      ],
+      "curationTags": [
+        "paired-with-NUDT15",
+        "thiopurine-safety"
+      ],
+      "caveats": [
+        "decreased/no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "TPMT:TPMT*3C",
+      "gene": "TPMT",
+      "symbol": "TPMT",
+      "label": "TPMT*3C",
+      "system": "PharmVar",
+      "dbsnp": "rs1142345",
+      "allele": "TPMT*3C",
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "named-no-function-allele",
+        "severe-low-function-review"
+      ],
+      "curationTags": [
+        "paired-with-NUDT15",
+        "thiopurine-safety"
+      ],
+      "caveats": [
+        "decreased/no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "NUDT15:NUDT15_c.415C>T",
+      "gene": "NUDT15",
+      "symbol": "NUDT15",
+      "label": "NUDT15 c.415C>T",
+      "system": "dbSNP",
+      "dbsnp": "rs116855232",
+      "allele": null,
+      "mechanism": "named no-function allele",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "toxicity-defense-null",
+        "named-low-function-allele",
+        "ancestry-equity"
+      ],
+      "curationTags": [
+        "paired-with-TPMT",
+        "ancestry-equity",
+        "thiopurine-safety"
+      ],
+      "caveats": [
+        "decreased/no-function allele context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "G6PD:G6PD_deficient_phenotype",
+      "gene": "G6PD",
+      "symbol": "G6PD",
+      "label": "G6PD deficient phenotype",
+      "system": "CPIC",
+      "dbsnp": null,
+      "allele": null,
+      "mechanism": "deficiency phenotype",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "x-linked-deficiency",
+        "exposure-triggered-functional-collapse"
+      ],
+      "curationTags": [
+        "x-linked",
+        "phenotype-assay-important",
+        "food-exposure"
+      ],
+      "caveats": [
+        "erythrocyte oxidative-reserve phenotype context"
+      ]
+    },
+    {
+      "id": "G6PD:G6PD_A-_c.202G>A",
+      "gene": "G6PD",
+      "symbol": "G6PD",
+      "label": "G6PD A- c.202G>A",
+      "system": "dbSNP",
+      "dbsnp": "rs1050828",
+      "allele": null,
+      "mechanism": "loss-of-function candidate",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "x-linked-deficiency",
+        "exposure-triggered-functional-collapse"
+      ],
+      "curationTags": [
+        "x-linked",
+        "phenotype-assay-important",
+        "food-exposure"
+      ],
+      "caveats": [
+        "G6PD A- deficiency haplotype component"
+      ]
+    },
+    {
+      "id": "G6PD:G6PD_A-_c.376A>G",
+      "gene": "G6PD",
+      "symbol": "G6PD",
+      "label": "G6PD A- c.376A>G",
+      "system": "dbSNP",
+      "dbsnp": "rs1050829",
+      "allele": null,
+      "mechanism": "loss-of-function candidate",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "x-linked-deficiency",
+        "exposure-triggered-functional-collapse"
+      ],
+      "curationTags": [
+        "x-linked",
+        "phenotype-assay-important",
+        "food-exposure"
+      ],
+      "caveats": [
+        "G6PD A- deficiency haplotype component"
+      ]
+    },
+    {
+      "id": "G6PD:G6PD_Mediterranean_c.563C>T",
+      "gene": "G6PD",
+      "symbol": "G6PD",
+      "label": "G6PD Mediterranean c.563C>T",
+      "system": "dbSNP",
+      "dbsnp": "rs5030868",
+      "allele": null,
+      "mechanism": "loss-of-function candidate",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "x-linked-deficiency",
+        "exposure-triggered-functional-collapse"
+      ],
+      "curationTags": [
+        "x-linked",
+        "phenotype-assay-important",
+        "food-exposure"
+      ],
+      "caveats": [
+        "severe G6PD deficiency variant context"
+      ]
+    },
+    {
+      "id": "BCHE:BCHE_deficient___low_pseudocholinesterase_activity",
+      "gene": "BCHE",
+      "symbol": "BCHE",
+      "label": "BCHE deficient / low pseudocholinesterase activity",
+      "system": "CPIC",
+      "dbsnp": null,
+      "allele": null,
+      "mechanism": "loss-of-function candidate",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "hidden-until-exposure",
+        "anesthesia-functional-null"
+      ],
+      "curationTags": [
+        "hidden-until-exposure",
+        "enzyme-activity-assay",
+        "surgical-safety"
+      ],
+      "caveats": [
+        "butyrylcholinesterase activity phenotype context"
+      ]
+    },
+    {
+      "id": "BCHE:BCHE_atypical_dibucaine-resistant_variant",
+      "gene": "BCHE",
+      "symbol": "BCHE",
+      "label": "BCHE atypical dibucaine-resistant variant",
+      "system": "dbSNP",
+      "dbsnp": "rs1799807",
+      "allele": null,
+      "mechanism": "loss-of-function candidate",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "high",
+      "nullModes": [
+        "enzyme-deficiency",
+        "hidden-until-exposure",
+        "anesthesia-functional-null"
+      ],
+      "curationTags": [
+        "hidden-until-exposure",
+        "enzyme-activity-assay",
+        "surgical-safety"
+      ],
+      "caveats": [
+        "pseudocholinesterase deficiency context"
+      ]
+    },
+    {
+      "id": "BCHE:BCHE_K_variant",
+      "gene": "BCHE",
+      "symbol": "BCHE",
+      "label": "BCHE K variant",
+      "system": "dbSNP",
+      "dbsnp": "rs1803274",
+      "allele": null,
+      "mechanism": "review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "enzyme-deficiency",
+        "hidden-until-exposure",
+        "anesthesia-functional-null"
+      ],
+      "curationTags": [
+        "hidden-until-exposure",
+        "enzyme-activity-assay",
+        "surgical-safety"
+      ],
+      "caveats": [
+        "reduced butyrylcholinesterase activity context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "UGT1A1:UGT1A1*28___TA7_repeat",
+      "gene": "UGT1A1",
+      "symbol": "UGT1A1",
+      "label": "UGT1A1*28 / TA7 repeat",
+      "system": "dbSNP",
+      "dbsnp": "rs8175347",
+      "allele": "UGT1A1*28 / TA7 repeat",
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "low-function",
+        "endogenous-plus-drug",
+        "capacity-reduction"
+      ],
+      "curationTags": [
+        "not-strict-null-by-default",
+        "bilirubin",
+        "drug-metabolite-capacity"
+      ],
+      "caveats": [
+        "decreased-function promoter repeat context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "UGT1A1:UGT1A1*6",
+      "gene": "UGT1A1",
+      "symbol": "UGT1A1",
+      "label": "UGT1A1*6",
+      "system": "dbSNP",
+      "dbsnp": "rs4148323",
+      "allele": "UGT1A1*6",
+      "mechanism": "decreased-function review",
+      "strictNull": false,
+      "reviewStatus": "review",
+      "sourceLayer": "atlas-marker",
+      "source": "Diognosis",
+      "confidence": "moderate",
+      "nullModes": [
+        "low-function",
+        "endogenous-plus-drug",
+        "capacity-reduction"
+      ],
+      "curationTags": [
+        "not-strict-null-by-default",
+        "bilirubin",
+        "drug-metabolite-capacity"
+      ],
+      "caveats": [
+        "decreased-function coding variant context",
+        "Not kept by strict true-null filters unless reviewed."
+      ]
+    },
+    {
+      "id": "PCSK9:gene_level_protective_lof",
+      "gene": "PCSK9",
+      "symbol": "PCSK9",
+      "label": "PCSK9 gene-level protective loss-of-function",
+      "system": "gene-level LoF",
+      "dbsnp": null,
+      "allele": null,
+      "mechanism": "protective loss-of-function",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-gene-level",
+      "source": "pcsk9-pubmed",
+      "confidence": "high",
+      "nullModes": [
+        "protective-loss-of-function",
+        "target-validation",
+        "human-knockdown-model"
+      ],
+      "curationTags": [
+        "protective",
+        "non-pgx",
+        "target-validation"
+      ],
+      "caveats": [
+        "Gene-level row until specific LoF variants are imported from ClinVar/gnomAD/Open Targets."
+      ]
+    },
+    {
+      "id": "ANGPTL3:gene_level_protective_lof",
+      "gene": "ANGPTL3",
+      "symbol": "ANGPTL3",
+      "label": "ANGPTL3 gene-level protective loss-of-function",
+      "system": "gene-level LoF",
+      "dbsnp": null,
+      "allele": null,
+      "mechanism": "protective loss-of-function",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "atlas-gene-level",
+      "source": "angptl3-ncbi",
+      "confidence": "high",
+      "nullModes": [
+        "protective-loss-of-function",
+        "biallelic-deficiency",
+        "target-validation"
+      ],
+      "curationTags": [
+        "protective",
+        "biallelic-vs-heterozygous",
+        "target-validation"
+      ],
+      "caveats": [
+        "Gene-level row until specific LoF variants are imported from ClinVar/gnomAD/Open Targets."
+      ]
+    },
+    {
+      "id": "CYP2D6:star100",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*100",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*100",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star101",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*101",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*101",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star11",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*11",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*11",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star114",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*114",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*114",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star12",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*12",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*12",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star120",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*120",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*120",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star124",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*124",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*124",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star129",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*129",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*129",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star13",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*13",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*13",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star13+star68x2+star4",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*13+*68x2+*4",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*13+*68x2+*4",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength not returned."
+      ]
+    },
+    {
+      "id": "CYP2D6:star143",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*143",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*143",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star144",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*144",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*144",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star15",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*15",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*15",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star156",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*156",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*156",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star161",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*161",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*161",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star18",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*18",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*18",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star19",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*19",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*19",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star20",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*20",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*20",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star21",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*21",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*21",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star3",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*3",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*3",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star31",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*31",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*31",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star36",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*36",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*36",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star36x2",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*36x2",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*36x2",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star38",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*38",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*38",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star3x2",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*3x2",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*3x2",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star40",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*40",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*40",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star42",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*42",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*42",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star44",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*44",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*44",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star47",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*47",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*47",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star4x2",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*4x2",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*4x2",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star4x≥3",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*4x≥3",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*4x≥3",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Moderate."
+      ]
+    },
+    {
+      "id": "CYP2D6:star51",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*51",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*51",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star56",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*56",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*56",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star6",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*6",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*6",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "high",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Strong."
+      ]
+    },
+    {
+      "id": "CYP2D6:star60",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*60",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*60",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star62",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*62",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*62",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star68",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*68",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*68",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star68+star4",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*68+*4",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*68+*4",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength not returned."
+      ]
+    },
+    {
+      "id": "CYP2D6:star69",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*69",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*69",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star6x2",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*6x2",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*6x2",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star7",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*7",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*7",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star8",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*8",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*8",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star81",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*81",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*81",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star92",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*92",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*92",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star96",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*96",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*96",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    },
+    {
+      "id": "CYP2D6:star99",
+      "gene": "CYP2D6",
+      "symbol": "CYP2D6",
+      "label": "CYP2D6*99",
+      "system": "CPIC allele",
+      "dbsnp": null,
+      "allele": "CYP2D6*99",
+      "mechanism": "named no-function allele",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "sourceLayer": "cpic-no-function-allele",
+      "source": "cpic-api",
+      "confidence": "moderate",
+      "nullModes": [
+        "inherited-null",
+        "whole-gene-deletion",
+        "named-no-function-allele",
+        "medically-induced-functional-null",
+        "systemic-deficiency-candidate"
+      ],
+      "curationTags": [
+        "copy-number-required",
+        "brain-cns-review",
+        "endogenous-substrate-review",
+        "solanidine-exposure-case"
+      ],
+      "caveats": [
+        "CPIC clinical functional status: No function.",
+        "Activity value: 0.0.",
+        "CPIC strength: Limited."
+      ]
+    }
+  ]
+}

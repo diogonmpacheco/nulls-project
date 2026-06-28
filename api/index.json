@@ -19,6 +19,16 @@
       "use": "Same records as data/nulls-only.json, placed under api/ for consumers that expect API-like paths."
     },
     {
+      "path": "data/null-variants.json",
+      "label": "Null variant feed",
+      "use": "Normalized allele, marker, and gene-level LoF rows with strict/review status."
+    },
+    {
+      "path": "api/null-variants.json",
+      "label": "Static null variant API alias",
+      "use": "Same records as data/null-variants.json, placed under api/ for consumers that expect API-like paths."
+    },
+    {
       "path": "data/null-ingest-map.json",
       "label": "Gene-specific ingest rules",
       "use": "Per-gene source priorities, include/review/exclude mechanisms, and null-only curation rules."
