@@ -1,0 +1,873 @@
+{
+  "schema": "nulls-project.cyp2d6-ingest.v0",
+  "generated": "2026-06-28T16:30:21.213Z",
+  "gene": {
+    "symbol": "CYP2D6",
+    "ensemblGeneId": "ENSG00000100197",
+    "canonicalTranscript": "ENST00000645361.2",
+    "assembly": "GRCh38",
+    "location": {
+      "seqRegionName": "22",
+      "start": 42120962,
+      "end": 42131727,
+      "strand": -1
+    }
+  },
+  "profile": {
+    "strictNull": true,
+    "nullModes": [
+      "inherited-null",
+      "whole-gene-deletion",
+      "named-no-function-allele",
+      "medically-induced-functional-null",
+      "systemic-deficiency-candidate"
+    ],
+    "curationTags": [
+      "copy-number-required",
+      "brain-cns-review",
+      "endogenous-substrate-review",
+      "solanidine-exposure-case"
+    ],
+    "rules": [
+      "Treat CYP2D6 as structural-variant-sensitive; do not trust SNP-only null calls.",
+      "Separate inherited no-function from medically induced functional null.",
+      "Keep poor-metabolizer labels only when they can be translated into no/minimal function or explicitly marked as phenotype buckets.",
+      "Track endogenous CNS routes separately from drug metabolism."
+    ]
+  },
+  "sourcePulls": {
+    "cpicSeedAlleles": 4,
+    "cpicNoFunctionAlleles": 48,
+    "seedAlleles": [
+      "*4",
+      "*5",
+      "*10",
+      "*41"
+    ]
+  },
+  "records": [
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*4",
+      "alleleName": "*4",
+      "source": "cpic-api",
+      "sourceUrl": "https://api.cpicpgx.org/v1/allele?genesymbol=eq.CYP2D6&name=eq.*4",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Strong",
+      "evidenceSummary": "CYP2D6*4 is assigned no function based on strong evidence. CYP2D6*4 has consistently been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates (2211621, 11266079, 1978251, 1978565). Two in vitro studies found CYP2D6*4 had undetectable protein expression (2211621, 11266079). CYP2D6*4 is defined by a splicing defect resulting in a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on strong evidence.",
+      "nullsInterpretation": "Keep in strict CYP2D6 null filters.",
+      "sourceTags": [
+        "cpic-api",
+        "pharmvar-compatible-star-allele",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*5",
+      "alleleName": "*5",
+      "source": "cpic-api",
+      "sourceUrl": "https://api.cpicpgx.org/v1/allele?genesymbol=eq.CYP2D6&name=eq.*5",
+      "strictNull": true,
+      "reviewStatus": "strict-null",
+      "mechanism": "whole-gene deletion",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Definitve",
+      "evidenceSummary": "CYP2D6*5 is assigned no function based on definitive evidence. CYP2D6*5 has been studied for more than 20 years and its association with impaired function is well-established (1673290, 31544239). CYP2D6*5 is defined by a deletion of the CYP2D6 gene. CYP2D6*5 was first identified in a homozygous subject demonstrating decreased sparteine metabolism (1673290). An additional study found liver samples of seven subjects heterozygous for CYP2D6*5 demonstrated decreased intrinsic clearance compared to wildtype with a bufuralol substrate (11266079). Therefore, consensus among experts was no function with an activity value of 0 based on definitive evidence.",
+      "nullsInterpretation": "Keep in strict CYP2D6 null filters.",
+      "sourceTags": [
+        "cpic-api",
+        "pharmvar-compatible-star-allele",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*10",
+      "alleleName": "*10",
+      "source": "cpic-api",
+      "sourceUrl": "https://api.cpicpgx.org/v1/allele?genesymbol=eq.CYP2D6&name=eq.*10",
+      "strictNull": false,
+      "reviewStatus": "review-low-function",
+      "mechanism": "decreased-function review allele",
+      "clinicalFunctionalStatus": "Decreased function",
+      "activityValue": "0.25",
+      "strength": "Strong",
+      "evidenceSummary": "CYP2D6*10 is assigned decreased function based on strong evidence. CYP2D6*10 has consistently been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates, with metabolic ratios greater than those observed in wildtype subjects but less than poor metabolizers (8764380, 8287064, 19364831). In vitro studies using different cell systems similarly found CYP2D6*10 demonstrates decreased intrinsic clearance compared to wildtype with various substrates (27538917, 27354764, 27251229, 27203132, 26968424, 26937172, 26652007, 26542054, 26310775, 25469868, 30366777, 24647041, 11266079, 18784265). As part of the standardization of CYP2D6 genotype to phenotype translation among CPIC and the Dutch Pharmacogenetics Working Group, CYP2D6*10 was reevaluated as the evidence suggests the activity of the CYP2D6*10 is considerably lower compared to other decreased function alleles and the activity value of 0.5 (previously assigned) may overestimate metabolic capacity of patients with this allele (31647186). Therefore, consensus among experts was decreased function with an activity value of 0.25 based on strong evidence.",
+      "nullsInterpretation": "Keep as reduced-function comparator/review row; do not collapse into true null.",
+      "sourceTags": [
+        "cpic-api",
+        "pharmvar-compatible-star-allele",
+        "review"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*41",
+      "alleleName": "*41",
+      "source": "cpic-api",
+      "sourceUrl": "https://api.cpicpgx.org/v1/allele?genesymbol=eq.CYP2D6&name=eq.*41",
+      "strictNull": false,
+      "reviewStatus": "review-low-function",
+      "mechanism": "decreased-function review allele",
+      "clinicalFunctionalStatus": "Decreased function",
+      "activityValue": "0.25",
+      "strength": "Strong",
+      "evidenceSummary": "CYP2D6*41 is assigned decreased function based on strong evidence in heterozygous and homozygous subjects and in vitro studies. Subjects carrying CYP2D6*41 have demonstrated decreased enzyme activity compared to wildtype and CYP2D6*2 subjects with various substrates (11037799, 15289790, 17112815, 19364831). In vitro studies found CYP2D6*41 has decreased protein expression compared to wildtype (17001295, 19364831). Therefore, consensus among experts was decreased function with an activity value of 0.25 based on strong evidence.",
+      "nullsInterpretation": "Keep as reduced-function comparator/review row; do not collapse into true null.",
+      "sourceTags": [
+        "cpic-api",
+        "pharmvar-compatible-star-allele",
+        "review"
+      ]
+    }
+  ],
+  "noFunctionAlleles": [
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*100",
+      "alleleName": "*100",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*101",
+      "alleleName": "*101",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*11",
+      "alleleName": "*11",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*114",
+      "alleleName": "*114",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*12",
+      "alleleName": "*12",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*120",
+      "alleleName": "*120",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*124",
+      "alleleName": "*124",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*129",
+      "alleleName": "*129",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*13",
+      "alleleName": "*13",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*13+*68x2+*4",
+      "alleleName": "*13+*68x2+*4",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": null,
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*143",
+      "alleleName": "*143",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*144",
+      "alleleName": "*144",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*15",
+      "alleleName": "*15",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*156",
+      "alleleName": "*156",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*161",
+      "alleleName": "*161",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*18",
+      "alleleName": "*18",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*19",
+      "alleleName": "*19",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*20",
+      "alleleName": "*20",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*21",
+      "alleleName": "*21",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*3",
+      "alleleName": "*3",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*31",
+      "alleleName": "*31",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*36",
+      "alleleName": "*36",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*36x2",
+      "alleleName": "*36x2",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*38",
+      "alleleName": "*38",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*3x2",
+      "alleleName": "*3x2",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*4",
+      "alleleName": "*4",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Strong",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*40",
+      "alleleName": "*40",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*42",
+      "alleleName": "*42",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*44",
+      "alleleName": "*44",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*47",
+      "alleleName": "*47",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*4x2",
+      "alleleName": "*4x2",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*4x≥3",
+      "alleleName": "*4x≥3",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Moderate",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*5",
+      "alleleName": "*5",
+      "strictNull": true,
+      "mechanism": "whole-gene deletion",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Definitve",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*51",
+      "alleleName": "*51",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*56",
+      "alleleName": "*56",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*6",
+      "alleleName": "*6",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Strong",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*60",
+      "alleleName": "*60",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*62",
+      "alleleName": "*62",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*68",
+      "alleleName": "*68",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*68+*4",
+      "alleleName": "*68+*4",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": null,
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*69",
+      "alleleName": "*69",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*6x2",
+      "alleleName": "*6x2",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*7",
+      "alleleName": "*7",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*8",
+      "alleleName": "*8",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*81",
+      "alleleName": "*81",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*92",
+      "alleleName": "*92",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*96",
+      "alleleName": "*96",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    },
+    {
+      "gene": "CYP2D6",
+      "allele": "CYP2D6*99",
+      "alleleName": "*99",
+      "strictNull": true,
+      "mechanism": "named no-function allele",
+      "clinicalFunctionalStatus": "No function",
+      "activityValue": "0.0",
+      "strength": "Limited",
+      "source": "cpic-api",
+      "sourceTags": [
+        "cpic-api",
+        "strict-null"
+      ]
+    }
+  ],
+  "phenoconversion": {
+    "gene": "CYP2D6",
+    "mode": "medically-induced-functional-null",
+    "strictNull": false,
+    "reviewStatus": "induced-functional-null",
+    "mechanism": "strong inhibitor phenoconversion",
+    "inhibitors": [
+      "bupropion",
+      "fluoxetine",
+      "paroxetine",
+      "quinidine",
+      "terbinafine"
+    ],
+    "source": "nulls-project-curation",
+    "sourceTags": [
+      "phenoconversion",
+      "functional-null",
+      "requires-current-medication-context"
+    ],
+    "nullsInterpretation": "Can suppress CYP2D6 activity while present, especially liver/systemic activity, but may not reproduce inherited whole-body absence."
+  }
+}

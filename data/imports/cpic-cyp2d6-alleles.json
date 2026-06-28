@@ -1,0 +1,425 @@
+{
+  "schema": "nulls-project.cpic-cyp2d6-alleles.v0",
+  "generated": "2026-06-28T16:30:21.213Z",
+  "source": "https://api.cpicpgx.org/v1/allele",
+  "seedRows": [
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*10",
+      "clinicalfunctionalstatus": "Decreased function",
+      "activityvalue": "0.25",
+      "strength": "Strong",
+      "findings": "CYP2D6*10 is assigned decreased function based on strong evidence. CYP2D6*10 has consistently been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates, with metabolic ratios greater than those observed in wildtype subjects but less than poor metabolizers (8764380, 8287064, 19364831). In vitro studies using different cell systems similarly found CYP2D6*10 demonstrates decreased intrinsic clearance compared to wildtype with various substrates (27538917, 27354764, 27251229, 27203132, 26968424, 26937172, 26652007, 26542054, 26310775, 25469868, 30366777, 24647041, 11266079, 18784265). As part of the standardization of CYP2D6 genotype to phenotype translation among CPIC and the Dutch Pharmacogenetics Working Group, CYP2D6*10 was reevaluated as the evidence suggests the activity of the CYP2D6*10 is considerably lower compared to other decreased function alleles and the activity value of 0.5 (previously assigned) may overestimate metabolic capacity of patients with this allele (31647186). Therefore, consensus among experts was decreased function with an activity value of 0.25 based on strong evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*4",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Strong",
+      "findings": "CYP2D6*4 is assigned no function based on strong evidence. CYP2D6*4 has consistently been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates (2211621, 11266079, 1978251, 1978565). Two in vitro studies found CYP2D6*4 had undetectable protein expression (2211621, 11266079). CYP2D6*4 is defined by a splicing defect resulting in a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on strong evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*41",
+      "clinicalfunctionalstatus": "Decreased function",
+      "activityvalue": "0.25",
+      "strength": "Strong",
+      "findings": "CYP2D6*41 is assigned decreased function based on strong evidence in heterozygous and homozygous subjects and in vitro studies. Subjects carrying CYP2D6*41 have demonstrated decreased enzyme activity compared to wildtype and CYP2D6*2 subjects with various substrates (11037799, 15289790, 17112815, 19364831). In vitro studies found CYP2D6*41 has decreased protein expression compared to wildtype (17001295, 19364831). Therefore, consensus among experts was decreased function with an activity value of 0.25 based on strong evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*5",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Definitve",
+      "findings": "CYP2D6*5 is assigned no function based on definitive evidence. CYP2D6*5 has been studied for more than 20 years and its association with impaired function is well-established (1673290, 31544239). CYP2D6*5 is defined by a deletion of the CYP2D6 gene. CYP2D6*5 was first identified in a homozygous subject demonstrating decreased sparteine metabolism (1673290). An additional study found liver samples of seven subjects heterozygous for CYP2D6*5 demonstrated decreased intrinsic clearance compared to wildtype with a bufuralol substrate (11266079). Therefore, consensus among experts was no function with an activity value of 0 based on definitive evidence."
+    }
+  ],
+  "noFunctionRows": [
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*100",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*100 is assigned no function based on limited evidence. CYP2D6*100 has been described in a subject with CYP2D6*5/*100 genotype demonstrating markedly decreased dextromethorphan metabolism compared to wildtype (23394389). CYP2D6*100 is defined by the same SNPs as CYP2D6*10 in addition to a base pair deletion resulting in a frameshift yielding a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*101",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*101 is assigned no function based on limited evidence. CYP2D6*101 has been described in a subject with CYP2D6*2/*101 genotype demonstrating markedly decreased dextromethorphan metabolism compared to wildtype (23394389). CYP2D6*101 is defined by the same SNPs as CYP2D6*10 in addition to a 19 base pair deletion resulting in a frameshift yielding a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*11",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*11 is assigned no function based on limited evidence. CYP2D6*11 is defined by a splicing defect yielding a nonfunctional enzyme and was identified in a subject demonstrating markedly decreased sparteine metabolism (8563771, 9241659). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*114",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*114 is assigned no function based on limited evidence. CYP2D6*114 has been described in a subject with CYP2D6*5/*114 genotype demonstrating poor debrisoquine metabolism (10064570). Multiple in vitro studies found CYP2D6*114 had nondetectable enzyme activity with various substrates (18784265, 24647041). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*12",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*12 is assigned no function based on limited evidence. CYP2D6*12 is defined by a nonsense mutation yielding a nonfunctional enzyme and was identified in a subject demonstrating markedly decreased sparteine metabolism (8655150, 9241659). Two in vitro studies found CYP2D6*12 had nondetectable enzyme activity with various substrates (24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*120",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*120 is assigned no function based on limited evidence. CYP2D6*120 is defined by an early stop codon yielding a truncated and nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*124",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*124 is assigned no function based on limited evidence. CYP2D6*124 is defined by a deletion resulting in a frameshift and yielding a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*129",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*129 is assigned no function based on limited evidence. CYP2D6*129 is defined by an premature stop codon predicted to yield truncated protein and thus be nonfunctional. One in vitro study demonstrated substantially decreased intrinsic clearance CLint (Vmax/Km) of 3.2% compared to *1 for tamoxifen N-desmethylation; no activity was detectable for dextromethorphan O-demethylation (32759992). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*13",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*13 is assigned no function based on limited evidence. CYP2D6*13 was first described in a subject demonstrating markedly decreased dextromethorphan metabolism (8554938). CYP2D6*13 is a CYP2D7-CYP2D6 hybrid allele resulting in a premature stop codon and yielding a truncated nonfunctional enzyme. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*13+*68x2+*4",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": null,
+      "findings": null
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*143",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*143 is assigned no function based on limited evidence. CYP2D6*143 is defined by a premature stop codon predicted to yield truncated protein and thus be nonfunctional. A subject sequenced as CYP2D6*143/*144 had a risperidone/9-hydroxy-risperidone ratio that was higher (indicating lower activity) compared to that found in subjects with two no function alleles(33998274). Therefore, consensus among experts was no function."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*144",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*144 is assigned no function based on limited evidence. CYP2D6*144 is defined by a splice accepter variant predicting abberant splicing. A subject sequenced as CYP2D6*143/*144 had a risperidone/9-hydroxy-risperidone ratio that was higher (indicating lower activity) compared to that found in subjects with two no function alleles. Two subjects genotyped as *1/*144 and *2/*144 had ratios comparable to that of subjects with an AS of 1 (33998274). Therefore, consensus among experts was no function."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*15",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*15 is assigned no function based on limited evidence. CYP2D6*15 was first described in a subject demonstrating markedly decreased dextromethorphan and debrisoquine metabolism (8807669). CYP2D6*15 is defined by an amino acid insertion resulting in missense sequence and premature stop codon, yielding a truncated nonfunctional enzyme. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*156",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*156 is assigned no function based on limited evidence. CYP2D6*156 is defined by the five SNPs defining the decreased function *29 allele and one additional SNP, 154C>T which causes a premature stop codon (Q52X) that likely renders the allele nonfunctional. Therefore, consensus among experts was no function."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*161",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "limited",
+      "findings": "CYP2D6*161 is assigned no function based on limited evidence. CYP2D6*161 is defined by the two SNPs defining the normal function *2 allele and two SNP that are only found on this star allele of which one, 2591_2592insT causes a premature stop codon (E273X) that likely renders the allele nonfunctional."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*18",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*18 is assigned no function based on moderate evidence. CYP2D6*18 is defined by a 9 base insertion yielding a nonfunctional enzyme and has been described in subjects demonstrating markedly decreased metabolism of sparteine and debrisoquine (8946471, 10471060). Multiple in vitro studies found CYP2D6*18 had decreased enzyme activity compared to wildtype with various substrates (8946471, 18784265, 24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*19",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*19 is assigned no function based on limited evidence. CYP2D6*19 is defined by a four base deletion resulting in a frameshift and yielding a nonfunctional enzyme (9241659). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*20",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*20 is assigned no function based on limited evidence. CYP2D6*20 was identified in a liver sample with decreased protein expression and decreased metoprolol metabolism (10471072). CYP2D6*20 is defined by a base insertion resulting in a frameshift and premature stop codon, yielding a truncated and nonfunctional enzyme. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*21",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*21 is assigned no function based on limited evidence. CYP2D6*21 has been described in subjects demonstrating markedly decreased metabolism of debrisoquine and dextromethorphan (10471060, 15618746). CYP2D6*21 is defined by a base insertion resulting in a frameshift and premature stop codon, yielding a truncated and nonfunctional enzyme. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*3",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*3 is assigned no function based on limited evidence. CYP2D6*3 was first described in a heterozygous subject demonstrating decreased sparteine metabolism based on an elevated urinary metabolite ratio. CYP2D6*3 is defined by a single nucleotide deletion causing a frameshift and resulting in a nonfunctional protein (2211621). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*31",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*31 is assigned no function based on moderate evidence in heterozygous subjects and in vitro studies. CYP2D6*31 was first identified in a subject with CYP2D6 *4/*31 genotype demonstrating markedly decreased metoprolol metabolism with an AUC more than three times greater than the AUC of wildtype subjects and similar AUC to subjects with two known nonfunctional alleles (15726636). CYP2D6*31 was described in another subject demonstrating decreased dextromethorphan metabolism based on urine metabolites (20473659). Multiple in vitro studies found CYP2D6*31 had nondetectable or markedly decreased enzyme activity compared to wildtype with various substrates (15726636, 24647041, 30366777). CYP2D6*31 is defined by three amino acid substitutions and an analysis of the crystal structure and docking study suggested the Arg440His substitution causes reduced reductase binding resulting in impaired enzyme activity (15726636). Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*36",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*36 is assigned no function based on moderate evidence in heterozygous subjects and in vitro studies. CYP2D6*36 has been described in subjects with CYP2D6 *1/*36 and CYP2D6 *2/*36 genotype demonstrating decreased metabolism and subjects with CYP2D6 *4/*36 demonstrating poor metabolism with debrisoquine and dextromethorphan substrates (9918137, 16415111). Multiple in vitro studies found CYP2D6*36 had nondetectable or markedly decreased enzyme activity compared to wildtype with various substrates (7935325, 18784265, 24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*36x2",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*36x2 is assigned no function based on limited evidence in a heterozygous subject. CYP2D6*36x2 has been described in a subject with CYP2D6*21/*36x2 genotype demonstrating poor metabolism with a debrisoquine substrate (12439227). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing a duplication of this allele would be clinically similar to phenotypes comprising the nonduplicated allele."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*38",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*38 is assigned no function based on limited evidence in a heterozygous subject. CYP2D6*38 was identified in a heterozygous subject with CYP2D6 *4/*38 genotype demonstrating poor metabolism with a debrisoquine substrate (9918137). CYP2D6*38 is defined by a four base pair deletion resulting in a frameshift. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*3x2",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*3x2 is assigned no function based on limited evidence. CYP2D6*3 is defined by a single nucleotide deletion causing a frameshift and resulting in a nonfunctional protein and is assigned no function (2211621). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing a duplication of this allele would be clinically similar to phenotypes comprising the nonduplicated allele."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*4",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Strong",
+      "findings": "CYP2D6*4 is assigned no function based on strong evidence. CYP2D6*4 has consistently been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates (2211621, 11266079, 1978251, 1978565). Two in vitro studies found CYP2D6*4 had undetectable protein expression (2211621, 11266079). CYP2D6*4 is defined by a splicing defect resulting in a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on strong evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*40",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*40 is assigned no function based on moderate evidence in heterozygous subjects and in vitro studies. CYP2D6*40 is defined by an 18 base pair insertion. CYP2D6*40 has been described in subjects with CYP2D6 *4/*40, CYP2D6 *6/*40, and CYP2D6 *40/*42 genotype demonstrating poor metabolism with a dextromethorphan substrate (12152006, 12811367). Multiple in vitro studies found CYP2D6*40 had nondetectable enzyme activity compared to wildtype with various substrates (24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*42",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*42 is assigned no function based on limited evidence in a heterozygous subject. CYP2D6*42 has been described in subjects with CYP2D6 *17/*42 genotype demonstrating decreased metabolism and a subject with CYP2D6 *40/*42 genotype demonstrating poor metabolism with a dextromethorphan substrate (12811367). CYP2D6*42 is defined by a base pair insertion resulting in a frameshift yielding a truncated and nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*44",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*44 is assigned no function based on limited evidence in a heterozygous subject. CYP2D6*44 was identified in a subject with CYP2D6 *2/*44 genotype demonstrating decreased dextromethorphan metabolism compared to CYP2D6 *1/*2 subjects (15618746). CYP2D6*44 is defined by a splicing defect yielding a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*47",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*47 is assigned no function based on limited evidence. Multiple in vitro studies found CYP2D6*47 had nondetectable enzyme activity with multiple substrates (18784265, 24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*4x2",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*4x2 is assigned no function based on moderate evidence. CYP2D6*4x2 has been described in subjects demonstrating decreased metabolism of dextromethorphan or debrisoquine (10022755, 12152006). CYP2D6*4 is defined by a splicing defect resulting in a nonfunctional protein and gene duplication would therefore not impact enzyme activity. Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*4x≥3",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Moderate",
+      "findings": "CYP2D6*4x≥3 is assigned no function based on moderate evidence. CYP2D6*4x3 was detected in two samples (266029920). CYP2D6*4 duplication has been described in subjects demonstrating decreased metabolism of dextromethorphan or debrisoquine (10022755, 12152006). CYP2D6*4 is defined by a splicing defect resulting in a nonfunctional protein and gene duplication or multiplications would therefore not impact enzyme activity. Therefore, consensus among experts was no function with an activity value of 0 based on moderate evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*5",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Definitve",
+      "findings": "CYP2D6*5 is assigned no function based on definitive evidence. CYP2D6*5 has been studied for more than 20 years and its association with impaired function is well-established (1673290, 31544239). CYP2D6*5 is defined by a deletion of the CYP2D6 gene. CYP2D6*5 was first identified in a homozygous subject demonstrating decreased sparteine metabolism (1673290). An additional study found liver samples of seven subjects heterozygous for CYP2D6*5 demonstrated decreased intrinsic clearance compared to wildtype with a bufuralol substrate (11266079). Therefore, consensus among experts was no function with an activity value of 0 based on definitive evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*51",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*51 is assigned no function based on limited evidence. Multiple in vitro studies found CYP2D6*51 had nondetectable enzyme activity with multiple substrates (18784265, 24647041, 30366777). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*56",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*56 is assigned no function based on limited evidence. A subject with CYP2D6 *4/*56 genotype demonstrated poor dextromethorphan metabolism based on urine metabolites on multiple occasions (17392730). CYP2D6*56 was identified in an hepatocyte demonstrating undetectable CYP2D6 protein expression and undetectable enzyme activity with dextromethorphan and bufuralol substrates (16679388). CYP2D6*56 is defined by a premature stop codon yielding a truncated and nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*6",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Strong",
+      "findings": "CYP2D6*6 is assigned no function based on strong evidence. CYP2D6*6 has been described in subjects demonstrating decreased metabolism of various CYP2D6 substrates (10022755, 7894499, 7951238, 7868129). CYP2D6*6 is defined by a single nucleotide deletion resulting in a frameshift and premature stop codon yielding a truncated and nonfunctional protein (7894499). Therefore, consensus among experts was no function with an activity value of 0 based on strong evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*60",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*60 is assigned no function based on limited evidence. CYP2D6*60 is defined by an early stop codon suggesting a complete functional protein is not formed (19364831). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*62",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*62 is assigned no function based on limited evidence. CYP2D6*62 has been described in a subject with reduced enzyme activity with a sparteine substrate (17460029). Multiple in vitro studies found CYP2D6*62 had nondetectable enzyme activity with multiple substrates (17460029, 24647041, 30366777). CYP2D6*62 is defined by a SNP which disrupts heme incorporation resulting in a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*68",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*68 is assigned no function based on limited evidence. CYP2D6*68 is a CYP2D6-CYP2D7 hybrid gene similar to CYP2D6*4 which results in a nonfunctional protein (22111604). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*68+*4",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": null,
+      "findings": null
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*69",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*69 is assigned no function based on limited evidence. CYP2D6*69 was identified in a subject demonstrating poor dextromethorphan metabolism (18797858). CYP2D6*69 is a rare allele defined by several SNPs including two which are attributed to the decreased function in other CYP2D6 alleles. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*6x2",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*6x2 is assigned no function based on limited evidence. CYP2D6*6 is defined by a single nucleotide deletion resulting in a frameshift and premature stop codon yielding a truncated and nonfunctional protein (7894499). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing a duplication of this allele would be clinically similar to phenotypes comprising the nonduplicated allele."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*7",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*7 is assigned no function based on limited evidence. CYP2D6*7 was first described in subjects demonstrating decreased sparteine metabolism (7845481). Two in vitro studies found CYP2D6*7 had nondetectable or markedly decreased enzyme activity compared to wildtype with tamoxifen, bufuralol, dextromethorphan, and primaquine substrates (24647041, 30366777). CYP2D6*7 is defined by an amino substitution near the active site disrupting protein folding and resulting in a nonfunctional enzyme based on computational analysis (7845481). Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*8",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*8 is assigned no function based on limited evidence. CYP2D6*8 was first described in a subject demonstrating decreased debrisoquine and sparteine metabolism (8530011). CYP2D6*8 is defined by an amino substitution resulting in a premature stop codon yielding a truncated and nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence as it was determined the phenotypes containing this allele would be clinically distinct from phenotypes comprising normal and decreased function alleles."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*81",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*81 is assigned no function based on limited evidence. CYP2D6*81 was identified in a subject demonstrating impaired enzyme activity based on experiencing adverse effects with venlafaxine and subsequently elevated nortriptyline levels (23799451). CYP2D6*81 is defined by an early stop codon yielding a truncated and nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*92",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*92 is assigned no function based on limited evidence. Multiple in vitro studies found CYP2D6*92 had nondetectable enzyme with various substrates (25469868, 26310775, 26666748, 26544071, 26406933, 27109434, 27097346, 27016952, 26542054, 26937172, 26968424, 27203132, 27251229, 27354764, 27538917). CYP2D6*92 is defined by a deletion resulting in a frameshift and early stop codon and yielding a truncated nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*96",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*96 is assigned no function based on limited evidence. Multiple in vitro studies found CYP2D6*96 had nondetectable enzyme with various substrates (25469868, 26310775, 26666748, 26544071, 26406933, 27109434, 27097346, 27016952, 26542054, 26937172, 26968424, 27203132, 27251229, 27354764, 27538917). CYP2D6*96 is defined by an early stop codon yielding a truncated nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    },
+    {
+      "genesymbol": "CYP2D6",
+      "name": "*99",
+      "clinicalfunctionalstatus": "No function",
+      "activityvalue": "0.0",
+      "strength": "Limited",
+      "findings": "CYP2D6*99 is assigned no function based on limited evidence. CYP2D6*99 has been described in a subject with CYP2D6*5/*99 genotype demonstrating markedly decreased metabolism compared to wildtype with dextromethorphan and venlafaxine substrates (29327975). CYP2D6*99 is defined by the same SNPs as CYP2D6*10 in addition to a SNP resulting in an amino acid substitution which disrupts enzyme activity yielding a nonfunctional protein. Therefore, consensus among experts was no function with an activity value of 0 based on limited evidence."
+    }
+  ]
+}
