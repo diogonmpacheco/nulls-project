@@ -82,6 +82,34 @@
             </select>
           </div>
 
+          <fieldset class="control-block facet-fieldset">
+            <legend>Null Facets</legend>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="strictNull">
+              <span>Strict null only</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="reviewLowFunction">
+              <span>Review low-function</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="protective">
+              <span>Protective LoF</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="induced">
+              <span>Induced functional null</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="systemic">
+              <span>Systemic candidates</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" name="facet" value="pgx">
+              <span>PGx nulls</span>
+            </label>
+          </fieldset>
+
           <div class="scope-card">
             <h2>Evidence Tiers</h2>
             <div id="tier-list" class="tier-list"></div>
@@ -139,6 +167,6 @@
       <span>Open data, static site, source-linked curation.</span>
     </footer>
 
-    <script src="app.js?v=2026-06-28-null-ingest" type="module"></script>
+    <script src="app.js?v=2026-06-28-null-filters" type="module"></script>
   </body>
 </html>

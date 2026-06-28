@@ -5,6 +5,7 @@ const state = {
   tier: "all",
   domain: "all",
   flag: "all",
+  activeFacets: new Set(),
   selectedGeneId: "CYP2D6"
 };
 
@@ -17,6 +18,7 @@ const els = {
   tierFilter: document.querySelector("#tier-filter"),
   domainFilter: document.querySelector("#domain-filter"),
   flagFilter: document.querySelector("#flag-filter"),
+  facetFilters: document.querySelectorAll("input[name='facet']"),
   tierList: document.querySelector("#tier-list"),
   matrix: document.querySelector("#evidence-matrix"),
   table: document.querySelector("#gene-table"),
@@ -68,6 +70,13 @@ function attachEvents() {
     state.flag = event.target.value;
     renderAtlas();
   });
+
+  for (const checkbox of els.facetFilters) {
+    checkbox.addEventListener("change", () => {
+      state.activeFacets = new Set([...els.facetFilters].filter(input => input.checked).map(input => input.value));
+      renderAtlas();
+    });
+  }
 }
 
 function hydrateControls() {
@@ -133,16 +142,34 @@ function filteredGenes() {
       ...(gene.phenotypes || []).map(row => `${row.label} ${row.system} ${row.direction} ${row.note}`),
       ...((gene.endogenousModel?.rows || []).map(row => `${row.substrate} ${row.route} ${row.nullQuestion} ${row.evidenceBase}`)),
       ...(state.ingestMap?.genes?.[gene.id]?.includeMechanisms || []),
+      ...(state.ingestMap?.genes?.[gene.id]?.reviewMechanisms || []),
       ...(state.ingestMap?.genes?.[gene.id]?.curationTags || []),
       ...(state.ingestMap?.genes?.[gene.id]?.nullModes || []),
       ...(gene.markers || []).map(row => `${row.label} ${row.dbsnp || ""} ${row.interpretation}`)
     ].join(" ").toLowerCase();
 
+    const facets = geneFacets(gene);
     return (!state.query || haystack.includes(state.query))
       && (state.tier === "all" || gene.tier === state.tier)
       && (state.domain === "all" || (gene.domains || []).includes(state.domain))
-      && (state.flag === "all" || (gene.flags || []).includes(state.flag));
+      && (state.flag === "all" || (gene.flags || []).includes(state.flag))
+      && [...state.activeFacets].every(facet => facets[facet]);
   });
+}
+
+function geneFacets(gene) {
+  const profile = state.ingestMap?.genes?.[gene.id] || {};
+  const domains = gene.domains || [];
+  const flags = gene.flags || [];
+  const nullModes = profile.nullModes || [];
+  return {
+    strictNull: Boolean(profile.strictNull),
+    reviewLowFunction: !profile.strictNull || Boolean(profile.reviewMechanisms?.length),
+    protective: flags.includes("protective"),
+    induced: nullModes.some(mode => mode.includes("induced")),
+    systemic: flags.includes("tissue-resolved") || domains.includes("tissue-resolved biology"),
+    pgx: domains.includes("pharmacogenomics")
+  };
 }
 
 function renderMatrix(rows) {
@@ -186,7 +213,7 @@ function renderTable(rows) {
       <td>${escapeHtml(gene.nullStateLabel)}</td>
       <td><span class="stack">${chips(gene.domains, "domain")}</span></td>
       <td class="signal">${escapeHtml(gene.oneLine)}</td>
-      <td><span class="stack">${chips(gene.flags, "flag")}</span></td>
+      <td><span class="stack">${chips([...gene.flags, ...facetLabels(gene)], "flag")}</span></td>
     </tr>
   `).join("");
 
@@ -199,6 +226,20 @@ function renderTable(rows) {
       }
     });
   }
+}
+
+function facetLabels(gene) {
+  const facets = geneFacets(gene);
+  return Object.entries({
+    strictNull: "strict-null",
+    reviewLowFunction: "review-low-function",
+    protective: "protective-lof",
+    induced: "induced-null",
+    systemic: "systemic-candidate",
+    pgx: "pgx-null"
+  })
+    .filter(([key]) => facets[key])
+    .map(([, label]) => label);
 }
 
 function selectGene(geneId) {

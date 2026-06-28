@@ -254,6 +254,41 @@ label {
   text-transform: uppercase;
 }
 
+.facet-fieldset {
+  margin: 0;
+}
+
+.facet-fieldset legend {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.checkbox-row + .checkbox-row {
+  margin-top: 6px;
+}
+
+.checkbox-row input {
+  width: 16px;
+  min-height: 16px;
+  flex: 0 0 16px;
+}
+
 input,
 select {
   width: 100%;
