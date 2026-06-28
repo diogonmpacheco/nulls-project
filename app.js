@@ -7,6 +7,8 @@ const state = {
   selectedGeneId: "CYP2D6"
 };
 
+const DATA_URL = "data/nulls-atlas.json";
+
 const els = {
   metrics: document.querySelector("#metrics"),
   search: document.querySelector("#search"),
@@ -24,7 +26,7 @@ const els = {
 init();
 
 async function init() {
-  const response = await fetch("data/nulls-atlas.json");
+  const response = await fetch(DATA_URL, { cache: "no-cache" });
   if (!response.ok) throw new Error(`Could not load atlas data: ${response.status}`);
   state.atlas = await response.json();
 
