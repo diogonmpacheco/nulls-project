@@ -89,8 +89,9 @@ The intended future bridge is:
 ## Files
 
 - `index.html` - static GitHub Pages app.
-- `styles.css` - responsive dense atlas UI.
-- `app.js` - client-side search, filters, evidence matrix, and gene dossier rendering.
+- `styles.css` - responsive explanatory atlas UI.
+- `app.js` - client-side search, filters, evidence visuals, variant snapshot, and gene dossier rendering.
+- `assets/null-systems-map.png` - generated systems-map hero illustration.
 - `data/nulls-atlas.json` - first structured data draft.
 - `data/nulls-only.json` - generated null-only feed for client-side filtering.
 - `data/null-variants.json` - generated allele/marker/gene-level null variant feed.
@@ -105,6 +106,7 @@ The intended future bridge is:
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/source-confidence.md` - evidence-type labels for null rows.
+- `docs/roadmap.md` - public issue-ready roadmap.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
 - `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.

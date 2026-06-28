@@ -17,27 +17,28 @@
         </span>
       </a>
       <nav class="top-nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#cyp2d6">CYP2D6</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#variants">Variants</a>
         <a href="#atlas">Atlas</a>
-        <a href="#dossier">Dossier</a>
         <a href="docs/methods.md">Methods</a>
-        <a href="docs/source-confidence.md">Confidence</a>
-        <a href="docs/systemic-null-framing.md">Systemic Framing</a>
-        <a href="docs/cyp2d6-body-map.md">Body Map</a>
-        <a href="docs/cyp2d6-endogenous-map.md">Endogenous Map</a>
-        <a href="docs/diognosis-bridge.md">Diognosis Bridge</a>
-        <a href="data/nulls-only.json">Null Feed</a>
         <a href="api/index.json">API</a>
-        <a href="data/nulls-atlas.json">Data</a>
         <a href="https://github.com/diogonmpacheco/nulls-project">GitHub</a>
       </nav>
     </header>
 
     <main>
-      <section class="overview-band" aria-labelledby="project-title">
-        <div class="title-block">
+      <section class="hero-shell" id="overview" aria-labelledby="project-title">
+        <img class="hero-art" src="assets/null-systems-map.png" alt="Scientific systems-map illustration showing a human body, tissue nodes, and one missing pathway route.">
+        <div class="hero-overlay">
           <p class="eyebrow">v0.1 draft atlas</p>
-          <h1 id="project-title">The Nulls Project</h1>
-          <p class="subtitle">A source-linked map of what human biology reveals when an enzyme or function is missing across the body, severely reduced, or medically switched off.</p>
+          <h1 id="project-title">A body-level map for missing function.</h1>
+          <p class="subtitle">The Nulls Project turns loss-of-function biology into a source-linked atlas: inherited absence, severe low function, medication-induced functional nulls, protective knockouts, tissue context, and uncertainty kept separate.</p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#atlas">Explore atlas</a>
+            <a class="button" href="#cyp2d6">See flagship model</a>
+          </div>
         </div>
         <dl class="metrics" id="metrics" aria-label="Dataset metrics">
           <div><dt>Genes</dt><dd>10</dd></div>
@@ -49,11 +50,112 @@
 
       <section class="boundary-strip" aria-label="Project boundary">
         <strong>Careful map, not a verdict.</strong>
-        <span>Educational research reference only. Some nulls may be systemic functional deficiencies, but variants are not diagnoses; medication decisions need qualified review.</span>
+        <span>Educational research reference only. Variants are not diagnoses; medication decisions need qualified review.</span>
+      </section>
+
+      <section class="concept-band" aria-labelledby="concept-title">
+        <div class="section-intro">
+          <p class="eyebrow">Interpretation frame</p>
+          <h2 id="concept-title">A null is not one thing.</h2>
+          <p>Each record separates mechanism from meaning, so a user can see whether the story is inherited absence, residual activity, temporary suppression, or protective loss of function.</p>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card inherited">
+            <span class="concept-icon" aria-hidden="true"></span>
+            <h3>Inherited null</h3>
+            <p>A no-function allele, deletion, or missing function that may affect every compartment where the gene is normally active.</p>
+          </article>
+          <article class="concept-card low">
+            <span class="concept-icon" aria-hidden="true"></span>
+            <h3>Low-function review</h3>
+            <p>Severe reduction that can approximate a null in some contexts, but should not be collapsed into a true absence.</p>
+          </article>
+          <article class="concept-card induced">
+            <span class="concept-icon" aria-hidden="true"></span>
+            <h3>Induced functional null</h3>
+            <p>A drug or exposure can temporarily suppress function, but distribution and timing decide which tissues are actually silenced.</p>
+          </article>
+          <article class="concept-card protective">
+            <span class="concept-icon" aria-hidden="true"></span>
+            <h3>Protective LoF</h3>
+            <p>Some missing-function states are protective, showing why less function is not automatically pathological.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-board" id="cyp2d6" aria-labelledby="cyp2d6-title">
+        <div class="story-copy" id="flagship-panel">
+          <p class="eyebrow">Flagship case</p>
+          <h2 id="cyp2d6-title">CYP2D6 shows why null biology needs a systems view.</h2>
+          <p>The first release uses CYP2D6 to distinguish inherited true nulls, poor-metabolizer labels, residual low function, and medically induced functional nulls.</p>
+        </div>
+        <div class="systems-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Tissue-resolved map</p>
+              <h2>Inherited null vs induced suppression</h2>
+            </div>
+            <a href="docs/cyp2d6-body-map.md">Body map</a>
+          </div>
+          <div class="compartment-map" id="compartment-map"></div>
+        </div>
+      </section>
+
+      <section class="pathway-band" aria-labelledby="pathway-title">
+        <div class="section-intro">
+          <p class="eyebrow">Endogenous layer</p>
+          <h2 id="pathway-title">Pathways are shown as questions, not symptom claims.</h2>
+          <p>CYP2D6 candidate routes are represented as pathway-load questions with their evidence base visible.</p>
+        </div>
+        <div class="pathway-map" id="pathway-map"></div>
+      </section>
+
+      <section class="insight-grid" id="evidence" aria-labelledby="evidence-title">
+        <article class="matrix-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Evidence matrix</p>
+              <h2 id="evidence-title">How strong is the record?</h2>
+            </div>
+          </div>
+          <div id="evidence-matrix" class="evidence-matrix"></div>
+        </article>
+
+        <article class="evidence-model">
+          <p class="eyebrow">Evidence tiers</p>
+          <h2>Strength ladder</h2>
+          <div id="tier-list" class="tier-list"></div>
+        </article>
+
+        <article class="confidence-panel">
+          <p class="eyebrow">Source confidence</p>
+          <h2>What kind of evidence?</h2>
+          <div id="source-confidence-strip" class="confidence-strip"></div>
+        </article>
+
+        <article class="domain-panel">
+          <p class="eyebrow">Coverage</p>
+          <h2>Domains in the first release</h2>
+          <div id="domain-cloud" class="domain-cloud"></div>
+        </article>
+      </section>
+
+      <section class="variant-panel" id="variants" aria-labelledby="variant-title">
+        <div class="section-intro">
+          <p class="eyebrow">Variant feed</p>
+          <h2 id="variant-title">Strict nulls and review rows are separated before ingestion.</h2>
+          <p>The variant feed is designed for downstream tools that need a conservative null lens without losing caveats, source layers, and confidence labels.</p>
+        </div>
+        <div class="variant-snapshot" id="variant-snapshot"></div>
       </section>
 
       <section class="atlas-grid" id="atlas">
         <aside class="filters" aria-label="Atlas filters">
+          <div class="filter-heading">
+            <p class="eyebrow">Explore</p>
+            <h2>Gene atlas</h2>
+          </div>
+
           <div class="control-block">
             <label for="search">Search</label>
             <input id="search" type="search" autocomplete="off" placeholder="CYP2D6, hemolysis, protective">
@@ -111,22 +213,9 @@
               <span>PGx nulls</span>
             </label>
           </fieldset>
-
-          <div class="scope-card">
-            <h2>Evidence Tiers</h2>
-            <div id="tier-list" class="tier-list"></div>
-          </div>
         </aside>
 
         <section class="atlas-main" aria-label="Atlas records">
-          <div class="matrix-panel">
-            <div>
-              <p class="eyebrow">Evidence matrix</p>
-              <h2>First release shape</h2>
-            </div>
-            <div id="evidence-matrix" class="evidence-matrix"></div>
-          </div>
-
           <div class="table-panel">
             <div class="panel-heading">
               <div>
@@ -135,6 +224,7 @@
               </div>
               <p id="result-count" class="result-count">10 records</p>
             </div>
+            <div id="gene-cards" class="gene-cards" aria-label="Gene cards"></div>
             <div class="table-wrap" tabindex="0">
               <table>
                 <thead>
@@ -166,9 +256,16 @@
 
     <footer class="site-footer">
       <span>The Nulls Project v0.1 draft</span>
-      <span>Open data, static site, source-linked curation.</span>
+      <nav aria-label="Footer resources">
+        <a href="docs/source-confidence.md">Confidence</a>
+        <a href="docs/systemic-null-framing.md">Systemic framing</a>
+        <a href="docs/cyp2d6-endogenous-map.md">Endogenous map</a>
+        <a href="data/nulls-only.json">Null feed</a>
+        <a href="data/nulls-atlas.json">Data</a>
+        <a href="docs/roadmap.md">Roadmap</a>
+      </nav>
     </footer>
 
-    <script src="app.js?v=2026-06-28-confidence" type="module"></script>
+    <script src="app.js?v=2026-06-28-revolutionary-ui" type="module"></script>
   </body>
 </html>

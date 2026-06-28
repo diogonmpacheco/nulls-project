@@ -1,5 +1,6 @@
 const state = {
   atlas: null,
+  variants: null,
   ingestMap: null,
   confidenceMap: null,
   query: "",
@@ -11,11 +12,18 @@ const state = {
 };
 
 const DATA_URL = "data/nulls-atlas.json";
+const VARIANTS_URL = "data/null-variants.json";
 const INGEST_MAP_URL = "data/null-ingest-map.json";
 const CONFIDENCE_MAP_URL = "data/source-confidence-map.json";
 
 const els = {
   metrics: document.querySelector("#metrics"),
+  flagshipPanel: document.querySelector("#flagship-panel"),
+  compartmentMap: document.querySelector("#compartment-map"),
+  pathwayMap: document.querySelector("#pathway-map"),
+  sourceConfidenceStrip: document.querySelector("#source-confidence-strip"),
+  domainCloud: document.querySelector("#domain-cloud"),
+  variantSnapshot: document.querySelector("#variant-snapshot"),
   search: document.querySelector("#search"),
   tierFilter: document.querySelector("#tier-filter"),
   domainFilter: document.querySelector("#domain-filter"),
@@ -23,6 +31,7 @@ const els = {
   facetFilters: document.querySelectorAll("input[name='facet']"),
   tierList: document.querySelector("#tier-list"),
   matrix: document.querySelector("#evidence-matrix"),
+  cards: document.querySelector("#gene-cards"),
   table: document.querySelector("#gene-table"),
   resultCount: document.querySelector("#result-count"),
   dossier: document.querySelector("#gene-dossier"),
@@ -32,15 +41,19 @@ const els = {
 init();
 
 async function init() {
-  const [atlasResponse, ingestMapResponse, confidenceMapResponse] = await Promise.all([
+  const [atlasResponse, variantsResponse, ingestMapResponse, confidenceMapResponse] = await Promise.all([
     fetch(DATA_URL, { cache: "no-cache" }),
+    fetch(VARIANTS_URL, { cache: "no-cache" }),
     fetch(INGEST_MAP_URL, { cache: "no-cache" }),
     fetch(CONFIDENCE_MAP_URL, { cache: "no-cache" })
   ]);
   if (!atlasResponse.ok) throw new Error(`Could not load atlas data: ${atlasResponse.status}`);
+  if (!variantsResponse.ok) throw new Error(`Could not load variant data: ${variantsResponse.status}`);
   if (!ingestMapResponse.ok) throw new Error(`Could not load ingest map: ${ingestMapResponse.status}`);
   if (!confidenceMapResponse.ok) throw new Error(`Could not load confidence map: ${confidenceMapResponse.status}`);
+
   state.atlas = await atlasResponse.json();
+  state.variants = await variantsResponse.json();
   state.ingestMap = await ingestMapResponse.json();
   state.confidenceMap = await confidenceMapResponse.json();
 
@@ -99,7 +112,13 @@ function hydrateControls() {
 
 function renderAll() {
   renderMetrics();
+  renderFlagshipPanel();
+  renderCompartmentMap();
+  renderPathwayMap();
   renderTierList();
+  renderSourceConfidenceStrip();
+  renderDomainCloud();
+  renderVariantSnapshot();
   renderAtlas();
   renderPhaseTwo();
 }
@@ -108,10 +127,70 @@ function renderMetrics() {
   const { metadata } = state.atlas;
   els.metrics.innerHTML = `
     <div><dt>Genes</dt><dd>${metadata.counts.genes}</dd></div>
-    <div><dt>Flagship</dt><dd>CYP2D6</dd></div>
+    <div><dt>Source-linked</dt><dd>${metadata.counts.sourceLinkedGenes}</dd></div>
     <div><dt>Diognosis Seed</dt><dd>${metadata.counts.diognosisSeededGenes}</dd></div>
     <div><dt>Release</dt><dd>${escapeHtml(metadata.version)}</dd></div>
   `;
+}
+
+function renderFlagshipPanel() {
+  const gene = state.atlas.genes.find(row => row.atlasRole === "flagship") || state.atlas.genes[0];
+  const evidencePoints = [
+    gene.nullEvidence?.[0],
+    gene.nullEvidence?.find(point => point.toLowerCase().includes("inhibitor")),
+    gene.nullEvidence?.find(point => point.toLowerCase().includes("brain")),
+    gene.exposureCaseModel?.summary
+  ].filter(Boolean);
+
+  els.flagshipPanel.innerHTML = `
+    <p class="eyebrow">Flagship case</p>
+    <h2>CYP2D6 shows why null biology needs a systems view.</h2>
+    <p>${escapeHtml(gene.whyStrong)}</p>
+    <div class="flagship-points">
+      ${evidencePoints.map(point => `<span>${escapeHtml(compactText(point, 178))}</span>`).join("")}
+    </div>
+  `;
+}
+
+function renderCompartmentMap() {
+  const gene = selectedGene("CYP2D6");
+  const priority = ["Liver / systemic circulation", "Brain / CNS local enzyme", "Blood-brain barrier / CNS entry", "Kidney / urine biomarkers", "Cardiovascular target effects", "Adipose / lipid reservoirs"];
+  const rows = priority
+    .map(name => gene.compartmentModel?.find(row => row.compartment === name))
+    .filter(Boolean);
+
+  els.compartmentMap.innerHTML = rows.map(row => `
+    <article class="compartment-card">
+      <h3>
+        <span>${escapeHtml(row.compartment)}</span>
+        <span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span>
+      </h3>
+      <div class="comparison-line">
+        <div>
+          <strong>Inherited</strong>
+          <p>${escapeHtml(compactText(row.inheritedNull, 138))}</p>
+        </div>
+        <div>
+          <strong>Induced</strong>
+          <p>${escapeHtml(compactText(row.medicallyInducedNull, 138))}</p>
+        </div>
+      </div>
+      <p>${escapeHtml(compactText(row.whyItDiffers, 150))}</p>
+    </article>
+  `).join("");
+}
+
+function renderPathwayMap() {
+  const model = selectedGene("CYP2D6").endogenousModel;
+  els.pathwayMap.innerHTML = (model?.rows || []).map(row => `
+    <article class="pathway-card">
+      <span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span>
+      <h3>${escapeHtml(row.substrate)}</h3>
+      <p>${escapeHtml(compactText(row.route, 165))}</p>
+      <p><strong>Null question:</strong> ${escapeHtml(compactText(row.nullQuestion, 180))}</p>
+      <p><strong>Evidence:</strong> ${escapeHtml(compactText(row.evidenceBase, 145))}</p>
+    </article>
+  `).join("");
 }
 
 function renderTierList() {
@@ -126,9 +205,77 @@ function renderTierList() {
   `).join("");
 }
 
+function renderSourceConfidenceStrip() {
+  const labelCounts = new Map();
+  for (const profile of Object.values(state.confidenceMap.genes || {})) {
+    for (const label of profile.labels || []) {
+      labelCounts.set(label, (labelCounts.get(label) || 0) + 1);
+    }
+  }
+
+  els.sourceConfidenceStrip.innerHTML = [...labelCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 10)
+    .map(([label, count]) => `
+      <span class="confidence-pill" title="${escapeAttr(state.confidenceMap.labelDefinitions?.[label] || "")}">
+        <strong>${count}</strong>
+        ${escapeHtml(label)}
+      </span>
+    `).join("");
+}
+
+function renderDomainCloud() {
+  const domainCounts = new Map();
+  for (const gene of state.atlas.genes) {
+    for (const domain of gene.domains || []) {
+      domainCounts.set(domain, (domainCounts.get(domain) || 0) + 1);
+    }
+  }
+
+  els.domainCloud.innerHTML = [...domainCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 16)
+    .map(([domain, count]) => `
+      <span class="domain-score">
+        <strong>${count}</strong>
+        ${escapeHtml(domain)}
+      </span>
+    `).join("");
+}
+
+function renderVariantSnapshot() {
+  const records = state.variants.records || [];
+  const strict = records.filter(row => row.strictNull).length;
+  const review = records.length - strict;
+  const cyp2d6 = records.filter(row => row.gene === "CYP2D6").length;
+  const genes = new Set(records.map(row => row.gene)).size;
+  const sourceLayers = new Set(records.map(row => row.sourceLayer).filter(Boolean)).size;
+  const confidenceLabels = new Set(records.flatMap(row => row.confidenceLabels || [])).size;
+
+  els.variantSnapshot.innerHTML = [
+    variantStat(records.length, "variant and marker rows in the generated feed"),
+    variantStat(strict, "strict-null rows kept by conservative filters"),
+    variantStat(review, "review rows kept separate from true null calls"),
+    variantStat(cyp2d6, "CYP2D6 rows, including structural and named allele context"),
+    variantStat(genes, "genes represented in the variant feed"),
+    variantStat(confidenceLabels, "source-confidence label types attached to rows"),
+    variantStat(sourceLayers, "source layers represented for provenance")
+  ].join("");
+}
+
+function variantStat(value, label) {
+  return `
+    <article class="variant-stat">
+      <strong>${escapeHtml(value)}</strong>
+      <span>${escapeHtml(label)}</span>
+    </article>
+  `;
+}
+
 function renderAtlas() {
   const rows = filteredGenes();
   renderMatrix(rows);
+  renderGeneCards(rows);
   renderTable(rows);
   renderDossier(selectedGene());
 }
@@ -203,6 +350,29 @@ function matrixCell(label, count, note, tierClass) {
   `;
 }
 
+function renderGeneCards(rows) {
+  if (!rows.length) {
+    els.cards.innerHTML = `<p class="empty">No matching records.</p>`;
+    return;
+  }
+
+  els.cards.innerHTML = rows.map(gene => `
+    <article class="gene-card" tabindex="0" aria-selected="${gene.id === state.selectedGeneId}" data-gene-id="${escapeAttr(gene.id)}">
+      <div class="gene-card-head">
+        <div>
+          <span class="gene-symbol">${escapeHtml(gene.symbol)}</span>
+          <span class="gene-name">${escapeHtml(gene.name)}</span>
+        </div>
+        <span class="tier-badge ${gene.tier}">${escapeHtml(tierLabel(gene.tier))}</span>
+      </div>
+      <p>${escapeHtml(gene.oneLine)}</p>
+      <div class="stack">${chips([...gene.flags.slice(0, 3), ...facetLabels(gene).slice(0, 2)], "flag")}</div>
+    </article>
+  `).join("");
+
+  attachGeneSelectionEvents(els.cards.querySelectorAll("[data-gene-id]"));
+}
+
 function renderTable(rows) {
   els.resultCount.textContent = `${rows.length} record${rows.length === 1 ? "" : "s"}`;
   if (!rows.length) {
@@ -224,7 +394,11 @@ function renderTable(rows) {
     </tr>
   `).join("");
 
-  for (const row of els.table.querySelectorAll("tr[data-gene-id]")) {
+  attachGeneSelectionEvents(els.table.querySelectorAll("[data-gene-id]"));
+}
+
+function attachGeneSelectionEvents(nodes) {
+  for (const row of nodes) {
     row.addEventListener("click", () => selectGene(row.dataset.geneId));
     row.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
@@ -258,8 +432,8 @@ function selectGene(geneId) {
   document.querySelector("#dossier").scrollIntoView({ block: "start" });
 }
 
-function selectedGene() {
-  return state.atlas.genes.find(gene => gene.id === state.selectedGeneId) || state.atlas.genes[0];
+function selectedGene(geneId = state.selectedGeneId) {
+  return state.atlas.genes.find(gene => gene.id === geneId) || state.atlas.genes[0];
 }
 
 function renderDossier(gene) {
@@ -657,6 +831,14 @@ function uniqueFlat(groups) {
 
 function tierLabel(id) {
   return state.atlas.evidenceTiers.find(tier => tier.id === id)?.label || id;
+}
+
+function compactText(value, maxLength = 160) {
+  const text = String(value ?? "").replace(/\s+/g, " ").trim();
+  if (text.length <= maxLength) return text;
+  const sliced = text.slice(0, maxLength - 1);
+  const lastSpace = sliced.lastIndexOf(" ");
+  return `${sliced.slice(0, lastSpace > 80 ? lastSpace : sliced.length).trim()}...`;
 }
 
 function escapeHtml(value) {
