@@ -1,0 +1,144 @@
+{
+  "schema": "nulls-project.source-snapshot.v0",
+  "generated": "2026-06-28T16:28:38.954Z",
+  "boundary": "Status and metadata snapshot only. This file is not a full mirror of any upstream dataset.",
+  "catalogSourceCount": 9,
+  "sources": [
+    {
+      "id": "ensembl-rest",
+      "label": "Ensembl REST",
+      "url": "https://rest.ensembl.org/info/ping?content-type=application/json",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 265,
+      "summary": {
+        "ping": 1
+      }
+    },
+    {
+      "id": "cpic-api",
+      "label": "CPIC PostgREST API",
+      "url": "https://api.cpicpgx.org/v1/",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 1019,
+      "summary": {
+        "title": "PostgREST API",
+        "version": "12.0.2",
+        "pathCount": 41,
+        "relevantPaths": [
+          "/allele_location_value",
+          "/guideline",
+          "/recommendation_view",
+          "/allele_frequency",
+          "/gene_result_lookup",
+          "/diplotype",
+          "/allele_guideline_view",
+          "/recommendation_alleles_view",
+          "/gene_result",
+          "/gene_result_diplotype",
+          "/allele_definition",
+          "/allele",
+          "/guideline_summary_view",
+          "/gene",
+          "/recommendation",
+          "/rpc/pharmgkb_guideline_recommendation",
+          "/rpc/pharmgkb_recommendation",
+          "/rpc/pharmgkb_guideline_alleles",
+          "/rpc/recommendation_lookup"
+        ]
+      }
+    },
+    {
+      "id": "clinpgx-api",
+      "label": "ClinPGx REST API",
+      "url": "https://api.clinpgx.org/openapi.json",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 385,
+      "summary": {
+        "title": "ClinPGx REST API",
+        "version": "1.0",
+        "pathCount": 33,
+        "relevantPaths": [
+          "/data/pathway",
+          "/data/pathway/{id}",
+          "/data/gene",
+          "/data/gene/{id}",
+          "/data/gene/{id}/crossReferences",
+          "/data/gene/{id}/ontologyTerms",
+          "/data/chemical",
+          "/data/chemical/{id}",
+          "/data/variant/",
+          "/data/variant/{id}",
+          "/data/guidelineAnnotation",
+          "/data/guidelineAnnotation/{id}",
+          "/data/summaryAnnotation",
+          "/data/summaryAnnotation/{id}",
+          "/data/variantAnnotation",
+          "/data/variantAnnotation/{id}",
+          "/data/dataAnnotation",
+          "/report/variantFrequency"
+        ]
+      }
+    },
+    {
+      "id": "clinvar-eutils",
+      "label": "ClinVar E-utilities",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=clinvar&retmode=json",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 179,
+      "summary": {
+        "dbname": "clinvar",
+        "dbbuild": "Build260621-1645.1",
+        "count": "4530887",
+        "lastupdate": "2026/06/21 19:37"
+      }
+    },
+    {
+      "id": "pharmvar-download",
+      "label": "PharmVar download page",
+      "url": "https://www.pharmvar.org/download",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 495,
+      "contentType": "text/html;charset=UTF-8",
+      "contentLength": 1493,
+      "title": "PharmVar"
+    },
+    {
+      "id": "clingen-downloads",
+      "label": "ClinGen downloads page",
+      "url": "https://search.clinicalgenome.org/kb/downloads",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 595,
+      "contentType": "text/html; charset=UTF-8",
+      "contentLength": 17018,
+      "title": "ClinGen Web"
+    },
+    {
+      "id": "gnomad-downloads",
+      "label": "gnomAD downloads page",
+      "url": "https://gnomad.broadinstitute.org/downloads",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 241,
+      "contentType": "text/html",
+      "contentLength": 1678,
+      "title": "gnomAD"
+    },
+    {
+      "id": "open-targets-docs",
+      "label": "Open Targets docs",
+      "url": "https://platform-docs.opentargets.org/",
+      "ok": true,
+      "status": 200,
+      "elapsedMs": 471,
+      "contentType": "text/html; charset=utf-8",
+      "contentLength": 378152,
+      "title": "Open Targets Platform | Open Targets Platform Documentation"
+    }
+  ]
+}
