@@ -307,6 +307,13 @@
           "evidence": "tier-1"
         },
         {
+          "compartment": "Gut / first-pass entry",
+          "inheritedNull": "A true null may remove any local CYP2D6 contribution at the gut-entry layer, while systemic hepatic metabolism remains the dominant tested frame for most substrates.",
+          "medicallyInducedNull": "An inhibitor may suppress intestinal or hepatic contribution depending on local exposure, timing, and inhibitor distribution.",
+          "whyItDiffers": "Food, microbiome, absorption, transporters, and first-pass metabolism can change which pathway gets loaded before plasma measurements appear.",
+          "evidence": "tier-3"
+        },
+        {
           "compartment": "Brain / CNS local enzyme",
           "inheritedNull": "A true null may remove CYP2D6 function wherever CYP2D6 would normally be expressed in the brain.",
           "medicallyInducedNull": "An inhibitor may or may not reproduce the same brain state; brain penetration, local concentration, transporter behavior, and regional regulation matter.",
@@ -321,11 +328,46 @@
           "evidence": "tier-3"
         },
         {
+          "compartment": "Kidney / urine biomarkers",
+          "inheritedNull": "A true null can reduce CYP2D6-derived metabolite formation that later appears in urine, even when the local renal role is not the main mechanism.",
+          "medicallyInducedNull": "A strong inhibitor can lower CYP2D6-derived urinary metabolite ratios while inhibition persists.",
+          "whyItDiffers": "Urine is often a readout of upstream metabolism, not proof that kidney-local CYP2D6 is the causal compartment.",
+          "evidence": "tier-1"
+        },
+        {
           "compartment": "Cardiovascular target effects",
           "inheritedNull": "A CYP2D6 null can change exposure to cardiovascular drugs such as selected beta-blockers or antiarrhythmics.",
           "medicallyInducedNull": "A strong CYP2D6 inhibitor can create similar systemic exposure changes for susceptible cardiovascular substrates.",
           "whyItDiffers": "This is often target-exposure biology rather than proof of local cardiac CYP2D6 loss; the atlas should label that distinction.",
           "evidence": "tier-1"
+        },
+        {
+          "compartment": "Adipose / lipid reservoirs",
+          "inheritedNull": "A true null may increase parent exposure for lipophilic CYP2D6 substrates before distribution into or release from lipid compartments.",
+          "medicallyInducedNull": "An induced null depends on inhibitor timing and whether the inhibitor persists long enough to change redistribution or release phases.",
+          "whyItDiffers": "This is currently a pharmacokinetic distribution question more than proven adipose-local CYP2D6 biology.",
+          "evidence": "tier-4"
+        },
+        {
+          "compartment": "Endocrine / reproductive tissues",
+          "inheritedNull": "A systemic null model should ask whether CYP2D6 is locally expressed and whether local steroid, xenobiotic, or lipid-derived substrate handling is affected.",
+          "medicallyInducedNull": "A medication-induced state should be modeled only if inhibitor distribution and local expression are plausible.",
+          "whyItDiffers": "Current v0 evidence is not enough to claim a specific reproductive or endocrine phenotype.",
+          "evidence": "tier-4"
+        },
+        {
+          "compartment": "Immune / inflammatory interface",
+          "inheritedNull": "A true null may alter exposure to immune-active external substances or endogenous lipid mediators, but direct immune-cell CYP2D6 null biology is not established here.",
+          "medicallyInducedNull": "Drug-induced CYP2D6 suppression can overlap with immune-active medications or inflammatory states, but mechanism needs source-specific review.",
+          "whyItDiffers": "This is a hypothesis layer for pathway load and exposure, not a clinical immune phenotype claim.",
+          "evidence": "tier-4"
+        },
+        {
+          "compartment": "Lung / skin / other peripheral tissues",
+          "inheritedNull": "The systemic-null frame keeps these compartments open when expression or substrate evidence emerges.",
+          "medicallyInducedNull": "Induced null status should not be projected into these tissues unless inhibitor distribution and local enzyme evidence support it.",
+          "whyItDiffers": "A whole-body genetic absence is conceptually different from a plasma drug interaction label, but each peripheral claim still needs evidence.",
+          "evidence": "tier-4"
         }
       ],
       "endogenousModel": {

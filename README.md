@@ -101,6 +101,7 @@ The intended future bridge is:
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
+- `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
 - `docs/diognosis-bridge.md` - how Diognosis data was used and how future integration should work.
