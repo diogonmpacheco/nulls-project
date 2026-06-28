@@ -29,6 +29,17 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -60,6 +71,17 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -92,6 +114,17 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -124,6 +157,17 @@
       "sourceLayer": "atlas-marker",
       "source": "atlas draft",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -155,6 +199,12 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity"
+      ],
+      "confidenceSummary": "Strong clinical pharmacogenomic and human drug-response evidence; null interpretation is mainly medication and prodrug activation focused.",
       "nullModes": [
         "named-no-function-allele",
         "activity-score-null",
@@ -183,6 +233,12 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity"
+      ],
+      "confidenceSummary": "Strong clinical pharmacogenomic and human drug-response evidence; null interpretation is mainly medication and prodrug activation focused.",
       "nullModes": [
         "named-no-function-allele",
         "activity-score-null",
@@ -211,6 +267,12 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity"
+      ],
+      "confidenceSummary": "Strong clinical pharmacogenomic and human drug-response evidence; null interpretation is mainly medication and prodrug activation focused.",
       "nullModes": [
         "named-no-function-allele",
         "activity-score-null",
@@ -239,6 +301,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "High-stakes human deficiency and drug-toxicity evidence; phenotype assays and clinical guidance remain central.",
       "nullModes": [
         "enzyme-deficiency",
         "named-no-function-allele",
@@ -269,6 +339,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "High-stakes human deficiency and drug-toxicity evidence; phenotype assays and clinical guidance remain central.",
       "nullModes": [
         "enzyme-deficiency",
         "named-no-function-allele",
@@ -299,6 +377,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "High-stakes human deficiency and drug-toxicity evidence; phenotype assays and clinical guidance remain central.",
       "nullModes": [
         "enzyme-deficiency",
         "named-no-function-allele",
@@ -329,6 +415,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme deficiency and thiopurine toxicity evidence; phenotype assay and paired NUDT15 interpretation matter.",
       "nullModes": [
         "enzyme-deficiency",
         "named-no-function-allele",
@@ -357,6 +451,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme deficiency and thiopurine toxicity evidence; phenotype assay and paired NUDT15 interpretation matter.",
       "nullModes": [
         "enzyme-deficiency",
         "named-no-function-allele",
@@ -385,6 +487,13 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "population-lof"
+      ],
+      "confidenceSummary": "Human drug-toxicity evidence with strong ancestry-equity relevance; mechanism is toxicity-defense failure rather than classic hepatic clearance.",
       "nullModes": [
         "toxicity-defense-null",
         "named-low-function-allele",
@@ -414,6 +523,15 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Classic human enzyme-deficiency phenotype with exposure-triggered hemolysis and strong phenotype-assay relevance.",
       "nullModes": [
         "enzyme-deficiency",
         "x-linked-deficiency",
@@ -442,6 +560,15 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Classic human enzyme-deficiency phenotype with exposure-triggered hemolysis and strong phenotype-assay relevance.",
       "nullModes": [
         "enzyme-deficiency",
         "x-linked-deficiency",
@@ -470,6 +597,15 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Classic human enzyme-deficiency phenotype with exposure-triggered hemolysis and strong phenotype-assay relevance.",
       "nullModes": [
         "enzyme-deficiency",
         "x-linked-deficiency",
@@ -498,6 +634,15 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Classic human enzyme-deficiency phenotype with exposure-triggered hemolysis and strong phenotype-assay relevance.",
       "nullModes": [
         "enzyme-deficiency",
         "x-linked-deficiency",
@@ -526,6 +671,13 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme-deficiency phenotype that is often hidden until anesthesia exposure; enzyme activity assays are central.",
       "nullModes": [
         "enzyme-deficiency",
         "hidden-until-exposure",
@@ -554,6 +706,13 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme-deficiency phenotype that is often hidden until anesthesia exposure; enzyme activity assays are central.",
       "nullModes": [
         "enzyme-deficiency",
         "hidden-until-exposure",
@@ -582,6 +741,13 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme-deficiency phenotype that is often hidden until anesthesia exposure; enzyme activity assays are central.",
       "nullModes": [
         "enzyme-deficiency",
         "hidden-until-exposure",
@@ -611,6 +777,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Human low-function capacity evidence spanning bilirubin and drug-metabolite clearance; not strict true-null by default.",
       "nullModes": [
         "low-function",
         "endogenous-plus-drug",
@@ -640,6 +814,14 @@
       "sourceLayer": "atlas-marker",
       "source": "Diognosis",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Human low-function capacity evidence spanning bilirubin and drug-metabolite clearance; not strict true-null by default.",
       "nullModes": [
         "low-function",
         "endogenous-plus-drug",
@@ -669,6 +851,12 @@
       "sourceLayer": "atlas-gene-level",
       "source": "pcsk9-pubmed",
       "confidence": "high",
+      "confidenceLabels": [
+        "population-lof",
+        "gene-level-target-validation",
+        "human-null-phenotype"
+      ],
+      "confidenceSummary": "Protective human loss-of-function and target-validation evidence.",
       "nullModes": [
         "protective-loss-of-function",
         "target-validation",
@@ -697,6 +885,12 @@
       "sourceLayer": "atlas-gene-level",
       "source": "angptl3-ncbi",
       "confidence": "high",
+      "confidenceLabels": [
+        "population-lof",
+        "gene-level-target-validation",
+        "human-null-phenotype"
+      ],
+      "confidenceSummary": "Protective/biallelic human loss-of-function and lipid target-validation evidence.",
       "nullModes": [
         "protective-loss-of-function",
         "biallelic-deficiency",
@@ -725,6 +919,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -758,6 +963,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -791,6 +1007,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -824,6 +1051,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -857,6 +1095,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -890,6 +1139,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -923,6 +1183,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -956,6 +1227,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -989,6 +1271,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1022,6 +1315,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1055,6 +1359,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1088,6 +1403,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1121,6 +1447,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1154,6 +1491,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1187,6 +1535,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1220,6 +1579,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1253,6 +1623,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1286,6 +1667,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1319,6 +1711,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1352,6 +1755,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1385,6 +1799,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1418,6 +1843,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1451,6 +1887,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1484,6 +1931,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1517,6 +1975,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1550,6 +2019,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1583,6 +2063,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1616,6 +2107,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1649,6 +2151,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1682,6 +2195,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1715,6 +2239,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1748,6 +2283,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1781,6 +2327,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1814,6 +2371,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "high",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1847,6 +2415,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1880,6 +2459,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1913,6 +2503,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1946,6 +2547,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -1979,6 +2591,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2012,6 +2635,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2045,6 +2679,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2078,6 +2723,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2111,6 +2767,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2144,6 +2811,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2177,6 +2855,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",
@@ -2210,6 +2899,17 @@
       "sourceLayer": "cpic-no-function-allele",
       "source": "cpic-api",
       "confidence": "moderate",
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "nullModes": [
         "inherited-null",
         "whole-gene-deletion",

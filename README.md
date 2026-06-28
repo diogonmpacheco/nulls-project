@@ -93,13 +93,18 @@ The intended future bridge is:
 - `app.js` - client-side search, filters, evidence matrix, and gene dossier rendering.
 - `data/nulls-atlas.json` - first structured data draft.
 - `data/nulls-only.json` - generated null-only feed for client-side filtering.
+- `data/null-variants.json` - generated allele/marker/gene-level null variant feed.
 - `data/null-ingest-map.json` - per-gene null-ingest rules for the current ten records.
 - `data/ingest-sources.json` - external API/source catalog.
+- `data/source-confidence-map.json` - source confidence labels and per-gene evidence-type profile.
 - `api/nulls.json` - static API alias for the null-only feed.
+- `api/null-variants.json` - static API alias for the variant feed.
 - `api/index.json` - static API endpoint index.
 - `scripts/build-null-feeds.mjs` - regenerates the static API feeds.
+- `scripts/build-null-variants.mjs` - regenerates variant rows.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
+- `docs/source-confidence.md` - evidence-type labels for null rows.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
 - `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.

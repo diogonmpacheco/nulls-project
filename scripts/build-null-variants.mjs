@@ -7,6 +7,7 @@ const writeJson = async (path, value) => writeFile(path, `${JSON.stringify(value
 const atlas = await readJson("data/nulls-atlas.json");
 const ingestMap = await readJson("data/null-ingest-map.json");
 const cyp2d6 = await readJson("data/cyp2d6-null-ingest.json");
+const confidenceMap = await readJson("data/source-confidence-map.json");
 
 function markerStrictness(gene, marker, profile) {
   const text = `${marker.label} ${marker.interpretation || ""} ${gene.nullStateLabel || ""}`.toLowerCase();
@@ -40,6 +41,7 @@ for (const gene of atlas.genes) {
   const profile = ingestMap.genes[gene.id];
   for (const marker of gene.markers || []) {
     const strictNull = markerStrictness(gene, marker, profile);
+    const confidenceProfile = confidenceMap.genes[gene.id];
     records.push({
       id: `${gene.id}:${marker.label.replaceAll(" ", "_").replaceAll("/", "_")}`,
       gene: gene.id,
@@ -54,6 +56,8 @@ for (const gene of atlas.genes) {
       sourceLayer: "atlas-marker",
       source: marker.seed || "atlas",
       confidence: confidenceFromEvidence(gene, strictNull),
+      confidenceLabels: confidenceProfile?.labels || [],
+      confidenceSummary: confidenceProfile?.summary || "No confidence profile in v0.",
       nullModes: profile?.nullModes || [],
       curationTags: profile?.curationTags || [],
       caveats: [
@@ -64,6 +68,7 @@ for (const gene of atlas.genes) {
   }
 
   if (!(gene.markers || []).length && (gene.flags || []).includes("protective")) {
+    const confidenceProfile = confidenceMap.genes[gene.id];
     records.push({
       id: `${gene.id}:gene_level_protective_lof`,
       gene: gene.id,
@@ -78,6 +83,8 @@ for (const gene of atlas.genes) {
       sourceLayer: "atlas-gene-level",
       source: (gene.sources || [])[0] || "atlas",
       confidence: confidenceFromEvidence(gene, true),
+      confidenceLabels: confidenceProfile?.labels || [],
+      confidenceSummary: confidenceProfile?.summary || "No confidence profile in v0.",
       nullModes: profile?.nullModes || [],
       curationTags: profile?.curationTags || [],
       caveats: ["Gene-level row until specific LoF variants are imported from ClinVar/gnomAD/Open Targets."]
@@ -103,6 +110,8 @@ for (const row of cyp2d6.noFunctionAlleles || []) {
     sourceLayer: "cpic-no-function-allele",
     source: "cpic-api",
     confidence: row.strength === "Strong" || row.strength === "Definitve" ? "high" : "moderate",
+    confidenceLabels: confidenceMap.genes.CYP2D6?.labels || [],
+    confidenceSummary: confidenceMap.genes.CYP2D6?.summary || "No confidence profile in v0.",
     nullModes: cyp2d6.profile.nullModes,
     curationTags: cyp2d6.profile.curationTags,
     caveats: [

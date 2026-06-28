@@ -1,6 +1,7 @@
 const state = {
   atlas: null,
   ingestMap: null,
+  confidenceMap: null,
   query: "",
   tier: "all",
   domain: "all",
@@ -11,6 +12,7 @@ const state = {
 
 const DATA_URL = "data/nulls-atlas.json";
 const INGEST_MAP_URL = "data/null-ingest-map.json";
+const CONFIDENCE_MAP_URL = "data/source-confidence-map.json";
 
 const els = {
   metrics: document.querySelector("#metrics"),
@@ -30,14 +32,17 @@ const els = {
 init();
 
 async function init() {
-  const [atlasResponse, ingestMapResponse] = await Promise.all([
+  const [atlasResponse, ingestMapResponse, confidenceMapResponse] = await Promise.all([
     fetch(DATA_URL, { cache: "no-cache" }),
-    fetch(INGEST_MAP_URL, { cache: "no-cache" })
+    fetch(INGEST_MAP_URL, { cache: "no-cache" }),
+    fetch(CONFIDENCE_MAP_URL, { cache: "no-cache" })
   ]);
   if (!atlasResponse.ok) throw new Error(`Could not load atlas data: ${atlasResponse.status}`);
   if (!ingestMapResponse.ok) throw new Error(`Could not load ingest map: ${ingestMapResponse.status}`);
+  if (!confidenceMapResponse.ok) throw new Error(`Could not load confidence map: ${confidenceMapResponse.status}`);
   state.atlas = await atlasResponse.json();
   state.ingestMap = await ingestMapResponse.json();
+  state.confidenceMap = await confidenceMapResponse.json();
 
   const params = new URLSearchParams(window.location.search);
   const gene = params.get("gene");
@@ -145,6 +150,8 @@ function filteredGenes() {
       ...(state.ingestMap?.genes?.[gene.id]?.reviewMechanisms || []),
       ...(state.ingestMap?.genes?.[gene.id]?.curationTags || []),
       ...(state.ingestMap?.genes?.[gene.id]?.nullModes || []),
+      ...(state.confidenceMap?.genes?.[gene.id]?.labels || []),
+      state.confidenceMap?.genes?.[gene.id]?.summary || "",
       ...(gene.markers || []).map(row => `${row.label} ${row.dbsnp || ""} ${row.interpretation}`)
     ].join(" ").toLowerCase();
 
@@ -258,6 +265,7 @@ function selectedGene() {
 function renderDossier(gene) {
   const sourceMap = new Map(state.atlas.sources.map(source => [source.id, source]));
   const ingestProfile = state.ingestMap?.genes?.[gene.id];
+  const confidenceProfile = state.confidenceMap?.genes?.[gene.id];
   const deepDive = gene.deepDive ? renderDeepDive(gene) : "";
   const markers = gene.markers?.length ? renderMarkerTable(gene.markers) : "<p>No v0 marker rows. This record is framed from published null biology rather than Diognosis PGx seed markers.</p>";
 
@@ -294,6 +302,8 @@ function renderDossier(gene) {
 
       ${ingestProfile ? renderNullIngestProfile(ingestProfile) : ""}
 
+      ${confidenceProfile ? renderSourceConfidenceProfile(confidenceProfile) : ""}
+
       ${gene.compartmentModel ? renderCompartmentModel(gene.compartmentModel) : ""}
 
       ${gene.endogenousModel ? renderEndogenousModel(gene.endogenousModel) : ""}
@@ -324,6 +334,33 @@ function renderDossier(gene) {
         </div>
       </section>
     </div>
+  `;
+}
+
+function renderSourceConfidenceProfile(profile) {
+  return `
+    <section class="section-block wide">
+      <h3>Source Confidence</h3>
+      <p>${escapeHtml(profile.summary)}</p>
+      <div class="table-wrap case-table">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(profile.labels || []).map(label => `
+              <tr>
+                <td><span class="flag">${escapeHtml(label)}</span></td>
+                <td>${escapeHtml(state.confidenceMap?.labelDefinitions?.[label] || "No definition in v0.")}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
   `;
 }
 

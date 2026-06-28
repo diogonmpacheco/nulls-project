@@ -57,6 +57,23 @@
       }
     ]
   },
+  "confidenceLabelDefinitions": {
+    "human-null-phenotype": "Human phenotype evidence tied to inherited null, biallelic deficiency, hemizygous deficiency, or enzyme absence.",
+    "human-drug-response": "Human medication or external-substrate response evidence.",
+    "clinical-guideline": "CPIC, FDA, PharmGKB, ClinGen, or similar curated clinical guidance context.",
+    "human-enzyme-activity": "Human enzyme activity, activity score, metabolite ratio, or functional assay evidence.",
+    "phenotype-assay": "Measured phenotype such as enzyme activity, metabolite ratio, or functional deficiency assay.",
+    "human-expression": "Human tissue expression evidence.",
+    "human-brain-function": "Human brain functional evidence rather than only expression.",
+    "animal-brain-in-vivo": "Animal brain in vivo evidence supporting local pathway plausibility.",
+    "in-vitro-biochemistry": "Biochemical or cell-system evidence, not direct human phenotype.",
+    "external-exposure-biomarker": "Food, xenobiotic, medication, or exposure biomarker evidence.",
+    "population-lof": "Population human loss-of-function association, including protective LoF.",
+    "gene-level-target-validation": "Human genetics used for therapeutic target validation.",
+    "dosage-curation": "Haploinsufficiency or dosage-sensitivity curation.",
+    "computational-consequence": "Consequence annotation such as VEP high-impact terms; requires curation before interpretation.",
+    "hypothesis-only": "Plausible or exploratory mechanism without enough direct human evidence."
+  },
   "facetCounts": {
     "records": 10,
     "strictNull": 9,
@@ -176,6 +193,17 @@
           "docsUrl": "https://gnomad.broadinstitute.org/downloads"
         }
       ],
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "human-expression",
+        "human-brain-function",
+        "animal-brain-in-vivo",
+        "in-vitro-biochemistry",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -302,6 +330,12 @@
           "docsUrl": "https://gnomad.broadinstitute.org/downloads"
         }
       ],
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity"
+      ],
+      "confidenceSummary": "Strong clinical pharmacogenomic and human drug-response evidence; null interpretation is mainly medication and prodrug activation focused.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -407,6 +441,14 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "High-stakes human deficiency and drug-toxicity evidence; phenotype assays and clinical guidance remain central.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -510,6 +552,14 @@
           "docsUrl": "https://gnomad.broadinstitute.org/downloads"
         }
       ],
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme deficiency and thiopurine toxicity evidence; phenotype assay and paired NUDT15 interpretation matter.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -605,6 +655,13 @@
           "docsUrl": "https://gnomad.broadinstitute.org/downloads"
         }
       ],
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "population-lof"
+      ],
+      "confidenceSummary": "Human drug-toxicity evidence with strong ancestry-equity relevance; mechanism is toxicity-defense failure rather than classic hepatic clearance.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -712,6 +769,15 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Classic human enzyme-deficiency phenotype with exposure-triggered hemolysis and strong phenotype-assay relevance.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -811,6 +877,13 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "human-null-phenotype",
+        "human-drug-response",
+        "human-enzyme-activity",
+        "phenotype-assay"
+      ],
+      "confidenceSummary": "Human enzyme-deficiency phenotype that is often hidden until anesthesia exposure; enzyme activity assays are central.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -915,6 +988,14 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "human-drug-response",
+        "clinical-guideline",
+        "human-enzyme-activity",
+        "phenotype-assay",
+        "external-exposure-biomarker"
+      ],
+      "confidenceSummary": "Human low-function capacity evidence spanning bilirubin and drug-metabolite clearance; not strict true-null by default.",
       "projectSources": [
         "diognosis-standards",
         "cpic-guidelines",
@@ -1009,6 +1090,12 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "population-lof",
+        "gene-level-target-validation",
+        "human-null-phenotype"
+      ],
+      "confidenceSummary": "Protective human loss-of-function and target-validation evidence.",
       "projectSources": [
         "pcsk9-pubmed"
       ],
@@ -1101,6 +1188,12 @@
           "docsUrl": "https://www.ncbi.nlm.nih.gov/books/NBK25501/"
         }
       ],
+      "confidenceLabels": [
+        "population-lof",
+        "gene-level-target-validation",
+        "human-null-phenotype"
+      ],
+      "confidenceSummary": "Protective/biallelic human loss-of-function and lipid target-validation evidence.",
       "projectSources": [
         "angptl3-ncbi"
       ],

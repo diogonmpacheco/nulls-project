@@ -37,6 +37,11 @@
       "path": "data/ingest-sources.json",
       "label": "External source catalog",
       "use": "Public data sources and filters used to enrich null records."
+    },
+    {
+      "path": "data/source-confidence-map.json",
+      "label": "Source confidence map",
+      "use": "Evidence-type vocabulary for human null phenotype, enzyme, expression, animal, in vitro, and computational labels."
     }
   ],
   "queryPattern": "This is a static GitHub Pages API. Fetch JSON and filter client-side.",

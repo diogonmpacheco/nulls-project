@@ -10,6 +10,7 @@ const writeJson = async (path, value) => {
 const atlas = await readJson("data/nulls-atlas.json");
 const ingestMap = await readJson("data/null-ingest-map.json");
 const sourceCatalog = await readJson("data/ingest-sources.json");
+const confidenceMap = await readJson("data/source-confidence-map.json");
 
 const sourceById = new Map(sourceCatalog.sources.map(source => [source.id, source]));
 const missingProfiles = atlas.genes
@@ -22,6 +23,7 @@ if (missingProfiles.length) {
 
 const records = atlas.genes.map(gene => {
   const profile = ingestMap.genes[gene.id];
+  const confidenceProfile = confidenceMap.genes[gene.id];
   const sourceLabels = profile.preferredSources.map(sourceId => {
     const source = sourceById.get(sourceId);
     if (!source) throw new Error(`Unknown ingest source ${sourceId} for ${gene.id}`);
@@ -51,6 +53,8 @@ const records = atlas.genes.map(gene => {
     curationTags: profile.curationTags,
     geneSpecificRules: profile.geneSpecificRules,
     preferredSources: sourceLabels,
+    confidenceLabels: confidenceProfile?.labels || [],
+    confidenceSummary: confidenceProfile?.summary || "No confidence profile in v0.",
     projectSources: gene.sources || [],
     facets: {
       strict: profile.strictNull ? "strict-null" : "review-null-or-low-function",
@@ -92,6 +96,7 @@ const nullsOnlyFeed = {
       { label: "Induced functional nulls", predicate: "record.facets.inducedNull === true" }
     ]
   },
+  confidenceLabelDefinitions: confidenceMap.labelDefinitions,
   facetCounts,
   records
 };
@@ -135,6 +140,11 @@ const apiIndex = {
       path: "data/ingest-sources.json",
       label: "External source catalog",
       use: "Public data sources and filters used to enrich null records."
+    },
+    {
+      path: "data/source-confidence-map.json",
+      label: "Source confidence map",
+      use: "Evidence-type vocabulary for human null phenotype, enzyme, expression, animal, in vitro, and computational labels."
     }
   ],
   queryPattern: "This is a static GitHub Pages API. Fetch JSON and filter client-side.",
