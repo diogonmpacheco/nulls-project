@@ -1,6 +1,6 @@
 # Methods
 
-The Nulls Project is a gene-first atlas for human loss-of-function, low-function, deficiency, and protective-null biology.
+The Nulls Project is a gene-first atlas for human loss-of-function, low-function, deficiency, protective-null, and medically induced functional-null biology.
 
 It is not a clinical decision system.
 
@@ -9,6 +9,7 @@ It is not a clinical decision system.
 The first public draft includes genes that satisfy at least one of these conditions:
 
 - credible human no-function or low-function alleles exist;
+- medications, inhibitors, exposures, or acquired states can make the gene behave as a functional null;
 - reduced function has a meaningful drug, phenotype, exposure, or protective-biology signal;
 - the gene helps teach an important null-biology pattern;
 - source-linked evidence can be summarized without pretending to diagnose a person.
@@ -67,6 +68,18 @@ The project uses "null" broadly but labels mechanisms explicitly:
 
 These mechanisms should not be collapsed. The app should show them as different ways function can become unavailable.
 
+## What Does Not Count As A Null
+
+Broad pharmacogenomic phenotype buckets are not the project object.
+
+- "Poor metabolizer" is a clinical translation label. It belongs in the atlas only when it points to no-function, minimal-function, or clinically null-like biology.
+- "Ultrarapid metabolizer" is not a null state. It can be shown only as an opposite-state contrast when needed to explain directionality.
+- "Risk allele" is not automatically a null. It needs a mechanism.
+
+The main reference problem is functional loss:
+
+> What risks appear when a pathway is genetically absent, genetically weak, or medically switched off?
+
 ## Neurodivergent Product Boundary
 
 The atlas should feel like a careful map, not a verdict.
@@ -93,4 +106,3 @@ The Nulls Project should not say:
 > You personally have this risk, diagnosis, or treatment instruction.
 
 When a context may be medically relevant, wording should direct users toward qualified review without creating false urgency.
-

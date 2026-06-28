@@ -66,7 +66,7 @@ The first ten genes:
 
 Rationale:
 
-- `CYP2D6` is the flagship because it combines true no-function alleles, copy number, hybrid alleles, ultrarapid states, and phenoconversion.
+- `CYP2D6` is the flagship because it combines true no-function alleles, copy number, hybrid alleles, medically induced functional nulls, and phenoconversion.
 - `DPYD`, `TPMT`, `NUDT15`, `G6PD`, `BCHE`, `CYP2C19`, and `UGT1A1` provide high-value PGx and safety contexts.
 - `PCSK9` and `ANGPTL3` prevent the project from being only about danger by showing protective null biology.
 
@@ -77,4 +77,3 @@ Phase-two candidates:
 - `CYP3A5`
 - `NAT2`
 - `APOC3`
-

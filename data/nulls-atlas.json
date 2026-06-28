@@ -2,7 +2,7 @@
   "schema": "nulls-project.atlas.v0",
   "metadata": {
     "name": "The Nulls Project",
-    "tagline": "Human loss-of-function gene and phenotype atlas",
+    "tagline": "Human loss-of-function and functional-null gene atlas",
     "version": "0.1.0-draft",
     "released": "2026-06-28",
     "status": "first public draft",
@@ -31,13 +31,13 @@
       "id": "tier-1",
       "label": "Tier 1",
       "name": "Strong human function evidence",
-      "definition": "Human low-function or null biology is clinically or biologically meaningful, source-linked, and repeatedly useful for interpretation."
+      "definition": "Human low-function, inherited null, or medically induced functional-null biology is clinically or biologically meaningful, source-linked, and repeatedly useful for interpretation."
     },
     {
       "id": "tier-2",
       "label": "Tier 2",
       "name": "Moderate human function evidence",
-      "definition": "Human evidence is meaningful but narrower, context-dependent, or dependent on specific drug, assay, ancestry, or phenotype framing."
+      "definition": "Human evidence is meaningful but narrower, context-dependent, or dependent on specific drug, inhibitor, assay, ancestry, or phenotype framing."
     },
     {
       "id": "tier-3",
@@ -133,35 +133,28 @@
       "tier": "tier-1",
       "reviewStatus": "draft curated",
       "lastReviewed": "2026-06-28",
-      "axis": "activity-score enzyme",
-      "nullStateLabel": "inherited no-function or minimal CYP2D6 activity",
-      "oneLine": "A single gene that demonstrates null alleles, whole-gene deletion, reduced function, duplications, hybrid alleles, and drug-induced phenoconversion.",
-      "whyStrong": "CYP2D6 is a high-value null model because inherited no-function alleles can reduce activation of prodrugs, raise parent-drug exposure for some substrates, and interact with inhibitors that make a genetically normal person behave like a poor metabolizer.",
+      "axis": "functional-null enzyme model",
+      "nullStateLabel": "inherited no-function, minimal activity, or medically inhibited CYP2D6",
+      "oneLine": "A single gene that demonstrates inherited null alleles, whole-gene deletion, reduced function, hybrid alleles, and drug-induced functional nulls.",
+      "whyStrong": "CYP2D6 is a high-value null model because inherited no-function alleles and strong inhibitors can both create null-like pathway failure: less prodrug activation for some medicines and higher parent-drug exposure for others.",
       "domains": ["pharmacogenomics", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
       "flags": ["deep-dossier", "copy-number-sensitive", "phenoconversion", "diognosis-seeded", "clinician-review-needed"],
       "nullEvidence": [
         "No-function allele context exists for CYP2D6*4 / rs3892097 in the Diognosis standards bridge.",
         "Decreased-function contexts exist for CYP2D6*10 / rs1065852 and CYP2D6*41 / rs28371725 in the Diognosis standards bridge.",
         "Whole-gene deletion, gene conversions, hybrid alleles, and duplications make CYP2D6 a structural-variant problem, not only a SNP problem.",
-        "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate metabolizers toward functional poor metabolism."
+        "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate genotypes toward a medically induced functional null."
       ],
       "phenotypes": [
         {
-          "label": "Poor metabolizer behavior",
+          "label": "Inherited functional-null behavior",
           "system": "pharmacokinetics",
           "direction": "reduced CYP2D6 clearance or activation depending on substrate",
           "evidence": "tier-1",
-          "note": "For prodrugs such as codeine and tramadol, low CYP2D6 activity can reduce active metabolite formation. For selected parent-drug substrates, low activity can raise parent exposure."
+          "note": "The clinical label may be poor metabolizer, but the atlas object is no-function or minimal-function CYP2D6 activity."
         },
         {
-          "label": "Ultrarapid metabolizer behavior",
-          "system": "pharmacokinetics",
-          "direction": "increased CYP2D6 activity from gene duplication or high activity score",
-          "evidence": "tier-1",
-          "note": "UM states are the mirror image of null biology and help users see directionality. They should not be collapsed into the Nulls Project, but they are essential contrast."
-        },
-        {
-          "label": "Functional null through phenoconversion",
+          "label": "Medically induced functional null",
           "system": "drug-drug interaction",
           "direction": "normal genotype can behave like reduced function",
           "evidence": "tier-1",
@@ -199,28 +192,29 @@
       ],
       "deepDive": {
         "coreModel": [
-          "CYP2D6 is not a simple on/off switch. It is an activity-score system with poor, intermediate, normal, and ultrarapid states.",
+          "CYP2D6 is not a simple on/off switch. Pharmacogenomic reports may use metabolizer buckets, but The Nulls Project translates those buckets into mechanism.",
+          "Poor metabolizer is not the project object by itself. The project object is inherited no function, minimal function, or a functional null caused by inhibition.",
           "The same low-function state can mean less active metabolite for one drug and more parent-drug exposure for another.",
           "A normal genotype can be functionally suppressed by a strong inhibitor, so the Nulls Project must represent genotype and current functional state separately."
         ],
         "diognosisBridgeExamples": [
           {
-            "label": "Codeine plus CYP2D6 PM",
+            "label": "Codeine plus inherited CYP2D6 null",
             "whatChanges": "Reduced morphine formation from codeine.",
             "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=codeine&genotype=CYP2D6:poor_metabolizer&tab=genes-metabolites"
           },
           {
-            "label": "Tramadol plus CYP2D6 PM",
+            "label": "Tramadol plus inherited CYP2D6 null",
             "whatChanges": "Reduced O-desmethyltramadol formation while parent tramadol effects may still matter.",
             "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=tramadol&genotype=CYP2D6:poor_metabolizer&tab=genes-metabolites"
           },
           {
-            "label": "Metoprolol plus CYP2D6 PM or inhibitor",
+            "label": "Metoprolol plus CYP2D6 null or inhibitor",
             "whatChanges": "Higher metoprolol exposure can increase bradycardia or low blood pressure review priority.",
             "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=metoprolol,terbinafine&tab=overview"
           },
           {
-            "label": "Flecainide plus CYP2D6 PM or inhibitor",
+            "label": "Flecainide plus CYP2D6 null or inhibitor",
             "whatChanges": "Higher flecainide exposure can increase antiarrhythmic toxicity review priority.",
             "diognosisUrl": "https://diogonmpacheco.github.io/Diognosis/index.html?substances=flecainide,fluoxetine&genotype=CYP2D6:poor_metabolizer&tab=overview"
           }
@@ -235,7 +229,8 @@
         "Consumer SNP files may miss CYP2D6 copy number, deletion, duplication, hybrid alleles, and star-allele phasing.",
         "CYP2D6 genotype does not decide medication changes by itself.",
         "Drug inhibitors, liver function, age, dose, and co-medications can dominate the functional phenotype.",
-        "Do not treat an app-level CYP2D6 call as clinical genotyping."
+        "Do not treat an app-level CYP2D6 call as clinical genotyping.",
+        "Ultrarapid CYP2D6 is an opposite-function state, not a null. It may be useful contrast, but it does not belong in the Nulls core model."
       ],
       "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic"]
     },
@@ -267,7 +262,7 @@
         {
           "label": "Altered PPI exposure",
           "system": "gastroenterology",
-          "direction": "higher exposure in poor metabolizers, lower exposure in rapid states",
+          "direction": "higher exposure in reduced/null-function states",
           "evidence": "tier-1",
           "note": "Clinical meaning depends on indication, drug, and dose."
         }

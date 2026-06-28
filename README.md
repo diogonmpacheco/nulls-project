@@ -2,7 +2,14 @@
 
 Human loss-of-function gene and phenotype atlas.
 
-**The Nulls Project** is an open-source, source-linked atlas for understanding what happens when a human gene is naturally missing, reduced, silenced, or functionally unavailable.
+**The Nulls Project** is an open-source, source-linked atlas for understanding what happens when a human gene is naturally missing, reduced, silenced, or made functionally unavailable.
+
+The core use case is to become a reference for **functional null states**:
+
+- inherited no-function biology;
+- severe low-function biology that approximates a null;
+- medically induced nulls, such as enzyme inhibition / phenoconversion;
+- protective loss-of-function states that explain why "less function" is not automatically bad.
 
 The first draft focuses on ten strong null / low-function cases:
 
@@ -31,11 +38,12 @@ Most genetics products explain variants as risk, identity, or optimization.
 
 The Nulls Project asks a narrower question:
 
-> What does human biology reveal when a gene's function is absent, reduced, or contextually switched off?
+> What does human biology reveal when a gene's function is absent, severely reduced, or contextually switched off?
 
 That makes null biology useful for:
 
 - pharmacogenomics;
+- medically induced functional nulls;
 - protective human knockouts;
 - phenotype-negative observations;
 - gene function discovery;
@@ -100,4 +108,3 @@ Every future gene record should keep:
 ## License
 
 MIT for code and project text unless a future data source requires more specific attribution.
-

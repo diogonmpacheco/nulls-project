@@ -47,7 +47,7 @@ These are not primarily Diognosis records. They exist to keep the Nulls Project 
 
 The safest future Diognosis integration is a dedicated **Nulls Lens**:
 
-- show only medication-relevant null or low-function contexts;
+- show only medication-relevant inherited null, low-function, or medically induced functional-null contexts;
 - preserve the Diognosis evidence and safety boundary;
 - avoid turning Diognosis into a general genetics atlas;
 - link outward to The Nulls Project for broader gene context.
@@ -81,3 +81,16 @@ They should not share:
 - raw DNA upload handling;
 - clinical recommendation wording.
 
+## Translation Rule
+
+Diognosis can use pharmacogenomic labels such as `poor_metabolizer`, `intermediate_metabolizer`, or `ultrarapid_metabolizer`.
+
+The Nulls Project should translate those labels into mechanism:
+
+- no function;
+- minimal function;
+- reduced function;
+- medically inhibited function;
+- opposite-state contrast.
+
+Only the first four belong in the atlas core.
