@@ -137,12 +137,12 @@ function renderMatrix(rows) {
   const counts = Object.fromEntries(tiers.map(tier => [tier.id, rows.filter(gene => gene.tier === tier.id).length]));
   const highValue = rows.filter(gene => (gene.flags || []).includes("diognosis-seeded")).length;
   const protective = rows.filter(gene => (gene.flags || []).includes("protective")).length;
-  const cyp = rows.filter(gene => (gene.domains || []).includes("pharmacogenomics")).length;
+  const systemic = rows.filter(gene => (gene.flags || []).includes("tissue-resolved") || (gene.domains || []).includes("tissue-resolved biology")).length;
 
   els.matrix.innerHTML = [
     matrixCell("Tier 1", counts["tier-1"] || 0, "strong human function evidence", "tier-1"),
-    matrixCell("Diognosis", highValue, "seeded PGx bridge records", "tier-2"),
-    matrixCell("PGx", cyp, "medication-relevant genes", "tier-3"),
+    matrixCell("Systemic", systemic, "tissue-resolved null candidates", "tier-2"),
+    matrixCell("Diognosis", highValue, "seeded medication bridge records", "tier-3"),
     matrixCell("Protective", protective, "non-pathology null examples", "tier-4")
   ].join("");
 }

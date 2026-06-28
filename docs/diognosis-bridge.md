@@ -108,6 +108,10 @@ The Nulls Project should answer the deeper reference question:
 
 > Is the medically induced state actually the same as the inherited null, or only a partial imitation in selected compartments?
 
+It should also preserve a question that Diognosis should not try to answer inside medication review:
+
+> Is this true inherited null a systemic missing-function state that deserves serious study beyond pharmacogenomics?
+
 For CYP2D6, this means Diognosis can model hepatic/systemic phenoconversion for medication review, while The Nulls Project keeps a separate map of:
 
 - hepatic/systemic CYP2D6;

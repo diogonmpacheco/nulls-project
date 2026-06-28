@@ -74,6 +74,8 @@ Rationale:
 
 The project should become the reference layer for tissue-resolved functional nulls.
 
+The stronger thesis is that some nulls may be systemic missing-function states that current products under-describe. A true null can mean a person lacks an enzyme or function across the body wherever the gene is normally active. The product should show that seriousness without converting uncertainty into diagnosis.
+
 The important distinction is not only "normal versus poor metabolizer." The important distinction is:
 
 - inherited null across expression compartments;

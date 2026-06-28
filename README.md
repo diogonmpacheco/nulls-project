@@ -4,6 +4,8 @@ Human loss-of-function gene and phenotype atlas.
 
 **The Nulls Project** is an open-source, source-linked atlas for understanding what happens when a human gene is naturally missing, reduced, silenced, or made functionally unavailable.
 
+The larger thesis is that some nulls may be more serious than current product labels suggest. A true null can be a body-level missing enzyme or missing function, not merely a pharmacogenomic note. `CYP2D6` is the flagship because it shows how a gene commonly treated as a medication-response label may need a tissue-resolved systemic-null model.
+
 The core use case is to become a reference for **functional null states**:
 
 - inherited no-function biology;
@@ -48,6 +50,7 @@ That makes null biology useful for:
 
 - pharmacogenomics;
 - medically induced functional nulls;
+- systemic enzyme/function deficiency framing;
 - tissue-resolved biology beyond liver metabolism;
 - protective human knockouts;
 - phenotype-negative observations;
@@ -82,6 +85,7 @@ The intended future bridge is:
 - `app.js` - client-side search, filters, evidence matrix, and gene dossier rendering.
 - `data/nulls-atlas.json` - first structured data draft.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
+- `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
 - `docs/diognosis-bridge.md` - how Diognosis data was used and how future integration should work.
 - `docs/product-notes.md` - neurodivergent product, IA, and genetics reviewer notes.

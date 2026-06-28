@@ -80,6 +80,20 @@ The main reference problem is functional loss:
 
 > What risks appear when a pathway is genetically absent, genetically weak, or medically switched off?
 
+## Systemic Null Framing
+
+Some nulls may need to be considered more seriously than current genetics and pharmacogenomics products imply.
+
+A true inherited null can be a systemic missing-function state: the body may lack an enzyme or function wherever the gene is normally active. This is not the same as a medication-only pharmacogenomic label, and it is not the same as a temporary inhibitor effect.
+
+The atlas should separate three claims:
+
+- **systemic deficiency candidate** - a true null may remove a function across expression compartments;
+- **formal disease claim** - clinical consensus and phenotype mapping support a diagnosis;
+- **medication-response claim** - drug exposure, activation, or toxicity changes in a specific treatment context.
+
+The first claim can be important before the second claim is settled. The Nulls Project should preserve that serious biological possibility without turning it into personal diagnosis or treatment advice.
+
 ## Tissue-Resolved Nulls
 
 The Nulls Project should not reduce genes to liver or pharmacogenomics labels.
