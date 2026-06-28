@@ -85,6 +85,8 @@ The important distinction is not only "normal versus poor metabolizer." The impo
 
 For CYP2D6, a true null may remove non-hepatic enzyme biology in a way that a liver-centered PGx label or a medication inhibitor does not fully capture.
 
+The endogenous substrate layer should be visible as pathway load, not as a symptom verdict. For CYP2D6, serotonin-regeneration, tyramine-to-dopamine, and anandamide rows should help users see that a null may remove local routes and force compensation through other pathways, while the UI still labels uncertainty and evidence type.
+
 Phase-two candidates:
 
 - `SLCO1B1`

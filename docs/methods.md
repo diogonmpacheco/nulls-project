@@ -138,6 +138,26 @@ The solanidine case is the first v0 pattern:
 
 For `CYP2D6` and solanidine, plasma biomarker evidence is strong. Tissue-specific human accumulation evidence is not yet strong enough to claim that every body part follows the plasma fold-change. The atlas should preserve that uncertainty instead of flattening it.
 
+## Endogenous And External Substrate Maps
+
+Some missing-function states matter because the gene handles endogenous molecules, external substances, or both.
+
+For `CYP2D6`, v0 begins with candidate endogenous CNS routes:
+
+- 5-methoxytryptamine to serotonin;
+- tyramine to dopamine;
+- anandamide / endocannabinoid metabolism.
+
+These rows should be interpreted as pathway-capacity questions:
+
+> If CYP2D6 is truly absent, which local routes disappear, and which other synthesis, transport, clearance, or degradation pathways carry the remaining load?
+
+They should not be interpreted as deterministic neurotransmitter claims:
+
+> CYP2D6 null means globally low serotonin or dopamine.
+
+Every endogenous row should label whether the evidence is human enzyme evidence, animal brain evidence, human brain expression/function evidence, human phenotype evidence, or null-specific evidence. External substrates should be mapped beside endogenous substrates because the same missing enzyme can change parent accumulation, active metabolite formation, inactive metabolite formation, and pathway competition.
+
 ## Neurodivergent Product Boundary
 
 The atlas should feel like a careful map, not a verdict.

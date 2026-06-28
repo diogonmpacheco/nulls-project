@@ -124,6 +124,7 @@ function filteredGenes() {
       ...(gene.domains || []),
       ...(gene.flags || []),
       ...(gene.phenotypes || []).map(row => `${row.label} ${row.system} ${row.direction} ${row.note}`),
+      ...((gene.endogenousModel?.rows || []).map(row => `${row.substrate} ${row.route} ${row.nullQuestion} ${row.evidenceBase}`)),
       ...(gene.markers || []).map(row => `${row.label} ${row.dbsnp || ""} ${row.interpretation}`)
     ].join(" ").toLowerCase();
 
@@ -241,6 +242,8 @@ function renderDossier(gene) {
 
       ${gene.compartmentModel ? renderCompartmentModel(gene.compartmentModel) : ""}
 
+      ${gene.endogenousModel ? renderEndogenousModel(gene.endogenousModel) : ""}
+
       ${gene.exposureCaseModel ? renderExposureCaseModel(gene.exposureCaseModel) : ""}
 
       <section class="section-block wide">
@@ -322,6 +325,40 @@ function renderCompartmentModel(rows) {
                 <td>${escapeHtml(row.inheritedNull)}</td>
                 <td>${escapeHtml(row.medicallyInducedNull)}</td>
                 <td>${escapeHtml(row.whyItDiffers)}</td>
+                <td><span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderEndogenousModel(model) {
+  return `
+    <section class="section-block wide">
+      <h3>${escapeHtml(model.label)}</h3>
+      <p>${escapeHtml(model.summary)}</p>
+      ${model.interpretationRules?.length ? `<div class="small-gap">${list(model.interpretationRules)}</div>` : ""}
+      <div class="table-wrap case-table">
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Substrate / Route</th>
+              <th>CYP2D6 Role</th>
+              <th>Null Question</th>
+              <th>Evidence Base</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(model.rows || []).map(row => `
+              <tr>
+                <td>${escapeHtml(row.substrate)}</td>
+                <td>${escapeHtml(row.route)}</td>
+                <td>${escapeHtml(row.nullQuestion)}</td>
+                <td>${escapeHtml(row.evidenceBase)}</td>
                 <td><span class="tier-badge ${row.evidence}">${escapeHtml(tierLabel(row.evidence))}</span></td>
               </tr>
             `).join("")}

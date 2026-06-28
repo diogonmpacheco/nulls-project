@@ -528,7 +528,7 @@ tbody tr[aria-selected="true"] {
   margin: 0;
 }
 
-.section-block p.small-gap,
+.section-block .small-gap,
 .case-table {
   margin-top: 10px;
 }

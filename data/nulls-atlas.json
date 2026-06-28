@@ -131,6 +131,55 @@
       "note": "Blood-brain barrier metabolism and transport can affect CNS exposure."
     },
     {
+      "id": "cyp2d6-5mt-serotonin-2003",
+      "label": "CYP2D6 converts 5-methoxytryptamine to serotonin",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12618595/",
+      "note": "Human CYP2D6 can O-demethylate 5-methoxytryptamine to serotonin in vitro, supporting an endogenous serotonin-regeneration route."
+    },
+    {
+      "id": "cyp2d-brain-serotonin-2012",
+      "label": "Brain CYP2D catalytic competence for serotonin formation",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23098818/",
+      "note": "Animal brain evidence that CYP2D can convert 5-methoxytryptamine to serotonin in vivo."
+    },
+    {
+      "id": "cyp2d-melatonin-serotonin-2016",
+      "label": "Melatonin to serotonin through 5-methoxytryptamine and CYP2D",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26884482/",
+      "note": "Reports a melatonin-derived route to serotonin involving 5-methoxytryptamine and CYP2D activity in brain."
+    },
+    {
+      "id": "cyp2d6-tyramine-dopamine-1998",
+      "label": "CYP2D6 converts tyramine to dopamine",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9731223/",
+      "note": "Human CYP2D6 catalyzes tyramine hydroxylation to dopamine, supporting an alternative dopamine-formation route."
+    },
+    {
+      "id": "cyp2d6-neuroactive-substrates-2004",
+      "label": "CYP2D6 polymorphism and endogenous neuroactive substrates",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15469888/",
+      "note": "Study of CYP2D6 genetic variation effects on metabolism of endogenous neuroactive substrates."
+    },
+    {
+      "id": "cyp2d6-anandamide-2009",
+      "label": "Endocannabinoid anandamide as a CYP2D6 substrate",
+      "type": "publication",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2704579/",
+      "note": "Reports anandamide metabolism by polymorphic human CYP2D6, including relevance to brain/endocannabinoid metabolism."
+    },
+    {
+      "id": "cyp2d6-behavior-psychopathology-2014",
+      "label": "CYP2D6 variation, behaviour and psychopathology",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3971983/",
+      "note": "Reviews CYP2D6 brain expression, endogenous substrate hypotheses, and behavioral/psychiatric associations."
+    },
+    {
       "id": "solanidine-cyp2d6-2024",
       "label": "Solanidine is a sensitive and specific dietary biomarker for CYP2D6 activity",
       "type": "publication",
@@ -221,7 +270,7 @@
       "nullStateLabel": "inherited no-function, minimal activity, or medically inhibited CYP2D6",
       "oneLine": "A systemic enzyme-function case that demonstrates inherited null alleles, whole-gene deletion, reduced function, hybrid alleles, and drug-induced functional nulls.",
       "whyStrong": "CYP2D6 is a high-value null model because an inherited true null can mean the body lacks a CYP2D6 enzyme function across expression compartments, not only in liver medication metabolism. Strong inhibitors can create partial functional nulls, but they may not reproduce the same whole-body state.",
-      "domains": ["functional nulls", "tissue-resolved biology", "pharmacogenomics", "brain/CNS", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
+      "domains": ["functional nulls", "tissue-resolved biology", "pharmacogenomics", "brain/CNS", "endogenous metabolism", "monoamines", "endocannabinoids", "opioids", "psychiatry", "cardiology", "antiemetics", "phenoconversion"],
       "flags": ["deep-dossier", "tissue-resolved", "copy-number-sensitive", "phenoconversion", "diognosis-seeded", "clinician-review-needed"],
       "nullEvidence": [
         "No-function allele context exists for CYP2D6*4 / rs3892097 in the Diognosis standards bridge.",
@@ -229,6 +278,7 @@
         "Whole-gene deletion, gene conversions, hybrid alleles, and duplications make CYP2D6 a structural-variant problem, not only a SNP problem.",
         "Strong CYP2D6 inhibitors can phenoconvert normal or intermediate genotypes toward a medically induced functional null.",
         "CYP2D6 is not only a hepatic clearance concept; source-linked human brain studies report CYP2D6 expression and function in CNS contexts.",
+        "Source-linked studies support candidate endogenous CYP2D6 routes involving serotonin regeneration, dopamine formation from tyramine, and anandamide/endocannabinoid metabolism.",
         "A true inherited null should be treated as a candidate systemic enzyme-function deficiency, with each compartment graded by evidence rather than assumed from a pharmacogenomic label.",
         "A true inherited null and a medication-induced functional null may not silence the same compartments."
       ],
@@ -278,6 +328,47 @@
           "evidence": "tier-1"
         }
       ],
+      "endogenousModel": {
+        "label": "Endogenous CNS Substrate Map",
+        "summary": "CYP2D6 has source-linked candidate roles in endogenous neurochemical handling, including serotonin-regeneration, dopamine-formation, and endocannabinoid metabolism routes. The Nulls Project treats these as pathway-load questions: a true null may remove a local route, while residual function or induced inhibition may only partially reproduce that state.",
+        "interpretationRules": [
+          "Do not claim that CYP2D6 null status globally means low serotonin or low dopamine.",
+          "Do ask whether a true null removes a backup or parallel route and shifts flux to other enzymes, transporters, or degradation pathways.",
+          "Separate human enzyme evidence, animal brain evidence, human brain expression/function evidence, and human phenotype evidence.",
+          "External CNS-active substrates should be modeled beside endogenous substrates because both compete for or depend on the same missing function."
+        ],
+        "rows": [
+          {
+            "substrate": "5-methoxytryptamine to serotonin",
+            "route": "CYP2D6 can O-demethylate 5-methoxytryptamine to serotonin; later brain work supports a melatonin / 5-methoxytryptamine / serotonin route.",
+            "nullQuestion": "Does a true CYP2D6 null remove a local serotonin-regeneration route and increase reliance on classical tryptophan-derived serotonin synthesis and other compensatory pathways?",
+            "evidenceBase": "Human CYP2D6 in vitro; animal brain in vivo; human brain CYP2D6 expression and function support plausibility.",
+            "evidence": "tier-2"
+          },
+          {
+            "substrate": "Tyramine to dopamine",
+            "route": "CYP2D6 can hydroxylate tyramine to dopamine, creating a candidate alternative dopamine-formation route from endogenous or diet-derived trace amines.",
+            "nullQuestion": "Does a true null reduce this alternative dopamine source and shift tyramine handling toward MAO or other clearance routes?",
+            "evidenceBase": "Human CYP2D6 enzyme evidence; neuroactive-substrate polymorphism literature; human brain phenotype impact remains unresolved.",
+            "evidence": "tier-2"
+          },
+          {
+            "substrate": "Anandamide / endocannabinoid metabolism",
+            "route": "Polymorphic human CYP2D6 can oxidize anandamide to endocannabinoid metabolites.",
+            "nullQuestion": "Does CYP2D6 absence alter local endocannabinoid metabolite ratios in brain or other CYP2D6-expressing tissues?",
+            "evidenceBase": "Human CYP2D6 biochemical evidence and brain-relevance framing; clinical/systemic null consequences remain uncertain.",
+            "evidence": "tier-3"
+          },
+          {
+            "substrate": "CNS-active external substrates",
+            "route": "Many external substances, including medicines and xenobiotics, depend on CYP2D6 for parent clearance or active/inactive metabolite formation.",
+            "nullQuestion": "When the same enzyme is absent, which external substrates accumulate, which active metabolites fall, and which alternate pathways carry the remaining load?",
+            "evidenceBase": "Strong pharmacogenomic evidence for many drugs; local brain-specific metabolism needs compartment evidence per substrate.",
+            "evidence": "tier-1"
+          }
+        ],
+        "sources": ["cyp2d6-5mt-serotonin-2003", "cyp2d-brain-serotonin-2012", "cyp2d-melatonin-serotonin-2016", "cyp2d6-tyramine-dopamine-1998", "cyp2d6-neuroactive-substrates-2004", "cyp2d6-anandamide-2009", "cyp2d6-behavior-psychopathology-2014", "cyp2d6-cns-role", "cyp2d6-brain-functional", "cyp2d6-brain-regional-expression"]
+      },
       "exposureCaseModel": {
         "id": "solanidine",
         "label": "Solanidine / potato glycoalkaloid case",
@@ -417,6 +508,7 @@
           "CYP2D6 is not a simple on/off switch. Pharmacogenomic reports may use metabolizer buckets, but The Nulls Project translates those buckets into mechanism.",
           "Poor metabolizer is not the project object by itself. The project object is inherited no function, minimal function, or a functional null caused by inhibition.",
           "The serious case is not simply altered drug response. The serious case is a body missing or nearly missing an enzyme function that may have multiple local and systemic roles.",
+          "The endogenous-substrate model starts with candidate CNS routes: 5-methoxytryptamine to serotonin, tyramine to dopamine, and anandamide/endocannabinoid metabolism.",
           "The core model is tissue-resolved: inherited nulls can remove function across expression compartments, while medically induced nulls depend on inhibitor distribution, barriers, tissue expression, and local regulation.",
           "The same low-function state can mean less active metabolite for one drug and more parent-drug exposure for another.",
           "A normal genotype can be functionally suppressed by a strong inhibitor, so the Nulls Project must represent genotype and current functional state separately."
@@ -445,6 +537,7 @@
         ],
         "openQuestions": [
           "How should brain/CNS CYP2D6 null biology be shown without pretending that hepatic pharmacogenomic labels fully explain brain effects?",
+          "Which endogenous CNS substrate routes are strong enough for human interpretation, and which remain biochemical or animal-brain hypotheses?",
           "Which inhibitors actually create CNS CYP2D6 functional-null states, and which only create hepatic/systemic phenoconversion?",
           "Which non-medication phenotypes should be considered as candidate consequences of systemic CYP2D6 enzyme absence, and which are only speculation?",
           "How should the atlas display genotype uncertainty when raw consumer files miss copy number and hybrid alleles?",
@@ -459,7 +552,7 @@
         "Do not treat an app-level CYP2D6 call as clinical genotyping.",
         "Ultrarapid CYP2D6 is an opposite-function state, not a null. It may be useful contrast, but it does not belong in the Nulls core model."
       ],
-      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic", "cyp2d6-brain-functional", "cyp2d6-cns-role", "cyp2d6-brain-regional-expression", "brain-cyp-regulation", "bbb-biotransformation", "solanidine-cyp2d6-2024", "solanidine-pm-prediction-2023", "solanidine-tamoxifen-2024", "ssda-cyp2d6-2022", "glycoalkaloids-efsa-2020", "glycoalkaloids-human-pk-2005", "glycoalkaloids-ntp-1998"]
+      "sources": ["diognosis-standards", "cpic-guidelines", "fda-pgx-table", "pharmvar-cyp2d6", "cyp2d6-opioids-cpic", "cyp2d6-brain-functional", "cyp2d6-cns-role", "cyp2d6-brain-regional-expression", "brain-cyp-regulation", "bbb-biotransformation", "cyp2d6-5mt-serotonin-2003", "cyp2d-brain-serotonin-2012", "cyp2d-melatonin-serotonin-2016", "cyp2d6-tyramine-dopamine-1998", "cyp2d6-neuroactive-substrates-2004", "cyp2d6-anandamide-2009", "cyp2d6-behavior-psychopathology-2014", "solanidine-cyp2d6-2024", "solanidine-pm-prediction-2023", "solanidine-tamoxifen-2024", "ssda-cyp2d6-2022", "glycoalkaloids-efsa-2020", "glycoalkaloids-human-pk-2005", "glycoalkaloids-ntp-1998"]
     },
     {
       "id": "CYP2C19",

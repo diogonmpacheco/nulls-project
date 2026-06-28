@@ -6,6 +6,8 @@ Human loss-of-function gene and phenotype atlas.
 
 The larger thesis is that some nulls may be more serious than current product labels suggest. A true null can be a body-level missing enzyme or missing function, not merely a pharmacogenomic note. `CYP2D6` is the flagship because it shows how a gene commonly treated as a medication-response label may need a tissue-resolved systemic-null model.
 
+The next evidence layer is endogenous metabolism. For `CYP2D6`, the first mapped routes include 5-methoxytryptamine to serotonin, tyramine to dopamine, and anandamide/endocannabinoid metabolism. The project treats these as missing-route and pathway-load questions, not as deterministic neurotransmitter or diagnosis claims.
+
 The core use case is to become a reference for **functional null states**:
 
 - inherited no-function biology;
@@ -86,6 +88,7 @@ The intended future bridge is:
 - `data/nulls-atlas.json` - first structured data draft.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
+- `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
 - `docs/diognosis-bridge.md` - how Diognosis data was used and how future integration should work.
 - `docs/product-notes.md` - neurodivergent product, IA, and genetics reviewer notes.
