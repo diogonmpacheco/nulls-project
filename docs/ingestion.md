@@ -4,25 +4,23 @@ The Nulls Project now exposes a first static API layer.
 
 This is not a live server API yet. It is a GitHub Pages JSON API: fetch the JSON files and filter client-side.
 
-## Static Endpoints
+## API Index
 
-- Full atlas: <https://diogonmpacheco.github.io/nulls-project/data/nulls-atlas.json>
-- Null-only feed: <https://diogonmpacheco.github.io/nulls-project/data/nulls-only.json>
-- API alias: <https://diogonmpacheco.github.io/nulls-project/api/nulls.json>
-- API index: <https://diogonmpacheco.github.io/nulls-project/api/index.json>
-- Gene ingest map: <https://diogonmpacheco.github.io/nulls-project/data/null-ingest-map.json>
-- External source catalog: <https://diogonmpacheco.github.io/nulls-project/data/ingest-sources.json>
-- CYP2D6 base model: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-base-model.json>
-- CYP2D6 substrate map: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-substrates.json>
-- CYP2D6 variant slice: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-variants.json>
-- CYP2D6 bundled API: <https://diogonmpacheco.github.io/nulls-project/api/cyp2d6-base.json>
-- CYP2D6 graph-backed gene API: <https://diogonmpacheco.github.io/nulls-project/api/genes/CYP2D6.json>
-- Static property graph API: <https://diogonmpacheco.github.io/nulls-project/api/graph.json>
+Use the API index as the endpoint catalog:
+
+<https://diogonmpacheco.github.io/nulls-project/api/index.json>
+
+Most consumers should start with:
+
+- `api/nulls.json` for gene-level records;
+- `api/null-variants.json` for variant/feed rows;
+- `api/genes/CYP2D6.json` for the graph-backed CYP2D6 pilot;
+- `api/graph.json` for the full static property graph.
 
 ## Filter Examples
 
 ```js
-const response = await fetch("https://diogonmpacheco.github.io/nulls-project/data/nulls-only.json");
+const response = await fetch("https://diogonmpacheco.github.io/nulls-project/api/nulls.json");
 const feed = await response.json();
 
 const strictNulls = feed.records.filter(record => record.strictNull);
@@ -93,23 +91,7 @@ node scripts/build-cyp2d6-base-pack.mjs
 node scripts/build-graph-db.mjs
 ```
 
-The generator reads:
-
-- `data/nulls-atlas.json`
-- `data/null-ingest-map.json`
-- `data/ingest-sources.json`
-
-and writes:
-
-- `data/nulls-only.json`
-- `api/nulls.json`
-- `api/index.json`
-- `data/cyp2d6-variants.json`
-- `api/cyp2d6-base.json`
-- `data/generated/nulls-graph.json`
-- `data/generated/genes/CYP2D6.json`
-- `api/graph.json`
-- `api/genes/CYP2D6.json`
+Generated outputs are distribution files. Curate `models/`, `evidence/`, and the atlas/ingest inputs; then rebuild the generated feeds and APIs.
 
 ## Boundary
 

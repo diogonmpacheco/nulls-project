@@ -18,13 +18,11 @@
       </a>
       <nav class="top-nav" aria-label="Primary">
         <a href="#overview">Overview</a>
-        <a href="#cyp2d6">CYP2D6</a>
-        <a href="#base-model">Base Model</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#variants">Variants</a>
-        <a href="#atlas">Atlas</a>
+        <a href="#atlas">Gene Atlas</a>
+        <a href="#cyp2d6">CYP2D6 Pilot</a>
+        <a href="#evidence">Evidence Rules</a>
+        <a href="#developer">Developer/API</a>
         <a href="docs/methods.md">Methods</a>
-        <a href="api/index.json">API</a>
         <a href="https://github.com/diogonmpacheco/nulls-project">GitHub</a>
       </nav>
     </header>
@@ -37,8 +35,8 @@
           <h1 id="project-title">A body-level map for missing function.</h1>
           <p class="subtitle">The Nulls Project turns loss-of-function biology into a source-linked atlas: inherited absence, severe low function, medication-induced functional nulls, protective knockouts, tissue context, and uncertainty kept separate.</p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#atlas">Explore atlas</a>
-            <a class="button" href="#cyp2d6">See flagship model</a>
+            <a class="button primary" href="#atlas">Explore gene atlas</a>
+            <a class="button" href="#developer">Use the API</a>
           </div>
         </div>
         <dl class="metrics" id="metrics" aria-label="Dataset metrics">
@@ -52,111 +50,6 @@
       <section class="boundary-strip" aria-label="Project boundary">
         <strong>Careful map, not a verdict.</strong>
         <span>Educational research reference only. Variants are not diagnoses; medication decisions need qualified review.</span>
-      </section>
-
-      <section class="concept-band" aria-labelledby="concept-title">
-        <div class="section-intro">
-          <p class="eyebrow">Interpretation frame</p>
-          <h2 id="concept-title">A null is not one thing.</h2>
-          <p>Each record separates mechanism from meaning, so a user can see whether the story is inherited absence, residual activity, temporary suppression, or protective loss of function.</p>
-        </div>
-        <div class="concept-grid">
-          <article class="concept-card inherited">
-            <span class="concept-icon" aria-hidden="true"></span>
-            <h3>Inherited null</h3>
-            <p>A no-function allele, deletion, or missing function that may affect every compartment where the gene is normally active.</p>
-          </article>
-          <article class="concept-card low">
-            <span class="concept-icon" aria-hidden="true"></span>
-            <h3>Low-function review</h3>
-            <p>Severe reduction that can approximate a null in some contexts, but should not be collapsed into a true absence.</p>
-          </article>
-          <article class="concept-card induced">
-            <span class="concept-icon" aria-hidden="true"></span>
-            <h3>Induced functional null</h3>
-            <p>A drug or exposure can temporarily suppress function, but distribution and timing decide which tissues are actually silenced.</p>
-          </article>
-          <article class="concept-card protective">
-            <span class="concept-icon" aria-hidden="true"></span>
-            <h3>Protective LoF</h3>
-            <p>Some missing-function states are protective, showing why less function is not automatically pathological.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="story-board" id="cyp2d6" aria-labelledby="cyp2d6-title">
-        <div class="story-copy" id="flagship-panel">
-          <p class="eyebrow">Flagship case</p>
-          <h2 id="cyp2d6-title">CYP2D6 shows why null biology needs a systems view.</h2>
-          <p>The first release uses CYP2D6 to distinguish inherited true nulls, poor-metabolizer labels, residual low function, and medically induced functional nulls.</p>
-        </div>
-        <div class="systems-panel">
-          <div class="panel-heading compact">
-            <div>
-              <p class="eyebrow">Tissue-resolved map</p>
-              <h2>Inherited null vs induced suppression</h2>
-            </div>
-            <a href="docs/cyp2d6-body-map.md">Body map</a>
-          </div>
-          <div class="compartment-map" id="compartment-map"></div>
-        </div>
-      </section>
-
-      <section class="base-pack-band" id="base-model" aria-labelledby="base-pack-title">
-        <div class="section-intro">
-          <p class="eyebrow">CYP2D6 null model</p>
-          <h2 id="base-pack-title">CYP2D6 null biology is more than a liver drug-metabolism label.</h2>
-          <p>This model separates inherited enzyme absence, residual function, medication-induced phenoconversion, tissue context, substrate classes, and evidence strength.</p>
-        </div>
-        <div id="cyp2d6-base-pack"></div>
-      </section>
-
-      <section class="pathway-band" aria-labelledby="pathway-title">
-        <div class="section-intro">
-          <p class="eyebrow">Endogenous layer</p>
-          <h2 id="pathway-title">Pathways are shown as questions, not symptom claims.</h2>
-          <p>CYP2D6 candidate routes are represented as pathway-load questions with their evidence base visible.</p>
-        </div>
-        <div class="pathway-map" id="pathway-map"></div>
-      </section>
-
-      <section class="insight-grid" id="evidence" aria-labelledby="evidence-title">
-        <article class="matrix-panel">
-          <div class="panel-heading compact">
-            <div>
-              <p class="eyebrow">Evidence matrix</p>
-              <h2 id="evidence-title">How strong is the record?</h2>
-            </div>
-          </div>
-          <div id="evidence-matrix" class="evidence-matrix"></div>
-        </article>
-
-        <article class="evidence-model">
-          <p class="eyebrow">Evidence tiers</p>
-          <h2>Strength ladder</h2>
-          <div id="tier-list" class="tier-list"></div>
-        </article>
-
-        <article class="confidence-panel">
-          <p class="eyebrow">Source confidence</p>
-          <h2>What kind of evidence?</h2>
-          <div id="source-confidence-strip" class="confidence-strip"></div>
-        </article>
-
-        <article class="domain-panel">
-          <p class="eyebrow">Coverage</p>
-          <h2>Domains in the first release</h2>
-          <div id="domain-cloud" class="domain-cloud"></div>
-        </article>
-      </section>
-
-      <section class="variant-panel" id="variants" aria-labelledby="variant-title">
-        <div class="section-intro">
-          <p class="eyebrow">Variant feed</p>
-          <h2 id="variant-title">Strict nulls and review rows are separated before ingestion.</h2>
-          <p>The variant feed is designed for downstream tools that need a conservative null lens without losing caveats, source layers, and confidence labels.</p>
-        </div>
-        <div class="variant-snapshot" id="variant-snapshot"></div>
       </section>
 
       <section class="atlas-grid" id="atlas">
@@ -258,27 +151,98 @@
         <div class="dossier" id="gene-dossier"></div>
         <aside class="worklist" aria-label="Phase two candidates">
           <p class="eyebrow">Phase two</p>
-          <h2>Near misses</h2>
+          <h2>Phase two candidates</h2>
           <div id="phase-two"></div>
         </aside>
+      </section>
+
+      <section class="story-board" id="cyp2d6" aria-labelledby="cyp2d6-title">
+        <div class="story-copy" id="flagship-panel">
+          <p class="eyebrow">CYP2D6 pilot</p>
+          <h2 id="cyp2d6-title">CYP2D6 is the deep model; the other genes are summaries.</h2>
+          <p>The pilot separates inherited true nulls, residual function, poor-metabolizer labels, induced functional nulls, compartments, substrates, and evidence lanes.</p>
+        </div>
+        <div class="systems-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Compartments</p>
+              <h2>Inherited absence vs induced suppression</h2>
+            </div>
+            <a href="api/genes/CYP2D6.json">Gene API</a>
+          </div>
+          <div class="compartment-map" id="compartment-map"></div>
+        </div>
+      </section>
+
+      <section class="base-pack-band" id="base-model" aria-labelledby="base-pack-title">
+        <div class="section-intro">
+          <p class="eyebrow">CYP2D6 model</p>
+          <h2 id="base-pack-title">One pilot model, four distinct views.</h2>
+          <p>States, compartments, pathway rows, and exposure cases are generated from canonical graph-ready model files, not separate public claims.</p>
+        </div>
+        <div id="cyp2d6-base-pack"></div>
+        <div class="panel-heading pilot-subheading">
+          <div>
+            <p class="eyebrow">Pathway questions</p>
+            <h2>Endogenous routes are questions, not symptom claims.</h2>
+          </div>
+          <a href="api/genes/CYP2D6.json">Graph bundle</a>
+        </div>
+        <div class="pathway-map" id="pathway-map" aria-label="CYP2D6 pathway questions"></div>
+      </section>
+
+      <section class="insight-grid" id="evidence" aria-labelledby="evidence-title">
+        <article class="matrix-panel">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Evidence rules</p>
+              <h2 id="evidence-title">Strength and evidence type are separate.</h2>
+            </div>
+          </div>
+          <div id="evidence-matrix" class="evidence-matrix"></div>
+        </article>
+
+        <article class="evidence-model">
+          <p class="eyebrow">Evidence tiers</p>
+          <h2>Strength ladder</h2>
+          <div id="tier-list" class="tier-list"></div>
+        </article>
+
+        <article class="confidence-panel">
+          <p class="eyebrow">Source confidence</p>
+          <h2>Evidence lane</h2>
+          <div id="source-confidence-strip" class="confidence-strip"></div>
+        </article>
+
+        <article class="domain-panel">
+          <p class="eyebrow">Coverage</p>
+          <h2>First release</h2>
+          <div id="domain-cloud" class="domain-cloud"></div>
+        </article>
+      </section>
+
+      <section class="variant-panel" id="developer" aria-labelledby="developer-title">
+        <div class="section-intro">
+          <p class="eyebrow">Developer/API</p>
+          <h2 id="developer-title">Use the generated APIs; curate the model files.</h2>
+          <p>The public contract lives in <a href="api/index.json">api/index.json</a>. The graph connects genes, variants, states, substrates, compartments, claims, caveats, evidence lanes, and sources.</p>
+        </div>
+        <div class="variant-snapshot" id="variant-snapshot"></div>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>The Nulls Project v0.1 draft</span>
       <nav aria-label="Footer resources">
-        <a href="docs/source-confidence.md">Confidence</a>
-        <a href="docs/systemic-null-framing.md">Systemic framing</a>
-        <a href="docs/cyp2d6-null-definition.md">CYP2D6 definition</a>
-        <a href="docs/cyp2d6-endogenous-map.md">Endogenous map</a>
-        <a href="api/cyp2d6-base.json">CYP2D6 API</a>
+        <a href="docs/methods.md">Methods</a>
+        <a href="api/index.json">API Index</a>
+        <a href="api/genes/CYP2D6.json">CYP2D6 API</a>
         <a href="api/graph.json">Graph API</a>
-        <a href="data/nulls-only.json">Null feed</a>
-        <a href="data/nulls-atlas.json">Data</a>
         <a href="docs/roadmap.md">Roadmap</a>
+        <a href="https://github.com/diogonmpacheco/nulls-project">GitHub</a>
       </nav>
     </footer>
 
-    <script src="app.js?v=2026-06-29-copy-cleanup" type="module"></script>
+    <script src="app.js?v=2026-06-29-ia-cleanup" type="module"></script>
   </body>
 </html>

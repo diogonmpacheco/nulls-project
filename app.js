@@ -139,8 +139,8 @@ function renderMetrics() {
   const { metadata } = state.atlas;
   els.metrics.innerHTML = `
     <div><dt>Genes</dt><dd>${metadata.counts.genes}</dd></div>
-    <div><dt>Source-linked</dt><dd>${metadata.counts.sourceLinkedGenes}</dd></div>
-    <div><dt>Diognosis Seed</dt><dd>${metadata.counts.diognosisSeededGenes}</dd></div>
+    <div><dt>Pilot</dt><dd>CYP2D6</dd></div>
+    <div><dt>Graph</dt><dd>API</dd></div>
     <div><dt>Release</dt><dd>${escapeHtml(metadata.version)}</dd></div>
   `;
 }
@@ -155,9 +155,9 @@ function renderFlagshipPanel() {
   ].filter(Boolean);
 
   els.flagshipPanel.innerHTML = `
-    <p class="eyebrow">Flagship case</p>
-    <h2>CYP2D6 shows why null biology needs a systems view.</h2>
-    <p>${escapeHtml(gene.whyStrong)}</p>
+    <p class="eyebrow">CYP2D6 pilot</p>
+    <h2>CYP2D6 is the deep model; the other genes are summaries.</h2>
+    <p>${escapeHtml(compactText(gene.whyStrong, 260))}</p>
     <div class="flagship-points">
       ${evidencePoints.map(point => `<span>${escapeHtml(compactText(point, 178))}</span>`).join("")}
     </div>
@@ -194,7 +194,7 @@ function renderCyp2d6BasePack() {
           </div>
           <a href="docs/cyp2d6-null-definition.md">Definition</a>
         </div>
-        <p>${escapeHtml(base.coreThesis)}</p>
+        <p>Canonical state rows from <code>models/genes/CYP2D6/null-states.json</code>.</p>
         <div class="base-state-list">
           ${definitionStates.map(row => `
             <article class="base-state-card">
@@ -418,7 +418,7 @@ function renderMatrix(rows) {
   els.matrix.innerHTML = [
     matrixCell("Tier 1", counts["tier-1"] || 0, "strong human function evidence", "tier-1"),
     matrixCell("Systemic", systemic, "tissue-resolved null candidates", "tier-2"),
-    matrixCell("Diognosis", highValue, "seeded medication bridge records", "tier-3"),
+    matrixCell("Medication", highValue, "pharmacogenomic bridge records", "tier-3"),
     matrixCell("Protective", protective, "non-pathology null examples", "tier-4")
   ].join("");
 }
@@ -605,8 +605,8 @@ function renderCyp2d6BaseDossier() {
 
   return `
     <section class="section-block wide">
-      <h3>CYP2D6 Base Model</h3>
-      <p>${escapeHtml(base.purpose)}</p>
+      <h3>CYP2D6 Pilot Model</h3>
+      <p>The canonical CYP2D6 rows are curated under <code>models/genes/CYP2D6/</code> and distributed through the graph-backed API.</p>
       <div class="base-metric-row">
         ${variantStat(strictStates, "strict definition states")}
         ${variantStat(reviewStates, "review/comparator states")}
@@ -614,10 +614,9 @@ function renderCyp2d6BaseDossier() {
         ${variantStat((base.evidenceLadder || []).length, "evidence ladder levels")}
       </div>
       <div class="small-gap stack">
-        <a class="source-link compact-link" href="data/cyp2d6-base-model.json">Base model JSON</a>
-        <a class="source-link compact-link" href="data/cyp2d6-substrates.json">Substrate JSON</a>
-        <a class="source-link compact-link" href="data/cyp2d6-variants.json">Variant JSON</a>
-        <a class="source-link compact-link" href="api/cyp2d6-base.json">Bundled API</a>
+        <a class="source-link compact-link" href="api/genes/CYP2D6.json">CYP2D6 graph bundle</a>
+        <a class="source-link compact-link" href="api/graph.json">Graph API</a>
+        <a class="source-link compact-link" href="api/index.json">API index</a>
       </div>
     </section>
   `;
