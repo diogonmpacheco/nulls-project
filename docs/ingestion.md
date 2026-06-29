@@ -12,6 +12,10 @@ This is not a live server API yet. It is a GitHub Pages JSON API: fetch the JSON
 - API index: <https://diogonmpacheco.github.io/nulls-project/api/index.json>
 - Gene ingest map: <https://diogonmpacheco.github.io/nulls-project/data/null-ingest-map.json>
 - External source catalog: <https://diogonmpacheco.github.io/nulls-project/data/ingest-sources.json>
+- CYP2D6 base model: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-base-model.json>
+- CYP2D6 substrate map: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-substrates.json>
+- CYP2D6 variant slice: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-variants.json>
+- CYP2D6 bundled API: <https://diogonmpacheco.github.io/nulls-project/api/cyp2d6-base.json>
 
 ## Filter Examples
 
@@ -24,6 +28,10 @@ const systemic = feed.records.filter(record => record.facets.systemicCandidate);
 const protective = feed.records.filter(record => record.facets.protective);
 const induced = feed.records.filter(record => record.facets.inducedNull);
 const cyp2d6 = feed.records.find(record => record.symbol === "CYP2D6");
+
+const cyp2d6Base = await fetch("https://diogonmpacheco.github.io/nulls-project/api/cyp2d6-base.json").then(r => r.json());
+const cyp2d6StrictVariants = cyp2d6Base.variants.records.filter(record => record.strictNull);
+const cyp2d6MedicationRows = cyp2d6Base.substrates.rows.filter(row => row.category === "medication");
 ```
 
 ## What The Feed Keeps
@@ -73,6 +81,8 @@ The first enrichment catalog maps the project to:
 
 ```bash
 node scripts/build-null-feeds.mjs
+node scripts/build-null-variants.mjs
+node scripts/build-cyp2d6-base-pack.mjs
 ```
 
 The generator reads:
@@ -86,6 +96,8 @@ and writes:
 - `data/nulls-only.json`
 - `api/nulls.json`
 - `api/index.json`
+- `data/cyp2d6-variants.json`
+- `api/cyp2d6-base.json`
 
 ## Boundary
 

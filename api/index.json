@@ -29,6 +29,26 @@
       "use": "Same records as data/null-variants.json, placed under api/ for consumers that expect API-like paths."
     },
     {
+      "path": "data/cyp2d6-base-model.json",
+      "label": "CYP2D6 base model",
+      "use": "Reusable state model and evidence ladder for CYP2D6 as the flagship null template."
+    },
+    {
+      "path": "data/cyp2d6-substrates.json",
+      "label": "CYP2D6 substrate map",
+      "use": "Endogenous, exposure, medication, probe, and induced-null substrate rows."
+    },
+    {
+      "path": "data/cyp2d6-variants.json",
+      "label": "CYP2D6 variant slice",
+      "use": "CYP2D6-only strict/review variant rows generated from the null variant feed."
+    },
+    {
+      "path": "api/cyp2d6-base.json",
+      "label": "CYP2D6 base-pack API",
+      "use": "Bundled CYP2D6 base model, substrate map, and variant slice."
+    },
+    {
       "path": "data/null-ingest-map.json",
       "label": "Gene-specific ingest rules",
       "use": "Per-gene source priorities, include/review/exclude mechanisms, and null-only curation rules."
@@ -49,6 +69,7 @@
     "records.filter(record => record.strictNull)",
     "records.filter(record => record.facets.systemicCandidate)",
     "records.filter(record => record.symbol === 'CYP2D6')",
-    "records.filter(record => record.nullModes.includes('protective-loss-of-function'))"
+    "records.filter(record => record.nullModes.includes('protective-loss-of-function'))",
+    "fetch('api/cyp2d6-base.json').then(response => response.json())"
   ]
 }

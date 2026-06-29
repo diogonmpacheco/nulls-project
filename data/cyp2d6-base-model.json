@@ -1,0 +1,147 @@
+{
+  "schema": "nulls-project.cyp2d6-base-model.v0",
+  "generated": "2026-06-29",
+  "gene": {
+    "symbol": "CYP2D6",
+    "name": "Cytochrome P450 family 2 subfamily D member 6",
+    "role": "Flagship template for systemic functional-null modeling"
+  },
+  "purpose": "Define CYP2D6 as the base model all future Nulls Project deep dossiers should copy: states, evidence ladder, substrate maps, tissue maps, and boundaries kept separate.",
+  "coreThesis": "CYP2D6 null biology is not only a pharmacogenomic drug-response label. A true inherited null can mean missing CYP2D6 enzyme function wherever CYP2D6 is normally active, while a medically induced functional null may only suppress selected compartments.",
+  "stateModel": [
+    {
+      "id": "true-inherited-null",
+      "label": "True inherited null",
+      "definition": "Inherited absence or nonfunction of CYP2D6 activity from no-function alleles, biallelic no-function combinations, or equivalent genetic loss.",
+      "strictNull": true,
+      "includeInCore": true,
+      "mainQuestion": "What does the body miss when CYP2D6 function is absent across expression compartments?",
+      "boundary": "Do not assume every phenotype is known; require tissue and substrate evidence."
+    },
+    {
+      "id": "whole-gene-deletion",
+      "label": "Whole-gene deletion",
+      "definition": "CYP2D6*5 or other structural loss where the CYP2D6 gene is deleted.",
+      "strictNull": true,
+      "includeInCore": true,
+      "mainQuestion": "Does structural loss remove enzyme capacity in every CYP2D6-expressing compartment?",
+      "boundary": "Consumer SNP files often miss deletion, duplication, conversion, and hybrid alleles."
+    },
+    {
+      "id": "named-no-function-star-alleles",
+      "label": "Named no-function star alleles",
+      "definition": "PharmVar/CPIC-compatible star alleles assigned no function, such as CYP2D6*4 and other CPIC no-function rows.",
+      "strictNull": true,
+      "includeInCore": true,
+      "mainQuestion": "Which named alleles are strict nulls and which only reduce activity?",
+      "boundary": "Phasing, copy number, and allele definitions matter."
+    },
+    {
+      "id": "residual-decreased-function",
+      "label": "Residual or decreased function",
+      "definition": "Alleles such as CYP2D6*10 or CYP2D6*41 with reduced activity that may approximate null behavior for some substrates but still retain function.",
+      "strictNull": false,
+      "includeInCore": true,
+      "mainQuestion": "When does residual activity meaningfully change accumulation or metabolite formation compared with true null?",
+      "boundary": "Do not collapse decreased function into true inherited null."
+    },
+    {
+      "id": "clinical-poor-metabolizer-label",
+      "label": "Clinical poor metabolizer label",
+      "definition": "A phenotype translation bucket that can represent true no-function diplotypes, incomplete testing, or clinical activity-score assumptions.",
+      "strictNull": false,
+      "includeInCore": true,
+      "mainQuestion": "Does the label map to actual missing CYP2D6 function, or only a report-level category?",
+      "boundary": "Use poor metabolizer labels as comparators, not as the core Nulls object."
+    },
+    {
+      "id": "medically-induced-functional-null",
+      "label": "Medically induced functional null",
+      "definition": "Strong CYP2D6 inhibition or phenoconversion that suppresses CYP2D6 activity while the inhibitor is present.",
+      "strictNull": false,
+      "includeInCore": true,
+      "mainQuestion": "Which compartments are actually silenced by the inhibitor?",
+      "boundary": "Liver/systemic phenoconversion may not reproduce inherited brain, barrier, or tissue-local absence."
+    },
+    {
+      "id": "tissue-local-null",
+      "label": "Tissue-local null question",
+      "definition": "A compartment-specific question about local CYP2D6 expression, activity, substrate access, and inhibitor penetration.",
+      "strictNull": false,
+      "includeInCore": true,
+      "mainQuestion": "Is the observed effect driven by local CYP2D6 absence or systemic exposure reaching a target tissue?",
+      "boundary": "Each compartment needs its own evidence tier."
+    },
+    {
+      "id": "opposite-states-excluded",
+      "label": "Opposite states excluded",
+      "definition": "Ultrarapid, increased-function, and duplication states used only as directionality contrast.",
+      "strictNull": false,
+      "includeInCore": false,
+      "mainQuestion": "Does the state increase function rather than remove it?",
+      "boundary": "Keep out of strict-null filters."
+    }
+  ],
+  "evidenceLadder": [
+    {
+      "id": "human-null-phenotype",
+      "rank": 1,
+      "label": "Human null phenotype",
+      "meaning": "Direct human inherited null, deletion, biallelic deficiency, or functional absence evidence."
+    },
+    {
+      "id": "human-drug-response",
+      "rank": 2,
+      "label": "Human substrate response",
+      "meaning": "Human medication, xenobiotic, or biomarker response evidence tied to CYP2D6 activity."
+    },
+    {
+      "id": "human-brain-function",
+      "rank": 3,
+      "label": "Human brain function",
+      "meaning": "Human brain CYP2D6 functional evidence, stronger than expression alone."
+    },
+    {
+      "id": "human-expression",
+      "rank": 4,
+      "label": "Human tissue expression",
+      "meaning": "Human tissue mRNA/protein evidence that supports a compartment but does not prove phenotype by itself."
+    },
+    {
+      "id": "animal-brain-in-vivo",
+      "rank": 5,
+      "label": "Animal brain in vivo",
+      "meaning": "Animal brain pathway evidence used as plausibility, not direct human interpretation."
+    },
+    {
+      "id": "in-vitro-biochemistry",
+      "rank": 6,
+      "label": "In vitro biochemistry",
+      "meaning": "Human enzyme or cell-system evidence for substrate conversion."
+    },
+    {
+      "id": "hypothesis-only",
+      "rank": 7,
+      "label": "Hypothesis only",
+      "meaning": "Mechanistic question worth tracking but not established enough for claims."
+    }
+  ],
+  "requiredSectionsForFutureGenes": [
+    "null-state model",
+    "strict/review variant split",
+    "substrate and pathway map",
+    "tissue or compartment map",
+    "inherited-null vs medically-induced-null comparison",
+    "source confidence labels",
+    "boundary and non-diagnostic wording",
+    "static API feed"
+  ],
+  "basePackFiles": [
+    "data/cyp2d6-base-model.json",
+    "data/cyp2d6-substrates.json",
+    "data/cyp2d6-variants.json",
+    "data/cyp2d6-null-ingest.json",
+    "api/cyp2d6-base.json",
+    "docs/cyp2d6-null-definition.md"
+  ]
+}

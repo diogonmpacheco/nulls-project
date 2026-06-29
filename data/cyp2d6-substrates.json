@@ -1,0 +1,284 @@
+{
+  "schema": "nulls-project.cyp2d6-substrates.v0",
+  "generated": "2026-06-29",
+  "gene": "CYP2D6",
+  "purpose": "Base substrate and pathway map for CYP2D6 null modeling. Rows describe what changes when CYP2D6 is absent, reduced, or medically inhibited.",
+  "boundary": "Educational research reference only. Substrate rows are not medication instructions and do not imply personal diagnosis or treatment action.",
+  "sources": [
+    {
+      "id": "cpic-opioids",
+      "label": "CPIC CYP2D6, OPRM1, COMT and opioid therapy",
+      "url": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/CPIC_opioids_PREPRINT.pdf"
+    },
+    {
+      "id": "cpic-guidelines",
+      "label": "CPIC Guidelines index",
+      "url": "https://cpicpgx.org/guidelines/"
+    },
+    {
+      "id": "fda-pgx-table",
+      "label": "FDA Table of Pharmacogenetic Associations",
+      "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations"
+    },
+    {
+      "id": "diognosis",
+      "label": "Diognosis bridge examples",
+      "url": "https://diogonmpacheco.github.io/Diognosis/"
+    },
+    {
+      "id": "cyp2d6-5mt-serotonin",
+      "label": "CYP2D6 converts 5-methoxytryptamine to serotonin",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12618595/"
+    },
+    {
+      "id": "cyp2d-brain-serotonin",
+      "label": "Brain CYP2D catalytic competence for serotonin formation",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23098818/"
+    },
+    {
+      "id": "cyp2d-melatonin-serotonin",
+      "label": "Melatonin to serotonin through 5-methoxytryptamine and CYP2D",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26884482/"
+    },
+    {
+      "id": "cyp2d6-tyramine-dopamine",
+      "label": "CYP2D6 converts tyramine to dopamine",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9731223/"
+    },
+    {
+      "id": "cyp2d6-anandamide",
+      "label": "Anandamide as a CYP2D6 substrate",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2704579/"
+    },
+    {
+      "id": "cyp2d6-cns-review",
+      "label": "Potential role of CYP2D6 in the central nervous system",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3750078/"
+    },
+    {
+      "id": "human-brain-cyp2d6",
+      "label": "Human CYP2D6 is functional in brain in vivo",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7383223/"
+    },
+    {
+      "id": "solanidine-cyp2d6",
+      "label": "Solanidine as CYP2D6 activity biomarker",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38303026/"
+    },
+    {
+      "id": "solanidine-tamoxifen",
+      "label": "Solanidine metabolites as biomarkers of CYP2D6-mediated tamoxifen metabolism",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39039708/"
+    }
+  ],
+  "rows": [
+    {
+      "id": "endogenous-5mt-serotonin",
+      "label": "5-methoxytryptamine to serotonin",
+      "category": "endogenous",
+      "substrateType": "monoamine route",
+      "cyp2d6Role": "O-demethylation route that can regenerate serotonin from 5-methoxytryptamine.",
+      "trueNullEffect": "May remove a local backup or parallel serotonin-regeneration route in CYP2D6-expressing compartments.",
+      "residualFunctionEffect": "Reduced function may preserve some flux and should not be interpreted as complete absence.",
+      "inducedNullEffect": "Only relevant where the inhibitor reaches enough local concentration to suppress CYP2D6.",
+      "compartmentFocus": ["brain/CNS", "other CYP2D6-expressing tissues"],
+      "evidenceLane": ["in-vitro-biochemistry", "animal-brain-in-vivo", "human-expression", "human-brain-function"],
+      "evidenceTier": "tier-2",
+      "status": "pathway-capacity-question",
+      "clinicalBoundary": "Do not claim CYP2D6 null globally means low serotonin.",
+      "sourceIds": ["cyp2d6-5mt-serotonin", "cyp2d-brain-serotonin", "cyp2d-melatonin-serotonin", "human-brain-cyp2d6"]
+    },
+    {
+      "id": "endogenous-tyramine-dopamine",
+      "label": "Tyramine to dopamine",
+      "category": "endogenous",
+      "substrateType": "trace amine / monoamine route",
+      "cyp2d6Role": "Hydroxylation route from tyramine to dopamine.",
+      "trueNullEffect": "May reduce an alternative dopamine-formation route and shift tyramine handling to MAO or other clearance routes.",
+      "residualFunctionEffect": "Residual CYP2D6 activity may preserve partial conversion.",
+      "inducedNullEffect": "Potentially tissue-specific and inhibitor-distribution dependent.",
+      "compartmentFocus": ["brain/CNS", "gut and diet-derived trace amine context"],
+      "evidenceLane": ["in-vitro-biochemistry", "human-enzyme-activity", "human-expression"],
+      "evidenceTier": "tier-2",
+      "status": "pathway-capacity-question",
+      "clinicalBoundary": "Do not claim CYP2D6 null globally means low dopamine.",
+      "sourceIds": ["cyp2d6-tyramine-dopamine", "cyp2d6-cns-review"]
+    },
+    {
+      "id": "endogenous-anandamide",
+      "label": "Anandamide / endocannabinoid metabolism",
+      "category": "endogenous",
+      "substrateType": "endocannabinoid route",
+      "cyp2d6Role": "Oxidation of anandamide into endocannabinoid metabolites by polymorphic human CYP2D6.",
+      "trueNullEffect": "May change local endocannabinoid metabolite ratios where CYP2D6 is active.",
+      "residualFunctionEffect": "Partial activity may preserve some metabolism.",
+      "inducedNullEffect": "Only relevant in compartments reached by a strong inhibitor.",
+      "compartmentFocus": ["brain/CNS", "peripheral CYP2D6-expressing tissues"],
+      "evidenceLane": ["in-vitro-biochemistry", "human-expression"],
+      "evidenceTier": "tier-3",
+      "status": "candidate-route",
+      "clinicalBoundary": "Track as pathway evidence, not as symptom or diagnosis evidence.",
+      "sourceIds": ["cyp2d6-anandamide", "cyp2d6-cns-review"]
+    },
+    {
+      "id": "exposure-solanidine",
+      "label": "Solanidine / potato glycoalkaloid biomarker",
+      "category": "external-exposure",
+      "substrateType": "diet-derived biomarker",
+      "cyp2d6Role": "CYP2D6-dependent solanidine metabolism changes parent solanidine and metabolite ratios.",
+      "trueNullEffect": "Expected high parent solanidine and low CYP2D6-derived metabolite formation.",
+      "residualFunctionEffect": "Intermediate or decreased function can raise parent solanidine but is not the same as true-null accumulation.",
+      "inducedNullEffect": "Strong inhibition can suppress liver/systemic CYP2D6 solanidine metabolism while present.",
+      "compartmentFocus": ["plasma", "liver/systemic", "urine biomarkers", "unresolved tissues"],
+      "evidenceLane": ["external-exposure-biomarker", "human-enzyme-activity"],
+      "evidenceTier": "tier-1",
+      "status": "biomarker-strong",
+      "clinicalBoundary": "Do not treat plasma solanidine as a potato-toxicity threshold.",
+      "sourceIds": ["solanidine-cyp2d6", "solanidine-tamoxifen"]
+    },
+    {
+      "id": "med-codeine",
+      "label": "Codeine",
+      "category": "medication",
+      "substrateType": "prodrug activation",
+      "cyp2d6Role": "CYP2D6 contributes to morphine formation from codeine.",
+      "trueNullEffect": "Reduced morphine formation from codeine.",
+      "residualFunctionEffect": "Reduced but not necessarily absent activation depending on activity score and context.",
+      "inducedNullEffect": "Strong inhibitors can reduce activation while present.",
+      "compartmentFocus": ["liver/systemic", "CNS target exposure"],
+      "evidenceLane": ["human-drug-response", "clinical-guideline"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "Medication decisions require qualified review.",
+      "sourceIds": ["cpic-opioids", "diognosis"]
+    },
+    {
+      "id": "med-tramadol",
+      "label": "Tramadol",
+      "category": "medication",
+      "substrateType": "active metabolite formation",
+      "cyp2d6Role": "CYP2D6 contributes to O-desmethyltramadol formation.",
+      "trueNullEffect": "Reduced active metabolite formation while parent tramadol effects may still matter.",
+      "residualFunctionEffect": "Partial conversion may remain.",
+      "inducedNullEffect": "Strong inhibitors can reduce CYP2D6-dependent metabolite formation while present.",
+      "compartmentFocus": ["liver/systemic", "CNS target exposure"],
+      "evidenceLane": ["human-drug-response", "clinical-guideline"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "Medication decisions require qualified review.",
+      "sourceIds": ["cpic-opioids", "diognosis"]
+    },
+    {
+      "id": "med-atomoxetine",
+      "label": "Atomoxetine",
+      "category": "medication",
+      "substrateType": "parent clearance",
+      "cyp2d6Role": "CYP2D6 is a major route for atomoxetine metabolism.",
+      "trueNullEffect": "Higher parent atomoxetine exposure is expected in null or poor-function states.",
+      "residualFunctionEffect": "Exposure can still differ across decreased-function states.",
+      "inducedNullEffect": "Strong inhibitors can phenoconvert normal genotype toward higher exposure.",
+      "compartmentFocus": ["liver/systemic", "CNS-active external substrate"],
+      "evidenceLane": ["human-drug-response", "clinical-guideline"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "Medication decisions require qualified review.",
+      "sourceIds": ["cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "med-metoprolol",
+      "label": "Metoprolol",
+      "category": "medication",
+      "substrateType": "parent clearance",
+      "cyp2d6Role": "CYP2D6 contributes to metoprolol clearance.",
+      "trueNullEffect": "Higher parent exposure can increase cardiovascular target exposure review priority.",
+      "residualFunctionEffect": "Exposure can increase across reduced-function states depending on dose and context.",
+      "inducedNullEffect": "Strong inhibitors can raise exposure while present.",
+      "compartmentFocus": ["liver/systemic", "cardiovascular target effects"],
+      "evidenceLane": ["human-drug-response"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "This is target-exposure biology, not proof of local cardiac CYP2D6 loss.",
+      "sourceIds": ["fda-pgx-table", "diognosis"]
+    },
+    {
+      "id": "med-flecainide-propafenone",
+      "label": "Flecainide / propafenone",
+      "category": "medication",
+      "substrateType": "parent clearance / narrow cardiac context",
+      "cyp2d6Role": "CYP2D6 contributes to exposure for selected antiarrhythmic substrates.",
+      "trueNullEffect": "Higher parent exposure may increase review priority for toxicity-prone cardiac contexts.",
+      "residualFunctionEffect": "Reduced function can matter but should remain substrate- and regimen-specific.",
+      "inducedNullEffect": "Strong inhibitors can raise exposure while present.",
+      "compartmentFocus": ["liver/systemic", "cardiovascular target effects"],
+      "evidenceLane": ["human-drug-response"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "Requires clinician/pharmacist review; not a stand-alone action rule.",
+      "sourceIds": ["fda-pgx-table", "diognosis"]
+    },
+    {
+      "id": "med-tca",
+      "label": "Tricyclic antidepressant archetype",
+      "category": "medication",
+      "substrateType": "CNS-active parent/metabolite exposure",
+      "cyp2d6Role": "CYP2D6 contributes to metabolism of several tricyclic antidepressants.",
+      "trueNullEffect": "Can raise exposure for CYP2D6-dependent TCA substrates or active moieties.",
+      "residualFunctionEffect": "Activity score and co-medications can materially change exposure.",
+      "inducedNullEffect": "Strong inhibitors can phenoconvert exposure while present.",
+      "compartmentFocus": ["liver/systemic", "CNS-active external substrate"],
+      "evidenceLane": ["human-drug-response", "clinical-guideline"],
+      "evidenceTier": "tier-1",
+      "status": "medication-lens",
+      "clinicalBoundary": "Grouped archetype; individual drugs need their own row before decisions.",
+      "sourceIds": ["cpic-guidelines", "fda-pgx-table"]
+    },
+    {
+      "id": "med-dextromethorphan",
+      "label": "Dextromethorphan / dextrorphan probe route",
+      "category": "medication",
+      "substrateType": "probe and CNS-active external substrate",
+      "cyp2d6Role": "CYP2D6 converts dextromethorphan toward dextrorphan and is widely used as an activity probe.",
+      "trueNullEffect": "Higher parent-to-metabolite ratio reflects low CYP2D6 activity.",
+      "residualFunctionEffect": "Metabolite ratio can show graded activity rather than a binary state.",
+      "inducedNullEffect": "Strong inhibitors can shift the ratio while present.",
+      "compartmentFocus": ["plasma", "urine biomarkers", "brain/CNS functional studies"],
+      "evidenceLane": ["human-enzyme-activity", "human-brain-function"],
+      "evidenceTier": "tier-1",
+      "status": "activity-probe",
+      "clinicalBoundary": "Probe interpretation is not the same as personal diagnosis.",
+      "sourceIds": ["human-brain-cyp2d6", "cpic-guidelines"]
+    },
+    {
+      "id": "med-tamoxifen-review",
+      "label": "Tamoxifen / endoxifen review route",
+      "category": "medication",
+      "substrateType": "active metabolite formation review",
+      "cyp2d6Role": "CYP2D6 contributes to endoxifen formation and can be tracked with CYP2D6 activity biomarkers.",
+      "trueNullEffect": "Expected lower CYP2D6-dependent active metabolite formation, but clinical translation is context-sensitive.",
+      "residualFunctionEffect": "Residual function and co-medications can change metabolite formation.",
+      "inducedNullEffect": "Strong inhibitors can suppress CYP2D6-dependent metabolite ratios while present.",
+      "compartmentFocus": ["liver/systemic", "biomarker ratios"],
+      "evidenceLane": ["human-drug-response", "external-exposure-biomarker"],
+      "evidenceTier": "tier-2",
+      "status": "review-context",
+      "clinicalBoundary": "Keep as review context; do not turn into a direct treatment recommendation.",
+      "sourceIds": ["solanidine-tamoxifen", "cpic-guidelines"]
+    },
+    {
+      "id": "induced-strong-inhibitors",
+      "label": "Strong inhibitor phenoconversion",
+      "category": "induced-null",
+      "substrateType": "functional suppression context",
+      "cyp2d6Role": "Strong inhibitors such as bupropion, fluoxetine, paroxetine, quinidine, and terbinafine can suppress CYP2D6 activity while present.",
+      "trueNullEffect": "Not inherited; included only as contrast to true null absence.",
+      "residualFunctionEffect": "Can push residual function or normal genotype toward a null-like functional state.",
+      "inducedNullEffect": "May imitate hepatic/systemic null behavior but not necessarily brain, barrier, adipose, or other tissue-local absence.",
+      "compartmentFocus": ["liver/systemic", "brain/CNS if inhibitor penetrates", "barrier-dependent tissues"],
+      "evidenceLane": ["human-drug-response", "clinical-guideline"],
+      "evidenceTier": "tier-1",
+      "status": "induced-functional-null",
+      "clinicalBoundary": "Current medication context is required; genotype alone cannot identify induced null state.",
+      "sourceIds": ["cpic-guidelines", "fda-pgx-table", "diognosis"]
+    }
+  ]
+}

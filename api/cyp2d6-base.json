@@ -1,0 +1,2720 @@
+{
+  "schema": "nulls-project.cyp2d6-base-pack.v0",
+  "generated": "2026-06-29",
+  "boundary": "Educational research reference only. This base pack is not diagnostic interpretation and not medication advice.",
+  "gene": {
+    "symbol": "CYP2D6",
+    "name": "Cytochrome P450 family 2 subfamily D member 6",
+    "tier": "tier-1",
+    "whyStrong": "CYP2D6 is a high-value null model because an inherited true null can mean the body lacks a CYP2D6 enzyme function across expression compartments, not only in liver medication metabolism. Strong inhibitors can create partial functional nulls, but they may not reproduce the same whole-body state."
+  },
+  "endpoints": {
+    "baseModel": "data/cyp2d6-base-model.json",
+    "substrates": "data/cyp2d6-substrates.json",
+    "variants": "data/cyp2d6-variants.json",
+    "nullIngest": "data/cyp2d6-null-ingest.json"
+  },
+  "baseModel": {
+    "schema": "nulls-project.cyp2d6-base-model.v0",
+    "generated": "2026-06-29",
+    "gene": {
+      "symbol": "CYP2D6",
+      "name": "Cytochrome P450 family 2 subfamily D member 6",
+      "role": "Flagship template for systemic functional-null modeling"
+    },
+    "purpose": "Define CYP2D6 as the base model all future Nulls Project deep dossiers should copy: states, evidence ladder, substrate maps, tissue maps, and boundaries kept separate.",
+    "coreThesis": "CYP2D6 null biology is not only a pharmacogenomic drug-response label. A true inherited null can mean missing CYP2D6 enzyme function wherever CYP2D6 is normally active, while a medically induced functional null may only suppress selected compartments.",
+    "stateModel": [
+      {
+        "id": "true-inherited-null",
+        "label": "True inherited null",
+        "definition": "Inherited absence or nonfunction of CYP2D6 activity from no-function alleles, biallelic no-function combinations, or equivalent genetic loss.",
+        "strictNull": true,
+        "includeInCore": true,
+        "mainQuestion": "What does the body miss when CYP2D6 function is absent across expression compartments?",
+        "boundary": "Do not assume every phenotype is known; require tissue and substrate evidence."
+      },
+      {
+        "id": "whole-gene-deletion",
+        "label": "Whole-gene deletion",
+        "definition": "CYP2D6*5 or other structural loss where the CYP2D6 gene is deleted.",
+        "strictNull": true,
+        "includeInCore": true,
+        "mainQuestion": "Does structural loss remove enzyme capacity in every CYP2D6-expressing compartment?",
+        "boundary": "Consumer SNP files often miss deletion, duplication, conversion, and hybrid alleles."
+      },
+      {
+        "id": "named-no-function-star-alleles",
+        "label": "Named no-function star alleles",
+        "definition": "PharmVar/CPIC-compatible star alleles assigned no function, such as CYP2D6*4 and other CPIC no-function rows.",
+        "strictNull": true,
+        "includeInCore": true,
+        "mainQuestion": "Which named alleles are strict nulls and which only reduce activity?",
+        "boundary": "Phasing, copy number, and allele definitions matter."
+      },
+      {
+        "id": "residual-decreased-function",
+        "label": "Residual or decreased function",
+        "definition": "Alleles such as CYP2D6*10 or CYP2D6*41 with reduced activity that may approximate null behavior for some substrates but still retain function.",
+        "strictNull": false,
+        "includeInCore": true,
+        "mainQuestion": "When does residual activity meaningfully change accumulation or metabolite formation compared with true null?",
+        "boundary": "Do not collapse decreased function into true inherited null."
+      },
+      {
+        "id": "clinical-poor-metabolizer-label",
+        "label": "Clinical poor metabolizer label",
+        "definition": "A phenotype translation bucket that can represent true no-function diplotypes, incomplete testing, or clinical activity-score assumptions.",
+        "strictNull": false,
+        "includeInCore": true,
+        "mainQuestion": "Does the label map to actual missing CYP2D6 function, or only a report-level category?",
+        "boundary": "Use poor metabolizer labels as comparators, not as the core Nulls object."
+      },
+      {
+        "id": "medically-induced-functional-null",
+        "label": "Medically induced functional null",
+        "definition": "Strong CYP2D6 inhibition or phenoconversion that suppresses CYP2D6 activity while the inhibitor is present.",
+        "strictNull": false,
+        "includeInCore": true,
+        "mainQuestion": "Which compartments are actually silenced by the inhibitor?",
+        "boundary": "Liver/systemic phenoconversion may not reproduce inherited brain, barrier, or tissue-local absence."
+      },
+      {
+        "id": "tissue-local-null",
+        "label": "Tissue-local null question",
+        "definition": "A compartment-specific question about local CYP2D6 expression, activity, substrate access, and inhibitor penetration.",
+        "strictNull": false,
+        "includeInCore": true,
+        "mainQuestion": "Is the observed effect driven by local CYP2D6 absence or systemic exposure reaching a target tissue?",
+        "boundary": "Each compartment needs its own evidence tier."
+      },
+      {
+        "id": "opposite-states-excluded",
+        "label": "Opposite states excluded",
+        "definition": "Ultrarapid, increased-function, and duplication states used only as directionality contrast.",
+        "strictNull": false,
+        "includeInCore": false,
+        "mainQuestion": "Does the state increase function rather than remove it?",
+        "boundary": "Keep out of strict-null filters."
+      }
+    ],
+    "evidenceLadder": [
+      {
+        "id": "human-null-phenotype",
+        "rank": 1,
+        "label": "Human null phenotype",
+        "meaning": "Direct human inherited null, deletion, biallelic deficiency, or functional absence evidence."
+      },
+      {
+        "id": "human-drug-response",
+        "rank": 2,
+        "label": "Human substrate response",
+        "meaning": "Human medication, xenobiotic, or biomarker response evidence tied to CYP2D6 activity."
+      },
+      {
+        "id": "human-brain-function",
+        "rank": 3,
+        "label": "Human brain function",
+        "meaning": "Human brain CYP2D6 functional evidence, stronger than expression alone."
+      },
+      {
+        "id": "human-expression",
+        "rank": 4,
+        "label": "Human tissue expression",
+        "meaning": "Human tissue mRNA/protein evidence that supports a compartment but does not prove phenotype by itself."
+      },
+      {
+        "id": "animal-brain-in-vivo",
+        "rank": 5,
+        "label": "Animal brain in vivo",
+        "meaning": "Animal brain pathway evidence used as plausibility, not direct human interpretation."
+      },
+      {
+        "id": "in-vitro-biochemistry",
+        "rank": 6,
+        "label": "In vitro biochemistry",
+        "meaning": "Human enzyme or cell-system evidence for substrate conversion."
+      },
+      {
+        "id": "hypothesis-only",
+        "rank": 7,
+        "label": "Hypothesis only",
+        "meaning": "Mechanistic question worth tracking but not established enough for claims."
+      }
+    ],
+    "requiredSectionsForFutureGenes": [
+      "null-state model",
+      "strict/review variant split",
+      "substrate and pathway map",
+      "tissue or compartment map",
+      "inherited-null vs medically-induced-null comparison",
+      "source confidence labels",
+      "boundary and non-diagnostic wording",
+      "static API feed"
+    ],
+    "basePackFiles": [
+      "data/cyp2d6-base-model.json",
+      "data/cyp2d6-substrates.json",
+      "data/cyp2d6-variants.json",
+      "data/cyp2d6-null-ingest.json",
+      "api/cyp2d6-base.json",
+      "docs/cyp2d6-null-definition.md"
+    ]
+  },
+  "substrates": {
+    "schema": "nulls-project.cyp2d6-substrates.v0",
+    "generated": "2026-06-29",
+    "counts": {
+      "rows": 13,
+      "byCategory": {
+        "endogenous": 3,
+        "external-exposure": 1,
+        "medication": 8,
+        "induced-null": 1
+      }
+    },
+    "rows": [
+      {
+        "id": "endogenous-5mt-serotonin",
+        "label": "5-methoxytryptamine to serotonin",
+        "category": "endogenous",
+        "substrateType": "monoamine route",
+        "cyp2d6Role": "O-demethylation route that can regenerate serotonin from 5-methoxytryptamine.",
+        "trueNullEffect": "May remove a local backup or parallel serotonin-regeneration route in CYP2D6-expressing compartments.",
+        "residualFunctionEffect": "Reduced function may preserve some flux and should not be interpreted as complete absence.",
+        "inducedNullEffect": "Only relevant where the inhibitor reaches enough local concentration to suppress CYP2D6.",
+        "compartmentFocus": [
+          "brain/CNS",
+          "other CYP2D6-expressing tissues"
+        ],
+        "evidenceLane": [
+          "in-vitro-biochemistry",
+          "animal-brain-in-vivo",
+          "human-expression",
+          "human-brain-function"
+        ],
+        "evidenceTier": "tier-2",
+        "status": "pathway-capacity-question",
+        "clinicalBoundary": "Do not claim CYP2D6 null globally means low serotonin.",
+        "sourceIds": [
+          "cyp2d6-5mt-serotonin",
+          "cyp2d-brain-serotonin",
+          "cyp2d-melatonin-serotonin",
+          "human-brain-cyp2d6"
+        ]
+      },
+      {
+        "id": "endogenous-tyramine-dopamine",
+        "label": "Tyramine to dopamine",
+        "category": "endogenous",
+        "substrateType": "trace amine / monoamine route",
+        "cyp2d6Role": "Hydroxylation route from tyramine to dopamine.",
+        "trueNullEffect": "May reduce an alternative dopamine-formation route and shift tyramine handling to MAO or other clearance routes.",
+        "residualFunctionEffect": "Residual CYP2D6 activity may preserve partial conversion.",
+        "inducedNullEffect": "Potentially tissue-specific and inhibitor-distribution dependent.",
+        "compartmentFocus": [
+          "brain/CNS",
+          "gut and diet-derived trace amine context"
+        ],
+        "evidenceLane": [
+          "in-vitro-biochemistry",
+          "human-enzyme-activity",
+          "human-expression"
+        ],
+        "evidenceTier": "tier-2",
+        "status": "pathway-capacity-question",
+        "clinicalBoundary": "Do not claim CYP2D6 null globally means low dopamine.",
+        "sourceIds": [
+          "cyp2d6-tyramine-dopamine",
+          "cyp2d6-cns-review"
+        ]
+      },
+      {
+        "id": "endogenous-anandamide",
+        "label": "Anandamide / endocannabinoid metabolism",
+        "category": "endogenous",
+        "substrateType": "endocannabinoid route",
+        "cyp2d6Role": "Oxidation of anandamide into endocannabinoid metabolites by polymorphic human CYP2D6.",
+        "trueNullEffect": "May change local endocannabinoid metabolite ratios where CYP2D6 is active.",
+        "residualFunctionEffect": "Partial activity may preserve some metabolism.",
+        "inducedNullEffect": "Only relevant in compartments reached by a strong inhibitor.",
+        "compartmentFocus": [
+          "brain/CNS",
+          "peripheral CYP2D6-expressing tissues"
+        ],
+        "evidenceLane": [
+          "in-vitro-biochemistry",
+          "human-expression"
+        ],
+        "evidenceTier": "tier-3",
+        "status": "candidate-route",
+        "clinicalBoundary": "Track as pathway evidence, not as symptom or diagnosis evidence.",
+        "sourceIds": [
+          "cyp2d6-anandamide",
+          "cyp2d6-cns-review"
+        ]
+      },
+      {
+        "id": "exposure-solanidine",
+        "label": "Solanidine / potato glycoalkaloid biomarker",
+        "category": "external-exposure",
+        "substrateType": "diet-derived biomarker",
+        "cyp2d6Role": "CYP2D6-dependent solanidine metabolism changes parent solanidine and metabolite ratios.",
+        "trueNullEffect": "Expected high parent solanidine and low CYP2D6-derived metabolite formation.",
+        "residualFunctionEffect": "Intermediate or decreased function can raise parent solanidine but is not the same as true-null accumulation.",
+        "inducedNullEffect": "Strong inhibition can suppress liver/systemic CYP2D6 solanidine metabolism while present.",
+        "compartmentFocus": [
+          "plasma",
+          "liver/systemic",
+          "urine biomarkers",
+          "unresolved tissues"
+        ],
+        "evidenceLane": [
+          "external-exposure-biomarker",
+          "human-enzyme-activity"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "biomarker-strong",
+        "clinicalBoundary": "Do not treat plasma solanidine as a potato-toxicity threshold.",
+        "sourceIds": [
+          "solanidine-cyp2d6",
+          "solanidine-tamoxifen"
+        ]
+      },
+      {
+        "id": "med-codeine",
+        "label": "Codeine",
+        "category": "medication",
+        "substrateType": "prodrug activation",
+        "cyp2d6Role": "CYP2D6 contributes to morphine formation from codeine.",
+        "trueNullEffect": "Reduced morphine formation from codeine.",
+        "residualFunctionEffect": "Reduced but not necessarily absent activation depending on activity score and context.",
+        "inducedNullEffect": "Strong inhibitors can reduce activation while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "CNS target exposure"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "Medication decisions require qualified review.",
+        "sourceIds": [
+          "cpic-opioids",
+          "diognosis"
+        ]
+      },
+      {
+        "id": "med-tramadol",
+        "label": "Tramadol",
+        "category": "medication",
+        "substrateType": "active metabolite formation",
+        "cyp2d6Role": "CYP2D6 contributes to O-desmethyltramadol formation.",
+        "trueNullEffect": "Reduced active metabolite formation while parent tramadol effects may still matter.",
+        "residualFunctionEffect": "Partial conversion may remain.",
+        "inducedNullEffect": "Strong inhibitors can reduce CYP2D6-dependent metabolite formation while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "CNS target exposure"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "Medication decisions require qualified review.",
+        "sourceIds": [
+          "cpic-opioids",
+          "diognosis"
+        ]
+      },
+      {
+        "id": "med-atomoxetine",
+        "label": "Atomoxetine",
+        "category": "medication",
+        "substrateType": "parent clearance",
+        "cyp2d6Role": "CYP2D6 is a major route for atomoxetine metabolism.",
+        "trueNullEffect": "Higher parent atomoxetine exposure is expected in null or poor-function states.",
+        "residualFunctionEffect": "Exposure can still differ across decreased-function states.",
+        "inducedNullEffect": "Strong inhibitors can phenoconvert normal genotype toward higher exposure.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "CNS-active external substrate"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "Medication decisions require qualified review.",
+        "sourceIds": [
+          "cpic-guidelines",
+          "fda-pgx-table"
+        ]
+      },
+      {
+        "id": "med-metoprolol",
+        "label": "Metoprolol",
+        "category": "medication",
+        "substrateType": "parent clearance",
+        "cyp2d6Role": "CYP2D6 contributes to metoprolol clearance.",
+        "trueNullEffect": "Higher parent exposure can increase cardiovascular target exposure review priority.",
+        "residualFunctionEffect": "Exposure can increase across reduced-function states depending on dose and context.",
+        "inducedNullEffect": "Strong inhibitors can raise exposure while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "cardiovascular target effects"
+        ],
+        "evidenceLane": [
+          "human-drug-response"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "This is target-exposure biology, not proof of local cardiac CYP2D6 loss.",
+        "sourceIds": [
+          "fda-pgx-table",
+          "diognosis"
+        ]
+      },
+      {
+        "id": "med-flecainide-propafenone",
+        "label": "Flecainide / propafenone",
+        "category": "medication",
+        "substrateType": "parent clearance / narrow cardiac context",
+        "cyp2d6Role": "CYP2D6 contributes to exposure for selected antiarrhythmic substrates.",
+        "trueNullEffect": "Higher parent exposure may increase review priority for toxicity-prone cardiac contexts.",
+        "residualFunctionEffect": "Reduced function can matter but should remain substrate- and regimen-specific.",
+        "inducedNullEffect": "Strong inhibitors can raise exposure while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "cardiovascular target effects"
+        ],
+        "evidenceLane": [
+          "human-drug-response"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "Requires clinician/pharmacist review; not a stand-alone action rule.",
+        "sourceIds": [
+          "fda-pgx-table",
+          "diognosis"
+        ]
+      },
+      {
+        "id": "med-tca",
+        "label": "Tricyclic antidepressant archetype",
+        "category": "medication",
+        "substrateType": "CNS-active parent/metabolite exposure",
+        "cyp2d6Role": "CYP2D6 contributes to metabolism of several tricyclic antidepressants.",
+        "trueNullEffect": "Can raise exposure for CYP2D6-dependent TCA substrates or active moieties.",
+        "residualFunctionEffect": "Activity score and co-medications can materially change exposure.",
+        "inducedNullEffect": "Strong inhibitors can phenoconvert exposure while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "CNS-active external substrate"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "medication-lens",
+        "clinicalBoundary": "Grouped archetype; individual drugs need their own row before decisions.",
+        "sourceIds": [
+          "cpic-guidelines",
+          "fda-pgx-table"
+        ]
+      },
+      {
+        "id": "med-dextromethorphan",
+        "label": "Dextromethorphan / dextrorphan probe route",
+        "category": "medication",
+        "substrateType": "probe and CNS-active external substrate",
+        "cyp2d6Role": "CYP2D6 converts dextromethorphan toward dextrorphan and is widely used as an activity probe.",
+        "trueNullEffect": "Higher parent-to-metabolite ratio reflects low CYP2D6 activity.",
+        "residualFunctionEffect": "Metabolite ratio can show graded activity rather than a binary state.",
+        "inducedNullEffect": "Strong inhibitors can shift the ratio while present.",
+        "compartmentFocus": [
+          "plasma",
+          "urine biomarkers",
+          "brain/CNS functional studies"
+        ],
+        "evidenceLane": [
+          "human-enzyme-activity",
+          "human-brain-function"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "activity-probe",
+        "clinicalBoundary": "Probe interpretation is not the same as personal diagnosis.",
+        "sourceIds": [
+          "human-brain-cyp2d6",
+          "cpic-guidelines"
+        ]
+      },
+      {
+        "id": "med-tamoxifen-review",
+        "label": "Tamoxifen / endoxifen review route",
+        "category": "medication",
+        "substrateType": "active metabolite formation review",
+        "cyp2d6Role": "CYP2D6 contributes to endoxifen formation and can be tracked with CYP2D6 activity biomarkers.",
+        "trueNullEffect": "Expected lower CYP2D6-dependent active metabolite formation, but clinical translation is context-sensitive.",
+        "residualFunctionEffect": "Residual function and co-medications can change metabolite formation.",
+        "inducedNullEffect": "Strong inhibitors can suppress CYP2D6-dependent metabolite ratios while present.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "biomarker ratios"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "external-exposure-biomarker"
+        ],
+        "evidenceTier": "tier-2",
+        "status": "review-context",
+        "clinicalBoundary": "Keep as review context; do not turn into a direct treatment recommendation.",
+        "sourceIds": [
+          "solanidine-tamoxifen",
+          "cpic-guidelines"
+        ]
+      },
+      {
+        "id": "induced-strong-inhibitors",
+        "label": "Strong inhibitor phenoconversion",
+        "category": "induced-null",
+        "substrateType": "functional suppression context",
+        "cyp2d6Role": "Strong inhibitors such as bupropion, fluoxetine, paroxetine, quinidine, and terbinafine can suppress CYP2D6 activity while present.",
+        "trueNullEffect": "Not inherited; included only as contrast to true null absence.",
+        "residualFunctionEffect": "Can push residual function or normal genotype toward a null-like functional state.",
+        "inducedNullEffect": "May imitate hepatic/systemic null behavior but not necessarily brain, barrier, adipose, or other tissue-local absence.",
+        "compartmentFocus": [
+          "liver/systemic",
+          "brain/CNS if inhibitor penetrates",
+          "barrier-dependent tissues"
+        ],
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline"
+        ],
+        "evidenceTier": "tier-1",
+        "status": "induced-functional-null",
+        "clinicalBoundary": "Current medication context is required; genotype alone cannot identify induced null state.",
+        "sourceIds": [
+          "cpic-guidelines",
+          "fda-pgx-table",
+          "diognosis"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "schema": "nulls-project.cyp2d6-variants.v0",
+    "generated": "2026-06-29",
+    "counts": {
+      "records": 50,
+      "strictNull": 48,
+      "review": 2,
+      "cpicNoFunctionAlleles": 48,
+      "seedRows": 4
+    },
+    "records": [
+      {
+        "id": "CYP2D6:CYP2D6*4",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*4",
+        "system": "PharmVar",
+        "dbsnp": "rs3892097",
+        "allele": "CYP2D6*4",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "atlas-marker",
+        "source": "Diognosis",
+        "confidence": "high",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "no-function allele context"
+        ]
+      },
+      {
+        "id": "CYP2D6:CYP2D6*10",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*10",
+        "system": "PharmVar",
+        "dbsnp": "rs1065852",
+        "allele": "CYP2D6*10",
+        "mechanism": "decreased-function review",
+        "strictNull": false,
+        "reviewStatus": "review",
+        "sourceLayer": "atlas-marker",
+        "source": "Diognosis",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "decreased-function allele context",
+          "Not kept by strict true-null filters unless reviewed."
+        ]
+      },
+      {
+        "id": "CYP2D6:CYP2D6*41",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*41",
+        "system": "PharmVar",
+        "dbsnp": "rs28371725",
+        "allele": "CYP2D6*41",
+        "mechanism": "decreased-function review",
+        "strictNull": false,
+        "reviewStatus": "review",
+        "sourceLayer": "atlas-marker",
+        "source": "Diognosis",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "decreased-function allele context",
+          "Not kept by strict true-null filters unless reviewed."
+        ]
+      },
+      {
+        "id": "CYP2D6:CYP2D6*5",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*5",
+        "system": "copy-number / deletion",
+        "dbsnp": null,
+        "allele": "CYP2D6*5",
+        "mechanism": "whole-gene deletion",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "atlas-marker",
+        "source": "atlas draft",
+        "confidence": "high",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "whole-gene deletion; requires structural-variant-aware calling"
+        ]
+      },
+      {
+        "id": "CYP2D6:star100",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*100",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*100",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star101",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*101",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*101",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star11",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*11",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*11",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star114",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*114",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*114",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star12",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*12",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*12",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star120",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*120",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*120",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star124",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*124",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*124",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star129",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*129",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*129",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star13",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*13",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*13",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star13+star68x2+star4",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*13+*68x2+*4",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*13+*68x2+*4",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength not returned."
+        ]
+      },
+      {
+        "id": "CYP2D6:star143",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*143",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*143",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star144",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*144",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*144",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star15",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*15",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*15",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star156",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*156",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*156",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star161",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*161",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*161",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star18",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*18",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*18",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star19",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*19",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*19",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star20",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*20",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*20",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star21",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*21",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*21",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star3",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*3",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*3",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star31",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*31",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*31",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star36",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*36",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*36",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star36x2",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*36x2",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*36x2",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star38",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*38",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*38",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star3x2",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*3x2",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*3x2",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star40",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*40",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*40",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star42",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*42",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*42",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star44",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*44",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*44",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star47",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*47",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*47",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star4x2",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*4x2",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*4x2",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star4x≥3",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*4x≥3",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*4x≥3",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ]
+      },
+      {
+        "id": "CYP2D6:star51",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*51",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*51",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star56",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*56",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*56",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star6",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*6",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*6",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "high",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Strong."
+        ]
+      },
+      {
+        "id": "CYP2D6:star60",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*60",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*60",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star62",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*62",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*62",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star68",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*68",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*68",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star68+star4",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*68+*4",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*68+*4",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength not returned."
+        ]
+      },
+      {
+        "id": "CYP2D6:star69",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*69",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*69",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star6x2",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*6x2",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*6x2",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star7",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*7",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*7",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star8",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*8",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*8",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star81",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*81",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*81",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star92",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*92",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*92",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star96",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*96",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*96",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      },
+      {
+        "id": "CYP2D6:star99",
+        "gene": "CYP2D6",
+        "symbol": "CYP2D6",
+        "label": "CYP2D6*99",
+        "system": "CPIC allele",
+        "dbsnp": null,
+        "allele": "CYP2D6*99",
+        "mechanism": "named no-function allele",
+        "strictNull": true,
+        "reviewStatus": "strict-null",
+        "sourceLayer": "cpic-no-function-allele",
+        "source": "cpic-api",
+        "confidence": "moderate",
+        "confidenceLabels": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity",
+          "human-expression",
+          "human-brain-function",
+          "animal-brain-in-vivo",
+          "in-vitro-biochemistry",
+          "external-exposure-biomarker"
+        ],
+        "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
+        "nullModes": [
+          "inherited-null",
+          "whole-gene-deletion",
+          "named-no-function-allele",
+          "medically-induced-functional-null",
+          "systemic-deficiency-candidate"
+        ],
+        "curationTags": [
+          "copy-number-required",
+          "brain-cns-review",
+          "endogenous-substrate-review",
+          "solanidine-exposure-case"
+        ],
+        "caveats": [
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ]
+      }
+    ]
+  },
+  "templateRule": "Future deep dossiers should copy the CYP2D6 split: state model, variant strictness, substrate map, tissue map, evidence ladder, and explicit non-diagnostic boundary."
+}

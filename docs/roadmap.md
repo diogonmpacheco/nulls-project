@@ -2,6 +2,22 @@
 
 This roadmap is written as issue-ready work packages. Each item should preserve the project boundary: educational research reference, not diagnosis or medical advice.
 
+## Recently Completed - CYP2D6 Base Pack v0
+
+Delivered:
+
+- reusable CYP2D6 null-state definition;
+- substrate map covering endogenous, exposure, medication, probe, and induced-null rows;
+- generated CYP2D6-only variant slice;
+- bundled `api/cyp2d6-base.json` endpoint;
+- homepage base-model section.
+
+Remaining follow-up:
+
+- add a browser variant table for all `data/cyp2d6-variants.json` rows;
+- deepen substrate rows with per-drug source snapshots where available;
+- add ClinVar/gnomAD rows for CYP2D6 structural and pLoF context.
+
 ## Issue 1 - Fetch CPIC Allele Function For All Current Genes
 
 Goal: extend the current CYP2D6 CPIC pull to all pharmacogenes in the atlas.

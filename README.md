@@ -14,6 +14,13 @@ The first data-product layer is a static null-only feed that other projects can 
 - `api/nulls.json`
 - `api/index.json`
 
+The CYP2D6 base pack is the reference template for future deep null dossiers:
+
+- `data/cyp2d6-base-model.json`
+- `data/cyp2d6-substrates.json`
+- `data/cyp2d6-variants.json`
+- `api/cyp2d6-base.json`
+
 The core use case is to become a reference for **functional null states**:
 
 - inherited no-function biology;
@@ -98,16 +105,22 @@ The intended future bridge is:
 - `data/null-ingest-map.json` - per-gene null-ingest rules for the current ten records.
 - `data/ingest-sources.json` - external API/source catalog.
 - `data/source-confidence-map.json` - source confidence labels and per-gene evidence-type profile.
+- `data/cyp2d6-base-model.json` - reusable CYP2D6 null-state model and evidence ladder.
+- `data/cyp2d6-substrates.json` - CYP2D6 endogenous, exposure, medication, probe, and induced-null substrate rows.
+- `data/cyp2d6-variants.json` - generated CYP2D6-only variant slice.
 - `api/nulls.json` - static API alias for the null-only feed.
 - `api/null-variants.json` - static API alias for the variant feed.
+- `api/cyp2d6-base.json` - bundled CYP2D6 base-pack API.
 - `api/index.json` - static API endpoint index.
 - `scripts/build-null-feeds.mjs` - regenerates the static API feeds.
 - `scripts/build-null-variants.mjs` - regenerates variant rows.
+- `scripts/build-cyp2d6-base-pack.mjs` - regenerates CYP2D6 variant slice and bundled base API.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/source-confidence.md` - evidence-type labels for null rows.
 - `docs/roadmap.md` - public issue-ready roadmap.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
+- `docs/cyp2d6-null-definition.md` - CYP2D6 state model and reusable template definition.
 - `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
@@ -130,6 +143,12 @@ Regenerate the static feeds after atlas or ingest-map edits:
 
 ```bash
 node scripts/build-null-feeds.mjs
+```
+
+Regenerate CYP2D6-specific feeds after variant or substrate edits:
+
+```bash
+node scripts/build-cyp2d6-base-pack.mjs
 ```
 
 ## Data Boundary

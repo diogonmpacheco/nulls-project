@@ -3,6 +3,8 @@ const state = {
   variants: null,
   ingestMap: null,
   confidenceMap: null,
+  cyp2d6BaseModel: null,
+  cyp2d6Substrates: null,
   query: "",
   tier: "all",
   domain: "all",
@@ -15,10 +17,13 @@ const DATA_URL = "data/nulls-atlas.json";
 const VARIANTS_URL = "data/null-variants.json";
 const INGEST_MAP_URL = "data/null-ingest-map.json";
 const CONFIDENCE_MAP_URL = "data/source-confidence-map.json";
+const CYP2D6_BASE_MODEL_URL = "data/cyp2d6-base-model.json";
+const CYP2D6_SUBSTRATES_URL = "data/cyp2d6-substrates.json";
 
 const els = {
   metrics: document.querySelector("#metrics"),
   flagshipPanel: document.querySelector("#flagship-panel"),
+  cyp2d6BasePack: document.querySelector("#cyp2d6-base-pack"),
   compartmentMap: document.querySelector("#compartment-map"),
   pathwayMap: document.querySelector("#pathway-map"),
   sourceConfidenceStrip: document.querySelector("#source-confidence-strip"),
@@ -41,21 +46,27 @@ const els = {
 init();
 
 async function init() {
-  const [atlasResponse, variantsResponse, ingestMapResponse, confidenceMapResponse] = await Promise.all([
+  const [atlasResponse, variantsResponse, ingestMapResponse, confidenceMapResponse, cyp2d6BaseResponse, cyp2d6SubstratesResponse] = await Promise.all([
     fetch(DATA_URL, { cache: "no-cache" }),
     fetch(VARIANTS_URL, { cache: "no-cache" }),
     fetch(INGEST_MAP_URL, { cache: "no-cache" }),
-    fetch(CONFIDENCE_MAP_URL, { cache: "no-cache" })
+    fetch(CONFIDENCE_MAP_URL, { cache: "no-cache" }),
+    fetch(CYP2D6_BASE_MODEL_URL, { cache: "no-cache" }),
+    fetch(CYP2D6_SUBSTRATES_URL, { cache: "no-cache" })
   ]);
   if (!atlasResponse.ok) throw new Error(`Could not load atlas data: ${atlasResponse.status}`);
   if (!variantsResponse.ok) throw new Error(`Could not load variant data: ${variantsResponse.status}`);
   if (!ingestMapResponse.ok) throw new Error(`Could not load ingest map: ${ingestMapResponse.status}`);
   if (!confidenceMapResponse.ok) throw new Error(`Could not load confidence map: ${confidenceMapResponse.status}`);
+  if (!cyp2d6BaseResponse.ok) throw new Error(`Could not load CYP2D6 base model: ${cyp2d6BaseResponse.status}`);
+  if (!cyp2d6SubstratesResponse.ok) throw new Error(`Could not load CYP2D6 substrates: ${cyp2d6SubstratesResponse.status}`);
 
   state.atlas = await atlasResponse.json();
   state.variants = await variantsResponse.json();
   state.ingestMap = await ingestMapResponse.json();
   state.confidenceMap = await confidenceMapResponse.json();
+  state.cyp2d6BaseModel = await cyp2d6BaseResponse.json();
+  state.cyp2d6Substrates = await cyp2d6SubstratesResponse.json();
 
   const params = new URLSearchParams(window.location.search);
   const gene = params.get("gene");
@@ -113,6 +124,7 @@ function hydrateControls() {
 function renderAll() {
   renderMetrics();
   renderFlagshipPanel();
+  renderCyp2d6BasePack();
   renderCompartmentMap();
   renderPathwayMap();
   renderTierList();
@@ -148,6 +160,74 @@ function renderFlagshipPanel() {
     <p>${escapeHtml(gene.whyStrong)}</p>
     <div class="flagship-points">
       ${evidencePoints.map(point => `<span>${escapeHtml(compactText(point, 178))}</span>`).join("")}
+    </div>
+  `;
+}
+
+function renderCyp2d6BasePack() {
+  const base = state.cyp2d6BaseModel;
+  const substrates = state.cyp2d6Substrates;
+  if (!base || !substrates) return;
+
+  const definitionStates = base.stateModel || [];
+  const substrateRows = substrates.rows || [];
+  const categoryCounts = substrateRows.reduce((counts, row) => {
+    counts[row.category] = (counts[row.category] || 0) + 1;
+    return counts;
+  }, {});
+  const categoryCards = Object.entries(categoryCounts)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([category, count]) => `
+      <span class="domain-score">
+        <strong>${count}</strong>
+        ${escapeHtml(category)}
+      </span>
+    `).join("");
+
+  els.cyp2d6BasePack.innerHTML = `
+    <div class="base-pack-grid">
+      <article class="base-model-panel">
+        <div class="panel-heading compact">
+          <div>
+            <p class="eyebrow">State model</p>
+            <h2>Definition states become reusable rules.</h2>
+          </div>
+          <a href="docs/cyp2d6-null-definition.md">Definition</a>
+        </div>
+        <p>${escapeHtml(base.coreThesis)}</p>
+        <div class="base-state-list">
+          ${definitionStates.map(row => `
+            <article class="base-state-card">
+              <span class="flag">${row.strictNull ? "strict-null" : row.includeInCore ? "review" : "boundary"}</span>
+              <h3>${escapeHtml(row.label)}</h3>
+              <p>${escapeHtml(compactText(row.definition, 150))}</p>
+              <p><strong>Question:</strong> ${escapeHtml(compactText(row.mainQuestion, 150))}</p>
+            </article>
+          `).join("")}
+        </div>
+      </article>
+
+      <article class="base-model-panel substrate-model-panel">
+        <div class="panel-heading compact">
+          <div>
+            <p class="eyebrow">Substrate base pack</p>
+            <h2>Endogenous, exposure, medication, and inhibitor rows stay separate.</h2>
+          </div>
+          <a href="data/cyp2d6-substrates.json">JSON</a>
+        </div>
+        <div class="domain-cloud">${categoryCards}</div>
+        <div class="substrate-card-grid">
+          ${substrateRows.map(row => `
+            <article class="substrate-card">
+              <span class="tier-badge ${row.evidenceTier}">${escapeHtml(tierLabel(row.evidenceTier))}</span>
+              <h3>${escapeHtml(row.label)}</h3>
+              <p>${escapeHtml(compactText(row.cyp2d6Role, 125))}</p>
+              <p><strong>True null:</strong> ${escapeHtml(compactText(row.trueNullEffect, 130))}</p>
+              <div class="stack">${chips([row.category, row.substrateType, row.status], "domain")}</div>
+            </article>
+          `).join("")}
+        </div>
+      </article>
     </div>
   `;
 }
@@ -293,6 +373,8 @@ function filteredGenes() {
       ...(gene.flags || []),
       ...(gene.phenotypes || []).map(row => `${row.label} ${row.system} ${row.direction} ${row.note}`),
       ...((gene.endogenousModel?.rows || []).map(row => `${row.substrate} ${row.route} ${row.nullQuestion} ${row.evidenceBase}`)),
+      ...(gene.id === "CYP2D6" ? (state.cyp2d6BaseModel?.stateModel || []).map(row => `${row.label} ${row.definition} ${row.mainQuestion}`) : []),
+      ...(gene.id === "CYP2D6" ? (state.cyp2d6Substrates?.rows || []).map(row => `${row.label} ${row.category} ${row.substrateType} ${row.cyp2d6Role} ${row.trueNullEffect}`) : []),
       ...(state.ingestMap?.genes?.[gene.id]?.includeMechanisms || []),
       ...(state.ingestMap?.genes?.[gene.id]?.reviewMechanisms || []),
       ...(state.ingestMap?.genes?.[gene.id]?.curationTags || []),
@@ -474,6 +556,8 @@ function renderDossier(gene) {
         ${list(gene.nullEvidence)}
       </section>
 
+      ${gene.id === "CYP2D6" ? renderCyp2d6BaseDossier() : ""}
+
       ${ingestProfile ? renderNullIngestProfile(ingestProfile) : ""}
 
       ${confidenceProfile ? renderSourceConfidenceProfile(confidenceProfile) : ""}
@@ -508,6 +592,34 @@ function renderDossier(gene) {
         </div>
       </section>
     </div>
+  `;
+}
+
+function renderCyp2d6BaseDossier() {
+  const base = state.cyp2d6BaseModel;
+  const substrates = state.cyp2d6Substrates;
+  if (!base || !substrates) return "";
+  const strictStates = (base.stateModel || []).filter(row => row.strictNull).length;
+  const reviewStates = (base.stateModel || []).filter(row => row.includeInCore && !row.strictNull).length;
+  const substrateRows = substrates.rows || [];
+
+  return `
+    <section class="section-block wide">
+      <h3>CYP2D6 Base Model</h3>
+      <p>${escapeHtml(base.purpose)}</p>
+      <div class="base-metric-row">
+        ${variantStat(strictStates, "strict definition states")}
+        ${variantStat(reviewStates, "review/comparator states")}
+        ${variantStat(substrateRows.length, "substrate and pathway rows")}
+        ${variantStat((base.evidenceLadder || []).length, "evidence ladder levels")}
+      </div>
+      <div class="small-gap stack">
+        <a class="source-link compact-link" href="data/cyp2d6-base-model.json">Base model JSON</a>
+        <a class="source-link compact-link" href="data/cyp2d6-substrates.json">Substrate JSON</a>
+        <a class="source-link compact-link" href="data/cyp2d6-variants.json">Variant JSON</a>
+        <a class="source-link compact-link" href="api/cyp2d6-base.json">Bundled API</a>
+      </div>
+    </section>
   `;
 }
 
