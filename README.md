@@ -119,6 +119,8 @@ The intended future bridge is:
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/source-confidence.md` - evidence-type labels for null rows.
 - `docs/roadmap.md` - public issue-ready roadmap.
+- `docs/project-architecture.md` - target source-of-truth structure for product, evidence, models, generated feeds, and APIs.
+- `docs/nulls-systems-curator-agent.md` - hybrid product/genetics/research/data agent mandate.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
 - `docs/cyp2d6-null-definition.md` - CYP2D6 state model and working null definition.
 - `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
