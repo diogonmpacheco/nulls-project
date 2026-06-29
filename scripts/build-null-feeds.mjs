@@ -134,7 +134,7 @@ const apiIndex = {
     {
       path: "data/cyp2d6-base-model.json",
       label: "CYP2D6 base model",
-      use: "Reusable state model and evidence ladder for CYP2D6 as the flagship null template."
+      use: "State model and evidence ladder for CYP2D6 systemic functional-null biology."
     },
     {
       path: "data/cyp2d6-substrates.json",
@@ -148,8 +148,8 @@ const apiIndex = {
     },
     {
       path: "api/cyp2d6-base.json",
-      label: "CYP2D6 base-pack API",
-      use: "Bundled CYP2D6 base model, substrate map, and variant slice."
+      label: "CYP2D6 model API",
+      use: "Bundled CYP2D6 state model, substrate map, and variant slice."
     },
     {
       path: "data/null-ingest-map.json",

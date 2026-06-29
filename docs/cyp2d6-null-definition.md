@@ -118,9 +118,9 @@ The CYP2D6 model uses this order:
 6. Human enzyme or cell-system biochemistry.
 7. Hypothesis-only mechanism.
 
-## Required Template For Future Genes
+## Required Separation For Future Genes
 
-Every future deep null dossier should copy this split:
+Every future deep null dossier should preserve this split:
 
 - null-state model;
 - strict/review variant split;

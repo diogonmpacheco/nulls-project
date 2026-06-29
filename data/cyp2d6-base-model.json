@@ -4,9 +4,9 @@
   "gene": {
     "symbol": "CYP2D6",
     "name": "Cytochrome P450 family 2 subfamily D member 6",
-    "role": "Flagship template for systemic functional-null modeling"
+    "role": "Reference model for systemic functional-null biology"
   },
-  "purpose": "Define CYP2D6 as the base model all future Nulls Project deep dossiers should copy: states, evidence ladder, substrate maps, tissue maps, and boundaries kept separate.",
+  "purpose": "Define CYP2D6 as a systemic functional-null reference model with null states, evidence ladder, substrate maps, tissue maps, and interpretation boundaries kept separate.",
   "coreThesis": "CYP2D6 null biology is not only a pharmacogenomic drug-response label. A true inherited null can mean missing CYP2D6 enzyme function wherever CYP2D6 is normally active, while a medically induced functional null may only suppress selected compartments.",
   "stateModel": [
     {

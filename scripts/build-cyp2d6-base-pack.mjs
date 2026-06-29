@@ -58,7 +58,7 @@ const substrateCounts = substrates.rows.reduce((counts, row) => {
 const basePack = {
   schema: "nulls-project.cyp2d6-base-pack.v0",
   generated,
-  boundary: "Educational research reference only. This base pack is not diagnostic interpretation and not medication advice.",
+  boundary: "Educational research reference only. This CYP2D6 model is not diagnostic interpretation and not medication advice.",
   gene: {
     symbol: gene.symbol,
     name: gene.name,
@@ -87,11 +87,11 @@ const basePack = {
     counts: cyp2d6Variants.counts,
     records: cyp2d6Variants.records
   },
-  templateRule: "Future deep dossiers should copy the CYP2D6 split: state model, variant strictness, substrate map, tissue map, evidence ladder, and explicit non-diagnostic boundary."
+  modelRule: "Keep CYP2D6 state model, variant strictness, substrate map, tissue map, evidence ladder, and explicit non-diagnostic boundary separate."
 };
 
 await mkdir("api", { recursive: true });
 await writeJson("data/cyp2d6-variants.json", cyp2d6Variants);
 await writeJson("api/cyp2d6-base.json", basePack);
 
-console.log(`Built CYP2D6 base pack with ${variantRecords.length} variant rows and ${substrates.rows.length} substrate rows.`);
+console.log(`Built CYP2D6 model with ${variantRecords.length} variant rows and ${substrates.rows.length} substrate rows.`);

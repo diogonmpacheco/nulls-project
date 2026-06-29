@@ -190,7 +190,7 @@ function renderCyp2d6BasePack() {
         <div class="panel-heading compact">
           <div>
             <p class="eyebrow">State model</p>
-            <h2>Definition states become reusable rules.</h2>
+            <h2>Null states stay separate from poor-metabolizer labels.</h2>
           </div>
           <a href="docs/cyp2d6-null-definition.md">Definition</a>
         </div>
@@ -210,7 +210,7 @@ function renderCyp2d6BasePack() {
       <article class="base-model-panel substrate-model-panel">
         <div class="panel-heading compact">
           <div>
-            <p class="eyebrow">Substrate base pack</p>
+            <p class="eyebrow">Substrate map</p>
             <h2>Endogenous, exposure, medication, and inhibitor rows stay separate.</h2>
           </div>
           <a href="data/cyp2d6-substrates.json">JSON</a>

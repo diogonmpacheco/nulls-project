@@ -14,7 +14,7 @@ The first data-product layer is a static null-only feed that other projects can 
 - `api/nulls.json`
 - `api/index.json`
 
-The CYP2D6 base pack is the reference template for future deep null dossiers:
+The CYP2D6 model is the first deep reference layer:
 
 - `data/cyp2d6-base-model.json`
 - `data/cyp2d6-substrates.json`
@@ -120,7 +120,7 @@ The intended future bridge is:
 - `docs/source-confidence.md` - evidence-type labels for null rows.
 - `docs/roadmap.md` - public issue-ready roadmap.
 - `docs/systemic-null-framing.md` - project doctrine for serious body-level null interpretation.
-- `docs/cyp2d6-null-definition.md` - CYP2D6 state model and reusable template definition.
+- `docs/cyp2d6-null-definition.md` - CYP2D6 state model and working null definition.
 - `docs/cyp2d6-body-map.md` - tissue/body-compartment map for CYP2D6 systemic-null framing.
 - `docs/cyp2d6-endogenous-map.md` - first endogenous CNS substrate source map for CYP2D6.
 - `docs/solanidine-case.md` - first exposure/accumulation case for CYP2D6 null modeling.
