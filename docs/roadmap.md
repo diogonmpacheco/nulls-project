@@ -12,6 +12,17 @@ Delivered:
 - bundled `api/cyp2d6-base.json` endpoint;
 - homepage base-model section.
 
+## Recently Completed - Graph Database Spine v0
+
+Delivered:
+
+- canonical graph-ready CYP2D6 model files under `models/genes/CYP2D6/`;
+- source and claim registries under `evidence/`;
+- generated static property graph at `data/generated/nulls-graph.json`;
+- public graph API at `api/graph.json`;
+- graph-backed CYP2D6 bundle at `api/genes/CYP2D6.json`;
+- validation that graph rows include claim type, strict-null relevance, source links, evidence lanes, and boundaries.
+
 Remaining follow-up:
 
 - add a browser variant table for all `data/cyp2d6-variants.json` rows;

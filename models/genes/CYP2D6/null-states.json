@@ -1,14 +1,9 @@
 {
-  "schema": "nulls-project.cyp2d6-base-model.v0",
+  "schema": "nulls-project.gene-null-states.v0",
   "generated": "2026-06-29",
-  "gene": {
-    "symbol": "CYP2D6",
-    "name": "Cytochrome P450 family 2 subfamily D member 6",
-    "role": "Reference model for systemic functional-null biology"
-  },
-  "purpose": "Define CYP2D6 as a systemic functional-null reference model with null states, evidence ladder, substrate maps, tissue maps, and interpretation boundaries kept separate.",
-  "coreThesis": "CYP2D6 null biology is not only a pharmacogenomic drug-response label. A true inherited null can mean missing CYP2D6 enzyme function wherever CYP2D6 is normally active, while a medically induced functional null may only suppress selected compartments.",
-  "stateModel": [
+  "gene": "CYP2D6",
+  "boundary": "CYP2D6 null-state rows separate true inherited absence, decreased function, phenotype labels, induced nulls, tissue-local questions, and excluded opposite states.",
+  "rows": [
     {
       "id": "true-inherited-null",
       "label": "True inherited null",
@@ -181,56 +176,5 @@
         "pharmvar-cyp2d6"
       ]
     }
-  ],
-  "evidenceLadder": [
-    {
-      "id": "human-null-phenotype",
-      "label": "Human null phenotype"
-    },
-    {
-      "id": "human-drug-response",
-      "label": "Human drug response"
-    },
-    {
-      "id": "human-brain-function",
-      "label": "Human brain function"
-    },
-    {
-      "id": "human-expression",
-      "label": "Human expression"
-    },
-    {
-      "id": "animal-brain-in-vivo",
-      "label": "Animal brain in vivo"
-    },
-    {
-      "id": "in-vitro-biochemistry",
-      "label": "In vitro biochemistry"
-    },
-    {
-      "id": "hypothesis-only",
-      "label": "Hypothesis only"
-    }
-  ],
-  "requiredSectionsForFutureGenes": [
-    "null-state model",
-    "strict/review variant split",
-    "substrate and pathway map",
-    "tissue or compartment map",
-    "inherited-null versus medically-induced-null comparison",
-    "source confidence labels",
-    "non-diagnostic boundary",
-    "static API feed"
-  ],
-  "basePackFiles": [
-    "models/genes/CYP2D6/gene.json",
-    "models/genes/CYP2D6/null-states.json",
-    "models/genes/CYP2D6/substrates.json",
-    "models/genes/CYP2D6/variants.json",
-    "models/genes/CYP2D6/compartments.json",
-    "models/genes/CYP2D6/exposures.json",
-    "models/genes/CYP2D6/caveats.json",
-    "api/genes/CYP2D6.json",
-    "api/graph.json"
   ]
 }

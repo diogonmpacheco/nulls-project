@@ -1,6 +1,6 @@
 {
   "schema": "nulls-project.static-api-index.v0",
-  "generated": "2026-06-28",
+  "generated": "2026-06-29",
   "baseUrl": "https://diogonmpacheco.github.io/nulls-project/",
   "endpoints": [
     {
@@ -49,6 +49,26 @@
       "use": "Bundled CYP2D6 state model, substrate map, and variant slice."
     },
     {
+      "path": "api/genes/CYP2D6.json",
+      "label": "CYP2D6 graph-backed gene API",
+      "use": "Canonical CYP2D6 model bundle generated from graph-ready source-of-truth files."
+    },
+    {
+      "path": "api/graph.json",
+      "label": "Static property graph API",
+      "use": "Nodes and edges connecting genes, null states, variants, substrates, compartments, exposure cases, claims, caveats, and sources."
+    },
+    {
+      "path": "data/generated/nulls-graph.json",
+      "label": "Generated graph database export",
+      "use": "Same graph as api/graph.json, placed under data/generated to mark it as generated output."
+    },
+    {
+      "path": "data/generated/genes/CYP2D6.json",
+      "label": "Generated CYP2D6 graph bundle",
+      "use": "Graph-backed CYP2D6 bundle with canonical model files and graph slice."
+    },
+    {
       "path": "data/null-ingest-map.json",
       "label": "Gene-specific ingest rules",
       "use": "Per-gene source priorities, include/review/exclude mechanisms, and null-only curation rules."
@@ -70,6 +90,8 @@
     "records.filter(record => record.facets.systemicCandidate)",
     "records.filter(record => record.symbol === 'CYP2D6')",
     "records.filter(record => record.nullModes.includes('protective-loss-of-function'))",
-    "fetch('api/cyp2d6-base.json').then(response => response.json())"
+    "fetch('api/cyp2d6-base.json').then(response => response.json())",
+    "fetch('api/graph.json').then(response => response.json())",
+    "fetch('api/genes/CYP2D6.json').then(response => response.json())"
   ]
 }

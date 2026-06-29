@@ -1,0 +1,224 @@
+{
+  "schema": "nulls-project.gene-compartments.v0",
+  "generated": "2026-06-29",
+  "gene": "CYP2D6",
+  "boundary": "Compartment rows separate supported pharmacokinetic evidence from tissue-local hypotheses. Plasma or urine biomarkers are not proof of every tissue distribution.",
+  "rows": [
+    {
+      "id": "liver-systemic-circulation",
+      "gene": "CYP2D6",
+      "order": 1,
+      "compartment": "Liver / systemic circulation",
+      "claimType": "evidence",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "human pharmacokinetic or biomarker evidence",
+      "inheritedNullClaim": "A no-function genotype or whole-gene deletion can remove or sharply reduce CYP2D6-mediated metabolism at the main systemic clearance site.",
+      "inducedNullClaim": "A strong inhibitor can create a functional null-like state for hepatic/systemic CYP2D6 substrates while the inhibitor is present.",
+      "localVsSystemic": "This is the usual pharmacogenomics frame, but it is not the whole gene.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "evidenceTier": "tier-1",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "gut-first-pass-entry",
+      "gene": "CYP2D6",
+      "order": 2,
+      "compartment": "Gut / first-pass entry",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "A true null may remove any local CYP2D6 contribution at the gut-entry layer, while systemic hepatic metabolism remains the dominant tested frame for most substrates.",
+      "inducedNullClaim": "An inhibitor may suppress intestinal or hepatic contribution depending on local exposure, timing, and inhibitor distribution.",
+      "localVsSystemic": "Food, microbiome, absorption, transporters, and first-pass metabolism can change which pathway gets loaded before plasma measurements appear.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-3",
+      "sourceIds": [
+        "glycoalkaloids-human-pk-2005",
+        "glycoalkaloids-efsa-2020"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "brain-cns-local-enzyme",
+      "gene": "CYP2D6",
+      "order": 3,
+      "compartment": "Brain / CNS local enzyme",
+      "claimType": "evidence",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "human expression or functional tissue evidence",
+      "inheritedNullClaim": "A true null may remove CYP2D6 function wherever CYP2D6 would normally be expressed in the brain.",
+      "inducedNullClaim": "An inhibitor may or may not reproduce the same brain state; brain penetration, local concentration, transporter behavior, and regional regulation matter.",
+      "localVsSystemic": "Brain CYP expression and regulation can differ from hepatic expression and regulation.",
+      "evidenceLane": [
+        "human-expression",
+        "human-brain-function"
+      ],
+      "evidenceTier": "tier-2",
+      "sourceIds": [
+        "cyp2d6-brain-functional",
+        "cyp2d6-cns-role",
+        "cyp2d6-brain-regional-expression",
+        "brain-cyp-regulation"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "blood-brain-barrier-cns-entry",
+      "gene": "CYP2D6",
+      "order": 4,
+      "compartment": "Blood-brain barrier / CNS entry",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "Inherited null status may affect local metabolism at CNS interfaces only where the enzyme is present and relevant.",
+      "inducedNullClaim": "A drug-induced null depends on whether the inhibitor reaches the barrier or CNS compartment in enough concentration.",
+      "localVsSystemic": "Barrier transport and local biotransformation can make central exposure diverge from plasma exposure.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-3",
+      "sourceIds": [
+        "bbb-biotransformation",
+        "cyp2d6-cns-role"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "kidney-urine-biomarkers",
+      "gene": "CYP2D6",
+      "order": 5,
+      "compartment": "Kidney / urine biomarkers",
+      "claimType": "evidence",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "human pharmacokinetic or biomarker evidence",
+      "inheritedNullClaim": "A true null can reduce CYP2D6-derived metabolite formation that later appears in urine, even when the local renal role is not the main mechanism.",
+      "inducedNullClaim": "A strong inhibitor can lower CYP2D6-derived urinary metabolite ratios while inhibition persists.",
+      "localVsSystemic": "Urine is often a readout of upstream metabolism, not proof that kidney-local CYP2D6 is the causal compartment.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "evidenceTier": "tier-1",
+      "sourceIds": [
+        "ssda-cyp2d6-2022",
+        "solanidine-cyp2d6-2024"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "cardiovascular-target-effects",
+      "gene": "CYP2D6",
+      "order": 6,
+      "compartment": "Cardiovascular target effects",
+      "claimType": "evidence",
+      "strictNullRelevance": "strict",
+      "evidenceKind": "human pharmacokinetic or biomarker evidence",
+      "inheritedNullClaim": "A CYP2D6 null can change exposure to cardiovascular drugs such as selected beta-blockers or antiarrhythmics.",
+      "inducedNullClaim": "A strong CYP2D6 inhibitor can create similar systemic exposure changes for susceptible cardiovascular substrates.",
+      "localVsSystemic": "This is often target-exposure biology rather than proof of local cardiac CYP2D6 loss; the atlas should label that distinction.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "evidenceTier": "tier-1",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "id": "adipose-lipid-reservoirs",
+      "gene": "CYP2D6",
+      "order": 7,
+      "compartment": "Adipose / lipid reservoirs",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "review",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "A true null may increase parent exposure for lipophilic CYP2D6 substrates before distribution into or release from lipid compartments.",
+      "inducedNullClaim": "An induced null depends on inhibitor timing and whether the inhibitor persists long enough to change redistribution or release phases.",
+      "localVsSystemic": "This is currently a pharmacokinetic distribution question more than proven adipose-local CYP2D6 biology.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-4",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "id": "endocrine-reproductive-tissues",
+      "gene": "CYP2D6",
+      "order": 8,
+      "compartment": "Endocrine / reproductive tissues",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "review",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "A systemic null model should ask whether CYP2D6 is locally expressed and whether local steroid, xenobiotic, or lipid-derived substrate handling is affected.",
+      "inducedNullClaim": "A medication-induced state should be modeled only if inhibitor distribution and local expression are plausible.",
+      "localVsSystemic": "Current v0 evidence is not enough to claim a specific reproductive or endocrine phenotype.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-4",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "id": "immune-inflammatory-interface",
+      "gene": "CYP2D6",
+      "order": 9,
+      "compartment": "Immune / inflammatory interface",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "review",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "A true null may alter exposure to immune-active external substances or endogenous lipid mediators, but direct immune-cell CYP2D6 null biology is not established here.",
+      "inducedNullClaim": "Drug-induced CYP2D6 suppression can overlap with immune-active medications or inflammatory states, but mechanism needs source-specific review.",
+      "localVsSystemic": "This is a hypothesis layer for pathway load and exposure, not a clinical immune phenotype claim.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-4",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "id": "lung-skin-other-peripheral-tissues",
+      "gene": "CYP2D6",
+      "order": 10,
+      "compartment": "Lung / skin / other peripheral tissues",
+      "claimType": "hypothesis",
+      "strictNullRelevance": "review",
+      "evidenceKind": "hypothesis or unresolved tissue model",
+      "inheritedNullClaim": "The systemic-null frame keeps these compartments open when expression or substrate evidence emerges.",
+      "inducedNullClaim": "Induced null status should not be projected into these tissues unless inhibitor distribution and local enzyme evidence support it.",
+      "localVsSystemic": "A whole-body genetic absence is conceptually different from a plasma drug interaction label, but each peripheral claim still needs evidence.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "evidenceTier": "tier-4",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    }
+  ]
+}

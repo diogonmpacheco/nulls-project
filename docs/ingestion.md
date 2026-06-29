@@ -16,6 +16,8 @@ This is not a live server API yet. It is a GitHub Pages JSON API: fetch the JSON
 - CYP2D6 substrate map: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-substrates.json>
 - CYP2D6 variant slice: <https://diogonmpacheco.github.io/nulls-project/data/cyp2d6-variants.json>
 - CYP2D6 bundled API: <https://diogonmpacheco.github.io/nulls-project/api/cyp2d6-base.json>
+- CYP2D6 graph-backed gene API: <https://diogonmpacheco.github.io/nulls-project/api/genes/CYP2D6.json>
+- Static property graph API: <https://diogonmpacheco.github.io/nulls-project/api/graph.json>
 
 ## Filter Examples
 
@@ -32,6 +34,11 @@ const cyp2d6 = feed.records.find(record => record.symbol === "CYP2D6");
 const cyp2d6Base = await fetch("https://diogonmpacheco.github.io/nulls-project/api/cyp2d6-base.json").then(r => r.json());
 const cyp2d6StrictVariants = cyp2d6Base.variants.records.filter(record => record.strictNull);
 const cyp2d6MedicationRows = cyp2d6Base.substrates.rows.filter(row => row.category === "medication");
+
+const graph = await fetch("https://diogonmpacheco.github.io/nulls-project/api/graph.json").then(r => r.json());
+const cyp2d6VariantNodes = graph.nodes.filter(node => node.type === "Variant" && node.id.startsWith("variant:CYP2D6:"));
+const cyp2d6StrictVariantNodes = cyp2d6VariantNodes.filter(node => node.properties.strictNull);
+const solanidineEdges = graph.edges.filter(edge => edge.from.includes("solanidine") || edge.to.includes("solanidine"));
 ```
 
 ## What The Feed Keeps
@@ -80,9 +87,10 @@ The first enrichment catalog maps the project to:
 ## Rebuild
 
 ```bash
-node scripts/build-null-feeds.mjs
 node scripts/build-null-variants.mjs
+node scripts/build-null-feeds.mjs
 node scripts/build-cyp2d6-base-pack.mjs
+node scripts/build-graph-db.mjs
 ```
 
 The generator reads:
@@ -98,6 +106,10 @@ and writes:
 - `api/index.json`
 - `data/cyp2d6-variants.json`
 - `api/cyp2d6-base.json`
+- `data/generated/nulls-graph.json`
+- `data/generated/genes/CYP2D6.json`
+- `api/graph.json`
+- `api/genes/CYP2D6.json`
 
 ## Boundary
 

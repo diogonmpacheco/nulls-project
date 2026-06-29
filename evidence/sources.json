@@ -1,0 +1,357 @@
+{
+  "schema": "nulls-project.evidence-sources.v0",
+  "generated": "2026-06-29",
+  "boundary": "Source registry for graph-backed curation. Sources support claims; they do not create personal interpretation.",
+  "sources": [
+    {
+      "id": "angptl3-ncbi",
+      "label": "Familial combined hypolipidemia and ANGPTL3",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK593236/",
+      "note": "ANGPTL3 loss-of-function and hypolipidemia context."
+    },
+    {
+      "id": "atlas-draft",
+      "label": "Nulls Project atlas draft",
+      "type": "local curated data",
+      "url": "https://diogonmpacheco.github.io/nulls-project/",
+      "note": "Local draft curation and structural model rows."
+    },
+    {
+      "id": "bbb-biotransformation",
+      "label": "Drug and xenobiotic biotransformation in the blood-brain barrier",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4201098/",
+      "note": "Blood-brain barrier metabolism and transport can affect CNS exposure."
+    },
+    {
+      "id": "brain-cyp-regulation",
+      "label": "Cytochrome P450 expression and regulation in the brain",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33356626/",
+      "note": "Brain CYP regulation differs from corresponding hepatic enzyme regulation."
+    },
+    {
+      "id": "clingen-dosage",
+      "label": "ClinGen Dosage Sensitivity",
+      "type": "dosage-curation",
+      "url": "https://search.clinicalgenome.org/kb/downloads",
+      "note": null
+    },
+    {
+      "id": "clinvar",
+      "label": "ClinVar",
+      "type": "clinical-assertion",
+      "url": "https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/",
+      "note": null
+    },
+    {
+      "id": "cpic-api",
+      "label": "CPIC API allele function snapshot",
+      "type": "api snapshot",
+      "url": "https://api.cpicpgx.org/",
+      "note": "Local imported CYP2D6 allele-function rows."
+    },
+    {
+      "id": "cpic-guidelines",
+      "label": "CPIC Guidelines index",
+      "type": "guideline index",
+      "url": "https://cpicpgx.org/guidelines/",
+      "note": "Primary guideline index for pharmacogenomic gene-drug pairs."
+    },
+    {
+      "id": "cpic-opioids",
+      "label": "CPIC CYP2D6, OPRM1, COMT and opioid therapy",
+      "type": "source",
+      "url": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/CPIC_opioids_PREPRINT.pdf",
+      "note": null
+    },
+    {
+      "id": "cyp2d-brain-serotonin",
+      "label": "Brain CYP2D catalytic competence for serotonin formation",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23098818/",
+      "note": null
+    },
+    {
+      "id": "cyp2d-brain-serotonin-2012",
+      "label": "Brain CYP2D catalytic competence for serotonin formation",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23098818/",
+      "note": "Animal brain evidence that CYP2D can convert 5-methoxytryptamine to serotonin in vivo."
+    },
+    {
+      "id": "cyp2d-melatonin-serotonin",
+      "label": "Melatonin to serotonin through 5-methoxytryptamine and CYP2D",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26884482/",
+      "note": null
+    },
+    {
+      "id": "cyp2d-melatonin-serotonin-2016",
+      "label": "Melatonin to serotonin through 5-methoxytryptamine and CYP2D",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26884482/",
+      "note": "Reports a melatonin-derived route to serotonin involving 5-methoxytryptamine and CYP2D activity in brain."
+    },
+    {
+      "id": "cyp2d6-5mt-serotonin",
+      "label": "CYP2D6 converts 5-methoxytryptamine to serotonin",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12618595/",
+      "note": null
+    },
+    {
+      "id": "cyp2d6-5mt-serotonin-2003",
+      "label": "CYP2D6 converts 5-methoxytryptamine to serotonin",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12618595/",
+      "note": "Human CYP2D6 can O-demethylate 5-methoxytryptamine to serotonin in vitro, supporting an endogenous serotonin-regeneration route."
+    },
+    {
+      "id": "cyp2d6-anandamide",
+      "label": "Anandamide as a CYP2D6 substrate",
+      "type": "source",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2704579/",
+      "note": null
+    },
+    {
+      "id": "cyp2d6-anandamide-2009",
+      "label": "Endocannabinoid anandamide as a CYP2D6 substrate",
+      "type": "publication",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2704579/",
+      "note": "Reports anandamide metabolism by polymorphic human CYP2D6, including relevance to brain/endocannabinoid metabolism."
+    },
+    {
+      "id": "cyp2d6-behavior-psychopathology-2014",
+      "label": "CYP2D6 variation, behaviour and psychopathology",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3971983/",
+      "note": "Reviews CYP2D6 brain expression, endogenous substrate hypotheses, and behavioral/psychiatric associations."
+    },
+    {
+      "id": "cyp2d6-brain-functional",
+      "label": "Human CYP2D6 is functional in brain in vivo",
+      "type": "publication",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7383223/",
+      "note": "Evidence that CYP2D activity can be detected in human brain in vivo."
+    },
+    {
+      "id": "cyp2d6-brain-regional-expression",
+      "label": "Regional and cellular expression of CYP2D6 in human brain",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12354285/",
+      "note": "Reports CYP2D6 mRNA and protein across human brain regions."
+    },
+    {
+      "id": "cyp2d6-cns-review",
+      "label": "Potential role of CYP2D6 in the central nervous system",
+      "type": "source",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3750078/",
+      "note": null
+    },
+    {
+      "id": "cyp2d6-cns-role",
+      "label": "Potential role of CYP2D6 in the central nervous system",
+      "type": "review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3750078/",
+      "note": "Review of CYP2D6 distribution, endogenous-substrate hypotheses, and CNS relevance."
+    },
+    {
+      "id": "cyp2d6-neuroactive-substrates-2004",
+      "label": "CYP2D6 polymorphism and endogenous neuroactive substrates",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15469888/",
+      "note": "Study of CYP2D6 genetic variation effects on metabolism of endogenous neuroactive substrates."
+    },
+    {
+      "id": "cyp2d6-opioids-cpic",
+      "label": "CPIC CYP2D6, OPRM1, COMT and select opioid therapy",
+      "type": "guideline",
+      "url": "https://files.cpicpgx.org/data/guideline/publication/opioids/2020/CPIC_opioids_PREPRINT.pdf",
+      "note": "CYP2D6 phenotype context for codeine, tramadol, and selected opioids."
+    },
+    {
+      "id": "cyp2d6-tyramine-dopamine",
+      "label": "CYP2D6 converts tyramine to dopamine",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9731223/",
+      "note": null
+    },
+    {
+      "id": "cyp2d6-tyramine-dopamine-1998",
+      "label": "CYP2D6 converts tyramine to dopamine",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9731223/",
+      "note": "Human CYP2D6 catalyzes tyramine hydroxylation to dopamine, supporting an alternative dopamine-formation route."
+    },
+    {
+      "id": "diognosis",
+      "label": "Diognosis bridge examples",
+      "type": "local application",
+      "url": "https://diogonmpacheco.github.io/Diognosis/",
+      "note": "Medication-example bridge only; not the source of external scientific truth."
+    },
+    {
+      "id": "diognosis-standards",
+      "label": "Diognosis clinical standards bridge",
+      "type": "local curated data",
+      "url": "https://diogonmpacheco.github.io/Diognosis/",
+      "note": "Local seed for marker labels and PGx review framing."
+    },
+    {
+      "id": "dpyd-medgen",
+      "label": "DPYD and fluorouracil response",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK395610/",
+      "note": "DPYD deficiency and fluoropyrimidine toxicity context."
+    },
+    {
+      "id": "ensembl-vep",
+      "label": "Ensembl Variant Effect Predictor / REST",
+      "type": "variant-consequence",
+      "url": "https://rest.ensembl.org/",
+      "note": null
+    },
+    {
+      "id": "fda-pgx-table",
+      "label": "FDA Table of Pharmacogenetic Associations",
+      "type": "regulatory table",
+      "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations",
+      "note": "Regulatory pharmacogenetic association context."
+    },
+    {
+      "id": "g6pd-medgen",
+      "label": "G6PD deficiency",
+      "type": "NCBI Medical Genetics Summary",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK562585/",
+      "note": "G6PD deficiency, oxidative drugs, and hemolysis context."
+    },
+    {
+      "id": "glycoalkaloids-efsa-2020",
+      "label": "EFSA risk assessment of glycoalkaloids in food and feed",
+      "type": "risk assessment",
+      "url": "https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/j.efsa.2020.6222",
+      "note": "Food-toxicology frame for potato glycoalkaloids, especially alpha-solanine and alpha-chaconine."
+    },
+    {
+      "id": "glycoalkaloids-human-pk-2005",
+      "label": "Potato glycoalkaloids and adverse effects in humans",
+      "type": "human volunteer study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15649828/",
+      "note": "Human ascending-dose study of orally administered potato glycoalkaloids."
+    },
+    {
+      "id": "glycoalkaloids-ntp-1998",
+      "label": "NTP nomination background: alpha-solanine and alpha-chaconine",
+      "type": "toxicology review",
+      "url": "https://ntp.niehs.nih.gov/sites/default/files/ntp/htdocs/chem_background/exsumpdf/chaconinesolanine_508.pdf",
+      "note": "Summarizes pharmacokinetic and tissue-distribution evidence, including animal tissue accumulation."
+    },
+    {
+      "id": "gnomad",
+      "label": "gnomAD",
+      "type": "population-variation",
+      "url": "https://gnomad.broadinstitute.org/downloads",
+      "note": null
+    },
+    {
+      "id": "human-brain-cyp2d6",
+      "label": "Human CYP2D6 is functional in brain in vivo",
+      "type": "source",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7383223/",
+      "note": null
+    },
+    {
+      "id": "ncbi-gene-medgen",
+      "label": "NCBI Gene / MedGen / Bookshelf",
+      "type": "gene-clinical-context",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+      "note": null
+    },
+    {
+      "id": "open-targets",
+      "label": "Open Targets Platform",
+      "type": "gene-disease-target-context",
+      "url": "https://platform-docs.opentargets.org/",
+      "note": null
+    },
+    {
+      "id": "pcsk9-pubmed",
+      "label": "PCSK9 loss-of-function and coronary protection",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16554528/",
+      "note": "Human PCSK9 sequence variation, low LDL cholesterol, and coronary heart disease protection."
+    },
+    {
+      "id": "pharmgkb-api",
+      "label": "PharmGKB API",
+      "type": "pharmacogenomics-curation",
+      "url": "https://api.pharmgkb.org/",
+      "note": null
+    },
+    {
+      "id": "pharmgkb-cpic-overview",
+      "label": "ClinGen, CPIC, and PharmGKB overview",
+      "type": "curation ecosystem",
+      "url": "https://clinicalgenome.org/about/clingen-cpic-pharmgkb/",
+      "note": "Describes relationship between ClinGen, CPIC, and PharmGKB."
+    },
+    {
+      "id": "pharmvar",
+      "label": "PharmVar",
+      "type": "pharmacogene-allele",
+      "url": "https://www.pharmvar.org/download",
+      "note": null
+    },
+    {
+      "id": "pharmvar-cyp2d6",
+      "label": "PharmVar CYP2D6",
+      "type": "allele nomenclature",
+      "url": "https://www.pharmvar.org/gene/CYP2D6",
+      "note": "CYP2D6 allele and structural-variant nomenclature context."
+    },
+    {
+      "id": "solanidine-cyp2d6",
+      "label": "Solanidine as CYP2D6 activity biomarker",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38303026/",
+      "note": null
+    },
+    {
+      "id": "solanidine-cyp2d6-2024",
+      "label": "Solanidine is a sensitive and specific dietary biomarker for CYP2D6 activity",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38303026/",
+      "note": "Reports strong CYP2D6 genotype association with plasma solanidine, including markedly higher concentrations in genetic poor metabolizers."
+    },
+    {
+      "id": "solanidine-pm-prediction-2023",
+      "label": "Prediction of CYP2D6 poor metabolizers by solanidine and metabolites",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36806969/",
+      "note": "Metabolite-to-solanidine ratios predicted CYP2D6 poor metabolizer phenotype in genotyped patients."
+    },
+    {
+      "id": "solanidine-tamoxifen",
+      "label": "Solanidine metabolites as biomarkers of CYP2D6-mediated tamoxifen metabolism",
+      "type": "source",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39039708/",
+      "note": null
+    },
+    {
+      "id": "solanidine-tamoxifen-2024",
+      "label": "Solanidine metabolites as diet-derived biomarkers of CYP2D6-mediated tamoxifen metabolism",
+      "type": "publication",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39039708/",
+      "note": "Solanidine, 4-OH-solanidine, and SSDA ratios tracked CYP2D6 activity and inhibitor effects in a tamoxifen cohort."
+    },
+    {
+      "id": "ssda-cyp2d6-2022",
+      "label": "SSDA as a urinary biomarker of CYP2D6 activity",
+      "type": "publication",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9513856/",
+      "note": "Identifies 3,4-seco-solanidine-3,4-dioic acid as a solanidine-derived CYP2D6 activity biomarker."
+    }
+  ]
+}

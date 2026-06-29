@@ -5,18 +5,72 @@ const generated = "2026-06-29";
 const readJson = async path => JSON.parse(await readFile(path, "utf8"));
 const writeJson = async (path, value) => writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
 
-const [baseModel, substrates, cyp2d6Ingest, nullVariants, atlas] = await Promise.all([
-  readJson("data/cyp2d6-base-model.json"),
-  readJson("data/cyp2d6-substrates.json"),
+const [geneModel, nullStates, substrates, variants, cyp2d6Ingest, atlas] = await Promise.all([
+  readJson("models/genes/CYP2D6/gene.json"),
+  readJson("models/genes/CYP2D6/null-states.json"),
+  readJson("models/genes/CYP2D6/substrates.json"),
+  readJson("models/genes/CYP2D6/variants.json"),
   readJson("data/cyp2d6-null-ingest.json"),
-  readJson("data/null-variants.json"),
   readJson("data/nulls-atlas.json")
 ]);
 
 const gene = atlas.genes.find(record => record.id === "CYP2D6");
 if (!gene) throw new Error("CYP2D6 missing from atlas.");
 
-const variantRecords = (nullVariants.records || []).filter(record => record.gene === "CYP2D6");
+const baseModel = {
+  schema: "nulls-project.cyp2d6-base-model.v0",
+  generated,
+  gene: {
+    symbol: geneModel.symbol,
+    name: geneModel.name,
+    role: "Reference model for systemic functional-null biology"
+  },
+  purpose: "Define CYP2D6 as a systemic functional-null reference model with null states, evidence ladder, substrate maps, tissue maps, and interpretation boundaries kept separate.",
+  coreThesis: "CYP2D6 null biology is not only a pharmacogenomic drug-response label. A true inherited null can mean missing CYP2D6 enzyme function wherever CYP2D6 is normally active, while a medically induced functional null may only suppress selected compartments.",
+  stateModel: nullStates.rows,
+  evidenceLadder: [
+    { id: "human-null-phenotype", label: "Human null phenotype" },
+    { id: "human-drug-response", label: "Human drug response" },
+    { id: "human-brain-function", label: "Human brain function" },
+    { id: "human-expression", label: "Human expression" },
+    { id: "animal-brain-in-vivo", label: "Animal brain in vivo" },
+    { id: "in-vitro-biochemistry", label: "In vitro biochemistry" },
+    { id: "hypothesis-only", label: "Hypothesis only" }
+  ],
+  requiredSectionsForFutureGenes: [
+    "null-state model",
+    "strict/review variant split",
+    "substrate and pathway map",
+    "tissue or compartment map",
+    "inherited-null versus medically-induced-null comparison",
+    "source confidence labels",
+    "non-diagnostic boundary",
+    "static API feed"
+  ],
+  basePackFiles: [
+    "models/genes/CYP2D6/gene.json",
+    "models/genes/CYP2D6/null-states.json",
+    "models/genes/CYP2D6/substrates.json",
+    "models/genes/CYP2D6/variants.json",
+    "models/genes/CYP2D6/compartments.json",
+    "models/genes/CYP2D6/exposures.json",
+    "models/genes/CYP2D6/caveats.json",
+    "api/genes/CYP2D6.json",
+    "api/graph.json"
+  ]
+};
+
+const substrateMap = {
+  schema: "nulls-project.cyp2d6-substrates.v0",
+  generated,
+  gene: substrates.gene,
+  purpose: "Map CYP2D6 substrates, exposure markers, inhibitors, and pathway-capacity questions without collapsing evidence and hypotheses.",
+  boundary: substrates.boundary,
+  sources: substrates.sources,
+  rows: substrates.rows
+};
+
+const variantRecords = variants.rows;
 const strictRecords = variantRecords.filter(record => record.strictNull);
 const reviewRecords = variantRecords.filter(record => !record.strictNull);
 
@@ -24,8 +78,8 @@ const cyp2d6Variants = {
   schema: "nulls-project.cyp2d6-variants.v0",
   generated,
   sourceFeed: {
-    schema: nullVariants.schema,
-    generated: nullVariants.generated
+    schema: variants.schema,
+    generated: variants.generated
   },
   boundary: "CYP2D6 variant rows are an ingestion/reference layer, not personal interpretation. CYP2D6 requires copy-number, deletion, hybrid, and phasing-aware calling.",
   counts: {
@@ -41,16 +95,18 @@ const cyp2d6Variants = {
     structuralRows: "records.filter(row => `${row.mechanism} ${row.label}`.toLowerCase().includes('deletion'))",
     cpicNoFunctionRows: "records.filter(row => row.sourceLayer === 'cpic-no-function-allele')"
   },
-  referenceStates: baseModel.stateModel.map(state => ({
+  referenceStates: nullStates.rows.map(state => ({
     id: state.id,
     label: state.label,
     strictNull: state.strictNull,
-    includeInCore: state.includeInCore
+    includeInCore: state.includeInCore,
+    claimType: state.claimType,
+    strictNullRelevance: state.strictNullRelevance
   })),
   records: variantRecords
 };
 
-const substrateCounts = substrates.rows.reduce((counts, row) => {
+const substrateCounts = substrateMap.rows.reduce((counts, row) => {
   counts[row.category] = (counts[row.category] || 0) + 1;
   return counts;
 }, {});
@@ -66,6 +122,8 @@ const basePack = {
     whyStrong: gene.whyStrong
   },
   endpoints: {
+    graph: "api/graph.json",
+    geneGraph: "api/genes/CYP2D6.json",
     baseModel: "data/cyp2d6-base-model.json",
     substrates: "data/cyp2d6-substrates.json",
     variants: "data/cyp2d6-variants.json",
@@ -73,13 +131,13 @@ const basePack = {
   },
   baseModel,
   substrates: {
-    schema: substrates.schema,
-    generated: substrates.generated,
+    schema: substrateMap.schema,
+    generated: substrateMap.generated,
     counts: {
-      rows: substrates.rows.length,
+      rows: substrateMap.rows.length,
       byCategory: substrateCounts
     },
-    rows: substrates.rows
+    rows: substrateMap.rows
   },
   variants: {
     schema: cyp2d6Variants.schema,
@@ -91,7 +149,9 @@ const basePack = {
 };
 
 await mkdir("api", { recursive: true });
+await writeJson("data/cyp2d6-base-model.json", baseModel);
+await writeJson("data/cyp2d6-substrates.json", substrateMap);
 await writeJson("data/cyp2d6-variants.json", cyp2d6Variants);
 await writeJson("api/cyp2d6-base.json", basePack);
 
-console.log(`Built CYP2D6 model with ${variantRecords.length} variant rows and ${substrates.rows.length} substrate rows.`);
+console.log(`Built CYP2D6 model with ${variantRecords.length} variant rows and ${substrateMap.rows.length} substrate rows.`);

@@ -1,0 +1,560 @@
+{
+  "schema": "nulls-project.evidence-claims.v0",
+  "generated": "2026-06-29",
+  "boundary": "Atomic claim rows for graph construction. Claims must stay separated from public copy and generated API bundles.",
+  "claims": [
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:true-inherited-null",
+      "subjectId": "null-state:CYP2D6:true-inherited-null",
+      "claimType": "evidence",
+      "statement": "Inherited absence or nonfunction of CYP2D6 activity from no-function alleles, biallelic no-function combinations, or equivalent genetic loss.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-guidelines",
+        "pharmvar-cyp2d6"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:whole-gene-deletion",
+      "subjectId": "null-state:CYP2D6:whole-gene-deletion",
+      "claimType": "evidence",
+      "statement": "CYP2D6*5 or other structural loss where the CYP2D6 gene is deleted.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "pharmvar-cyp2d6",
+        "cpic-guidelines",
+        "cpic-api"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:named-no-function-star-alleles",
+      "subjectId": "null-state:CYP2D6:named-no-function-star-alleles",
+      "claimType": "evidence",
+      "statement": "PharmVar/CPIC-compatible star alleles assigned no function, such as CYP2D6*4 and other CPIC no-function rows.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "pharmvar-cyp2d6",
+        "cpic-guidelines",
+        "cpic-api"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:residual-decreased-function",
+      "subjectId": "null-state:CYP2D6:residual-decreased-function",
+      "claimType": "boundary",
+      "statement": "Alleles such as CYP2D6*10 or CYP2D6*41 with reduced activity that may approximate null behavior for some substrates but still retain function.",
+      "evidenceLane": [
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cpic-guidelines",
+        "pharmvar-cyp2d6"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:clinical-poor-metabolizer-label",
+      "subjectId": "null-state:CYP2D6:clinical-poor-metabolizer-label",
+      "claimType": "boundary",
+      "statement": "A phenotype translation bucket that can represent true no-function diplotypes, incomplete testing, or clinical activity-score assumptions.",
+      "evidenceLane": [
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "comparator",
+      "sourceIds": [
+        "cpic-guidelines",
+        "pharmvar-cyp2d6"
+      ],
+      "boundary": "A clinical poor-metabolizer label is a comparator until allele resolution, tissue context, and residual function are known."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:medically-induced-functional-null",
+      "subjectId": "null-state:CYP2D6:medically-induced-functional-null",
+      "claimType": "evidence",
+      "statement": "Strong CYP2D6 inhibition or phenoconversion that suppresses CYP2D6 activity while the inhibitor is present.",
+      "evidenceLane": [
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table",
+        "solanidine-tamoxifen-2024"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:tissue-local-null",
+      "subjectId": "null-state:CYP2D6:tissue-local-null",
+      "claimType": "hypothesis",
+      "statement": "A compartment-specific question about local CYP2D6 expression, activity, substrate access, and inhibitor penetration.",
+      "evidenceLane": [
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-brain-functional",
+        "cyp2d6-cns-role",
+        "cyp2d6-brain-regional-expression",
+        "brain-cyp-regulation",
+        "bbb-biotransformation"
+      ],
+      "boundary": "Educational research reference only; not diagnostic interpretation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:null-state:opposite-states-excluded",
+      "subjectId": "null-state:CYP2D6:opposite-states-excluded",
+      "claimType": "boundary",
+      "statement": "Ultrarapid, increased-function, and duplication states used only as directionality contrast.",
+      "evidenceLane": [
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "excluded",
+      "sourceIds": [
+        "cpic-guidelines",
+        "pharmvar-cyp2d6"
+      ],
+      "boundary": "Increased, duplication, and ultrarapid function are comparator states and must stay outside strict null filters."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:endogenous-5mt-serotonin",
+      "subjectId": "substrate:CYP2D6:endogenous-5mt-serotonin",
+      "claimType": "hypothesis",
+      "statement": "5-methoxytryptamine to serotonin: O-demethylation route that can regenerate serotonin from 5-methoxytryptamine.",
+      "evidenceLane": [
+        "in-vitro-biochemistry",
+        "animal-brain-in-vivo",
+        "human-expression",
+        "human-brain-function"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-5mt-serotonin",
+        "cyp2d-brain-serotonin",
+        "cyp2d-melatonin-serotonin",
+        "human-brain-cyp2d6"
+      ],
+      "boundary": "Do not claim CYP2D6 null globally means low serotonin."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:endogenous-tyramine-dopamine",
+      "subjectId": "substrate:CYP2D6:endogenous-tyramine-dopamine",
+      "claimType": "hypothesis",
+      "statement": "Tyramine to dopamine: Hydroxylation route from tyramine to dopamine.",
+      "evidenceLane": [
+        "in-vitro-biochemistry",
+        "human-enzyme-activity",
+        "human-expression"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-tyramine-dopamine",
+        "cyp2d6-cns-review"
+      ],
+      "boundary": "Do not claim CYP2D6 null globally means low dopamine."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:endogenous-anandamide",
+      "subjectId": "substrate:CYP2D6:endogenous-anandamide",
+      "claimType": "hypothesis",
+      "statement": "Anandamide / endocannabinoid metabolism: Oxidation of anandamide into endocannabinoid metabolites by polymorphic human CYP2D6.",
+      "evidenceLane": [
+        "in-vitro-biochemistry",
+        "human-expression"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-anandamide",
+        "cyp2d6-cns-review"
+      ],
+      "boundary": "Track as pathway evidence, not as symptom or diagnosis evidence."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:exposure-solanidine",
+      "subjectId": "substrate:CYP2D6:exposure-solanidine",
+      "claimType": "evidence",
+      "statement": "Solanidine / potato glycoalkaloid biomarker: CYP2D6-dependent solanidine metabolism changes parent solanidine and metabolite ratios.",
+      "evidenceLane": [
+        "external-exposure-biomarker",
+        "human-enzyme-activity"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "solanidine-cyp2d6",
+        "solanidine-tamoxifen"
+      ],
+      "boundary": "Do not treat plasma solanidine as a potato-toxicity threshold."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-codeine",
+      "subjectId": "substrate:CYP2D6:med-codeine",
+      "claimType": "evidence",
+      "statement": "Codeine: CYP2D6 contributes to morphine formation from codeine.",
+      "evidenceLane": [
+        "human-drug-response",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-opioids",
+        "diognosis"
+      ],
+      "boundary": "Medication decisions require qualified review."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-tramadol",
+      "subjectId": "substrate:CYP2D6:med-tramadol",
+      "claimType": "evidence",
+      "statement": "Tramadol: CYP2D6 contributes to O-desmethyltramadol formation.",
+      "evidenceLane": [
+        "human-drug-response",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-opioids",
+        "diognosis"
+      ],
+      "boundary": "Medication decisions require qualified review."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-atomoxetine",
+      "subjectId": "substrate:CYP2D6:med-atomoxetine",
+      "claimType": "evidence",
+      "statement": "Atomoxetine: CYP2D6 is a major route for atomoxetine metabolism.",
+      "evidenceLane": [
+        "human-drug-response",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Medication decisions require qualified review."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-metoprolol",
+      "subjectId": "substrate:CYP2D6:med-metoprolol",
+      "claimType": "evidence",
+      "statement": "Metoprolol: CYP2D6 contributes to metoprolol clearance.",
+      "evidenceLane": [
+        "human-drug-response"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "fda-pgx-table",
+        "diognosis"
+      ],
+      "boundary": "This is target-exposure biology, not proof of local cardiac CYP2D6 loss."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-flecainide-propafenone",
+      "subjectId": "substrate:CYP2D6:med-flecainide-propafenone",
+      "claimType": "evidence",
+      "statement": "Flecainide / propafenone: CYP2D6 contributes to exposure for selected antiarrhythmic substrates.",
+      "evidenceLane": [
+        "human-drug-response"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "fda-pgx-table",
+        "diognosis"
+      ],
+      "boundary": "Requires clinician/pharmacist review; not a stand-alone action rule."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-tca",
+      "subjectId": "substrate:CYP2D6:med-tca",
+      "claimType": "evidence",
+      "statement": "Tricyclic antidepressant archetype: CYP2D6 contributes to metabolism of several tricyclic antidepressants.",
+      "evidenceLane": [
+        "human-drug-response",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Grouped archetype; individual drugs need their own row before decisions."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-dextromethorphan",
+      "subjectId": "substrate:CYP2D6:med-dextromethorphan",
+      "claimType": "evidence",
+      "statement": "Dextromethorphan / dextrorphan probe route: CYP2D6 converts dextromethorphan toward dextrorphan and is widely used as an activity probe.",
+      "evidenceLane": [
+        "human-enzyme-activity",
+        "human-brain-function"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "human-brain-cyp2d6",
+        "cpic-guidelines"
+      ],
+      "boundary": "Probe interpretation is not the same as personal diagnosis."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:med-tamoxifen-review",
+      "subjectId": "substrate:CYP2D6:med-tamoxifen-review",
+      "claimType": "evidence",
+      "statement": "Tamoxifen / endoxifen review route: CYP2D6 contributes to endoxifen formation and can be tracked with CYP2D6 activity biomarkers.",
+      "evidenceLane": [
+        "human-drug-response",
+        "external-exposure-biomarker"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "solanidine-tamoxifen",
+        "cpic-guidelines"
+      ],
+      "boundary": "Keep as review context; do not turn into a direct treatment recommendation."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:substrate:induced-strong-inhibitors",
+      "subjectId": "substrate:CYP2D6:induced-strong-inhibitors",
+      "claimType": "evidence",
+      "statement": "Strong inhibitor phenoconversion: Strong inhibitors such as bupropion, fluoxetine, paroxetine, quinidine, and terbinafine can suppress CYP2D6 activity while present.",
+      "evidenceLane": [
+        "human-drug-response",
+        "clinical-guideline"
+      ],
+      "strictNullRelevance": "comparator",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table",
+        "diognosis"
+      ],
+      "boundary": "Current medication context is required; genotype alone cannot identify induced null state."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:liver-systemic-circulation",
+      "subjectId": "compartment:CYP2D6:liver-systemic-circulation",
+      "claimType": "evidence",
+      "statement": "Liver / systemic circulation: A no-function genotype or whole-gene deletion can remove or sharply reduce CYP2D6-mediated metabolism at the main systemic clearance site.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:gut-first-pass-entry",
+      "subjectId": "compartment:CYP2D6:gut-first-pass-entry",
+      "claimType": "hypothesis",
+      "statement": "Gut / first-pass entry: A true null may remove any local CYP2D6 contribution at the gut-entry layer, while systemic hepatic metabolism remains the dominant tested frame for most substrates.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "glycoalkaloids-human-pk-2005",
+        "glycoalkaloids-efsa-2020"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:brain-cns-local-enzyme",
+      "subjectId": "compartment:CYP2D6:brain-cns-local-enzyme",
+      "claimType": "evidence",
+      "statement": "Brain / CNS local enzyme: A true null may remove CYP2D6 function wherever CYP2D6 would normally be expressed in the brain.",
+      "evidenceLane": [
+        "human-expression",
+        "human-brain-function"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cyp2d6-brain-functional",
+        "cyp2d6-cns-role",
+        "cyp2d6-brain-regional-expression",
+        "brain-cyp-regulation"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:blood-brain-barrier-cns-entry",
+      "subjectId": "compartment:CYP2D6:blood-brain-barrier-cns-entry",
+      "claimType": "hypothesis",
+      "statement": "Blood-brain barrier / CNS entry: Inherited null status may affect local metabolism at CNS interfaces only where the enzyme is present and relevant.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "bbb-biotransformation",
+        "cyp2d6-cns-role"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:kidney-urine-biomarkers",
+      "subjectId": "compartment:CYP2D6:kidney-urine-biomarkers",
+      "claimType": "evidence",
+      "statement": "Kidney / urine biomarkers: A true null can reduce CYP2D6-derived metabolite formation that later appears in urine, even when the local renal role is not the main mechanism.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "ssda-cyp2d6-2022",
+        "solanidine-cyp2d6-2024"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:cardiovascular-target-effects",
+      "subjectId": "compartment:CYP2D6:cardiovascular-target-effects",
+      "claimType": "evidence",
+      "statement": "Cardiovascular target effects: A CYP2D6 null can change exposure to cardiovascular drugs such as selected beta-blockers or antiarrhythmics.",
+      "evidenceLane": [
+        "human-drug-response",
+        "human-enzyme-activity"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "cpic-guidelines",
+        "fda-pgx-table"
+      ],
+      "boundary": "Do not convert compartment evidence into personal diagnosis or medication advice."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:adipose-lipid-reservoirs",
+      "subjectId": "compartment:CYP2D6:adipose-lipid-reservoirs",
+      "claimType": "hypothesis",
+      "statement": "Adipose / lipid reservoirs: A true null may increase parent exposure for lipophilic CYP2D6 substrates before distribution into or release from lipid compartments.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:endocrine-reproductive-tissues",
+      "subjectId": "compartment:CYP2D6:endocrine-reproductive-tissues",
+      "claimType": "hypothesis",
+      "statement": "Endocrine / reproductive tissues: A systemic null model should ask whether CYP2D6 is locally expressed and whether local steroid, xenobiotic, or lipid-derived substrate handling is affected.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:immune-inflammatory-interface",
+      "subjectId": "compartment:CYP2D6:immune-inflammatory-interface",
+      "claimType": "hypothesis",
+      "statement": "Immune / inflammatory interface: A true null may alter exposure to immune-active external substances or endogenous lipid mediators, but direct immune-cell CYP2D6 null biology is not established here.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:compartment:lung-skin-other-peripheral-tissues",
+      "subjectId": "compartment:CYP2D6:lung-skin-other-peripheral-tissues",
+      "claimType": "hypothesis",
+      "statement": "Lung / skin / other peripheral tissues: The systemic-null frame keeps these compartments open when expression or substrate evidence emerges.",
+      "evidenceLane": [
+        "hypothesis-only"
+      ],
+      "strictNullRelevance": "review",
+      "sourceIds": [
+        "cyp2d6-cns-role",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Treat as an open tissue-local question, not as established CYP2D6 null phenotype."
+    },
+    {
+      "gene": "CYP2D6",
+      "id": "claim:cyp2d6:exposure:solanidine",
+      "subjectId": "exposure:CYP2D6:solanidine",
+      "claimType": "evidence",
+      "statement": "Solanidine shows why the Nulls Project must separate true inherited nulls, residual-function poor labels, and medically induced functional nulls. Plasma solanidine can rise sharply when CYP2D6 activity is absent, but acute potato glycoalkaloid toxicity remains driven by total alpha-solanine/alpha-chaconine exposure, food context, membrane effects, and cholinesterase effects.",
+      "evidenceLane": [
+        "external-exposure-biomarker",
+        "human-enzyme-activity"
+      ],
+      "strictNullRelevance": "strict",
+      "sourceIds": [
+        "solanidine-cyp2d6-2024",
+        "solanidine-pm-prediction-2023",
+        "solanidine-tamoxifen-2024",
+        "ssda-cyp2d6-2022",
+        "glycoalkaloids-efsa-2020",
+        "glycoalkaloids-human-pk-2005",
+        "glycoalkaloids-ntp-1998"
+      ],
+      "boundary": "Plasma solanidine is a CYP2D6 activity biomarker, not a potato-toxicity threshold."
+    }
+  ]
+}

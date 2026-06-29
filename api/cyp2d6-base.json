@@ -9,6 +9,8 @@
     "whyStrong": "CYP2D6 is a high-value null model because an inherited true null can mean the body lacks a CYP2D6 enzyme function across expression compartments, not only in liver medication metabolism. Strong inhibitors can create partial functional nulls, but they may not reproduce the same whole-body state."
   },
   "endpoints": {
+    "graph": "api/graph.json",
+    "geneGraph": "api/genes/CYP2D6.json",
     "baseModel": "data/cyp2d6-base-model.json",
     "substrates": "data/cyp2d6-substrates.json",
     "variants": "data/cyp2d6-variants.json",
@@ -32,7 +34,20 @@
         "strictNull": true,
         "includeInCore": true,
         "mainQuestion": "What does the body miss when CYP2D6 function is absent across expression compartments?",
-        "boundary": "Do not assume every phenotype is known; require tissue and substrate evidence."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "true-inherited-null",
+        "evidenceLane": [
+          "human-drug-response",
+          "human-enzyme-activity",
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cpic-guidelines",
+          "pharmvar-cyp2d6"
+        ]
       },
       {
         "id": "whole-gene-deletion",
@@ -41,7 +56,21 @@
         "strictNull": true,
         "includeInCore": true,
         "mainQuestion": "Does structural loss remove enzyme capacity in every CYP2D6-expressing compartment?",
-        "boundary": "Consumer SNP files often miss deletion, duplication, conversion, and hybrid alleles."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "whole-gene-deletion",
+        "evidenceLane": [
+          "human-drug-response",
+          "human-enzyme-activity",
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "cpic-guidelines",
+          "cpic-api"
+        ]
       },
       {
         "id": "named-no-function-star-alleles",
@@ -50,7 +79,21 @@
         "strictNull": true,
         "includeInCore": true,
         "mainQuestion": "Which named alleles are strict nulls and which only reduce activity?",
-        "boundary": "Phasing, copy number, and allele definitions matter."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-star-alleles",
+        "evidenceLane": [
+          "human-drug-response",
+          "human-enzyme-activity",
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "cpic-guidelines",
+          "cpic-api"
+        ]
       },
       {
         "id": "residual-decreased-function",
@@ -59,7 +102,18 @@
         "strictNull": false,
         "includeInCore": true,
         "mainQuestion": "When does residual activity meaningfully change accumulation or metabolite formation compared with true null?",
-        "boundary": "Do not collapse decreased function into true inherited null."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "boundary",
+        "strictNullRelevance": "review",
+        "stateClass": "residual-decreased-function",
+        "evidenceLane": [
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cpic-guidelines",
+          "pharmvar-cyp2d6"
+        ]
       },
       {
         "id": "clinical-poor-metabolizer-label",
@@ -68,7 +122,18 @@
         "strictNull": false,
         "includeInCore": true,
         "mainQuestion": "Does the label map to actual missing CYP2D6 function, or only a report-level category?",
-        "boundary": "Use poor metabolizer labels as comparators, not as the core Nulls object."
+        "boundary": "A clinical poor-metabolizer label is a comparator until allele resolution, tissue context, and residual function are known.",
+        "gene": "CYP2D6",
+        "claimType": "boundary",
+        "strictNullRelevance": "comparator",
+        "stateClass": "clinical-poor-metabolizer-label",
+        "evidenceLane": [
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cpic-guidelines",
+          "pharmvar-cyp2d6"
+        ]
       },
       {
         "id": "medically-induced-functional-null",
@@ -77,7 +142,19 @@
         "strictNull": false,
         "includeInCore": true,
         "mainQuestion": "Which compartments are actually silenced by the inhibitor?",
-        "boundary": "Liver/systemic phenoconversion may not reproduce inherited brain, barrier, or tissue-local absence."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "review",
+        "stateClass": "medically-induced-functional-null",
+        "evidenceLane": [
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cpic-guidelines",
+          "fda-pgx-table",
+          "solanidine-tamoxifen-2024"
+        ]
       },
       {
         "id": "tissue-local-null",
@@ -86,7 +163,21 @@
         "strictNull": false,
         "includeInCore": true,
         "mainQuestion": "Is the observed effect driven by local CYP2D6 absence or systemic exposure reaching a target tissue?",
-        "boundary": "Each compartment needs its own evidence tier."
+        "boundary": "Educational research reference only; not diagnostic interpretation.",
+        "gene": "CYP2D6",
+        "claimType": "hypothesis",
+        "strictNullRelevance": "review",
+        "stateClass": "tissue-local-null",
+        "evidenceLane": [
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cyp2d6-brain-functional",
+          "cyp2d6-cns-role",
+          "cyp2d6-brain-regional-expression",
+          "brain-cyp-regulation",
+          "bbb-biotransformation"
+        ]
       },
       {
         "id": "opposite-states-excluded",
@@ -95,51 +186,48 @@
         "strictNull": false,
         "includeInCore": false,
         "mainQuestion": "Does the state increase function rather than remove it?",
-        "boundary": "Keep out of strict-null filters."
+        "boundary": "Increased, duplication, and ultrarapid function are comparator states and must stay outside strict null filters.",
+        "gene": "CYP2D6",
+        "claimType": "boundary",
+        "strictNullRelevance": "excluded",
+        "stateClass": "opposite-states-excluded",
+        "evidenceLane": [
+          "clinical-guideline"
+        ],
+        "sourceIds": [
+          "cpic-guidelines",
+          "pharmvar-cyp2d6"
+        ]
       }
     ],
     "evidenceLadder": [
       {
         "id": "human-null-phenotype",
-        "rank": 1,
-        "label": "Human null phenotype",
-        "meaning": "Direct human inherited null, deletion, biallelic deficiency, or functional absence evidence."
+        "label": "Human null phenotype"
       },
       {
         "id": "human-drug-response",
-        "rank": 2,
-        "label": "Human substrate response",
-        "meaning": "Human medication, xenobiotic, or biomarker response evidence tied to CYP2D6 activity."
+        "label": "Human drug response"
       },
       {
         "id": "human-brain-function",
-        "rank": 3,
-        "label": "Human brain function",
-        "meaning": "Human brain CYP2D6 functional evidence, stronger than expression alone."
+        "label": "Human brain function"
       },
       {
         "id": "human-expression",
-        "rank": 4,
-        "label": "Human tissue expression",
-        "meaning": "Human tissue mRNA/protein evidence that supports a compartment but does not prove phenotype by itself."
+        "label": "Human expression"
       },
       {
         "id": "animal-brain-in-vivo",
-        "rank": 5,
-        "label": "Animal brain in vivo",
-        "meaning": "Animal brain pathway evidence used as plausibility, not direct human interpretation."
+        "label": "Animal brain in vivo"
       },
       {
         "id": "in-vitro-biochemistry",
-        "rank": 6,
-        "label": "In vitro biochemistry",
-        "meaning": "Human enzyme or cell-system evidence for substrate conversion."
+        "label": "In vitro biochemistry"
       },
       {
         "id": "hypothesis-only",
-        "rank": 7,
-        "label": "Hypothesis only",
-        "meaning": "Mechanistic question worth tracking but not established enough for claims."
+        "label": "Hypothesis only"
       }
     ],
     "requiredSectionsForFutureGenes": [
@@ -147,18 +235,21 @@
       "strict/review variant split",
       "substrate and pathway map",
       "tissue or compartment map",
-      "inherited-null vs medically-induced-null comparison",
+      "inherited-null versus medically-induced-null comparison",
       "source confidence labels",
-      "boundary and non-diagnostic wording",
+      "non-diagnostic boundary",
       "static API feed"
     ],
     "basePackFiles": [
-      "data/cyp2d6-base-model.json",
-      "data/cyp2d6-substrates.json",
-      "data/cyp2d6-variants.json",
-      "data/cyp2d6-null-ingest.json",
-      "api/cyp2d6-base.json",
-      "docs/cyp2d6-null-definition.md"
+      "models/genes/CYP2D6/gene.json",
+      "models/genes/CYP2D6/null-states.json",
+      "models/genes/CYP2D6/substrates.json",
+      "models/genes/CYP2D6/variants.json",
+      "models/genes/CYP2D6/compartments.json",
+      "models/genes/CYP2D6/exposures.json",
+      "models/genes/CYP2D6/caveats.json",
+      "api/genes/CYP2D6.json",
+      "api/graph.json"
     ]
   },
   "substrates": {
@@ -201,7 +292,11 @@
           "cyp2d-brain-serotonin",
           "cyp2d-melatonin-serotonin",
           "human-brain-cyp2d6"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "hypothesis",
+        "strictNullRelevance": "review",
+        "boundary": "Do not claim CYP2D6 null globally means low serotonin."
       },
       {
         "id": "endogenous-tyramine-dopamine",
@@ -227,7 +322,11 @@
         "sourceIds": [
           "cyp2d6-tyramine-dopamine",
           "cyp2d6-cns-review"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "hypothesis",
+        "strictNullRelevance": "review",
+        "boundary": "Do not claim CYP2D6 null globally means low dopamine."
       },
       {
         "id": "endogenous-anandamide",
@@ -252,7 +351,11 @@
         "sourceIds": [
           "cyp2d6-anandamide",
           "cyp2d6-cns-review"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "hypothesis",
+        "strictNullRelevance": "review",
+        "boundary": "Track as pathway evidence, not as symptom or diagnosis evidence."
       },
       {
         "id": "exposure-solanidine",
@@ -279,7 +382,11 @@
         "sourceIds": [
           "solanidine-cyp2d6",
           "solanidine-tamoxifen"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Do not treat plasma solanidine as a potato-toxicity threshold."
       },
       {
         "id": "med-codeine",
@@ -304,7 +411,11 @@
         "sourceIds": [
           "cpic-opioids",
           "diognosis"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Medication decisions require qualified review."
       },
       {
         "id": "med-tramadol",
@@ -329,7 +440,11 @@
         "sourceIds": [
           "cpic-opioids",
           "diognosis"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Medication decisions require qualified review."
       },
       {
         "id": "med-atomoxetine",
@@ -354,7 +469,11 @@
         "sourceIds": [
           "cpic-guidelines",
           "fda-pgx-table"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Medication decisions require qualified review."
       },
       {
         "id": "med-metoprolol",
@@ -378,7 +497,11 @@
         "sourceIds": [
           "fda-pgx-table",
           "diognosis"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "This is target-exposure biology, not proof of local cardiac CYP2D6 loss."
       },
       {
         "id": "med-flecainide-propafenone",
@@ -402,7 +525,11 @@
         "sourceIds": [
           "fda-pgx-table",
           "diognosis"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Requires clinician/pharmacist review; not a stand-alone action rule."
       },
       {
         "id": "med-tca",
@@ -427,7 +554,11 @@
         "sourceIds": [
           "cpic-guidelines",
           "fda-pgx-table"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Grouped archetype; individual drugs need their own row before decisions."
       },
       {
         "id": "med-dextromethorphan",
@@ -453,7 +584,11 @@
         "sourceIds": [
           "human-brain-cyp2d6",
           "cpic-guidelines"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "boundary": "Probe interpretation is not the same as personal diagnosis."
       },
       {
         "id": "med-tamoxifen-review",
@@ -478,7 +613,11 @@
         "sourceIds": [
           "solanidine-tamoxifen",
           "cpic-guidelines"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "review",
+        "boundary": "Keep as review context; do not turn into a direct treatment recommendation."
       },
       {
         "id": "induced-strong-inhibitors",
@@ -505,7 +644,11 @@
           "cpic-guidelines",
           "fda-pgx-table",
           "diognosis"
-        ]
+        ],
+        "gene": "CYP2D6",
+        "claimType": "evidence",
+        "strictNullRelevance": "comparator",
+        "boundary": "Current medication context is required; genotype alone cannot identify induced null state."
       }
     ]
   },
@@ -537,12 +680,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -560,7 +698,27 @@
         ],
         "caveats": [
           "no-function allele context"
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "0.0",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "diognosis-standards",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "no-function allele context"
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:CYP2D6*10",
@@ -579,12 +737,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -603,7 +756,28 @@
         "caveats": [
           "decreased-function allele context",
           "Not kept by strict true-null filters unless reviewed."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "review",
+        "stateClass": "decreased-residual-function",
+        "functionAssignment": "decreased or review function",
+        "activityValue": null,
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "diognosis-standards",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "decreased-function allele context",
+          "Not kept by strict true-null filters unless reviewed."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:CYP2D6*41",
@@ -622,12 +796,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -646,7 +815,28 @@
         "caveats": [
           "decreased-function allele context",
           "Not kept by strict true-null filters unless reviewed."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "review",
+        "stateClass": "decreased-residual-function",
+        "functionAssignment": "decreased or review function",
+        "activityValue": null,
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "diognosis-standards",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "decreased-function allele context",
+          "Not kept by strict true-null filters unless reviewed."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:CYP2D6*5",
@@ -665,12 +855,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -688,7 +873,27 @@
         ],
         "caveats": [
           "whole-gene deletion; requires structural-variant-aware calling"
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "whole-gene-deletion",
+        "functionAssignment": "no function",
+        "activityValue": "0.0",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "pharmvar-cyp2d6",
+          "atlas-draft",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "whole-gene deletion; requires structural-variant-aware calling"
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star100",
@@ -707,12 +912,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -732,7 +932,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star101",
@@ -751,12 +973,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -776,7 +993,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star11",
@@ -795,12 +1034,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -820,7 +1054,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star114",
@@ -839,12 +1095,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -864,7 +1115,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star12",
@@ -883,12 +1156,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -908,7 +1176,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star120",
@@ -927,12 +1217,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -952,7 +1237,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star124",
@@ -971,12 +1278,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -996,7 +1298,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star129",
@@ -1015,12 +1339,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1040,7 +1359,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star13",
@@ -1059,12 +1400,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1084,7 +1420,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star13+star68x2+star4",
@@ -1103,12 +1461,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1128,7 +1481,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength not returned."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength not returned."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star143",
@@ -1147,12 +1522,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1172,7 +1542,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star144",
@@ -1191,12 +1583,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1216,7 +1603,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star15",
@@ -1235,12 +1644,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1260,7 +1664,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star156",
@@ -1279,12 +1705,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1304,7 +1725,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star161",
@@ -1323,12 +1766,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1348,7 +1786,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star18",
@@ -1367,12 +1827,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1392,7 +1847,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star19",
@@ -1411,12 +1888,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1436,7 +1908,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star20",
@@ -1455,12 +1949,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1480,7 +1969,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star21",
@@ -1499,12 +2010,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1524,7 +2030,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star3",
@@ -1543,12 +2071,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1568,7 +2091,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star31",
@@ -1587,12 +2132,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1612,7 +2152,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star36",
@@ -1631,12 +2193,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1656,7 +2213,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star36x2",
@@ -1675,12 +2254,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1700,7 +2274,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star38",
@@ -1719,12 +2315,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1744,7 +2335,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star3x2",
@@ -1763,12 +2376,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1788,7 +2396,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star40",
@@ -1807,12 +2437,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1832,7 +2457,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star42",
@@ -1851,12 +2498,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1876,7 +2518,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star44",
@@ -1895,12 +2559,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1920,7 +2579,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star47",
@@ -1939,12 +2620,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -1964,7 +2640,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star4x2",
@@ -1983,12 +2681,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2008,7 +2701,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star4x≥3",
@@ -2027,12 +2742,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2052,7 +2762,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Moderate."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Moderate."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star51",
@@ -2071,12 +2803,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2096,7 +2823,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star56",
@@ -2115,12 +2864,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2140,7 +2884,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star6",
@@ -2159,12 +2925,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2184,7 +2945,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Strong."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Strong."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star60",
@@ -2203,12 +2986,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2228,7 +3006,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star62",
@@ -2247,12 +3047,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2272,7 +3067,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star68",
@@ -2291,12 +3108,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2316,7 +3128,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star68+star4",
@@ -2335,12 +3169,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2360,7 +3189,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength not returned."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength not returned."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star69",
@@ -2379,12 +3230,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2404,7 +3250,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star6x2",
@@ -2423,12 +3291,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2448,7 +3311,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star7",
@@ -2467,12 +3352,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2492,7 +3372,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star8",
@@ -2511,12 +3413,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2536,7 +3433,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star81",
@@ -2555,12 +3474,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2580,7 +3494,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star92",
@@ -2599,12 +3535,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2624,7 +3555,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star96",
@@ -2643,12 +3596,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2668,7 +3616,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       },
       {
         "id": "CYP2D6:star99",
@@ -2687,12 +3657,7 @@
         "confidenceLabels": [
           "human-drug-response",
           "clinical-guideline",
-          "human-enzyme-activity",
-          "human-expression",
-          "human-brain-function",
-          "animal-brain-in-vivo",
-          "in-vitro-biochemistry",
-          "external-exposure-biomarker"
+          "human-enzyme-activity"
         ],
         "confidenceSummary": "Strong human drug-response and enzyme-function evidence; unusually important CNS layer with human brain expression/function evidence plus endogenous-substrate biochemical and animal-brain evidence.",
         "nullModes": [
@@ -2712,7 +3677,29 @@
           "CPIC clinical functional status: No function.",
           "Activity value: 0.0.",
           "CPIC strength: Limited."
-        ]
+        ],
+        "claimType": "evidence",
+        "strictNullRelevance": "strict",
+        "stateClass": "named-no-function-allele",
+        "functionAssignment": "no function",
+        "activityValue": "00.",
+        "evidenceLane": [
+          "human-drug-response",
+          "clinical-guideline",
+          "human-enzyme-activity"
+        ],
+        "sourceIds": [
+          "cpic-api",
+          "pharmvar-cyp2d6",
+          "cpic-guidelines"
+        ],
+        "callabilityCaveats": [
+          "CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+          "CPIC clinical functional status: No function.",
+          "Activity value: 0.0.",
+          "CPIC strength: Limited."
+        ],
+        "clinicalBoundary": "Do not use this variant row for personal diagnosis, medication dosing, or treatment decisions."
       }
     ]
   },

@@ -1,91 +1,9 @@
 {
-  "schema": "nulls-project.cyp2d6-variants.v0",
+  "schema": "nulls-project.gene-variants.v0",
   "generated": "2026-06-29",
-  "sourceFeed": {
-    "schema": "nulls-project.gene-variants.v0",
-    "generated": "2026-06-29"
-  },
-  "boundary": "CYP2D6 variant rows are an ingestion/reference layer, not personal interpretation. CYP2D6 requires copy-number, deletion, hybrid, and phasing-aware calling.",
-  "counts": {
-    "records": 50,
-    "strictNull": 48,
-    "review": 2,
-    "cpicNoFunctionAlleles": 48,
-    "seedRows": 4
-  },
-  "filterHints": {
-    "strictNullOnly": "records.filter(row => row.strictNull)",
-    "reviewRows": "records.filter(row => !row.strictNull)",
-    "structuralRows": "records.filter(row => `${row.mechanism} ${row.label}`.toLowerCase().includes('deletion'))",
-    "cpicNoFunctionRows": "records.filter(row => row.sourceLayer === 'cpic-no-function-allele')"
-  },
-  "referenceStates": [
-    {
-      "id": "true-inherited-null",
-      "label": "True inherited null",
-      "strictNull": true,
-      "includeInCore": true,
-      "claimType": "evidence",
-      "strictNullRelevance": "strict"
-    },
-    {
-      "id": "whole-gene-deletion",
-      "label": "Whole-gene deletion",
-      "strictNull": true,
-      "includeInCore": true,
-      "claimType": "evidence",
-      "strictNullRelevance": "strict"
-    },
-    {
-      "id": "named-no-function-star-alleles",
-      "label": "Named no-function star alleles",
-      "strictNull": true,
-      "includeInCore": true,
-      "claimType": "evidence",
-      "strictNullRelevance": "strict"
-    },
-    {
-      "id": "residual-decreased-function",
-      "label": "Residual or decreased function",
-      "strictNull": false,
-      "includeInCore": true,
-      "claimType": "boundary",
-      "strictNullRelevance": "review"
-    },
-    {
-      "id": "clinical-poor-metabolizer-label",
-      "label": "Clinical poor metabolizer label",
-      "strictNull": false,
-      "includeInCore": true,
-      "claimType": "boundary",
-      "strictNullRelevance": "comparator"
-    },
-    {
-      "id": "medically-induced-functional-null",
-      "label": "Medically induced functional null",
-      "strictNull": false,
-      "includeInCore": true,
-      "claimType": "evidence",
-      "strictNullRelevance": "review"
-    },
-    {
-      "id": "tissue-local-null",
-      "label": "Tissue-local null question",
-      "strictNull": false,
-      "includeInCore": true,
-      "claimType": "hypothesis",
-      "strictNullRelevance": "review"
-    },
-    {
-      "id": "opposite-states-excluded",
-      "label": "Opposite states excluded",
-      "strictNull": false,
-      "includeInCore": false,
-      "claimType": "boundary",
-      "strictNullRelevance": "excluded"
-    }
-  ],
-  "records": [
+  "gene": "CYP2D6",
+  "boundary": "Variant rows are model inputs, not personal interpretation. CYP2D6 requires copy-number, deletion, hybrid-allele, and phasing-aware calling.",
+  "rows": [
     {
       "id": "CYP2D6:CYP2D6*4",
       "gene": "CYP2D6",

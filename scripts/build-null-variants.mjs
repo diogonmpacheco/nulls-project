@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 
-const generated = "2026-06-28";
+const generated = "2026-06-29";
 const readJson = async path => JSON.parse(await readFile(path, "utf8"));
 const writeJson = async (path, value) => writeFile(path, `${JSON.stringify(value, null, 2)}\n`);
 
@@ -8,6 +8,7 @@ const atlas = await readJson("data/nulls-atlas.json");
 const ingestMap = await readJson("data/null-ingest-map.json");
 const cyp2d6 = await readJson("data/cyp2d6-null-ingest.json");
 const confidenceMap = await readJson("data/source-confidence-map.json");
+const canonicalCyp2d6Variants = await readJson("models/genes/CYP2D6/variants.json").catch(() => null);
 
 function markerStrictness(gene, marker, profile) {
   const text = `${marker.label} ${marker.interpretation || ""} ${gene.nullStateLabel || ""}`.toLowerCase();
@@ -38,6 +39,8 @@ function markerMechanism(marker, strictNull) {
 const records = [];
 
 for (const gene of atlas.genes) {
+  if (gene.id === "CYP2D6" && canonicalCyp2d6Variants) continue;
+
   const profile = ingestMap.genes[gene.id];
   for (const marker of gene.markers || []) {
     const strictNull = markerStrictness(gene, marker, profile);
@@ -93,33 +96,43 @@ for (const gene of atlas.genes) {
 }
 
 const existingIds = new Set(records.map(record => record.id));
-for (const row of cyp2d6.noFunctionAlleles || []) {
-  const id = `CYP2D6:${row.alleleName.replaceAll("*", "star")}`;
-  if (existingIds.has(id) || row.alleleName === "*4" || row.alleleName === "*5") continue;
-  records.push({
-    id,
-    gene: "CYP2D6",
-    symbol: "CYP2D6",
-    label: row.allele,
-    system: "CPIC allele",
-    dbsnp: null,
-    allele: row.allele,
-    mechanism: row.mechanism,
-    strictNull: true,
-    reviewStatus: "strict-null",
-    sourceLayer: "cpic-no-function-allele",
-    source: "cpic-api",
-    confidence: row.strength === "Strong" || row.strength === "Definitve" ? "high" : "moderate",
-    confidenceLabels: confidenceMap.genes.CYP2D6?.labels || [],
-    confidenceSummary: confidenceMap.genes.CYP2D6?.summary || "No confidence profile in v0.",
-    nullModes: cyp2d6.profile.nullModes,
-    curationTags: cyp2d6.profile.curationTags,
-    caveats: [
-      `CPIC clinical functional status: ${row.clinicalFunctionalStatus}.`,
-      `Activity value: ${row.activityValue}.`,
-      row.strength ? `CPIC strength: ${row.strength}.` : "CPIC strength not returned."
-    ]
-  });
+if (canonicalCyp2d6Variants) {
+  for (const row of canonicalCyp2d6Variants.rows || []) {
+    records.push({
+      ...row,
+      confidenceLabels: row.evidenceLane || row.confidenceLabels || [],
+      confidenceSummary: row.confidenceSummary || "Variant-specific evidence lanes from the canonical CYP2D6 graph model."
+    });
+  }
+} else {
+  for (const row of cyp2d6.noFunctionAlleles || []) {
+    const id = `CYP2D6:${row.alleleName.replaceAll("*", "star")}`;
+    if (existingIds.has(id) || row.alleleName === "*4" || row.alleleName === "*5") continue;
+    records.push({
+      id,
+      gene: "CYP2D6",
+      symbol: "CYP2D6",
+      label: row.allele,
+      system: "CPIC allele",
+      dbsnp: null,
+      allele: row.allele,
+      mechanism: row.mechanism,
+      strictNull: true,
+      reviewStatus: "strict-null",
+      sourceLayer: "cpic-no-function-allele",
+      source: "cpic-api",
+      confidence: row.strength === "Strong" || row.strength === "Definitve" ? "high" : "moderate",
+      confidenceLabels: ["human-drug-response", "clinical-guideline", "human-enzyme-activity"],
+      confidenceSummary: confidenceMap.genes.CYP2D6?.summary || "No confidence profile in v0.",
+      nullModes: cyp2d6.profile.nullModes,
+      curationTags: cyp2d6.profile.curationTags,
+      caveats: [
+        `CPIC clinical functional status: ${row.clinicalFunctionalStatus}.`,
+        `Activity value: ${row.activityValue}.`,
+        row.strength ? `CPIC strength: ${row.strength}.` : "CPIC strength not returned."
+      ]
+    });
+  }
 }
 
 const output = {

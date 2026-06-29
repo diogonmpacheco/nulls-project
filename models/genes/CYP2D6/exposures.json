@@ -1,0 +1,214 @@
+{
+  "schema": "nulls-project.gene-exposures.v0",
+  "generated": "2026-06-29",
+  "gene": "CYP2D6",
+  "boundary": "Exposure rows separate source exposure, biomarker evidence, accumulation models, toxicity boundaries, tissue uncertainty, and null-state comparators.",
+  "rows": [
+    {
+      "id": "solanidine",
+      "gene": "CYP2D6",
+      "label": "Solanidine / potato glycoalkaloid case",
+      "claimType": "evidence",
+      "strictNullRelevance": "strict",
+      "exposureSource": "potato glycoalkaloids / diet-derived solanidine signal",
+      "biomarker": "plasma solanidine, 4-OH-solanidine, SSDA, and metabolite-to-parent ratios",
+      "summary": "Solanidine shows why the Nulls Project must separate true inherited nulls, residual-function poor labels, and medically induced functional nulls. Plasma solanidine can rise sharply when CYP2D6 activity is absent, but acute potato glycoalkaloid toxicity remains driven by total alpha-solanine/alpha-chaconine exposure, food context, membrane effects, and cholinesterase effects.",
+      "status": "biomarker-strong; toxicity-translation-limited",
+      "accumulationStates": [
+        {
+          "state": "True inherited CYP2D6 null",
+          "model": "Core Nulls Project object. Expected strongest parent solanidine accumulation and lowest CYP2D6-derived metabolite formation where CYP2D6 is normally active.",
+          "accumulation": "High parent solanidine signal; 4-OH-solanidine and SSDA formation should be very low.",
+          "boundary": "Human plasma data strongly supports CYP2D6 activity dependence, but true-null tissue-specific solanidine distribution is not yet mapped.",
+          "id": "true-inherited-cyp2d6-null",
+          "claimType": "evidence",
+          "strictNullRelevance": "strict"
+        },
+        {
+          "state": "Clinical poor metabolizer label",
+          "model": "Comparator, not the core object. It may represent activity-score-zero no-function biology, incomplete genotyping, or a phenotype bucket without tissue resolution.",
+          "accumulation": "The 2024 biomarker study reported plasma solanidine 1887% higher in genetic poor metabolizers versus genetic normal metabolizers.",
+          "boundary": "Do not assume every poor label equals a whole-body true null or that plasma fold-change gives tissue fold-change.",
+          "id": "clinical-poor-metabolizer-label",
+          "claimType": "boundary",
+          "strictNullRelevance": "comparator"
+        },
+        {
+          "state": "Residual low-function / intermediate",
+          "model": "Partial CYP2D6 function may reduce but not eliminate solanidine oxidation.",
+          "accumulation": "The same 2024 study reported intermediate metabolizers about 74% higher than normal metabolizers.",
+          "boundary": "This is qualitatively different from null-like accumulation.",
+          "id": "residual-low-function-intermediate",
+          "claimType": "evidence",
+          "strictNullRelevance": "review"
+        },
+        {
+          "state": "Medically induced functional null",
+          "model": "Strong inhibitors can strongly suppress CYP2D6-dependent solanidine metabolism in liver/systemic contexts.",
+          "accumulation": "In vitro and metabolite-ratio studies support a large drop in CYP2D6-derived solanidine metabolites under strong inhibition.",
+          "boundary": "Whether this reproduces a true-null state in brain, barrier, adipose, or other tissues depends on inhibitor distribution and local enzyme expression.",
+          "id": "medically-induced-functional-null",
+          "claimType": "evidence",
+          "strictNullRelevance": "review"
+        }
+      ],
+      "bodyPartMap": [
+        {
+          "compartment": "Gut lumen and intestinal wall",
+          "mainQuestion": "How much alpha-solanine and alpha-chaconine entered from food?",
+          "nullDifference": "CYP2D6 status is not the main acute-toxicity driver here.",
+          "accumulationConcern": "Local membrane disruption and GI symptoms are dose and food-context driven.",
+          "evidence": "tier-1",
+          "id": "gut-lumen-and-intestinal-wall",
+          "claimType": "evidence",
+          "strictNullRelevance": "strict",
+          "evidenceTier": "tier-1",
+          "evidenceLane": [
+            "external-exposure-biomarker",
+            "human-enzyme-activity"
+          ]
+        },
+        {
+          "compartment": "Portal blood and liver",
+          "mainQuestion": "How much solanidine reaches hepatic CYP2D6 and CYP3A4/5?",
+          "nullDifference": "True null and strong hepatic inhibition can both create parent solanidine accumulation in the systemic biomarker layer.",
+          "accumulationConcern": "Parent solanidine rises while CYP2D6-derived metabolites fall.",
+          "evidence": "tier-1",
+          "id": "portal-blood-and-liver",
+          "claimType": "evidence",
+          "strictNullRelevance": "strict",
+          "evidenceTier": "tier-1",
+          "evidenceLane": [
+            "external-exposure-biomarker",
+            "human-enzyme-activity"
+          ]
+        },
+        {
+          "compartment": "Plasma / blood",
+          "mainQuestion": "What does the measured solanidine and metabolite ratio show?",
+          "nullDifference": "Plasma is the best-supported compartment for the genotype signal.",
+          "accumulationConcern": "Solanidine concentration and metabolite-to-parent ratios are CYP2D6 activity biomarkers, not toxicity thresholds by themselves.",
+          "evidence": "tier-1",
+          "id": "plasma-blood",
+          "claimType": "evidence",
+          "strictNullRelevance": "strict",
+          "evidenceTier": "tier-1",
+          "evidenceLane": [
+            "external-exposure-biomarker",
+            "human-enzyme-activity"
+          ]
+        },
+        {
+          "compartment": "Adipose / lipid stores",
+          "mainQuestion": "Can glycoalkaloids or aglycones persist or release slowly?",
+          "nullDifference": "A true null might increase parent exposure before storage/release, while a drug-induced null depends on timing and inhibitor persistence.",
+          "accumulationConcern": "Animal toxicology summaries report abdominal fat accumulation; human tissue kinetics need direct evidence.",
+          "evidence": "tier-3",
+          "id": "adipose-lipid-stores",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-3",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        },
+        {
+          "compartment": "Brain / CNS",
+          "mainQuestion": "Does local brain CYP2D6 matter for solanidine or related xenobiotic handling?",
+          "nullDifference": "A true null could remove local CYP2D6 wherever it is expressed; a liver phenoconversion label may not reproduce that.",
+          "accumulationConcern": "Animal summaries report brain accumulation of glycoalkaloids; human CNS solanidine handling remains an open question.",
+          "evidence": "tier-3",
+          "id": "brain-cns",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-3",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        },
+        {
+          "compartment": "Heart / autonomic target effects",
+          "mainQuestion": "Are cardiovascular symptoms exposure-driven, local-tissue-driven, or secondary to GI toxicity?",
+          "nullDifference": "Systemic accumulation can affect target exposure, but local cardiac CYP2D6 loss is not established as the key mechanism.",
+          "accumulationConcern": "Animal summaries report heart accumulation; acute effects include heart/pulse changes in toxicology summaries.",
+          "evidence": "tier-3",
+          "id": "heart-autonomic-target-effects",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-3",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        },
+        {
+          "compartment": "Kidney and urine",
+          "mainQuestion": "What metabolites are excreted and measurable?",
+          "nullDifference": "True null should lower CYP2D6-derived urinary/plasma metabolites; induced null may do so while inhibition persists.",
+          "accumulationConcern": "SSDA and other solanidine-derived metabolites are useful activity biomarkers.",
+          "evidence": "tier-1",
+          "id": "kidney-and-urine",
+          "claimType": "evidence",
+          "strictNullRelevance": "strict",
+          "evidenceTier": "tier-1",
+          "evidenceLane": [
+            "external-exposure-biomarker",
+            "human-enzyme-activity"
+          ]
+        },
+        {
+          "compartment": "Immune / mast-cell / histamine layer",
+          "mainQuestion": "Could chronic glycoalkaloid or solanidine burden influence histamine-like symptoms?",
+          "nullDifference": "This is a hypothesis layer, not established CYP2D6 null toxicology.",
+          "accumulationConcern": "Track only as an exploratory signal until direct evidence exists.",
+          "evidence": "tier-4",
+          "id": "immune-mast-cell-histamine-layer",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-4",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        },
+        {
+          "compartment": "Endocrine / reproductive tissues",
+          "mainQuestion": "Do tissue accumulation reports matter biologically?",
+          "nullDifference": "True-null versus induced-null differences are currently unmapped.",
+          "accumulationConcern": "Animal summaries report adrenal, thyroid, testis, and other tissue accumulation; human relevance is unresolved.",
+          "evidence": "tier-4",
+          "id": "endocrine-reproductive-tissues",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-4",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        },
+        {
+          "compartment": "Other peripheral tissues",
+          "mainQuestion": "Is there direct local measurement, or only a plasma/systemic inference?",
+          "nullDifference": "A true null should be modeled as absent function wherever CYP2D6 is genuinely expressed; induced null should be modeled only where the inhibitor reaches sufficient local concentration.",
+          "accumulationConcern": "Skin, muscle, lung, spleen, connective tissue, and other remaining compartments should stay unresolved until tissue-specific evidence exists.",
+          "evidence": "tier-4",
+          "id": "other-peripheral-tissues",
+          "claimType": "hypothesis",
+          "strictNullRelevance": "review",
+          "evidenceTier": "tier-4",
+          "evidenceLane": [
+            "hypothesis-only"
+          ]
+        }
+      ],
+      "toxicityBoundary": "Plasma solanidine is a CYP2D6 activity biomarker, not a potato-toxicity threshold.",
+      "tissueUncertainty": "Human tissue-specific solanidine distribution in true CYP2D6 nulls is not mapped in v0.",
+      "sourceIds": [
+        "solanidine-cyp2d6-2024",
+        "solanidine-pm-prediction-2023",
+        "solanidine-tamoxifen-2024",
+        "ssda-cyp2d6-2022",
+        "glycoalkaloids-efsa-2020",
+        "glycoalkaloids-human-pk-2005",
+        "glycoalkaloids-ntp-1998"
+      ]
+    }
+  ]
+}

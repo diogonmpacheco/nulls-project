@@ -1,8 +1,7 @@
 {
-  "schema": "nulls-project.cyp2d6-substrates.v0",
+  "schema": "nulls-project.gene-substrates.v0",
   "generated": "2026-06-29",
   "gene": "CYP2D6",
-  "purpose": "Map CYP2D6 substrates, exposure markers, inhibitors, and pathway-capacity questions without collapsing evidence and hypotheses.",
   "boundary": "Educational research reference only. Substrate rows are not medication instructions and do not imply personal diagnosis or treatment action.",
   "sources": [
     {

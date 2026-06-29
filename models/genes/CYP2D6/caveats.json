@@ -1,0 +1,81 @@
+{
+  "schema": "nulls-project.gene-caveats.v0",
+  "generated": "2026-06-29",
+  "gene": "CYP2D6",
+  "rows": [
+    {
+      "id": "cyp2d6-caveat-01",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "variants",
+        "calling"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "review",
+      "boundary": "Consumer SNP files may miss CYP2D6 copy number, deletion, duplication, hybrid alleles, and star-allele phasing.",
+      "userMisreadRisk": "Reader may treat consumer SNP data as clinical CYP2D6 null genotyping.",
+      "requiredDisplay": true
+    },
+    {
+      "id": "cyp2d6-caveat-02",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "gene-model"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "review",
+      "boundary": "CYP2D6 genotype does not decide medication changes by itself.",
+      "userMisreadRisk": "Reader may over-convert a model row into personal medical interpretation.",
+      "requiredDisplay": true
+    },
+    {
+      "id": "cyp2d6-caveat-03",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "gene-model"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "review",
+      "boundary": "A systemic-null framing does not mean CYP2D6 null status is already a formal disease diagnosis.",
+      "userMisreadRisk": "Reader may over-convert a model row into personal medical interpretation.",
+      "requiredDisplay": true
+    },
+    {
+      "id": "cyp2d6-caveat-04",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "gene-model"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "review",
+      "boundary": "Drug inhibitors, liver function, age, dose, and co-medications can dominate the functional phenotype.",
+      "userMisreadRisk": "Reader may over-convert a model row into personal medical interpretation.",
+      "requiredDisplay": true
+    },
+    {
+      "id": "cyp2d6-caveat-05",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "variants",
+        "calling"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "review",
+      "boundary": "Do not treat an app-level CYP2D6 call as clinical genotyping.",
+      "userMisreadRisk": "Reader may treat consumer SNP data as clinical CYP2D6 null genotyping.",
+      "requiredDisplay": true
+    },
+    {
+      "id": "cyp2d6-caveat-06",
+      "gene": "CYP2D6",
+      "appliesTo": [
+        "null-state-taxonomy"
+      ],
+      "claimType": "boundary",
+      "strictNullRelevance": "excluded",
+      "boundary": "Ultrarapid CYP2D6 is an opposite-function state, not a null. It may be useful contrast, but it does not belong in the Nulls core model.",
+      "userMisreadRisk": "Reader may treat ultrarapid or duplication states as nulls.",
+      "requiredDisplay": true
+    }
+  ]
+}

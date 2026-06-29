@@ -20,6 +20,10 @@ The CYP2D6 model is the first deep reference layer:
 - `data/cyp2d6-substrates.json`
 - `data/cyp2d6-variants.json`
 - `api/cyp2d6-base.json`
+- `api/genes/CYP2D6.json`
+- `api/graph.json`
+
+The product data model is now graph-backed. Canonical CYP2D6 curation lives under `models/genes/CYP2D6/`, source and claim registries live under `evidence/`, and generated graph/API outputs live under `data/generated/` and `api/`.
 
 The core use case is to become a reference for **functional null states**:
 
@@ -108,13 +112,21 @@ The intended future bridge is:
 - `data/cyp2d6-base-model.json` - reusable CYP2D6 null-state model and evidence ladder.
 - `data/cyp2d6-substrates.json` - CYP2D6 endogenous, exposure, medication, probe, and induced-null substrate rows.
 - `data/cyp2d6-variants.json` - generated CYP2D6-only variant slice.
+- `models/genes/CYP2D6/` - canonical graph-ready CYP2D6 source model.
+- `evidence/sources.json` - source registry for graph-backed curation.
+- `evidence/claims.json` - atomic claim rows with claim type, source links, and strict-null relevance.
+- `data/generated/nulls-graph.json` - generated static property graph export.
+- `data/generated/genes/CYP2D6.json` - generated graph-backed CYP2D6 bundle.
 - `api/nulls.json` - static API alias for the null-only feed.
 - `api/null-variants.json` - static API alias for the variant feed.
 - `api/cyp2d6-base.json` - bundled CYP2D6 base-pack API.
+- `api/genes/CYP2D6.json` - graph-backed CYP2D6 API bundle.
+- `api/graph.json` - static property graph API.
 - `api/index.json` - static API endpoint index.
 - `scripts/build-null-feeds.mjs` - regenerates the static API feeds.
 - `scripts/build-null-variants.mjs` - regenerates variant rows.
 - `scripts/build-cyp2d6-base-pack.mjs` - regenerates CYP2D6 variant slice and bundled base API.
+- `scripts/build-graph-db.mjs` - validates canonical graph-ready rows and regenerates graph APIs.
 - `docs/methods.md` - evidence tiers, inclusion rules, and boundaries.
 - `docs/ingestion.md` - how to consume and rebuild the null-only feed.
 - `docs/source-confidence.md` - evidence-type labels for null rows.
@@ -144,13 +156,15 @@ http://127.0.0.1:4179/
 Regenerate the static feeds after atlas or ingest-map edits:
 
 ```bash
+node scripts/build-null-variants.mjs
 node scripts/build-null-feeds.mjs
 ```
 
-Regenerate CYP2D6-specific feeds after variant or substrate edits:
+Regenerate CYP2D6 and graph outputs after model, variant, substrate, compartment, exposure, claim, or source edits:
 
 ```bash
 node scripts/build-cyp2d6-base-pack.mjs
+node scripts/build-graph-db.mjs
 ```
 
 ## Data Boundary

@@ -1,8 +1,10 @@
 # Project Architecture
 
-The Nulls Project should be structured as a curation-grade static data site.
+The Nulls Project should be structured as a curation-grade static data site backed by a property graph.
 
-The core architecture problem is not missing data. It is separation of responsibility. The current repository mixes public copy, scientific claims, hand-curated models, imported source snapshots, generated feeds, and API outputs in ways that will become hard to audit as CYP2D6 deepens.
+The core architecture problem is not missing data. It is separation of responsibility. The repository started by mixing public copy, scientific claims, hand-curated models, imported source snapshots, generated feeds, and API outputs in ways that would become hard to audit as CYP2D6 deepens.
+
+The target database shape is a graph because the product needs to connect genes, null states, variants, substrates, exposure cases, compartments, evidence lanes, claims, caveats, and sources without flattening them into one table.
 
 ## Target Layers
 
@@ -124,6 +126,26 @@ api/null-variants.json
 api/genes/CYP2D6.json
 ```
 
+### 7. Graph Database Export
+
+Purpose: connect the project entities as nodes and edges.
+
+Rules:
+
+- generated only from canonical source models;
+- every scientific node keeps `claimType`, `strictNullRelevance`, evidence lane, and source edges;
+- compatible with static use today and graph databases later;
+- no personal genotype interpretation.
+
+Current generated endpoints:
+
+```text
+data/generated/nulls-graph.json
+data/generated/genes/CYP2D6.json
+api/graph.json
+api/genes/CYP2D6.json
+```
+
 ## Proposed Repo Shape
 
 ```text
@@ -149,7 +171,13 @@ models/
 data/
   imports/
   generated/
+    nulls-graph.json
+    genes/
+      CYP2D6.json
 api/
+  graph.json
+  genes/
+    CYP2D6.json
 docs/
 scripts/
 ```
@@ -167,6 +195,8 @@ scripts/
 | `data/ingest-sources.json` | `evidence/sources.json` |
 | `docs/*.md` | methods, narrative explanation, roadmap, and public reasoning |
 | `api/*.json` | stable distribution aliases |
+| `api/graph.json` | generated property graph distribution endpoint |
+| `api/genes/CYP2D6.json` | generated graph-backed CYP2D6 bundle |
 
 ## CYP2D6 Pilot Structure
 
